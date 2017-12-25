@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace BestBoQ
+{
+    public partial class CreateProj_01_Desc : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if(!IsPostBack)
+            {
+                bindProjectType();
+                bindCountry();
+                ddProvince.Items.Insert(0, new ListItem("กรุณาเลือกจังหวัด", "NA"));
+            }
+        }
+
+        protected void bindProjectType()
+        {
+            string sql_command = "SELECT [projecttype] FROM [BESTBoQ].[dbo].[CFG_Project_Type]";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            ddProjectType.DataSource = dt;
+            ddProjectType.DataTextField = "projecttype";
+            ddProjectType.DataValueField = "projecttype";
+            ddProjectType.DataBind();
+
+            ddProjectType.Items.Insert(0, new ListItem("กรุณาเลือกประเภทของโครงการ", "NA"));
+        }
+
+        protected void bindCountry()
+        {
+            string sql_command = "SELECT [country] FROM [BESTBoQ].[dbo].[CFG_Province] GROUP BY [country]";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            ddCountry.DataSource = dt;
+            ddCountry.DataTextField = "country";
+            ddCountry.DataValueField = "country";
+            ddCountry.DataBind();
+
+            ddCountry.Items.Insert(0, new ListItem("กรุณาเลือกประเทศ", "NA"));
+        }
+
+        protected void ddCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string param_country = ddCountry.SelectedValue.ToString().Trim();
+            string sql_command = "SELECT [province] FROM [BESTBoQ].[dbo].[CFG_Province] WHERE [country] = N'" + param_country + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            ddProvince.DataSource = dt;
+            ddProvince.DataTextField = "province";
+            ddProvince.DataValueField = "province";
+            ddProvince.DataBind();
+
+            ddProvince.Items.Insert(0, new ListItem("กรุณาเลือกจังหวัด", "NA"));
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            //Get val form control
+            string param_projectname = tbProjectName.Text.Trim();
+            string param_projecttype = ddProjectType.SelectedValue.ToString().Trim();
+            string param_customer = tbCustomerName.Text.Trim();
+            string param_startproject = tbStartProject.Text.Trim();
+            string param_country = ddCountry.SelectedValue.ToString().Trim();
+            string param_province = ddProvince.SelectedValue.ToString().Trim();
+            string param_address = tbAddress.Text.Trim();
+        }
+    }
+}
