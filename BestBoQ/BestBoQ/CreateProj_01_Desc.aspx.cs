@@ -10,6 +10,7 @@ namespace BestBoQ
 {
     public partial class CreateProj_01_Desc : System.Web.UI.Page
     {
+        string userID = "967882";
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -67,6 +68,29 @@ namespace BestBoQ
             string param_country = ddCountry.SelectedValue.ToString().Trim();
             string param_province = ddProvince.SelectedValue.ToString().Trim();
             string param_address = tbAddress.Text.Trim();
+
+            //Execute Command
+            try
+            {
+                string param_command = " EXEC [dbo].[set_Project_01_Desc] N'"
+                                   + param_projectname + "',N'"
+                                   + param_customer + "',N'"
+                                   + param_projecttype + "',N'"
+                                   + param_country + "',N'"
+                                   + param_province + "',N'"
+                                   + param_address + "', '"
+                                   + param_startproject + "',N'"
+                                   + userID + "' ";
+                ClassConfig.GetDataSQL(param_command);
+
+                Response.Write("<script>alert('Insert Data 01 Success');</script>");
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('Insert Data 01 Please Contract Admin');</script>");
+                throw;
+            }
+
         }
     }
 }
