@@ -152,6 +152,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\angsa.ttf" />
+    <Content Include="Main.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -186,6 +187,29 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Test.aspx" />
+    <Content Include="theme\css\bootstrap.min.css" />
+    <Content Include="theme\css\font-awesome.min.css" />
+    <Content Include="theme\css\imagehover.min.css" />
+    <Content Include="theme\css\style.css" />
+    <Content Include="theme\fonts\fontawesome-webfont.svg" />
+    <Content Include="theme\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="theme\img\bg-banner.jpg" />
+    <Content Include="theme\img\course01.jpg" />
+    <Content Include="theme\img\course02.jpg" />
+    <Content Include="theme\img\course03.jpg" />
+    <Content Include="theme\img\course04.jpg" />
+    <Content Include="theme\img\course05.jpg" />
+    <Content Include="theme\img\course06.jpg" />
+    <Content Include="theme\img\course07.jpg" />
+    <Content Include="theme\img\course08.jpg" />
+    <Content Include="theme\img\logo.png" />
+    <Content Include="theme\img\mentor.jpg" />
+    <Content Include="theme\index.html" />
+    <Content Include="theme\js\bootstrap.min.js" />
+    <Content Include="theme\js\custom.js" />
+    <Content Include="theme\js\jquery.easing.min.js" />
+    <Content Include="theme\js\jquery.min.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -254,6 +278,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,6 +314,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +335,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="theme\css\bootstrap.min.css.map" />
+    <Content Include="theme\fonts\fontawesome-webfont.eot" />
+    <Content Include="theme\fonts\fontawesome-webfont.ttf" />
+    <Content Include="theme\fonts\fontawesome-webfont.woff" />
+    <Content Include="theme\fonts\fontawesome-webfont.woff2" />
+    <Content Include="theme\fonts\FontAwesome.otf" />
+    <Content Include="theme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="theme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="theme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="theme\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
