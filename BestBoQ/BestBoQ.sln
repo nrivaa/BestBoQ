@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestBoQ", "D:\Work\BestBoQ\Project_BestBoQ\BestBoQ\BestBoQ\BestBoQ.csproj", "{1803B3F0-1579-4F6A-A1AE-F8E7C3DDC76F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1803B3F0-1579-4F6A-A1AE-F8E7C3DDC76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1803B3F0-1579-4F6A-A1AE-F8E7C3DDC76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1803B3F0-1579-4F6A-A1AE-F8E7C3DDC76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1803B3F0-1579-4F6A-A1AE-F8E7C3DDC76F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DA75250-CEF4-4CE6-B6DE-23CD75A70B40}
+	EndGlobalSection
+EndGlobal
