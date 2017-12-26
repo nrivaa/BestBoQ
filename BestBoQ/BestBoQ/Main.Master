@@ -20,47 +20,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="Default.aspx">
-                        <img src="/theme/img/logo.png"/>
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#feature">การใช้งาน</a>
-                        </li>
-                        <li>
-                            <a href="#courses">สมัครใช้งาน</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as Mark Otto <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="btn-trial">
-                            <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!--/ Navigation bar-->
-        
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
        

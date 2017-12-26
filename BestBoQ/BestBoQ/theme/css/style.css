@@ -37,6 +37,10 @@ table {
     border-spacing: 0;
 }
 
+#home.section-padding:nth-of-type(1) {
+    padding: 120px 0px;
+}
+
 .section-padding {
     padding: 60px 0px;
 }
@@ -405,7 +409,7 @@ h2 {
  Organisations
 ************************************/
 
-#organisations {
+#organisations, #register {
     background-color: rgb(247, 247, 247);
 }
 
