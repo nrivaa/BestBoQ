@@ -14,6 +14,9 @@
         <div>
             <asp:DropDownList ID="ddHomeType" runat="server"></asp:DropDownList>
         </div>
+        <div>
+            <asp:Button ID="btnSubmit" runat="server" Text="Next" OnClick="btnSubmit_Click" />
+        </div>
     </form>
 </body>
 </html>
