@@ -18,8 +18,8 @@ namespace BestBoQ
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             //Get val form control
-            string param_username = tbUsername.Text.Trim();
-            string param_password = ClassConfig.CalculateMD5Hash(tbPassword.Text.Trim() + "AISNQM");
+            string param_username = tbLoginUsername.Text.Trim();
+            string param_password = ClassConfig.CalculateMD5Hash(tbLoginPassword.Text.Trim() + "AISNQM");
 
             //Execute Command
             try
@@ -55,6 +55,83 @@ namespace BestBoQ
                 Response.Write("<script>alert('ระบบมีปัญหา กรุณาติดต่อผู้ดูแล');</script>");
                 throw;
             }
+        }
+
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            //Check password == conform password
+            if (tbPassword.Value.Trim() != tbRepassword.Value.Trim())
+            {
+                Response.Write("<script>alert('Password <> Confirm Password');</script>");
+            }
+            else
+            {
+                //Check Username ว่ามีแล้วหรือยังใน DB
+                if (chkusername())
+                {
+                    //Get Val form control
+                    string param_username = tbUsername.Text.Trim();
+                    string param_password = ClassConfig.CalculateMD5Hash(tbPassword.Value.Trim() + "AISNQM");
+                    string param_type = rbType.SelectedValue.ToString().Trim();
+                    string param_email = tbEmail.Text.Trim();
+                    string param_mobile = tbMobile.Text.Trim();
+                    string param_name = tbName.Text.Trim();
+                    string param_alias = tbAlias.Text.Trim();
+                    string param_address = tbAddress.Text.Trim();
+                    string param_id = tbID.Text.Trim();
+                    string param_tax = tbTax.Text.Trim();
+
+                    //Debug Val form control
+                    //Response.Write("<script>alert('Username : " + param_type + "');</script>");
+
+                    //Execute Command
+                    try
+                    {
+                        string param_command = " EXEC [dbo].[set_Register] N'"
+                                           + param_username + "',N'"
+                                           + param_password + "',N'"
+                                           + param_type + "',N'"
+                                           + param_email + "',N'"
+                                           + param_mobile + "',N'"
+                                           + param_name + "',N'"
+                                           + param_address + "',N'"
+                                           + param_id + "',N'"
+                                           + param_tax + "',N'"
+                                           + param_alias + "' ";
+                        ClassConfig.GetDataSQL(param_command);
+
+                        Response.Write("<script>alert('Register Success');</script>");
+                    }
+                    catch (Exception)
+                    {
+                        Response.Write("<script>alert('Register Fail Please Contract Admin');</script>");
+                        throw;
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('มี Username นี้อยู่ในระบบแล้ว');</script>");
+                }
+
+            }
+        }
+
+        private bool chkusername()
+        {
+            string param_username = tbUsername.Text.Trim();
+            string sql_command = " SELECT * FROM [BESTBoQ].[dbo].[userinfo] "
+                               + " WHERE[username] = '" + param_username + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            if (dt.Rows.Count < 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

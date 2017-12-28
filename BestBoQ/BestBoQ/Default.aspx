@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BestBoQ._Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css"
+        rel="stylesheet" type="text/css" />
+    <style>
+        .iradio_square-green {
+            margin: 5px 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
@@ -27,8 +34,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%=Session["Username"] %><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="Login.aspx">Login</a></li>
-                            <li><a href="Register.aspx">Register</a></li>
                             <li><a href="Profile.aspx">Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="Home.aspx">Home</a></li>
@@ -64,14 +69,14 @@
                         <div class="form-group">
                             <div class="form-group has-feedback">
                                 <!----- username -------------->
-                                <asp:TextBox ID="tbUsername" CssClass="form-control" runat="server" placeholder="Username" autocomplete="off"></asp:TextBox>
+                                <asp:TextBox ID="tbLoginUsername" CssClass="form-control" runat="server" placeholder="Username" autocomplete="off"></asp:TextBox>
                                 <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
                                 <!---Alredy exists  ! -->
                                 <span class="fa fa-user  form-control-feedback"></span>
                             </div>
                             <div class="form-group has-feedback">
                                 <!----- password -------------->
-                                <asp:TextBox ID="tbPassword" CssClass="form-control" runat="server" placeholder="Password" TextMode="Password" autocomplete="off"></asp:TextBox>
+                                <asp:TextBox ID="tbLoginPassword" CssClass="form-control" runat="server" placeholder="Password" TextMode="Password" autocomplete="off"></asp:TextBox>
                                 <span style="display: none; font-weight: bold; position: absolute; color: grey; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginpsw"></span>
                                 <!---Alredy exists  ! -->
                                 <span class="fa fa-lock form-control-feedback"></span>
@@ -114,13 +119,13 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item slides active">
-                    <img src="https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818">
+                    <img src="https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818" />
                 </div>
                 <div class="item slides">
-                    <img src="https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af">
+                    <img src="https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af" />
                 </div>
                 <div class="item slides">
-                    <img src="https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327">
+                    <img src="https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327" />
                 </div>
             </div>
             <!-- Controls -->
@@ -142,11 +147,9 @@
                 <div class="header-section text-center">
                     <h2>การใช้งาน</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,
-                        <br>
-                        maiores, magni dolorum aliquam.
+                        ขั้นตอนการใช้งานโปรแกรม BESTBoQ
                     </p>
-                    <hr class="bottom-line">
+                    <hr class="bottom-line" />
                 </div>
                 <div class="feature-info">
                     <div class="fea">
@@ -192,48 +195,112 @@
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>Contact Us</h2>
+                    <h2>สมัครใช้งาน</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,
-                        <br>
-                        maiores, magni dolorum aliquam.
+                        สมัครสมาชิก Nature Estate เพื่อใช้งานโปรแกรม BESTBoQ
                     </p>
-                    <hr class="bottom-line">
+                    <hr class="bottom-line" />
                 </div>
                 <div id="sendmessage">Your message has been sent. Thank you!</div>
                 <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
+                <div class="contactForm" role="form">
                     <div class="col-md-6 col-sm-6 col-xs-12 left">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control form" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
+                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
+                            <input type="password" id="tbPassword" runat="server"  autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Password" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validation"></div>
+                            <input type="password" id="tbRepassword" runat="server"  autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
+                        </div>
+                        <div class="form-group">
+                            <label>ประเภท</label>
+                            <asp:RadioButtonList class="radio-type" ID="rbType" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem Selected="True">บุคคล</asp:ListItem>
+                                <asp:ListItem>บริษัท</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbEmail" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbMobile" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-xs-12 right">
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div class="validation"></div>
+                            <asp:TextBox ID="tbName" runat="server"  data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="บริษัท/ชื่อ-นามสกุล"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbAddress" runat="server" data-validation="length" data-validation-length="min10" CssClass="form-control" autocomplete="off" placeholder="Address"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbID"  runat="server" CssClass="form-control" data-validation="required" autocomplete="off" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbTax" style="display:none" runat="server" CssClass="form-control"  autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="col-xs-12">
                         <!-- Button -->
-                        <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">SEND EMAIL</button>
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" OnClientClick=" return $('.contactForm').isValid()" CssClass="form contact-form-button light-form-button oswald light" OnClick="btnRegister_Click" />
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
     <!--/ Contact-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="theme/js/contactform.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$("#<%=tbPassword.ClientID%>").attr("name", "pass_confirmation");
+            //$("#<%=tbRepassword.ClientID%>").attr("name", "pass");
+
+            validateForm('.contactForm', '#btnRegister');
+
+            function validateForm(elementForm, elementButton) {
+                return $.validate({
+                    form: elementForm,
+                    modules: 'security',
+
+                });
+            }
+
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+                increaseArea: '20%' // optional
+            });
+
+            $('.radio-type input').on('ifChecked', function (event) {
+                var f = $(this).val();
+                if (f == "บุคคล") {
+                    $("#<%=tbID.ClientID%>").show();
+                    $("#<%=tbID.ClientID%>").attr("data-validation","required");
+                    $("#<%=tbTax.ClientID%>").hide();
+                    $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
+                }
+                else {
+                    $("#<%=tbID.ClientID%>").hide();
+                    $("#<%=tbID.ClientID%>").removeAttr("data-validation");
+                    $("#<%=tbTax.ClientID%>").show();
+                    $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+                }
+                validateForm('.contactForm', '#btnRegister');
+            });
+
+            $("input").inputmask();
+
+
+
+        });
+    </script>
 </asp:Content>

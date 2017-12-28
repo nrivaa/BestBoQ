@@ -14,11 +14,14 @@
     <link rel="stylesheet" type="text/css" href="theme/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/imagehover.min.css" />
+    <link href="lib/icheck/skins/square/green.css" rel="stylesheet" />
+    <link href="lib/Inputmask/css/inputmask.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <form id="form1" runat="server">
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
@@ -64,11 +67,21 @@
         </footer>
         <!--/ Footer-->
     </form>
+    
     <script src="theme/js/jquery.min.js"></script>
     <script src="theme/js/jquery.easing.min.js"></script>
     <script src="theme/js/bootstrap.min.js"></script>
-    <script src="theme/js/contactform.js"></script>
     <script src="theme/js/custom.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="lib/icheck/icheck.min.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/inputmask.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/inputmask.extensions.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/inputmask.numeric.extensions.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/inputmask.date.extensions.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/inputmask.phone.extensions.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/jquery.inputmask.js"></script>
+    <script src="lib/Inputmask/dist/inputmask/phone-codes/phone.js"></script>
+
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </body>
