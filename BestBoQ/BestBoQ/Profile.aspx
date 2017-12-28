@@ -48,12 +48,12 @@
                     <div class="form-group" id="blockId">
                         <label>ID Card:</label>
                         <asp:Label ID="lbId" runat="server" Text="#N/A"></asp:Label>
-                        <asp:TextBox CssClass="form-control" ID="tbId" runat="server" placeholder="ID Card" Visible="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="tbId" runat="server" placeholder="ID Card" Visible="false" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                     </div>
                     <div class="form-group" id="blockTax">
                         <label>TAX ID:</label>
                         <asp:Label ID="lbTax" runat="server" Text="#N/A"></asp:Label>
-                        <asp:TextBox CssClass="form-control" ID="tbTax" runat="server" placeholder="TAX" Visible="false"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="tbTax" runat="server" placeholder="TAX" Visible="false" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                     </div>
                     <div>
                         <asp:Button ID="btnEdit" CssClass="light-form-button light" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
