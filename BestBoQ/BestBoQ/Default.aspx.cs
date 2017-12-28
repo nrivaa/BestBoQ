@@ -24,7 +24,7 @@ namespace BestBoQ
             //Execute Command
             try
             {
-                string sql_command = " SELECT [status] FROM [BESTBoQ].[dbo].[userinfo] "
+                string sql_command = "SELECT [status],[userid] FROM [BESTBoQ].[dbo].[userinfo] "
                                + " WHERE [username] = '" + param_username + "' AND [password] = '" + param_password + "' ";
                 DataTable dt = ClassConfig.GetDataSQL(sql_command);
 
@@ -43,9 +43,10 @@ namespace BestBoQ
                     else
                     {
                         Session["Username"] = param_username;
+                        Session["UserID"] = dt.Rows[0][1].ToString();
                         Session.Timeout = 24 * 60;
 
-                        Response.Redirect("Default.aspx");
+                        Response.Redirect("Home.aspx");
                     }
                 }
             }

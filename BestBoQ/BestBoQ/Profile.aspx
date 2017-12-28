@@ -1,57 +1,90 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="BestBoQ.Profile" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/HomeNestedMaster.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="BestBoQ.Profile" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+    <section id="home" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="header-section text-center">
+                    <h2>My Profile</h2>
+                    <p>
+                        ข้อมูลผู้ใช้งาน
+                    </p>
+                    <hr class="bottom-line" />
+                </div>
+                <div class="profileForm col-sm-6" role="form">
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <asp:Label ID="lbUsername" runat="server" Text="#N/A"></asp:Label>
+                    </div>
+                    <div class="form-group radio-type">
+                        <label>ประเภท :</label>
+                        <asp:RadioButtonList ID="rbType" runat="server" Enabled="false">
+                            <asp:ListItem>บุคคล</asp:ListItem>
+                            <asp:ListItem>บริษัท</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail:</label>
+                        <asp:Label ID="lbEmail" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" autocomplete="off" data-validation="email" data-inputmask="'alias': 'email'" ID="tbEmail" runat="server" placeholder="Email" Visible="false"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number:</label>
+                        <asp:Label ID="lbMobile" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="tbMobile" runat="server" placeholder="Mobile Number" Visible="false" data-validation="required"  data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Name/Company Name:</label>
+                        <asp:Label ID="lbName" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="tbName" runat="server" placeholder="Name/Company Name" Visible="false" data-validation="length" data-validation-length="min5" autocomplete="off"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Address:</label>
+                        <asp:Label ID="lbAddress" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" TextMode="MultiLine" Rows="3"  ID="tbAddress" runat="server" placeholder="Address" Visible="false" data-validation="length" data-validation-length="min10" autocomplete="off"></asp:TextBox>
+                    </div>
+                    <div class="form-group" id="blockId">
+                        <label>ID Card:</label>
+                        <asp:Label ID="lbId" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="tbId" runat="server" placeholder="ID Card" Visible="false"></asp:TextBox>
+                    </div>
+                    <div class="form-group" id="blockTax">
+                        <label>TAX ID:</label>
+                        <asp:Label ID="lbTax" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="tbTax" runat="server" placeholder="TAX" Visible="false"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:Button ID="btnEdit" CssClass="light-form-button light" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
+                        <asp:Button ID="btnComfirm" CssClass="light-form-button light" runat="server" OnClientClick=" return $('.profileForm').isValid()" Text="Update Profile" Visible="false" OnClick="btnComfirm_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(document).ready(function () {
+            var f = $('.radio-type input:checked').val();
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            Username : 
-            <asp:Label ID="lbUsername" runat="server" Text="#N/A"></asp:Label>
-        </div>
-        <div>
-            <asp:RadioButtonList ID="rbType" runat="server" Enabled="false">
-                <asp:ListItem>บุคคล</asp:ListItem>
-                <asp:ListItem>บริษัท</asp:ListItem>
-            </asp:RadioButtonList>
-        </div>
-        <div>
-            Email : 
-            <asp:Label ID="lbEmail" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbEmail" runat="server" placeholder="Email" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            Mobile Number : 
-            <asp:Label ID="lbMobile" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbMobile" runat="server" placeholder="Mobile Number" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            Name/Company Name : 
-            <asp:Label ID="lbName" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbName" runat="server" placeholder="Name/Company Name" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            Address : 
-            <asp:Label ID="lbAddress" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbAddress" runat="server" placeholder="Address" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            ID Card : 
-            <asp:Label ID="lbId" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbId" runat="server" placeholder="ID Card" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            TAX ID : 
-            <asp:Label ID="lbTax" runat="server" Text="#N/A"></asp:Label>
-            <asp:TextBox ID="tbTax" runat="server" placeholder="TAX" Visible="false"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Button ID="btnEdit" runat="server" Text="Edit Profile" OnClick="btnEdit_Click"/>
-            <asp:Button ID="btnComfirm" runat="server" Text="Confirm Profile" Visible="false" OnClick="btnComfirm_Click" />
-        </div>
-    </form>
-</body>
-</html>
+            if (f == "บุคคล") {
+                $("#blockId").show();
+                $("#<%=tbId.ClientID%>").attr("data-validation", "required");
+                    $("#blockTax").hide();
+                    $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
+            }
+            else {
+                $("#blockId").hide();
+                $("#<%=tbId.ClientID%>").removeAttr("data-validation");
+                    $("#blockTax").show();
+                    $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+            }
+
+            validateForm('.profileForm');
+
+        });
+    </script>
+</asp:Content>
+

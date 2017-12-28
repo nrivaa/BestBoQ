@@ -1,58 +1,24 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BestBoQ._Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css"
-        rel="stylesheet" type="text/css" />
-    <style>
-        .iradio_square-green {
-            margin: 5px 10px;
-        }
-    </style>
+    
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="Default.aspx">
-                    <img src="/theme/img/logo.png" />
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#feature">การใช้งาน</a>
-                    </li>
-                    <li>
-                        <a href="#register">สมัครใช้งาน</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%=Session["Username"] %><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="Profile.aspx">Profile</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="Home.aspx">Home</a></li>
-                            <li><a href="CreateProj_01_Desc.aspx">Create Project 01 Description</a></li>
-                            <li><a href="CreateProj_02_Home.aspx">Create Project 02 Home</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="GenerateContract.aspx">Generate Contract</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="Logout.aspx">Logout</a></li>
-                        </ul>
-                    </li>
-                    <li class="btn-trial">
-                        <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--/ Navigation bar-->
+<asp:Content ID="Content4" ContentPlaceHolderID="navcontent" runat="server">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#feature">การใช้งาน</a>
+        </li>
+        <li>
+            <a href="#register">สมัครใช้งาน</a>
+        </li>
+        <li class="btn-trial">
+            <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
+        </li>
+    </ul>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
     <!--Modal box-->
     <div class="modal fade" id="login" role="dialog">
@@ -206,32 +172,54 @@
                 <div class="contactForm" role="form">
                     <div class="col-md-6 col-sm-6 col-xs-12 left">
                         <div class="form-group">
-                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username"></asp:TextBox>
+                            <label>ข้อมูลทั่วไป</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username"></asp:TextBox>
+
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" id="tbPassword" runat="server"  autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Password" />
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" id="tbPassword" runat="server" autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Password" />
+
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="password" id="tbRepassword" runat="server"  autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" id="tbRepassword" runat="server" autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
+
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>ประเภท</label>
-                            <asp:RadioButtonList class="radio-type" ID="rbType" runat="server" RepeatDirection="Horizontal">
-                                <asp:ListItem Selected="True">บุคคล</asp:ListItem>
-                                <asp:ListItem>บริษัท</asp:ListItem>
-                            </asp:RadioButtonList>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                <asp:TextBox ID="tbEmail" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="tbEmail" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <asp:TextBox ID="tbMobile" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                                <asp:TextBox ID="tbMobile" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-xs-12 right">
+                        <label>ข้อมูลเกี่ยวกับบริษัท/บุคคล</label>
+                        <div class="form-group form-group-radio">
+                            <label class="col-sm-2 control-label lable_type">ประเภท</label>
+                            <div class="col-sm-10">
+                                <asp:RadioButtonList class="radio-type" ID="rbType" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Selected="True">บุคคล</asp:ListItem>
+                                    <asp:ListItem>บริษัท</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <asp:TextBox ID="tbName" runat="server"  data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="บริษัท/ชื่อ-นามสกุล"></asp:TextBox>
+                            <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="บริษัท/ชื่อ-นามสกุล"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>
@@ -240,10 +228,10 @@
                             <asp:TextBox ID="tbAddress" runat="server" data-validation="length" data-validation-length="min10" CssClass="form-control" autocomplete="off" placeholder="Address"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="tbID"  runat="server" CssClass="form-control" data-validation="required" autocomplete="off" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                            <asp:TextBox ID="tbID" runat="server" CssClass="form-control" data-validation="required" autocomplete="off" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="tbTax" style="display:none" runat="server" CssClass="form-control"  autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                            <asp:TextBox ID="tbTax" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                         </div>
                     </div>
 
@@ -261,30 +249,14 @@
     <script src="theme/js/contactform.js"></script>
     <script>
         $(document).ready(function () {
-            //$("#<%=tbPassword.ClientID%>").attr("name", "pass_confirmation");
-            //$("#<%=tbRepassword.ClientID%>").attr("name", "pass");
 
-            validateForm('.contactForm', '#btnRegister');
-
-            function validateForm(elementForm, elementButton) {
-                return $.validate({
-                    form: elementForm,
-                    modules: 'security',
-
-                });
-            }
-
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-                increaseArea: '20%' // optional
-            });
+            validateForm('.contactForm');
 
             $('.radio-type input').on('ifChecked', function (event) {
                 var f = $(this).val();
                 if (f == "บุคคล") {
                     $("#<%=tbID.ClientID%>").show();
-                    $("#<%=tbID.ClientID%>").attr("data-validation","required");
+                    $("#<%=tbID.ClientID%>").attr("data-validation", "required");
                     $("#<%=tbTax.ClientID%>").hide();
                     $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
                 }
@@ -294,12 +266,8 @@
                     $("#<%=tbTax.ClientID%>").show();
                     $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
                 }
-                validateForm('.contactForm', '#btnRegister');
+                validateForm('.contactForm');
             });
-
-            $("input").inputmask();
-
-
 
         });
     </script>

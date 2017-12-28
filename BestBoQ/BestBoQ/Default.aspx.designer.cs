@@ -67,15 +67,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbRepassword;
         
         /// <summary>
-        /// rbType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbType;
-        
-        /// <summary>
         /// tbEmail control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbMobile;
+        
+        /// <summary>
+        /// rbType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rbType;
         
         /// <summary>
         /// tbName control.

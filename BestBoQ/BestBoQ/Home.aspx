@@ -1,21 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BestBoQ.Home" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <div>
-                <asp:Button ID="btnProfile" runat="server" Text="My Profile" PostBackUrl="~/Profile.aspx"/>
-            </div>
-            <div>
-                <asp:Button ID="btnCreate" runat="server" Text="New Project" PostBackUrl="~/CreateProj_01_Desc.aspx"/>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeNestedMaster.master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BestBoQ.Home" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+    <section id="home" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="header-section text-center">
+                    <h2>My Project</h2>
+                    <p>
+                        
+                    </p>
+                    <hr class="bottom-line"/>
+                </div>
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </section>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+</asp:Content>

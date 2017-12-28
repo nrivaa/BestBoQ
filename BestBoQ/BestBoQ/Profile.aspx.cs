@@ -10,8 +10,6 @@ namespace BestBoQ
 {
     public partial class Profile : System.Web.UI.Page
     {
-        string username = "Vitamilk47";
-        string userID = "967882";
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -46,7 +44,7 @@ namespace BestBoQ
                                    + " [address] = N'" + param_address + "' ,"
                                    + " [idcard] = N'" + param_id + "' ,"
                                    + " [taxname] = N'" + param_tax + "' "
-                                   + " WHERE [userid] = '" + userID + "'";
+                                   + " WHERE [userid] = '" + Session["UserID"] + "'";
                 ClassConfig.GetDataSQL(sql_command);
             }
             catch (Exception)
@@ -62,7 +60,7 @@ namespace BestBoQ
         protected void getOldData()
         {
             string sql_command = " SELECT * FROM [BESTBoQ].[dbo].[userinfo] "
-                               + " WHERE [userid] = '" + userID + "'";
+                               + " WHERE [userid] = '" + Session["UserID"] + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count > 0)
             {

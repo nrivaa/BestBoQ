@@ -7,11 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace BestBoQ
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class HomeNestedMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] == null) {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
