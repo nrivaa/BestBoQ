@@ -10,8 +10,8 @@ namespace BestBoQ
 {
     public partial class CreateProj_02_Home : System.Web.UI.Page
     {
-        string projectID = "000001";
         string userID = "967882";
+        string param_projid = "000002";
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -59,8 +59,8 @@ namespace BestBoQ
                 string param_homeid = ddHomeType.SelectedValue.ToString().Trim();
 
                 //Execute 
-                string sql_command = "EXEC [sp_set_Project_02_Home] '"
-                                   + projectID + "','"
+                string sql_command = "EXEC [set_Project_02_Home] '"
+                                   + param_projid + "','"
                                    + param_homeid + "','"
                                    + userID + "' ";
                 ClassConfig.GetDataSQL(sql_command);

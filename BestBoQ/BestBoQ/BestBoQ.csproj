@@ -135,6 +135,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
+    <Content Include="CreateProj_03_01_Footing.aspx" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -429,6 +430,13 @@
     </Compile>
     <Compile Include="CreateProj_02_Home.aspx.designer.cs">
       <DependentUpon>CreateProj_02_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_01_Footing.aspx.cs">
+      <DependentUpon>CreateProj_03_01_Footing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_01_Footing.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_01_Footing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

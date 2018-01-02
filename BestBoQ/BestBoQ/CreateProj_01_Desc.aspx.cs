@@ -11,6 +11,7 @@ namespace BestBoQ
     public partial class CreateProj_01_Desc : System.Web.UI.Page
     {
         string userID = "967882";
+        string param_projid = "000002";
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -73,6 +74,7 @@ namespace BestBoQ
             try
             {
                 string param_command = " EXEC [dbo].[set_Project_01_Desc] N'"
+                                   + param_projid + "',N'"
                                    + param_projectname + "',N'"
                                    + param_customer + "',N'"
                                    + param_projecttype + "',N'"
