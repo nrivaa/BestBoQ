@@ -136,6 +136,7 @@
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
     <Content Include="CreateProj_03_01_Footing.aspx" />
+    <Content Include="CreateProj_03_02_Beam.aspx" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -149,6 +150,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="Images\01Footing\f1.png" />
+    <Content Include="Images\01Footing\f2.png" />
+    <Content Include="Images\01Footing\f3.png" />
+    <Content Include="Images\01Footing\f4.png" />
+    <Content Include="Images\01Footing\f5.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -437,6 +443,13 @@
     </Compile>
     <Compile Include="CreateProj_03_01_Footing.aspx.designer.cs">
       <DependentUpon>CreateProj_03_01_Footing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_02_Beam.aspx.cs">
+      <DependentUpon>CreateProj_03_02_Beam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_02_Beam.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_02_Beam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -10,7 +10,7 @@
 namespace BestBoQ {
     
     
-    public partial class CreateProj_03_01_Footing {
+    public partial class CreateProj_03_02_Beam {
         
         /// <summary>
         /// form1 control.
