@@ -139,6 +139,12 @@
     <Content Include="CreateProj_03_02_Beam.aspx" />
     <Content Include="CreateProj_03_03_Floor.aspx" />
     <Content Include="CreateProj_03_04_Roof.aspx" />
+    <Content Include="CreateProj_03_05_Wall.aspx" />
+    <Content Include="CreateProj_03_06_Flooring.aspx" />
+    <Content Include="CreateProj_03_07_Toilet.aspx" />
+    <Content Include="CreateProj_03_08_Sanitation.aspx" />
+    <Content Include="CreateProj_03_09_Plumbing.aspx" />
+    <Content Include="CreateProj_03_10_Ceiling.aspx" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -162,6 +168,26 @@
     <Content Include="Images\02Beam\b3.png" />
     <Content Include="Images\02Beam\b4.png" />
     <Content Include="Images\02Beam\b5.png" />
+    <Content Include="Images\05Wall\w1.png" />
+    <Content Include="Images\05Wall\w2.png" />
+    <Content Include="Images\05Wall\w3.png" />
+    <Content Include="Images\06Flooring\fr1.png" />
+    <Content Include="Images\06Flooring\fr2.png" />
+    <Content Include="Images\06Flooring\fr3.png" />
+    <Content Include="Images\07Toilet\a.png" />
+    <Content Include="Images\07Toilet\b.png" />
+    <Content Include="Images\07Toilet\c.png" />
+    <Content Include="Images\08Sanitation\a.png" />
+    <Content Include="Images\08Sanitation\b.png" />
+    <Content Include="Images\09Plumbing\a.png" />
+    <Content Include="Images\09Plumbing\b.png" />
+    <Content Include="Images\09Plumbing\c.png" />
+    <Content Include="Images\10Ceiling\in_a.png" />
+    <Content Include="Images\10Ceiling\in_b.png" />
+    <Content Include="Images\10Ceiling\in_c.png" />
+    <Content Include="Images\10Ceiling\out_a.png" />
+    <Content Include="Images\10Ceiling\out_b.png" />
+    <Content Include="Images\10Ceiling\out_c.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -471,6 +497,48 @@
     </Compile>
     <Compile Include="CreateProj_03_04_Roof.aspx.designer.cs">
       <DependentUpon>CreateProj_03_04_Roof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_05_Wall.aspx.cs">
+      <DependentUpon>CreateProj_03_05_Wall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_05_Wall.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_05_Wall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_06_Flooring.aspx.cs">
+      <DependentUpon>CreateProj_03_06_Flooring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_06_Flooring.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_06_Flooring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_07_Toilet.aspx.cs">
+      <DependentUpon>CreateProj_03_07_Toilet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_07_Toilet.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_07_Toilet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_08_Sanitation.aspx.cs">
+      <DependentUpon>CreateProj_03_08_Sanitation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_08_Sanitation.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_08_Sanitation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_09_Plumbing.aspx.cs">
+      <DependentUpon>CreateProj_03_09_Plumbing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_09_Plumbing.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_09_Plumbing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_10_Ceiling.aspx.cs">
+      <DependentUpon>CreateProj_03_10_Ceiling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_10_Ceiling.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_10_Ceiling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
