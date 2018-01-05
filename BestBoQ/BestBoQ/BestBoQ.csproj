@@ -145,6 +145,11 @@
     <Content Include="CreateProj_03_08_Sanitation.aspx" />
     <Content Include="CreateProj_03_09_Plumbing.aspx" />
     <Content Include="CreateProj_03_10_Ceiling.aspx" />
+    <Content Include="CreateProj_03_11_Electric.aspx" />
+    <Content Include="CreateProj_03_12_Color.aspx" />
+    <Content Include="CreateProj_03_13_Railing.aspx" />
+    <Content Include="CreateProj_03_14_WinDoor.aspx" />
+    <Content Include="CreateProj_03_15_Money.aspx" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -188,6 +193,18 @@
     <Content Include="Images\10Ceiling\out_a.png" />
     <Content Include="Images\10Ceiling\out_b.png" />
     <Content Include="Images\10Ceiling\out_c.png" />
+    <Content Include="Images\13Railing\r1.png" />
+    <Content Include="Images\13Railing\r2.png" />
+    <Content Include="Images\13Railing\r3.png" />
+    <Content Include="Images\14WinDoor\door1_a.png" />
+    <Content Include="Images\14WinDoor\door1_b.png" />
+    <Content Include="Images\14WinDoor\door1_c.png" />
+    <Content Include="Images\14WinDoor\door2_a.png" />
+    <Content Include="Images\14WinDoor\door2_b.png" />
+    <Content Include="Images\14WinDoor\door2_c.png" />
+    <Content Include="Images\14WinDoor\win1_a.png" />
+    <Content Include="Images\14WinDoor\win1_b.png" />
+    <Content Include="Images\14WinDoor\win1_c.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -539,6 +556,41 @@
     </Compile>
     <Compile Include="CreateProj_03_10_Ceiling.aspx.designer.cs">
       <DependentUpon>CreateProj_03_10_Ceiling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_11_Electric.aspx.cs">
+      <DependentUpon>CreateProj_03_11_Electric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_11_Electric.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_11_Electric.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_12_Color.aspx.cs">
+      <DependentUpon>CreateProj_03_12_Color.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_12_Color.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_12_Color.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_13_Railing.aspx.cs">
+      <DependentUpon>CreateProj_03_13_Railing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_13_Railing.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_13_Railing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_14_WinDoor.aspx.cs">
+      <DependentUpon>CreateProj_03_14_WinDoor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_14_WinDoor.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_14_WinDoor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProj_03_15_Money.aspx.cs">
+      <DependentUpon>CreateProj_03_15_Money.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProj_03_15_Money.aspx.designer.cs">
+      <DependentUpon>CreateProj_03_15_Money.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
