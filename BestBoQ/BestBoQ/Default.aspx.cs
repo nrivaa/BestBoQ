@@ -78,6 +78,7 @@ namespace BestBoQ
                     string param_email = tbEmail.Text.Trim();
                     string param_mobile = tbMobile.Text.Trim();
                     string param_name = tbName.Text.Trim();
+                    string param_company = tbCompany.Text.Trim();
                     string param_alias = tbAlias.Text.Trim();
                     string param_address = tbAddress.Text.Trim();
                     string param_id = tbID.Text.Trim();
@@ -96,6 +97,7 @@ namespace BestBoQ
                                            + param_email + "',N'"
                                            + param_mobile + "',N'"
                                            + param_name + "',N'"
+                                           + param_company + "',N'"
                                            + param_address + "',N'"
                                            + param_id + "',N'"
                                            + param_tax + "',N'"

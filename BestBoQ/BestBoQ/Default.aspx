@@ -219,7 +219,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="บริษัท/ชื่อ-นามสกุล"></asp:TextBox>
+                            <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อ-นามสกุล"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="tbCompany" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อบริษัท"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>

@@ -103,6 +103,15 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.TextBox tbName;
         
         /// <summary>
+        /// tbCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbCompany;
+        
+        /// <summary>
         /// tbAlias control.
         /// </summary>
         /// <remarks>
