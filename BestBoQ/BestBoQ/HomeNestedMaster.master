@@ -9,9 +9,6 @@
         <li>
             <a href="Home.aspx">Home</a>
         </li>
-         <li>
-            <a href="#">My Project</a>
-        </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%=Session["Username"] %><span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -25,7 +22,7 @@
             </ul>
         </li>
         <li class="btn-trial">
-            <a href="CreateProj_01_Desc.aspx">New Project</a>
+            <a href="CreateProject.aspx">New Project</a>
         </li>
     </ul>
 </asp:Content>

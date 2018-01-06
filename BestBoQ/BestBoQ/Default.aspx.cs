@@ -12,7 +12,10 @@ namespace BestBoQ
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] != null)
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

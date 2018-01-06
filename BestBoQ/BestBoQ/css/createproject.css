@@ -1,0 +1,377 @@
+﻿.progress-tracker-container .progress-tracker {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    *margin-left: 0;
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    font-size: 13px;
+    line-height: 1.53846154;
+}
+
+.progress-tracker-container .progress-tracker li {
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 0;
+    padding: 5px 5px 5px 15px;
+    width: 25%;
+    *width: 22.7%;
+    min-height: 32px;
+    border: 1px solid #cbd3db;
+    text-align: center;
+    background-color: #eff4f2;
+}
+
+    .progress-tracker-container .progress-tracker li span {
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    .progress-tracker-container .progress-tracker li.progress-tracker-active {
+        background-color: #004F32;
+        border-color: #cbd3db;
+        color: #fff;
+    }
+
+        .progress-tracker-container .progress-tracker li.progress-tracker-active:not(:last-child):after {
+            border-left-color: #004F32;
+        }
+
+    .progress-tracker-container .progress-tracker li.progress-tracker-visited {
+        color: #004F32;
+        font-weight: 700;
+    }
+
+    .progress-tracker-container .progress-tracker li:not(:last-child):after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 16px solid transparent;
+        border-bottom: 16px solid transparent;
+        border-left: 10px solid #eff4f2;
+        position: absolute;
+        top: 50%;
+        margin-top: -16px;
+        left: 100%;
+        z-index: 2;
+    }
+
+    .progress-tracker-container .progress-tracker li:before {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 16px solid transparent;
+        border-bottom: 16px solid transparent;
+        border-left: 10px solid #cbd3db;
+        position: absolute;
+        top: 50%;
+        margin-top: -16px;
+        margin-left: 1px;
+        left: 100%;
+        z-index: 1;
+    }
+
+.progress-tracker-container .confident-message {
+    position: relative;
+    *position: static;
+    margin-top: 9px;
+}
+
+    .progress-tracker-container .confident-message:after,
+    .progress-tracker-container .confident-message:before {
+        bottom: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .progress-tracker-container .confident-message:after {
+        border-color: rgba(237,237,237,0);
+        border-bottom-color: #eff7eb;
+        border-width: 5px;
+        margin-left: -5px;
+    }
+
+    .progress-tracker-container .confident-message:before {
+        border-color: rgba(153,153,153,0);
+        border-bottom-color: #a0db88;
+        border-width: 6px;
+        margin-left: -6px;
+    }
+
+    .progress-tracker-container .confident-message.secure-booking-starts-here:after,
+    .progress-tracker-container .confident-message.secure-booking-starts-here:before {
+        left: 37.5%;
+    }
+
+    .progress-tracker-container .confident-message.nearly-done:after,
+    .progress-tracker-container .confident-message.nearly-done:before {
+        left: 62.5%;
+    }
+
+.alert {
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    border-radius: none;
+}
+
+#home {
+    font-size: 13px;
+    line-height: 1.53846154;
+}
+
+a {
+    color: #0283df;
+    text-decoration: none;
+}
+
+.alert-success {
+    color: #004F32;
+}
+
+.alert-info {
+    background-color: #fafafa;
+}
+
+.alert-success {
+    background-color: #fff;
+    border-color: #cbd3db;
+}
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #000;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.banner {
+    border-left-width: 5px !important;
+    padding: 10px 10px 10px 42px;
+    margin-top: 0px;
+}
+
+    .banner.urgency {
+        border-left-color: red;
+    }
+
+    .banner.assurance,
+    .banner.assuranceStep2,
+    .banner.discount {
+        border-left-color: green;
+    }
+
+    .banner.urgency strong {
+        color: red;
+    }
+
+    .banner.urgency .ficon,
+    .banner.urgency .simple-toggle:before,
+    .banner.urgency .toast-close-button:before {
+        color: red;
+    }
+
+    .banner.assurance strong,
+    .banner.assuranceStep2 strong,
+    .banner.discount strong {
+        color: green;
+    }
+
+    .banner.assurance .ficon,
+    .banner.assurance .simple-toggle:before,
+    .banner.assurance .toast-close-button:before {
+        color: green;
+    }
+
+    .banner.discount .ficon,
+    .banner.discount .simple-toggle:before,
+    .banner.discount .toast-close-button:before {
+        color: green;
+    }
+
+    .banner.assuranceStep2 .ficon,
+    .banner.assuranceStep2 .simple-toggle:before,
+    .banner.assuranceStep2 .toast-close-button:before {
+        color: green;
+    }
+
+    .banner.pointsmax {
+        border-left-color: purple;
+    }
+
+        .banner.pointsmax strong {
+            color: purple;
+        }
+
+        .banner.pointsmax .ficon,
+        .banner.pointsmax .simple-toggle:before,
+        .banner.pointsmax .toast-close-button:before {
+            color: purple;
+        }
+
+    .banner.giftcard {
+        border-left-color: orange;
+    }
+
+        .banner.giftcard strong {
+            color: orange;
+        }
+
+        .banner.giftcard .ficon,
+        .banner.giftcard .simple-toggle:before,
+        .banner.giftcard .toast-close-button:before {
+            color: orange;
+        }
+
+    .banner.customerSupport {
+        border-left-color: #0283df;
+    }
+
+        .banner.customerSupport .ficon,
+        .banner.customerSupport .simple-toggle:before,
+        .banner.customerSupport .toast-close-button:before {
+            color: #0283df;
+        }
+
+    .banner.totalSaving {
+        border-left-color: green;
+    }
+
+        .banner.totalSaving strong {
+            color: green;
+        }
+
+        .banner.totalSaving .ficon,
+        .banner.totalSaving .simple-toggle:before,
+        .banner.totalSaving .toast-close-button:before {
+            color: green;
+        }
+
+    .banner > .ficon,
+    .banner > .simple-toggle:before,
+    .banner > .toast-close-button:before {
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 12px;
+        font-weight: 600;
+    }
+
+    .banner .info-icon {
+        position: relative;
+    }
+
+    .banner .left-column {
+        width: 65%;
+    }
+
+    .banner .right-column {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .banner.giftcard .right-column {
+        display: inline-block;
+        width: 34%;
+        vertical-align: top;
+        position: static;
+    }
+
+    .banner.pay-cash-at-checkin-message {
+        border-left-width: 1px !important;
+        color: #85c150;
+        border: 1px solid;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .banner.customerSupport strong {
+        color: inherit;
+    }
+
+        .banner.customerSupport strong img {
+            width: 50px;
+            margin: 0 5px;
+        }
+
+.payment-details .payment-details-body,
+.well {
+    min-height: 20px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+    .payment-details .payment-details-body blockquote,
+    .well blockquote {
+        border-color: #ddd;
+        border-color: rgba(0,0,0,.15);
+    }
+
+.well-lg {
+    padding: 24px;
+    border-radius: 6px;
+}
+
+.well-sm {
+    padding: 9px;
+    border-radius: 3px;
+}
+
+.your-booking-includes .confident-message {
+    width: 100%;
+    display: inline-block;
+}
+
+.payment-details .your-booking-includes .payment-details-body,
+.your-booking-includes .payment-details .payment-details-body,
+.your-booking-includes .well {
+    margin-bottom: 0;
+}
+
+.your-booking-includes .your-booking-includes-details {
+    padding-left: 45px;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+}
+
+    .your-booking-includes .your-booking-includes-details i {
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 50%;
+        left: 10px;
+        position: absolute;
+    }
+
+    .your-booking-includes .your-booking-includes-details span {
+        height: 40px;
+        display: table-cell;
+        vertical-align: middle;
+    }

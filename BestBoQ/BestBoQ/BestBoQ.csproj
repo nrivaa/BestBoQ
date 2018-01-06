@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateProject.aspx" />
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
     <Content Include="CreateProj_03_01_Footing.aspx" />
@@ -150,6 +151,7 @@
     <Content Include="CreateProj_03_13_Railing.aspx" />
     <Content Include="CreateProj_03_14_WinDoor.aspx" />
     <Content Include="CreateProj_03_15_Money.aspx" />
+    <Content Include="css\createproject.css" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -412,6 +414,7 @@
     <Content Include="Main.Master" />
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
+    <Content Include="CreateHomeNestedMaster.master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -474,6 +477,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClassConfig.cs" />
+    <Compile Include="CreateHomeNestedMaster.master.cs">
+      <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateHomeNestedMaster.master.designer.cs">
+      <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateProj_01_Desc.aspx.cs">
       <DependentUpon>CreateProj_01_Desc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
