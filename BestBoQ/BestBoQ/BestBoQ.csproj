@@ -151,6 +151,7 @@
     <Content Include="CreateProj_03_13_Railing.aspx" />
     <Content Include="CreateProj_03_14_WinDoor.aspx" />
     <Content Include="CreateProj_03_15_Money.aspx" />
+    <Content Include="CreateTest.aspx" />
     <Content Include="css\createproject.css" />
     <Content Include="css\inputmask.css" />
     <Content Include="Default.aspx" />
@@ -231,6 +232,11 @@
     <Content Include="js\phone-codes\phone-uk.js" />
     <Content Include="js\phone-codes\phone-us.js" />
     <Content Include="js\phone-codes\phone.js" />
+    <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="lib\datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="lib\datetimepicker\js\moment-with-locales.js" />
     <Content Include="lib\icheck\icheck.js" />
     <Content Include="lib\icheck\icheck.min.js" />
     <Content Include="lib\icheck\skins\all.css" />
@@ -609,6 +615,13 @@
     </Compile>
     <Compile Include="CreateProj_03_15_Money.aspx.designer.cs">
       <DependentUpon>CreateProj_03_15_Money.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTest.aspx.cs">
+      <DependentUpon>CreateTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateTest.aspx.designer.cs">
+      <DependentUpon>CreateTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

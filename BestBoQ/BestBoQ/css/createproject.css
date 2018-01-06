@@ -23,6 +23,20 @@
     background-color: #eff4f2;
 }
 
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+dd,
+dt,
+li {
+    margin-bottom: 2px;
+    text-align: left !important;
+}
+
     .progress-tracker-container .progress-tracker li span {
         white-space: nowrap;
         overflow: hidden;
@@ -117,12 +131,15 @@
         left: 62.5%;
     }
 
-.alert {
+
+
+.progress-tracker-container .alert {
     margin-bottom: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
     padding: 5px 8px;
     border: 1px solid transparent;
     border-radius: none;
+    margin-top:10px;
 }
 
 #home {

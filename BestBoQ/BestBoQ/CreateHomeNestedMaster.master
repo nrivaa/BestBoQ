@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/createproject.css" rel="stylesheet" />
+    <link href="lib/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -28,7 +29,10 @@
         </div>
     </section>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="lib/datetimepicker/js/moment-with-locales.js"></script>
+    <script src="lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
