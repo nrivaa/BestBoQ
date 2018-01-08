@@ -12,13 +12,14 @@
                 <li class="step-3-title"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
             </ul>
 
-        <div class="alert alert-danger alert-dismissible fade in" role="alert"> 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top:0;right:0;">
-                <span aria-hidden="true">×</span>
-            </button> 
-            <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</div>
+            <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display:none" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+            </div>
         </div>
-        
+
 
     </div>
     <h3>Enter project details</h3>
@@ -30,31 +31,31 @@
             <div class="media media-ribbon media-xs-responsive">
                 <div class="media-body">
                     <div class="form" role="form">
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="tbProjectName" class="control-label">ชื่อโครงการ</label>
                             <asp:TextBox ID="tbProjectName" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="ชื่อโครงการ"></asp:TextBox>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="tbCustomerName" class="control-label">ชื่อลูกค้า</label>
                             <asp:TextBox ID="tbCustomerName" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="ชื่อลูกค้า"></asp:TextBox>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="ddProjectType" class="control-label">ประเภทโครงการ</label>
                             <asp:DropDownList ID="ddProjectType" CssClass="form-control" data-validation="required" runat="server"></asp:DropDownList>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="tbStartProject" class="control-label">วันที่เริ่มโครงการ</label>
                             <asp:TextBox ID="tbStartProject" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มโครงการ"></asp:TextBox>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="ddCountry" class="control-label">ประเทศ</label>
                             <asp:DropDownList ID="ddCountry" CssClass="form-control" data-validation="required" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddCountry_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="ddProvince" class="control-label">จังหวัด</label>
                             <asp:DropDownList ID="ddProvince" CssClass="form-control" data-validation="required" runat="server"></asp:DropDownList>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label for="tbAddress" class="control-label">สถานที่ตั้งโครงการ</label>
                             <asp:TextBox ID="tbAddress" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="สถานที่ตั้งโครงการ"></asp:TextBox>
                         </div>
@@ -75,63 +76,15 @@
     <div class="your-booking-includes">
         <div class="well confident-message">
             <h5 class="your-booking-includes-title">Remarks</h5>
-            <div data-bind="foreach: { data: yourBookingIncludes.features() }">
-                <div class="col-xs-12 your-booking-includes-details"><i class="fa fa-address-book fa-2x"></i><span>Airport transfer</span> </div>
-            </div>
+            <div class="col-xs-12 your-booking-includes-details"><i class="fa fa-address-book fa-2x"></i><span>Airport transfer</span></div>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
-    <div>
-        <div>
-            <div class="panel panel-default banner discount">
-                <div>
-                    <div>
-                        <div>
-                            <span>Don’t miss out! There are only 3 rooms left at this price!</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default price-details">
-            <div class="panel-body">
-                <div class="room-details-info-container">
-                    <h5 id="roomdetails-title" class="m-b-4 m-t-0">Your Project Details</h5>
-                    <div>
-                        <dl class="dl-horizontal dl-horizontal-left">
-                            <dt>ชื่อโครงการ :</dt>
-                            <dd id="summary-detail-project-name">N/A</dd>
-                        </dl>
-                        <dl class="dl-horizontal dl-horizontal-left">
-                            <dt>ชื่อลูกค้า :</dt>
-                            <dd id="summary-detail-project-customer">N/A</dd>
-                        </dl>
-                        <dl class="dl-horizontal dl-horizontal-left">
-                            <dt>ประเภทโครงการ :</dt>
-                            <dd id="summary-detail-project-type">N/A</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <p class="m-b-0"></p>
-                <dl class="dl-horizontal dd-align-right price-conclusion total-price">
-                    <dt><strong class="h5">Price</strong></dt>
-                    <dd><span><strong id="totalAmount" class="total-amount h5">฿ 0.00</strong>
-                    </span>
-                    </dd>
-                </dl>
-                <small class="charge-summary"><strong>Not Included:</strong> <span>Service charge, Discount and Current step</span></small>
-            </div>
-        </div>
-    </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
         $(document).ready(function () {
-
-            validateForm('.form');
 
             $('#<%=tbStartProject.ClientID%>').datetimepicker({
                 locale: 'th',
@@ -157,7 +110,6 @@
             function setSummaryDetailInLable(id, val) {
                 $('#' + id).html(val ? val : 'N/A');
             }
-
         });
     </script>
 </asp:Content>

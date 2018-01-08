@@ -10,6 +10,12 @@
             <a href="Home.aspx">Home</a>
         </li>
         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="Approve.aspx">Account Management</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%=Session["Username"] %><span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="Profile.aspx">My Profile</a></li>
@@ -31,6 +37,11 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(document).ready(function () {
+            validateForm('.form');
+        });
+    </script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

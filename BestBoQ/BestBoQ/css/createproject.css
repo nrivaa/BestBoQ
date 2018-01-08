@@ -9,19 +9,19 @@
     line-height: 1.53846154;
 }
 
-.progress-tracker-container .progress-tracker li {
-    position: relative;
-    display: block;
-    float: left;
-    margin-bottom: 0;
-    padding: 5px 5px 5px 15px;
-    width: 25%;
-    *width: 22.7%;
-    min-height: 32px;
-    border: 1px solid #cbd3db;
-    text-align: center;
-    background-color: #eff4f2;
-}
+    .progress-tracker-container .progress-tracker li {
+        position: relative;
+        display: block;
+        float: left;
+        margin-bottom: 0;
+        padding: 5px 5px 5px 15px;
+        width: 25%;
+        *width: 22.7%;
+        min-height: 32px;
+        border: 1px solid #cbd3db;
+        text-align: center;
+        background-color: #eff4f2;
+    }
 
 dl,
 ol,
@@ -37,58 +37,58 @@ li {
     text-align: left !important;
 }
 
-    .progress-tracker-container .progress-tracker li span {
-        white-space: nowrap;
-        overflow: hidden;
-        -ms-text-overflow: ellipsis;
-        text-overflow: ellipsis;
+.progress-tracker-container .progress-tracker li span {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.progress-tracker-container .progress-tracker li.progress-tracker-active {
+    background-color: #004F32;
+    border-color: #cbd3db;
+    color: #fff;
+}
+
+    .progress-tracker-container .progress-tracker li.progress-tracker-active:not(:last-child):after {
+        border-left-color: #004F32;
     }
 
-    .progress-tracker-container .progress-tracker li.progress-tracker-active {
-        background-color: #004F32;
-        border-color: #cbd3db;
-        color: #fff;
-    }
+.progress-tracker-container .progress-tracker li.progress-tracker-visited {
+    color: #004F32;
+    font-weight: 700;
+}
 
-        .progress-tracker-container .progress-tracker li.progress-tracker-active:not(:last-child):after {
-            border-left-color: #004F32;
-        }
+.progress-tracker-container .progress-tracker li:not(:last-child):after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 10px solid #eff4f2;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    left: 100%;
+    z-index: 2;
+}
 
-    .progress-tracker-container .progress-tracker li.progress-tracker-visited {
-        color: #004F32;
-        font-weight: 700;
-    }
-
-    .progress-tracker-container .progress-tracker li:not(:last-child):after {
-        content: " ";
-        display: block;
-        width: 0;
-        height: 0;
-        border-top: 16px solid transparent;
-        border-bottom: 16px solid transparent;
-        border-left: 10px solid #eff4f2;
-        position: absolute;
-        top: 50%;
-        margin-top: -16px;
-        left: 100%;
-        z-index: 2;
-    }
-
-    .progress-tracker-container .progress-tracker li:before {
-        content: " ";
-        display: block;
-        width: 0;
-        height: 0;
-        border-top: 16px solid transparent;
-        border-bottom: 16px solid transparent;
-        border-left: 10px solid #cbd3db;
-        position: absolute;
-        top: 50%;
-        margin-top: -16px;
-        margin-left: 1px;
-        left: 100%;
-        z-index: 1;
-    }
+.progress-tracker-container .progress-tracker li:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 10px solid #cbd3db;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
 
 .progress-tracker-container .confident-message {
     position: relative;
@@ -131,15 +131,13 @@ li {
         left: 62.5%;
     }
 
-
-
 .progress-tracker-container .alert {
     margin-bottom: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
     padding: 5px 8px;
     border: 1px solid transparent;
     border-radius: none;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 #home {

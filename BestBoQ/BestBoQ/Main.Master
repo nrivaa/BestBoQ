@@ -18,6 +18,8 @@
     <link href="lib/Inputmask/css/inputmask.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+
+    <script src="theme/js/jquery.min.js"></script>
     <style>
         .iradio_square-green {
             margin-bottom: 6px;
@@ -107,7 +109,7 @@
         <!--/ Footer-->
     </form>
 
-    <script src="theme/js/jquery.min.js"></script>
+  
     <script src="theme/js/jquery.easing.min.js"></script>
     <script src="theme/js/bootstrap.min.js"></script>
     <script src="theme/js/custom.js"></script>

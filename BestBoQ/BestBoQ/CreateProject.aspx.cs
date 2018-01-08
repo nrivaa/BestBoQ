@@ -11,7 +11,7 @@ namespace BestBoQ
     public partial class CreateProject : System.Web.UI.Page
     {
         string userID;
-        string param_projid = "000002";
+        string param_projid = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["UserID"] != null)
@@ -86,13 +86,19 @@ namespace BestBoQ
                                    + param_address + "', '"
                                    + param_startproject + "',N'"
                                    + userID + "' ";
-                ClassConfig.GetDataSQL(param_command);
+                DataTable dtResult = ClassConfig.GetDataSQL(param_command);
 
-                Response.Write("<script>alert('Insert Data 01 Success');</script>");
+                if (dtResult.Rows.Count > 0)
+                {
+                    string id = dtResult.Rows[0]["projectid"].ToString();
+                    Response.Redirect("CreateProject_02?id=" + id);
+                }
+                //Response.Write("<script>alert('Insert Data 01 Success');</script>");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Response.Write("<script>alert('Insert Data 01 Please Contract Admin');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+                //Response.Write("<script>alert('Insert Data 01 Please Contract Admin');</script>");
                 throw;
             }
 

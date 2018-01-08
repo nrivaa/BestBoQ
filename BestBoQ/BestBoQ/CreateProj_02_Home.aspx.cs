@@ -17,7 +17,7 @@ namespace BestBoQ
             if(!IsPostBack)
             {
                 bindHomeGroup();
-                ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", "NA"));
+                ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", ""));
             }
         }
 
@@ -32,7 +32,7 @@ namespace BestBoQ
             ddHomeGroup.DataTextField = "homegroup";
             ddHomeGroup.DataBind();
 
-            ddHomeGroup.Items.Insert(0, new ListItem("--กรุณาเลือกประเภทของงาน--", "NA"));
+            ddHomeGroup.Items.Insert(0, new ListItem("--กรุณาเลือกประเภทของงาน--", ""));
         }
 
         protected void ddHomeGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace BestBoQ
             ddHomeType.DataTextField = "homename";
             ddHomeType.DataBind();
 
-            ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", "NA"));
+            ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", ""));
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
