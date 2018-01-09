@@ -144,6 +144,12 @@
     <Content Include="CreateProject_03_06.aspx" />
     <Content Include="CreateProject_03_07.aspx" />
     <Content Include="CreateProject_03_08.aspx" />
+    <Content Include="CreateProject_03_09.aspx" />
+    <Content Include="CreateProject_03_10.aspx" />
+    <Content Include="CreateProject_03_11.aspx" />
+    <Content Include="CreateProject_03_12.aspx" />
+    <Content Include="CreateProject_03_13.aspx" />
+    <Content Include="CreateProject_03_14.aspx" />
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
     <Content Include="CreateProj_03_01_Footing.aspx" />
@@ -576,6 +582,48 @@
     </Compile>
     <Compile Include="CreateProject_03_08.aspx.designer.cs">
       <DependentUpon>CreateProject_03_08.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_09.aspx.cs">
+      <DependentUpon>CreateProject_03_09.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_09.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_09.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_10.aspx.cs">
+      <DependentUpon>CreateProject_03_10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_10.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_11.aspx.cs">
+      <DependentUpon>CreateProject_03_11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_11.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_12.aspx.cs">
+      <DependentUpon>CreateProject_03_12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_12.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_13.aspx.cs">
+      <DependentUpon>CreateProject_03_13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_13.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_14.aspx.cs">
+      <DependentUpon>CreateProject_03_14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_14.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_14.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateProj_01_Desc.aspx.cs">
       <DependentUpon>CreateProj_01_Desc.aspx</DependentUpon>
