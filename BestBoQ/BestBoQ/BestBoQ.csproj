@@ -137,6 +137,8 @@
     <Content Include="CreateProject.aspx" />
     <Content Include="CreateProject_02.aspx" />
     <Content Include="CreateProject_03_01.aspx" />
+    <Content Include="CreateProject_03_02.aspx" />
+    <Content Include="CreateProject_03_03.aspx" />
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
     <Content Include="CreateProj_03_01_Footing.aspx" />
@@ -520,6 +522,20 @@
     </Compile>
     <Compile Include="CreateProject_03_01.aspx.designer.cs">
       <DependentUpon>CreateProject_03_01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_02.aspx.cs">
+      <DependentUpon>CreateProject_03_02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_02.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_03.aspx.cs">
+      <DependentUpon>CreateProject_03_03.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_03.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_03.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateProj_01_Desc.aspx.cs">
       <DependentUpon>CreateProj_01_Desc.aspx</DependentUpon>

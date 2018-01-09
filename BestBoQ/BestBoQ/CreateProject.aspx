@@ -19,8 +19,6 @@
                 <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
             </div>
         </div>
-
-
     </div>
     <h3>Enter project details</h3>
 </asp:Content>

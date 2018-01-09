@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace BestBoQ
 {
-    public partial class CreateProject_03_01 : System.Web.UI.Page
+    public partial class CreateProject_03_02 : System.Web.UI.Page
     {
         string userID;
         public string param_projid;
@@ -23,12 +23,13 @@ namespace BestBoQ
             {
                 bindData();
             }
+
         }
 
         protected void bindData()
         {
-            string sql_command = " SELECT [footingType],[cost_pole],[weightSupport],[recomment],[picpath] "
-                               + " FROM[BESTBoQ].[dbo].[CFG_3_1_Footing] ";
+            string sql_command = " SELECT [beamType],[cost_m],[weightSupport],[recomment],[picpath] "
+                               + " FROM [BESTBoQ].[dbo].[CFG_3_2_Beam] ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -46,27 +47,25 @@ namespace BestBoQ
             {
                 foreach (RepeaterItem item in Repeater1.Items)
                 {
-                    TextBox tbPiles = (TextBox)item.FindControl("TextBox1");
-                    Label lbFootingType = (Label)item.FindControl("Label1");
-                    if (lbFootingType != null)
+                    TextBox tbNumM = (TextBox)item.FindControl("TextBox1");
+                    Label lbBeaType = (Label)item.FindControl("Label1");
+                    if (lbBeaType != null)
                     {
-                        string param_footingType = lbFootingType.Text.Trim();
-                        if (tbPiles != null)
+                        string param_beamType = lbBeaType.Text.Trim();
+                        if (tbNumM != null)
                         {
-                            string param_numPole = tbPiles.Text.Trim();
-                            string sql_command = " EXEC [dbo].[set_Project_03_01_Footing] "
-                                               + " '" + param_projid + "','" + param_footingType + "','" + param_numPole + "','" + userID + "' ";
+                            string param_numM = tbNumM.Text.Trim();
+                            string sql_command = " EXEC [dbo].[set_Project_03_02_Beam] "
+                                               + " '" + param_projid + "','" + param_beamType + "','" + param_numM + "','" + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }
                     }
                 }
-
-                Response.Redirect("CreateProject_03_02?id=" + param_projid);
+                Response.Redirect("CreateProject_03_03?id=" + param_projid);
             }
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
-                //Response.Write("<script>alert('Insert Data 02 Please Contract Admin');</script>");
                 throw;
             }
         }
