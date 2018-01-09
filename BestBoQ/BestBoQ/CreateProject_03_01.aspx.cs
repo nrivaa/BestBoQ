@@ -66,8 +66,6 @@ namespace BestBoQ
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
-                //Response.Write("<script>alert('Insert Data 02 Please Contract Admin');</script>");
-                throw;
             }
         }
     }

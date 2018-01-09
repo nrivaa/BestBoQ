@@ -99,7 +99,6 @@ namespace BestBoQ
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
                 //Response.Write("<script>alert('Insert Data 01 Please Contract Admin');</script>");
-                throw;
             }
 
         }

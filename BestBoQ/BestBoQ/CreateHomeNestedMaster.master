@@ -77,6 +77,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script src="lib/datetimepicker/js/moment-with-locales.js"></script>
     <script src="lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            validateForm('.form');
+        });
+    </script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

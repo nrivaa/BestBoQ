@@ -37,11 +37,7 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
-    <script>
-        $(document).ready(function () {
-            validateForm('.form');
-        });
-    </script>
+    
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

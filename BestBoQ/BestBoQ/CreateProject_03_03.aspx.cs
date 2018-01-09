@@ -70,7 +70,6 @@ namespace BestBoQ
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
-                throw;
             }
         }
     }
