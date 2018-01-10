@@ -22,7 +22,6 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 bindHomeGroup();
-                ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", ""));
             }
 
         }
@@ -30,47 +29,40 @@ namespace BestBoQ
 
         private void bindHomeGroup()
         {
-            string sql_command = " SELECT [hometype],[homegroup] "
+            string sql_command = " SELECT [hometype],[homegroup],[homegrouppic] "
                                + " FROM[BESTBoQ].[dbo].[CFG_Home_Type] "
-                               + " GROUP BY[hometype],[homegroup] ";
+                               + " GROUP BY[hometype],[homegroup],[homegrouppic] ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            ddHomeGroup.DataSource = dt;
-            ddHomeGroup.DataValueField = "hometype";
-            ddHomeGroup.DataTextField = "homegroup";
-            ddHomeGroup.DataBind();
-
-            ddHomeGroup.Items.Insert(0, new ListItem("--กรุณาเลือกประเภทของงาน--", ""));
+            if (dt.Rows.Count > 0)
+            {
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+            }
         }
-
-        protected void ddHomeGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string param_hometype = ddHomeGroup.SelectedValue.ToString().Trim();
-            string sql_command = " SELECT [homeid],[homename] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_Home_Type] "
-                               + " WHERE [hometype] = '" + param_hometype + "' "
-                               + " GROUP BY [homeid],[homename] ";
-            DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            ddHomeType.DataSource = dt;
-            ddHomeType.DataValueField = "homeid";
-            ddHomeType.DataTextField = "homename";
-            ddHomeType.DataBind();
-
-            ddHomeType.Items.Insert(0, new ListItem("--กรุณาเลือก--", ""));
-        }
+        
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
-                //Get val form control
-                string param_homeid = ddHomeType.SelectedValue.ToString().Trim();
-
-                //Execute 
-                string sql_command = "EXEC [set_Project_02_Home] '"
-                                   + param_projid + "','"
-                                   + param_homeid + "','"
-                                   + userID + "' ";
-                ClassConfig.GetDataSQL(sql_command);
+                foreach (RepeaterItem item in Repeater1.Items)
+                {
+                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
+                    Label lbHomeId = (Label)item.FindControl("Label1");
+                    if (lbHomeId != null)
+                    {
+                        string param_homeid = lbHomeId.Text.Trim();
+                        if (rbSelect != null && rbSelect.Checked == true)
+                        {
+                            //Execute 
+                            string sql_command = "EXEC [set_Project_02_Home] '"
+                                               + param_projid + "','"
+                                               + param_homeid + "','"
+                                               + userID + "' ";
+                            ClassConfig.GetDataSQL(sql_command);
+                        }
+                    }
+                }
 
                 //Response.Write("<script>alert('Insert Data 02 Success');</script>");
                 Response.Redirect("CreateProject_03_01?id=" + param_projid);
@@ -82,6 +74,27 @@ namespace BestBoQ
             }
 
 
+        }
+
+        protected void imgPic_Click(object sender, ImageClickEventArgs e)
+        {
+            RepeaterItem row = (RepeaterItem)((ImageButton)sender).NamingContainer;
+            Label lbHomeType = row.FindControl("Label1") as Label;
+            if (lbHomeType != null)
+            {
+                string param_hometype = lbHomeType.Text.Trim();
+
+                string sql_command = " SELECT [homeid],[homename],[homepic] "
+                               + " FROM [BESTBoQ].[dbo].[CFG_Home_Type] "
+                               + " WHERE [homegroup] = N'" + param_hometype + "' "
+                               + " GROUP BY [homeid],[homename],[homepic] ";
+                DataTable dt = ClassConfig.GetDataSQL(sql_command);
+                if (dt.Rows.Count > 0)
+                {
+                    Repeater2.DataSource = dt;
+                    Repeater2.DataBind();
+                }
+            }
         }
     }
 }

@@ -50,7 +50,7 @@
                                                 บาท/ชุด
                                                 
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButton  ID="RadioButton1" runat="server" />
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
                                                 </div>
                                             </div>
                                         </div>

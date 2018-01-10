@@ -30,13 +30,41 @@
             <div class="media media-ribbon media-xs-responsive">
                 <div class="media-body">
                     <div class="form" role="form">
-                        <div class="form-group has-feedback">
-                            <label for="tbProjectName" class="control-label">ประเภทของงาน</label>
-                           <asp:DropDownList ID="ddHomeGroup" runat="server"  CssClass="form-control" data-validation="required" OnSelectedIndexChanged="ddHomeGroup_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                        <div class="row">
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-xs-6 col-md-4 rp1">
+                                        <div class="thumbnail text-center">
+                                            <asp:ImageButton ID="imgPic" ImageUrl='<%# Eval("homegrouppic")%>' runat="server" OnClick="imgPic_Click" />
+                                            <div class="caption text-center">
+                                                <h3>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("homegroup")%>'></asp:Label>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
-                        <div class="form-group has-feedback">
-                            <label for="tbProjectName" class="control-label">ประเภทย่อยของงาน</label>
-                           <asp:DropDownList ID="ddHomeType" runat="server"  CssClass="form-control" data-validation="required"></asp:DropDownList>
+                        <div class="row">
+                            <asp:Repeater ID="Repeater2" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="thumbnail">
+                                            <asp:Image ID="imgPic" ImageUrl='<%# Eval("homepic")%>' runat="server" />
+                                            <div class="caption text-center">
+                                                <h3>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("homename")%>'></asp:Label>
+                                                    <small>(<asp:Label ID="Label1" runat="server" Text='<%# Eval("homeid")%>'></asp:Label>)</small>
+                                                </h3>
+                                                <div class="form-group has-feedback">
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                     </div>
                 </div>
@@ -44,10 +72,11 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <a href="CreateProject?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
+                <a id="btnBackMainType" style="display:none" onclick="window.history.back();" class="btn btn-default">Back to Previous Step</a>
+                <a id="btnBack" href="CreateProject?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
+                <asp:Button ID="btnSubmit" OnClientClick="return checkValidateSpecific()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
 
@@ -56,4 +85,47 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        initLayout();
+
+        function initLayout() {
+            var count = countRadioButton();
+            if (count > 0) {
+                $('.rp1').hide();
+                $('#btnBackMainType').show();
+                $('#btnBack').hide();
+            }
+        }
+
+        function checkValidateSpecific() {
+            if (!validateRadioSpecific()) {
+                return false;
+            }
+            else if (!checkValidateWithRadio()) {
+                return false;
+            }
+            return true;
+        }
+
+        function validateRadioSpecific() {
+            var count = countRadioButton();
+
+            if (count == 0) {
+                showAlertWithMessage("กรุณาเลือกประเภทงาน");
+                return false;
+            }
+
+            return true;
+        }
+
+        function countRadioButton() {
+            var count = 0;
+
+            $('[type="radio"]').each(function () {
+                count++;
+            });
+
+            return count;
+        }
+    </script>
 </asp:Content>

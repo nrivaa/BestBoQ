@@ -227,6 +227,21 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
+    <Content Include="Images\2Home\1.png" />
+    <Content Include="Images\2Home\10.png" />
+    <Content Include="Images\2Home\11.png" />
+    <Content Include="Images\2Home\12.png" />
+    <Content Include="Images\2Home\13.png" />
+    <Content Include="Images\2Home\14.png" />
+    <Content Include="Images\2Home\15.png" />
+    <Content Include="Images\2Home\2.png" />
+    <Content Include="Images\2Home\3.png" />
+    <Content Include="Images\2Home\4.png" />
+    <Content Include="Images\2Home\5.png" />
+    <Content Include="Images\2Home\6.png" />
+    <Content Include="Images\2Home\7.png" />
+    <Content Include="Images\2Home\8.png" />
+    <Content Include="Images\2Home\9.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -827,7 +842,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\10Color\" />
-    <Folder Include="Images\2Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

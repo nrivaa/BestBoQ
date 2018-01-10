@@ -13,22 +13,22 @@ namespace BestBoQ {
     public partial class CreateProject_02 {
         
         /// <summary>
-        /// ddHomeGroup control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddHomeGroup;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
         /// <summary>
-        /// ddHomeType control.
+        /// Repeater2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddHomeType;
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
         
         /// <summary>
         /// btnSubmit control.
