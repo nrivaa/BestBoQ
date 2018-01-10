@@ -42,13 +42,14 @@
                                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("windoorType")%>'></asp:Label>
                                                     <br />
                                                     <small>
-                                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("detail")%>'></asp:Label></small>
+                                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
+                                                    </small>
                                                 </h3>
                                                 ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
                                                 ชุด
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <asp:RadioButton  ID="RadioButton1" data-fixgroupbug="1" name="DepMood" GroupName="Fruits" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -137,4 +138,22 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        function fixRadiogroupBug() {
+
+            $('input').on('ifChecked', function (event) {
+                $("input").iCheck('uncheck');
+
+                alert(event.type + ' callback');
+            });
+
+            $('[type="radio"][data-fixgroupbug]').click(function () {
+                //$(this).siblings('[type="radio"]').prop('checked', false);
+            });
+        }
+
+        $(document).ready(function () {
+            fixRadiogroupBug();
+        });
+    </script>
 </asp:Content>
