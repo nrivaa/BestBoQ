@@ -227,6 +227,7 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
+    <Content Include="Images\logo.jpg" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -825,6 +826,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\10Color\" />
+    <Folder Include="Images\2Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
