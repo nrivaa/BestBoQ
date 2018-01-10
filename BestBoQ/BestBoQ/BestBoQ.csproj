@@ -212,6 +212,9 @@
     <Content Include="Images\10Ceiling\out_a.png" />
     <Content Include="Images\10Ceiling\out_b.png" />
     <Content Include="Images\10Ceiling\out_c.png" />
+    <Content Include="Images\12Color\1.png" />
+    <Content Include="Images\12Color\2.png" />
+    <Content Include="Images\12Color\3.png" />
     <Content Include="Images\13Railing\r1.png" />
     <Content Include="Images\13Railing\r2.png" />
     <Content Include="Images\13Railing\r3.png" />
@@ -821,6 +824,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\10Color\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
