@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CreateHomeNestedMaster.master" AutoEventWireup="true" CodeBehind="CreateProject_03_08.aspx.cs" Inherits="BestBoQ.CreateProject_03_08" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="progress" runat="server">
-     <div class="row">
+    <div class="row">
         <div class="col-md-12 progress-tracker-container">
             <ul class="progress-tracker">
                 <li class="step-0-title progress-tracker-visited"><span class="visible-md-block visible-lg-block desktop">1. Enter project details</span> <small class="visible-xs-block visible-sm-block mobile">Details</small> </li>
@@ -17,7 +18,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>
@@ -30,16 +31,28 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                            <div class="col-sm-4 text-center">
-                                <asp:Image ID="imgSanitation" runat="server" />
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group has-feedback">
-                                    <label for="tbProjectName" class="control-label">ประเภทงานสุขาภิบาล</label>
-                                     <asp:DropDownList ID="ddSanitation" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddSanitation_SelectedIndexChanged" CssClass="form-control" data-validation="required"></asp:DropDownList>
-                                    <p class="text-right"><small>ราคารวม 0 บาท</small></p>
-                                </div>
-                            </div>
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="thumbnail">
+
+                                            <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
+                                            <div class="caption text-center">
+                                                <h3>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("sanitationType")%>'></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
+                                                </h3>
+                                                ราคา 
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
+                                                บาท
+                                                <div class="form-group has-feedback">
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                         <br />
                     </div>
@@ -51,7 +64,7 @@
                 <a href="CreateProject_03_07?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
+                <asp:Button ID="btnSubmit" OnClientClick=" return checkValidateWithRadio();" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
     </div>

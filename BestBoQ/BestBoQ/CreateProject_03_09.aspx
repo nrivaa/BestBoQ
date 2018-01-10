@@ -18,7 +18,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>
@@ -31,39 +31,39 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                                <asp:Repeater ID="Repeater1" runat="server">
-                                    <ItemTemplate>
-                                        <div class="col-xs-6 col-md-4">
-                                            <div class="thumbnail">
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="thumbnail">
 
-                                                <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
-                                                <div class="caption text-center">
-                                                    <h3>ท่อน้ำ Type -
+                                            <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
+                                            <div class="caption text-center">
+                                                <h3>ท่อน้ำ Type -
                                                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("plumbingType")%>'></asp:Label>
-                                                    </h3>
-                                                    <div class="form-group">
-                                                        ท่อน้ำดี
+                                                </h3>
+                                                <div class="form-group">
+                                                    ท่อน้ำดี
                                                    
                                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("pipe1")%>'></asp:Label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        ท่อน้ำเสีย
+                                                </div>
+                                                <div class="form-group">
+                                                    ท่อน้ำเสีย
                                                    
                                                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("pipe2")%>'></asp:Label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        ท่อน้ำทิ้ง
+                                                </div>
+                                                <div class="form-group">
+                                                    ท่อน้ำทิ้ง
                                                    
                                                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("pipe3")%>'></asp:Label>
-                                                    </div>
-                                                    <div class="form-group has-feedback">
-                                                        <asp:RadioButton ID="RadioButton1" runat="server" />
-                                                    </div>
+                                                </div>
+                                                <div class="form-group has-feedback">
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 <a href="CreateProject_03_08?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
+                <asp:Button ID="btnSubmit" OnClientClick="return checkValidateWithRadio();" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
     </div>

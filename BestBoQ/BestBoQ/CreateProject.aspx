@@ -12,11 +12,11 @@
                 <li class="step-3-title"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
             </ul>
 
-            <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display:none" role="alert">
+            <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>

@@ -27,14 +27,13 @@ namespace BestBoQ
 
         protected void bindDD()
         {
-            string sql_command = "SELECT [wallType],[detail] FROM [BESTBoQ].[dbo].[CFG_3_5_Wall]";
+            string sql_command = "SELECT [picpath],[wallType],[detail],[cost_mm] FROM [BESTBoQ].[dbo].[CFG_3_5_Wall]";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            ddWall.DataSource = dt;
-            ddWall.DataValueField = "wallType";
-            ddWall.DataTextField = "detail";
-            ddWall.DataBind();
-
-            ddWall.Items.Insert(0, new ListItem("--กรุณาเลือกชนิดผนัง--", ""));
+            if (dt.Rows.Count > 0)
+            {
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+            }
         }
 
         protected static double getMM(string param_projID)
@@ -52,21 +51,27 @@ namespace BestBoQ
 
         }
 
-        protected void ddWall_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string param_wall = ddWall.SelectedValue.ToString().Trim();
-            imgWall.ImageUrl = "images/05Wall/" + param_wall + ".png";
-        }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
-                string param_wall = ddWall.SelectedValue.ToString().Trim();
                 string param_MM = getMM(param_projid).ToString();
-                string sql_command = " EXEC [dbo].[set_Project_03_05_Wall] "
+                foreach (RepeaterItem item in Repeater1.Items)
+                {
+                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
+                    Label param_wall = (Label)item.FindControl("Label1");
+                    if (param_wall != null)
+                    {
+                        string param_plumbingType = param_wall.Text.Trim();
+                        if (rbSelect != null && rbSelect.Checked == true)
+                        {
+                            string sql_command = " EXEC [dbo].[set_Project_03_05_Wall] "
                                    + " '" + param_projid + "','" + param_wall + "','" + param_MM + "','" + userID + "' ";
-                ClassConfig.GetDataSQL(sql_command);
+                            ClassConfig.GetDataSQL(sql_command);
+                        }
+                    }
+                }
+
                 Response.Redirect("CreateProject_03_06?id=" + param_projid);
             }
             catch (Exception ex)

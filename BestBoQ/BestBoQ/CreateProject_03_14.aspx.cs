@@ -89,7 +89,7 @@ namespace BestBoQ
 
                 foreach (RepeaterItem item in Repeater2.Items)
                 {
-                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
+                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton2");
                     Label lbwindoorType = (Label)item.FindControl("Label2");
                     if (lbwindoorType != null)
                     {
@@ -106,7 +106,7 @@ namespace BestBoQ
 
                 foreach (RepeaterItem item in Repeater3.Items)
                 {
-                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
+                    RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton3");
                     Label lbwindoorType = (Label)item.FindControl("Label2");
                     if (lbwindoorType != null)
                     {

@@ -18,7 +18,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>
@@ -47,9 +47,10 @@
                                                 </h3>
                                                 ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
-                                                ชุด
+                                                บาท/ชุด
+                                                
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButton  ID="RadioButton1" data-fixgroupbug="1" name="DepMood" GroupName="Fruits" runat="server" />
+                                                    <asp:RadioButton  ID="RadioButton1" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -73,9 +74,9 @@
                                                 </h3>
                                                 ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
-                                                ชุด
+                                                บาท/ชุด
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <asp:RadioButton ID="RadioButton2" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -99,9 +100,9 @@
                                                 </h3>
                                                 ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
-                                                ชุด
+                                                บาท/ชุด
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <asp:RadioButton ID="RadioButton3" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -109,7 +110,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
-                        <h3>หน้าต่าง</h3>
+                        <h3>สรุปจำนวนประตูหน้าต่างที่ต้องใช้</h3>
                         <div class="row">
                             จำนวนประตูภายในที่ต้องใช้ : 
                             <asp:Label ID="lbdoor1" runat="server"></asp:Label>
@@ -130,7 +131,7 @@
                 <a href="CreateProject_03_13?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
+                <asp:Button ID="btnSubmit" OnClientClick="return checkValidateWithRadio();" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
     </div>
@@ -138,22 +139,4 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
-    <script>
-        function fixRadiogroupBug() {
-
-            $('input').on('ifChecked', function (event) {
-                $("input").iCheck('uncheck');
-
-                alert(event.type + ' callback');
-            });
-
-            $('[type="radio"][data-fixgroupbug]').click(function () {
-                //$(this).siblings('[type="radio"]').prop('checked', false);
-            });
-        }
-
-        $(document).ready(function () {
-            fixRadiogroupBug();
-        });
-    </script>
 </asp:Content>

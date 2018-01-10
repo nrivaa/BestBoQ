@@ -14,11 +14,11 @@
 
             <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong>5. ระบบงานผนัง (Wall)</strong></div>
 
-            <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
+           <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>
@@ -31,15 +31,29 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                            <div class="col-sm-4 text-center">
-                                <asp:Image ID="imgWall" runat="server"  />
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group has-feedback">
-                                    <label for="tbProjectName" class="control-label">ประเภทผนัง</label>
-                                    <asp:DropDownList ID="ddWall" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddWall_SelectedIndexChanged" CssClass="form-control" data-validation="required"></asp:DropDownList>
-                                    <p class="text-right"><small>ราคารวม 0 บาท</small></p>
-                                </div>
+                            <asp:Repeater ID="Repeater1" runat="server">
+                                <ItemTemplate>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="thumbnail">
+
+                                            <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
+                                            <div class="caption text-center">
+                                                <h3>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("wallType")%>'></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
+                                                </h3>
+                                                <div class="form-group has-feedback">
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม 0 บาท</small></p>
                             </div>
                         </div>
                         <br />
@@ -52,7 +66,7 @@
                 <a href="CreateProject_03_04?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
+                <asp:Button ID="btnSubmit" OnClientClick=" return checkValidateWithRadio()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
     </div>

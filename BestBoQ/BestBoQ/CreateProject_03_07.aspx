@@ -17,7 +17,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
-                <strong>พบข้อผิดพลาด!</strong> กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ
+                <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
             </div>
         </div>
     </div>
@@ -39,6 +39,9 @@
                                                 <h3>
                                                     ห้องน้ำ Type - <asp:Label ID="Label1" runat="server" Text='<%# Eval("toiletType")%>'></asp:Label>
                                                 </h3>
+                                                ราคา 
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_room")%>'></asp:Label>
+                                                บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
                                                           <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number" CssClass="form-control" runat="server"></asp:TextBox>
