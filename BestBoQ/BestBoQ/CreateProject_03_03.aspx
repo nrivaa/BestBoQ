@@ -31,6 +31,11 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
+                            <div class="col-sm-12 col-lg-6 text-center">
+                                <div class="thumbnail">
+                                <img src="Images/03Floor/pic_floor.png" />
+                                </div>
+                            </div>
                             <asp:Repeater ID="Repeater1" runat="server">
                                 <ItemTemplate>
                                     <div class="col-sm-12 col-lg-6">

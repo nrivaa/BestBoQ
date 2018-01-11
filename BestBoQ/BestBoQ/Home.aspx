@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeNestedMaster.master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BestBoQ.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        table.dataTable tbody td {
+            vertical-align:middle;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
@@ -25,22 +30,22 @@
                                 <asp:Image ID="imgType" runat="server" ImageUrl='<%# "~/" + Eval("type") %>' Height="40px" Width="40px" />
                             </ItemTemplate>
                         </asp:TemplateField>--%>
-                        <asp:TemplateField HeaderText="HomeType">
+                        <asp:TemplateField HeaderText="Home Type" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
                             <ItemTemplate>
                                 <asp:Image ID="imgOnly" runat="server" ImageUrl='<%#  Eval("homepic") %>' Height="70px" Width="70px" />
                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%#Eval("projectid") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="projectname" HeaderText="ProjectName" />
-                        <asp:BoundField DataField="customername" HeaderText="CustomerName" />
-                        <asp:BoundField DataField="contractid" HeaderText="contractName" />
-<%--                        <asp:BoundField DataField="Priority" HeaderText="Priority" />
+                        <asp:BoundField DataField="projectname" HeaderText="Project Name" />
+                        <asp:BoundField DataField="customername" HeaderText="Customer Name" />
+                        <asp:BoundField DataField="contractid" HeaderText="Contract Name" />
+                        <%--<asp:BoundField DataField="Priority" HeaderText="Priority" />
                         <asp:BoundField DataField="region" HeaderText="Region" />
                         <asp:BoundField DataField="zone" HeaderText="Zone" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />
                         <asp:BoundField DataField="user" HeaderText="user" />--%>
-                        <asp:BoundField DataField="transdate" HeaderText="CreateDate" />
-                        <asp:HyperLinkField DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="Project_Detail.aspx?id={0}" HeaderText="View" Text="View" />
+                        <asp:BoundField DataField="transdate" HeaderText="Create Date" />
+                        <asp:HyperLinkField HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="Project_Detail.aspx?id={0}" HeaderText="View" Text="<i class='fa fa-search' aria-hidden='true'></i>" />
                     </Columns>
                 </asp:GridView>
             </div>
@@ -48,4 +53,15 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(document).ready(function () {
+            $("#<%=gvData.ClientID%>").DataTable({
+                order: [[ 3, "desc" ]],
+                columnDefs: [
+                    { orderable: false, targets: -1 },
+                    { orderable: false, targets: 0 }
+                ]
+            });
+        });
+    </script>
 </asp:Content>

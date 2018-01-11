@@ -20,10 +20,6 @@
             <ul class="dropdown-menu">
                 <li><a href="Profile.aspx">My Profile</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="CreateProj_01_Desc.aspx">Create Project 01 Description</a></li>
-                <li><a href="CreateProj_02_Home.aspx">Create Project 02 Home</a></li>
-                <li><a href="GenerateContract.aspx">Generate Contract</a></li>
-                <li role="separator" class="divider"></li>
                 <li><a href="Logout.aspx">Logout</a></li>
             </ul>
         </li>
