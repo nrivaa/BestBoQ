@@ -38,6 +38,7 @@
             }
         }
     </style>
+    <link href="lib/DataTables/datatables.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -52,7 +53,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="Home.aspx">
-                        <img src="/theme/img/logo.png" />
+                        <img height="50" src="/images/logo.png" />
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
@@ -141,7 +142,7 @@
             $("input").inputmask();
         });
     </script>
-
+    <script src="lib/DataTables/datatables.min.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
 </body>
