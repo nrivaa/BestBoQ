@@ -1,4 +1,57 @@
-﻿function checkValidateWithRadio() {
+﻿/*
+* Check Radio All Page
+*/
+function checkValidateWithRadioOne() {
+
+    if (!validateRadioOneAll()) {
+        return false;
+    }
+    else if (!$('.form').isValid()) {
+        return false;
+    }
+
+    return true;
+
+}
+
+function validateRadioOneAll() {
+    var isValid = true;
+
+    if (!validateRadioOne()) {
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function validateRadioOne() {
+    var count = 0;
+
+    $('[type="radio"]').each(function () {
+        if ($(this).is(':checked')) {
+            count++;
+        }
+    });
+
+    if (count === 0) {
+        showAlertWithMessage("กรุณาเลือกให้ครบทุกตัวเลือก");
+
+        return false;
+    }
+
+    return true;
+}
+
+function fixRadiogroupOneBug() {
+    $('[type="radio"]').on('ifChecked', function (event) {
+        $('[type="radio"]').not(this).iCheck('indeterminate');
+    });
+}
+
+/**
+ * Check Radio Group Validate
+ */
+function checkValidateWithRadio() {
 
     if (!validateRadioAll()) {
         return false;
@@ -65,8 +118,15 @@ function findRadioGroup() {
     return array;
 }
 
+var radioOne;
+
 $(document).ready(function () {
-    fixRadiogroupAll();
+    if (!radioOne){
+        fixRadiogroupAll(); 
+    }
+    else {
+        fixRadiogroupOneBug();
+    }
 });
 
 function showAlertWithMessage(message){

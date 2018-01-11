@@ -31,27 +31,30 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                            <asp:Repeater ID="Repeater1" runat="server">
-                                <ItemTemplate>
-                                    <div class="col-xs-6 col-md-4">
-                                        <div class="thumbnail">
-                                            <div class="caption">
-                                                <div class="form-group has-feedback">
-                                                    <label for="TextBox1" class="control-label">
-                                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("itemNo")%>'></asp:Label>. 
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label></label>
-                                                    <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" CssClass="form-control" data-validation="number" runat="server"></asp:TextBox>
-                                                        <span class="input-group-addon">
-                                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("unit")%>'></asp:Label></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </ItemTemplate>
-                            </asp:Repeater>
+                            <div class="col-xs-12">
+                                <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>รายการวัสดุ</th>
+                                        <th>จำนวน</th>
+                                        <th>หน่วย</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="Repeater1" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><asp:Label ID="Label1" runat="server" Text='<%# Eval("itemNo")%>'></asp:Label></td>
+                                                <td><asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label></td>
+                                                <td><asp:Label ID="Label4" runat="server" Text='<%# Eval("point")%>'></asp:Label></td>
+                                                <td><asp:Label ID="Label3" runat="server" Text='<%# Eval("unit")%>'></asp:Label></td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                            </div>
                         </div>
                     </div>
                 </div>

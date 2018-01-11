@@ -59,10 +59,11 @@ namespace BestBoQ
                 foreach (RepeaterItem item in Repeater1.Items)
                 {
                     RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
-                    Label param_wall = (Label)item.FindControl("Label1");
-                    if (param_wall != null)
+                    Label lbWall = (Label)item.FindControl("Label1");
+                    if (lbWall != null)
                     {
-                        string param_plumbingType = param_wall.Text.Trim();
+                        string param_wall = lbWall.Text.Trim();
+                        
                         if (rbSelect != null && rbSelect.Checked == true)
                         {
                             string sql_command = " EXEC [dbo].[set_Project_03_05_Wall] "

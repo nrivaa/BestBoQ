@@ -24,42 +24,67 @@
                 <aside class="col-sm-4">
                     <div>
                         <div>
-                            <div class="panel panel-default banner discount">
+                            <%--<div class="panel panel-default banner discount">
                                 <div>
                                     <div>
                                         <div>
-                                            <span>Don’t miss out! There are only 3 rooms left at this price!</span>
+                                            <span></span>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>--%>
+                        </div>
+                        <div class="panel panel-default project-details">
+                            <div class="panel-body">
+                                <div class="room-details-info-container">
+                                    <h5 id="roomdetails-title" class="m-b-4 m-t-0">รายละเอียดโครงการ</h5>
+                                    <div>
+                                        <dl class="dl-horizontal dl-horizontal-left">
+                                            <dt>ชื่อโครงการ :</dt>
+                                            <dd id="summary-detail-project-name">
+                                                <asp:Label ID="Label1" runat="server" Text="N/A"></asp:Label>
+                                            </dd>
+                                        </dl>
+                                        <dl class="dl-horizontal dl-horizontal-left">
+                                            <dt>ชื่อลูกค้า :</dt>
+                                            <dd id="summary-detail-project-customer">
+                                                <asp:Label ID="Label2" runat="server" Text="N/A"></asp:Label>
+                                            </dd>
+                                        </dl>
+                                        <dl class="dl-horizontal dl-horizontal-left">
+                                            <dt>ประเภทโครงการ :</dt>
+                                            <dd id="summary-detail-project-type">
+                                                <asp:Label ID="Label3" runat="server" Text="N/A"></asp:Label>
+                                            </dd>
+                                        </dl>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="panel panel-default price-details">
                             <div class="panel-body">
-                                <div class="room-details-info-container">
-                                    <h5 id="roomdetails-title" class="m-b-4 m-t-0">Your Project Details</h5>
-                                    <div>
-                                        <dl class="dl-horizontal dl-horizontal-left">
-                                            <dt>ชื่อโครงการ :</dt>
-                                            <dd id="summary-detail-project-name">N/A</dd>
-                                        </dl>
-                                        <dl class="dl-horizontal dl-horizontal-left">
-                                            <dt>ชื่อลูกค้า :</dt>
-                                            <dd id="summary-detail-project-customer">N/A</dd>
-                                        </dl>
-                                        <dl class="dl-horizontal dl-horizontal-left">
-                                            <dt>ประเภทโครงการ :</dt>
-                                            <dd id="summary-detail-project-type">N/A</dd>
-                                        </dl>
-                                    </div>
-                                </div>
+                                <dl class="dl-horizontal dd-align-right room-price">
+                                    <dt>ค่าแรงและวัสดุรวม</dt>
+                                    <dd>฿ <span id="totalPrice"> <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dt>ค่าดำเนินการ</dt>
+                                    <dd>฿ <span id="feePrice"><asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dt>ส่วนลด</dt>
+                                    <dd>฿ <span id="promoPrice"><asp:Label ID="lbPromoPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dt>อื่นๆ</dt>
+                                    <dd>฿ <span id="otherPrice"><asp:Label ID="lbOtherPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                </dl>
                             </div>
                             <div class="panel-footer">
                                 <p class="m-b-0"></p>
                                 <dl class="dl-horizontal dd-align-right price-conclusion total-price">
-                                    <dt><strong class="h5">Total Price</strong></dt>
-                                    <dd><span><strong id="totalAmount" class="total-amount h5">฿ 0.00</strong>
-                                    </span>
+                                    <dt><strong class="h5">รวมสุทธิ</strong></dt>
+                                    <dd>
+                                        <span>
+                                            <strong id="lastPrice" class="total-amount h5">฿
+                                                <asp:Label ID="lbLastPrice" runat="server" Text="0.00"></asp:Label>
+                                            </strong>
+                                        </span>
                                     </dd>
                                 </dl>
                                 <small class="charge-summary"><strong>Not Included:</strong> <span>Current step, Service charge and Discount</span></small>

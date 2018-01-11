@@ -44,10 +44,10 @@ namespace BestBoQ
                 foreach (RepeaterItem item in Repeater1.Items)
                 {
                     RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
-                    Label param_sanitationType = (Label)item.FindControl("Label1");
-                    if (param_sanitationType != null)
+                    Label lbSanitationType = (Label)item.FindControl("Label1");
+                    if (lbSanitationType != null)
                     {
-                        string param_plumbingType = param_sanitationType.Text.Trim();
+                        string param_sanitationType = lbSanitationType.Text.Trim();
                         if (rbSelect != null && rbSelect.Checked == true)
                         {
                             string sql_command = " EXEC [dbo].[set_Project_03_08_Sanitation] "

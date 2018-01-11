@@ -13,22 +13,13 @@ namespace BestBoQ {
     public partial class CreateProject_03_04 {
         
         /// <summary>
-        /// ddRoofStyle control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddRoofStyle;
-        
-        /// <summary>
-        /// ddRoofType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddRoofType;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
         /// <summary>
         /// btnSubmit control.

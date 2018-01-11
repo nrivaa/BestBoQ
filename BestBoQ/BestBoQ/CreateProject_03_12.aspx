@@ -38,6 +38,7 @@
                                             <asp:Image ID="imgPic1" ImageUrl='<%# Eval("picpath")%>' runat="server" />
                                             <div class="caption text-center">
                                                 <h3>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("colorID")%>'></asp:Label>.
                                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
                                                 </h3>
                                                 <div class="form-group has-feedback">
@@ -67,13 +68,13 @@
         <div class="well confident-message">
             <h5 class="your-booking-includes-title">Remarks</h5>
             <div class="col-xs-12">
-                <asp:Label ID="lb1" runat="server"></asp:Label>
+                <asp:Label ID="lb1" runat="server"></asp:Label> บาท
                 <br />
-                <asp:Label ID="lb2" runat="server"></asp:Label>
+                <asp:Label ID="lb2" runat="server"></asp:Label> บาท
                 <br />
-                <asp:Label ID="lb3" runat="server"></asp:Label>
+                <asp:Label ID="lb3" runat="server"></asp:Label> บาท
                 <br />
-                <asp:Label ID="lbTotal" runat="server"></asp:Label>
+                <asp:Label ID="lbTotal" runat="server"></asp:Label> บาท
             </div>
         </div>
     </div>

@@ -23,7 +23,6 @@
     <h3>Enter project details</h3>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body_left" runat="server">
-
     <div class="panel-body">
         <div class="booking-details">
             <div class="media media-ribbon media-xs-responsive">
@@ -69,7 +68,6 @@
                 <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
             </div>
         </div>
-
     </div>
     <div class="your-booking-includes">
         <div class="well confident-message">
