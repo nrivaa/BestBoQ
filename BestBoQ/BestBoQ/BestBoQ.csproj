@@ -130,10 +130,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Approve.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateProject.aspx" />
+    <Content Include="CreateProject_02.aspx" />
+    <Content Include="CreateProject_03_01.aspx" />
+    <Content Include="CreateProject_03_02.aspx" />
+    <Content Include="CreateProject_03_03.aspx" />
+    <Content Include="CreateProject_03_04.aspx" />
+    <Content Include="CreateProject_03_05.aspx" />
+    <Content Include="CreateProject_03_06.aspx" />
+    <Content Include="CreateProject_03_07.aspx" />
+    <Content Include="CreateProject_03_08.aspx" />
+    <Content Include="CreateProject_03_09.aspx" />
+    <Content Include="CreateProject_03_10.aspx" />
+    <Content Include="CreateProject_03_11.aspx" />
+    <Content Include="CreateProject_03_12.aspx" />
+    <Content Include="CreateProject_03_13.aspx" />
+    <Content Include="CreateProject_03_14.aspx" />
+    <Content Include="CreateProject_03_15.aspx" />
     <Content Include="CreateProj_01_Desc.aspx" />
     <Content Include="CreateProj_02_Home.aspx" />
     <Content Include="CreateProj_03_01_Footing.aspx" />
@@ -176,6 +193,10 @@
     <Content Include="Images\02Beam\b3.png" />
     <Content Include="Images\02Beam\b4.png" />
     <Content Include="Images\02Beam\b5.png" />
+    <Content Include="Images\03Floor\pic_floor.png" />
+    <Content Include="Images\04Roof\m.png" />
+    <Content Include="Images\04Roof\s.png" />
+    <Content Include="Images\04Roof\v.png" />
     <Content Include="Images\05Wall\w1.png" />
     <Content Include="Images\05Wall\w2.png" />
     <Content Include="Images\05Wall\w3.png" />
@@ -196,6 +217,9 @@
     <Content Include="Images\10Ceiling\out_a.png" />
     <Content Include="Images\10Ceiling\out_b.png" />
     <Content Include="Images\10Ceiling\out_c.png" />
+    <Content Include="Images\12Color\1.png" />
+    <Content Include="Images\12Color\2.png" />
+    <Content Include="Images\12Color\3.png" />
     <Content Include="Images\13Railing\r1.png" />
     <Content Include="Images\13Railing\r2.png" />
     <Content Include="Images\13Railing\r3.png" />
@@ -208,7 +232,6 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
-    <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -422,10 +445,9 @@
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
     <Content Include="CreateHomeNestedMaster.master" />
-    <Content Include="fonts\THSarabunNew.ttf" />
-    <Content Include="fonts\THSarabunNewBold.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
+    <Content Include="Project_Detail.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -456,6 +478,124 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Test.aspx" />
     <Content Include="TestHTMLtoPDF.aspx" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.bootstrap.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.bootstrap.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.bootstrap4.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.bootstrap4.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.dataTables.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.dataTables.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.foundation.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.foundation.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.jqueryui.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.jqueryui.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.semanticui.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.semanticui.min.css" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.bootstrap.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.bootstrap.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.bootstrap4.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.bootstrap4.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.colVis.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.colVis.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.flash.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.flash.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.foundation.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.foundation.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.html5.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.html5.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.jqueryui.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.jqueryui.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.print.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.print.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.semanticui.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\buttons.semanticui.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\dataTables.buttons.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\js\dataTables.buttons.min.js" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\swf\flashExport.swf" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.bootstrap.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.bootstrap.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.bootstrap4.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.bootstrap4.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.foundation.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.foundation.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.jqueryui.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.jqueryui.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.semanticui.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\dataTables.semanticui.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\jquery.dataTables.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\css\jquery.dataTables.min.css" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\images\sort_asc.png" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\images\sort_asc_disabled.png" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\images\sort_both.png" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\images\sort_desc.png" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\images\sort_desc_disabled.png" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.bootstrap.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.bootstrap.min.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.bootstrap4.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.bootstrap4.min.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.foundation.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.foundation.min.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.jqueryui.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.jqueryui.min.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.semanticui.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\dataTables.semanticui.min.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\jquery.dataTables.js" />
+    <Content Include="lib\DataTables\DataTables-1.10.16\js\jquery.dataTables.min.js" />
+    <Content Include="lib\DataTables\datatables.css" />
+    <Content Include="lib\DataTables\datatables.js" />
+    <Content Include="lib\DataTables\datatables.min.css" />
+    <Content Include="lib\DataTables\datatables.min.js" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.bootstrap.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.bootstrap4.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.dataTables.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.dataTables.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.foundation.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.foundation.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.jqueryui.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.semanticui.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\css\fixedColumns.semanticui.min.css" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\js\dataTables.fixedColumns.js" />
+    <Content Include="lib\DataTables\FixedColumns-3.2.4\js\dataTables.fixedColumns.min.js" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap4.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.dataTables.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.dataTables.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.foundation.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.foundation.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.jqueryui.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.semanticui.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\css\fixedHeader.semanticui.min.css" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\js\dataTables.fixedHeader.js" />
+    <Content Include="lib\DataTables\FixedHeader-3.1.3\js\dataTables.fixedHeader.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.bootstrap.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.bootstrap.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.bootstrap4.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.bootstrap4.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.dataTables.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.dataTables.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.foundation.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.foundation.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.jqueryui.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.jqueryui.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.semanticui.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\css\responsive.semanticui.min.css" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\dataTables.responsive.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\dataTables.responsive.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.bootstrap.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.bootstrap.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.bootstrap4.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.bootstrap4.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.foundation.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.foundation.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.jqueryui.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.jqueryui.min.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.semanticui.js" />
+    <Content Include="lib\DataTables\Responsive-2.2.1\js\responsive.semanticui.min.js" />
     <Content Include="theme\js\contactform.js" />
     <Content Include="theme\css\bootstrap.min.css" />
     <Content Include="theme\css\font-awesome.min.css" />
@@ -483,7 +623,6 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppendixA.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClassConfig.cs" />
@@ -501,6 +640,118 @@
     </Compile>
     <Compile Include="CreateProject.aspx.designer.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_02.aspx.cs">
+      <DependentUpon>CreateProject_02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_02.aspx.designer.cs">
+      <DependentUpon>CreateProject_02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_01.aspx.cs">
+      <DependentUpon>CreateProject_03_01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_01.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_02.aspx.cs">
+      <DependentUpon>CreateProject_03_02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_02.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_03.aspx.cs">
+      <DependentUpon>CreateProject_03_03.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_03.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_03.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_04.aspx.cs">
+      <DependentUpon>CreateProject_03_04.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_04.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_04.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_05.aspx.cs">
+      <DependentUpon>CreateProject_03_05.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_05.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_05.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_06.aspx.cs">
+      <DependentUpon>CreateProject_03_06.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_06.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_06.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_07.aspx.cs">
+      <DependentUpon>CreateProject_03_07.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_07.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_07.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_08.aspx.cs">
+      <DependentUpon>CreateProject_03_08.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_08.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_08.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_09.aspx.cs">
+      <DependentUpon>CreateProject_03_09.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_09.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_09.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_10.aspx.cs">
+      <DependentUpon>CreateProject_03_10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_10.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_11.aspx.cs">
+      <DependentUpon>CreateProject_03_11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_11.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_12.aspx.cs">
+      <DependentUpon>CreateProject_03_12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_12.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_13.aspx.cs">
+      <DependentUpon>CreateProject_03_13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_13.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_14.aspx.cs">
+      <DependentUpon>CreateProject_03_14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_14.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_14.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject_03_15.aspx.cs">
+      <DependentUpon>CreateProject_03_15.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject_03_15.aspx.designer.cs">
+      <DependentUpon>CreateProject_03_15.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateProj_01_Desc.aspx.cs">
       <DependentUpon>CreateProj_01_Desc.aspx</DependentUpon>
@@ -681,6 +932,13 @@
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Project_Detail.aspx.cs">
+      <DependentUpon>Project_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Project_Detail.aspx.designer.cs">
+      <DependentUpon>Project_Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
@@ -699,7 +957,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="PDFs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -714,6 +971,8 @@
     <Content Include="theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\common.scss" />
+    <Content Include="lib\DataTables\Buttons-1.5.1\css\mixins.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
