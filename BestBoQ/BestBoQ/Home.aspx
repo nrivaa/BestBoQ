@@ -46,6 +46,7 @@
                         <asp:BoundField DataField="user" HeaderText="user" />--%>
                         <asp:BoundField DataField="transdate" HeaderText="Create Date" />
                         <asp:HyperLinkField HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="Project_Detail.aspx?id={0}" HeaderText="View" Text="<i class='fa fa-search' aria-hidden='true'></i>" />
+                        <asp:HyperLinkField HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="CreateProject.aspx?id={0}" HeaderText="Edit" Text="<i class='fa fa-pencil' aria-hidden='true'></i>" />
                     </Columns>
                 </asp:GridView>
             </div>
@@ -59,6 +60,7 @@
                 order: [[ 3, "desc" ]],
                 columnDefs: [
                     { orderable: false, targets: -1 },
+                    { orderable: false, targets: -2 },
                     { orderable: false, targets: 0 }
                 ]
             });
