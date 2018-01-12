@@ -32,13 +32,13 @@
                         </asp:TemplateField>--%>
                         <asp:TemplateField HeaderText="Home Type" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <asp:Image ID="imgOnly" runat="server" ImageUrl='<%#  Eval("homepic") %>' Height="70px" Width="70px" />
+                                <asp:Image ID="imgOnly" runat="server" ImageUrl='<%#Eval("homepic") %>' Height="70px" Width="70px" />
                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%#Eval("projectid") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="projectname" HeaderText="Project Name" />
                         <asp:BoundField DataField="customername" HeaderText="Customer Name" />
-                        <asp:BoundField DataField="contractid" HeaderText="Contract Name" />
+                        <asp:BoundField DataField="contractid" HeaderText="Contract Name" /> 
                         <%--<asp:BoundField DataField="Priority" HeaderText="Priority" />
                         <asp:BoundField DataField="region" HeaderText="Region" />
                         <asp:BoundField DataField="zone" HeaderText="Zone" />

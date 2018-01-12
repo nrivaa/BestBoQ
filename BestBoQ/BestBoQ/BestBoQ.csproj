@@ -188,6 +188,11 @@
     <Content Include="Images\01Footing\f3.png" />
     <Content Include="Images\01Footing\f4.png" />
     <Content Include="Images\01Footing\f5.png" />
+    <Content Include="Images\01_Footing\f1.png" />
+    <Content Include="Images\01_Footing\f2.png" />
+    <Content Include="Images\01_Footing\f3.png" />
+    <Content Include="Images\01_Footing\f4.png" />
+    <Content Include="Images\01_Footing\f5.png" />
     <Content Include="Images\02Beam\b1.png" />
     <Content Include="Images\02Beam\b2.png" />
     <Content Include="Images\02Beam\b3.png" />
@@ -217,6 +222,9 @@
     <Content Include="Images\10Ceiling\out_a.png" />
     <Content Include="Images\10Ceiling\out_b.png" />
     <Content Include="Images\10Ceiling\out_c.png" />
+    <Content Include="Images\10Color\1.png" />
+    <Content Include="Images\10Color\2.png" />
+    <Content Include="Images\10Color\3.png" />
     <Content Include="Images\12Color\1.png" />
     <Content Include="Images\12Color\2.png" />
     <Content Include="Images\12Color\3.png" />
@@ -232,6 +240,22 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
+    <Content Include="Images\2Home\1.png" />
+    <Content Include="Images\2Home\10.jpg" />
+    <Content Include="Images\2Home\11.png" />
+    <Content Include="Images\2Home\12.png" />
+    <Content Include="Images\2Home\13.png" />
+    <Content Include="Images\2Home\14.png" />
+    <Content Include="Images\2Home\15.png" />
+    <Content Include="Images\2Home\2.png" />
+    <Content Include="Images\2Home\3.png" />
+    <Content Include="Images\2Home\4.png" />
+    <Content Include="Images\2Home\5.png" />
+    <Content Include="Images\2Home\6.png" />
+    <Content Include="Images\2Home\7.jpg" />
+    <Content Include="Images\2Home\8.jpg" />
+    <Content Include="Images\2Home\9.jpg" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -446,6 +470,7 @@
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
     <Content Include="CreateHomeNestedMaster.master" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
     <Content Include="Project_Detail.aspx" />
