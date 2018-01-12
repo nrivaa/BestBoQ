@@ -1,4 +1,27 @@
-﻿.progress-tracker-container .progress-tracker {
+﻿.thumbnail {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.thumbnail img {
+    height: 80%;
+    width: 80%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.thumbnail input[type="image"] {
+    height: 80%;
+    width: 80%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    
+
+.progress-tracker-container .progress-tracker {
     list-style: none;
     overflow: hidden;
     padding: 0;

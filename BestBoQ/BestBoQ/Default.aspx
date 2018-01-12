@@ -7,13 +7,13 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="navcontent" runat="server">
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="#feature">การใช้งาน</a>
+            <a href="#feature">Features</a>
         </li>
         <li>
-            <a href="#register">สมัครใช้งาน</a>
+            <a href="#register">Register</a>
         </li>
         <li class="btn-trial">
-            <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
+            <a href="#" data-target="#login" data-toggle="modal">Login</a>
         </li>
     </ul>
 </asp:Content>
@@ -48,14 +48,14 @@
                                 <span class="fa fa-lock form-control-feedback"></span>
                             </div>
                             <div class="row">
-                                <div class="col-xs-12">
+                                <%--<div class="col-xs-12">
                                     <div class="checkbox icheck">
                                         <label>
                                             <input type="checkbox" id="loginrem" />
                                             Remember Me
                                         </label>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="col-xs-12">
                                     <asp:Button ID="btnLogin" CssClass="btn btn-green btn-block btn-flat" runat="server" Text="เข้าสู่ระบบ" OnClick="btnLogin_Click" />
                                 </div>
@@ -111,7 +111,7 @@
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>การใช้งาน</h2>
+                    <h2>Features</h2>
                     <p>
                         ขั้นตอนการใช้งานโปรแกรม BESTBoQ
                     </p>
@@ -161,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>สมัครใช้งาน</h2>
+                    <h2>Register</h2>
                     <p>
                         สมัครสมาชิก Nature Estate เพื่อใช้งานโปรแกรม BESTBoQ
                     </p>
