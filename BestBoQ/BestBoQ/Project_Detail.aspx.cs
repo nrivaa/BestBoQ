@@ -25,11 +25,7 @@ namespace BestBoQ
                 else
                 {
                     Response.Redirect("Home.aspx");
-                }      
-            }
-            else
-            {
-                Response.Redirect("Default.aspx");
+                }
             }
         }
 
