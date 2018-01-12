@@ -39,7 +39,7 @@
                                             <asp:Image ID="imgPic1" ImageUrl='<%# Eval("picpath")%>' runat="server" />
                                             <div class="caption text-center">
                                                 <h3>
-                                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("ceilingPart")%>'></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ceilingPart")%>'></asp:Label>
                                                     <br />
                                                     <small><asp:Label ID="Label1" runat="server" Text='<%# Eval("detail")%>'></asp:Label></small>
                                                 </h3>

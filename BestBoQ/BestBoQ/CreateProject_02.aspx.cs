@@ -45,7 +45,7 @@ namespace BestBoQ
         {
             try
             {
-                foreach (RepeaterItem item in Repeater1.Items)
+                foreach (RepeaterItem item in Repeater2.Items)
                 {
                     RadioButton rbSelect = (RadioButton)item.FindControl("RadioButton1");
                     Label lbHomeId = (Label)item.FindControl("Label1");

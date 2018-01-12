@@ -43,7 +43,7 @@
                                             <%--<asp:Image ID="imgPic" runat="server" />--%>
                                             <div class="caption text-center">
                                                 <h3>
-                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("floorType")%>'></asp:Label>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("floorType")%>'></asp:Label>
                                                 </h3>
                                                 <label for="TextBox2" class="control-label">
                                                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("detail")%>'></asp:Label></label>

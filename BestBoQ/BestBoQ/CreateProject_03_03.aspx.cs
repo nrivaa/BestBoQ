@@ -41,8 +41,8 @@ namespace BestBoQ
             {
                 foreach (RepeaterItem item in Repeater1.Items)
                 {
-                    TextBox tbNumRoom = (TextBox)item.FindControl("TextBox1");
-                    TextBox tbNumMM = (TextBox)item.FindControl("TextBox2");
+                    TextBox tbNumRoom = (TextBox)item.FindControl("TextBox2");
+                    TextBox tbNumMM = (TextBox)item.FindControl("TextBox3");
                     Label lbFloorType = (Label)item.FindControl("Label1");
                     if (lbFloorType != null)
                     {
