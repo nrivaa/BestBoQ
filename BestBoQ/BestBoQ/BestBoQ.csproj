@@ -208,6 +208,7 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -421,6 +422,8 @@
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
     <Content Include="CreateHomeNestedMaster.master" />
+    <Content Include="fonts\THSarabunNew.ttf" />
+    <Content Include="fonts\THSarabunNewBold.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -480,9 +483,11 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppendixA.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClassConfig.cs" />
+    <Compile Include="Contract.cs" />
     <Compile Include="CreateHomeNestedMaster.master.cs">
       <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -654,6 +659,7 @@
     <Compile Include="HomeNestedMaster.master.designer.cs">
       <DependentUpon>HomeNestedMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="ITextEvents.cs" />
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -693,6 +699,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="PDFs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
