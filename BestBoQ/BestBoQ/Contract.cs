@@ -16,20 +16,79 @@ namespace BestBoQ
             this.page = page;
         }
 
+        private string ThaiBaht(string txt)
+        {
+            string bahtTxt, n, bahtTH = "";
+            double amount;
+            try { amount = Convert.ToDouble(txt); }
+            catch { amount = 0; }
+            bahtTxt = amount.ToString("####.00");
+            string[] num = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า", "สิบ" };
+            string[] rank = { "", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน" };
+            string[] temp = bahtTxt.Split('.');
+            string intVal = temp[0];
+            string decVal = temp[1];
+            if (Convert.ToDouble(bahtTxt) == 0)
+                bahtTH = "ศูนย์บาทถ้วน";
+            else
+            {
+                for (int i = 0; i < intVal.Length; i++)
+                {
+                    n = intVal.Substring(i, 1);
+                    if (n != "0")
+                    {
+                        if ((i == (intVal.Length - 1)) && (n == "1"))
+                            bahtTH += "เอ็ด";
+                        else if ((i == (intVal.Length - 2)) && (n == "2"))
+                            bahtTH += "ยี่";
+                        else if ((i == (intVal.Length - 2)) && (n == "1"))
+                            bahtTH += "";
+                        else
+                            bahtTH += num[Convert.ToInt32(n)];
+                        bahtTH += rank[(intVal.Length - i) - 1];
+                    }
+                }
+                bahtTH += "บาท";
+                if (decVal == "00")
+                    bahtTH += "ถ้วน";
+                else
+                {
+                    for (int i = 0; i < decVal.Length; i++)
+                    {
+                        n = decVal.Substring(i, 1);
+                        if (n != "0")
+                        {
+                            if ((i == decVal.Length - 1) && (n == "1"))
+                                bahtTH += "เอ็ด";
+                            else if ((i == (decVal.Length - 2)) && (n == "2"))
+                                bahtTH += "ยี่";
+                            else if ((i == (decVal.Length - 2)) && (n == "1"))
+                                bahtTH += "";
+                            else
+                                bahtTH += num[Convert.ToInt32(n)];
+                            bahtTH += rank[(decVal.Length - i) - 1];
+                        }
+                    }
+                    bahtTH += "สตางค์";
+                }
+            }
+            return bahtTH;
+        }
+
         public string CreatePDF(string projectID)
         {
             //get data
             DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projectID + "'");
-            string homename = dt.Rows[0]["homename"].ToString();
-            string projectName = dt.Rows[0]["projectname"].ToString();
-            string customerName = dt.Rows[0]["customername"].ToString();
-            string cusProvince = dt.Rows[0]["cusprovince"].ToString();
-            string cusAddress = dt.Rows[0]["cusaddress"].ToString();
-            string projectStart = dt.Rows[0]["projectstart"].ToString();
-            string contractID = dt.Rows[0]["coontractid"].ToString();
-            string area = dt.Rows[0]["numMM"].ToString();
-            string month = dt.Rows[0]["month"].ToString();
-            string totalprice = dt.Rows[0]["totalprice"].ToString();
+            string homename = dt.Rows[0]["homename"] == null ? "" : dt.Rows[0]["homename"].ToString();
+            string projectName = dt.Rows[0]["projectname"] == null ? "" : dt.Rows[0]["projectname"].ToString();
+            string customerName = dt.Rows[0]["customername"] == null ? "" : dt.Rows[0]["customername"].ToString();
+            string cusProvince = dt.Rows[0]["cusprovince"] == null ? "" : dt.Rows[0]["cusprovince"].ToString();
+            string cusAddress = dt.Rows[0]["cusaddress"] == null ? "" : dt.Rows[0]["cusaddress"].ToString();
+            string projectStart = dt.Rows[0]["projectstart"] == null ? "" : Convert.ToDateTime(dt.Rows[0]["projectstart"]).ToString("dd/MM/YYYY");
+            string contractID = dt.Rows[0]["coontractid"] == null ? "" : dt.Rows[0]["coontractid"].ToString();
+            string area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
+            string month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
+            string totalprice = dt.Rows[0]["totalprice"] == null ? "" : dt.Rows[0]["totalprice"].ToString();
 
             BaseFont bf_normal = BaseFont.CreateFont(HttpContext.Current.Server.MapPath("fonts/THSarabunNew.ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 
@@ -94,14 +153,14 @@ namespace BestBoQ
                         para.FirstLineIndent = 50f;
                         pdfDoc.Add(para);
 
-                        para = new Paragraph(@"ข้อ    4.ผู้ว่าจ้าง  ตกลงชำระค่าจ้างให้แก่ผู้รับจ้าง โดยตกลงค่าจ้างกันในราคารวมเป็น [totalprice] บาท ([priceth]บาทถ้วน) โดยปรากฏรายระเอียดการก่อสร้างตามเอกสารภาคผนวก ก.  เอกสารต่างๆ ดังต่อไปนี้ให้ถือเป็นส่วนหนึ่งของสัญญาฉบับนี้ด้วย ดังนี้ 
+                        para = new Paragraph(@"ข้อ    4.ผู้ว่าจ้าง  ตกลงชำระค่าจ้างให้แก่ผู้รับจ้าง โดยตกลงค่าจ้างกันในราคารวมเป็น [totalprice] บาท ([priceth]) โดยปรากฏรายระเอียดการก่อสร้างตามเอกสารภาคผนวก ก.  เอกสารต่างๆ ดังต่อไปนี้ให้ถือเป็นส่วนหนึ่งของสัญญาฉบับนี้ด้วย ดังนี้ 
 		                    1.1 ภาคผนวก ก.			: การชำระเงินค่าก่อสร้าง
 		                    1.2 ภาคผนวก ข.			: แปลนบ้าน
 		                    1.3 ภาคผนวก ค.			: รายการวัสดุมาตรฐาน
 		                    1.4 ภาคผนวก ง.			: เอกสารแนบท้ายสัญญา 
                             - สำเนาบัตรประจำตัวประชาชน/สำเนาทะเบียนบ้านของผู้ว่าจ้าง
                             - สำเนาบัตรประจำตัวประชาชน/สำเนาทะเบียนบ้านของผู้รับจ้าง
-                            - สำเนาโฉนดที่ดินแปลงที่จะปลูกสร้างบ้านของผู้ว่าจ้าง (ถ้ามี)", new Font(bf_normal, 18));
+                            - สำเนาโฉนดที่ดินแปลงที่จะปลูกสร้างบ้านของผู้ว่าจ้าง (ถ้ามี)".Replace("[totalprice]", totalprice).Replace("[priceth]", ThaiBaht(totalprice)), new Font(bf_normal, 18));
                         para.Alignment = Element.ALIGN_JUSTIFIED;
                         para.FirstLineIndent = 50f;
                         pdfDoc.Add(para);
@@ -121,7 +180,7 @@ namespace BestBoQ
                         para.FirstLineIndent = 50f;
                         pdfDoc.Add(para);
 
-                        para = new Paragraph(@"ข้อ 7. ผู้รับจ้าง จะต้องเริ่มทำการก่อสร้างบ้านภายในสามสิบ (30) วัน นับจากวันที่เซ็นสัญญา หรือตามเงื่อนไข ข้อตกลงกันระหว่าง ผู้ว่าจ้างกับ ผู้รับจ้างอีกที  ทั้งนี้จะต้องไม่เกินกำหนดระยะเวลา [month] เดือน นับจากวันเซ็นต์สัญญา", new Font(bf_normal, 18));
+                        para = new Paragraph(@"ข้อ 7. ผู้รับจ้าง จะต้องเริ่มทำการก่อสร้างบ้านภายในสามสิบ (30) วัน นับจากวันที่เซ็นสัญญา หรือตามเงื่อนไข ข้อตกลงกันระหว่าง ผู้ว่าจ้างกับ ผู้รับจ้างอีกที  ทั้งนี้จะต้องไม่เกินกำหนดระยะเวลา [month] เดือน นับจากวันเซ็นต์สัญญา".Replace("[month]", month), new Font(bf_normal, 18));
                         para.Alignment = Element.ALIGN_JUSTIFIED;
                         para.FirstLineIndent = 50f;
                         pdfDoc.Add(para);
@@ -146,7 +205,7 @@ namespace BestBoQ
                             -	11	  เดือน	สำหรับบ้านราคาไม่เกิน		8	ล้านบาท
 		                    -	12	  เดือน	สำหรับบ้านราคาไม่เกิน		10	ล้านบาท 
 		                    -	14	 เดือน	สำหรับบ้านราคาไม่เกิน		15	ล้านบาท
- 		                    -	18	 เดือน	สำหรับบ้านราคามากกว่า		15	ล้านบาท", new Font(bf_normal, 18));
+ 		                    -	18	 เดือน	สำหรับบ้านราคามากกว่า		15	ล้านบาท".Replace("[month]", month), new Font(bf_normal, 18));
                         para.Alignment = Element.ALIGN_JUSTIFIED;
                         para.FirstLineIndent = 50f;
                         pdfDoc.Add(para);
@@ -212,10 +271,10 @@ namespace BestBoQ
 
                         PdfPTable table = new PdfPTable(2);
                         PdfPCell cell1_1 = new PdfPCell(new Phrase(Environment.NewLine + Environment.NewLine + @"ลงชื่อ ...................................... ผู้ว่าจ้าง" + Environment.NewLine
-                            + @" ([customer])", new Font(bf_normal, 18)));
+                            + @" ([customer])".Replace("[customer]", customerName), new Font(bf_normal, 18)));
                         PdfPCell cell1_2 = new PdfPCell(new Phrase(Environment.NewLine + Environment.NewLine + @"ลงชื่อ ...................................... ผู้รับจ้าง" + Environment.NewLine
-                            + @"([name])" + Environment.NewLine
-                            + @"[companyname]", new Font(bf_normal, 18)));
+                            + @"([name])".Replace("[name]", "[name]") + Environment.NewLine
+                            + @"[companyname]".Replace("[companyname]", "[companyname]"), new Font(bf_normal, 18)));
                         PdfPCell cell2_1 = new PdfPCell(new Phrase(Environment.NewLine + Environment.NewLine + @"ลงชื่อ ......................................พยาน" + Environment.NewLine
                             + @"(                                         )", new Font(bf_normal, 18)));
                         PdfPCell cell2_2 = new PdfPCell(new Phrase(Environment.NewLine + Environment.NewLine + @"ลงชื่อ ......................................พยาน" + Environment.NewLine

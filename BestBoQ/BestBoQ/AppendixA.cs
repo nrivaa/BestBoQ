@@ -80,26 +80,26 @@ namespace BestBoQ
         {
             //get data
             DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projectID + "'");
-            string projectName = dt.Rows[0]["projectname"].ToString();
-            string homeType = dt.Rows[0]["hometype"].ToString();
-            string customerName = dt.Rows[0]["customername"].ToString();
-            string name = dt.Rows[0]["name"].ToString();
-            string company = dt.Rows[0]["company"].ToString();
-            string area = dt.Rows[0]["numMM"].ToString();
-            string start = Convert.ToDateTime(dt.Rows[0]["start"]).ToString();
-            string stop = Convert.ToDateTime(dt.Rows[0]["stop"]).ToString();
-            string month = dt.Rows[0]["Month"].ToString();
-            string total = dt.Rows[0]["Total"].ToString();
-            string step1 = dt.Rows[0]["step01"].ToString();
-            string step2 = dt.Rows[0]["step02"].ToString();
-            string step3 = dt.Rows[0]["step03"].ToString();
-            string step4 = dt.Rows[0]["step04"].ToString();
-            string step5 = dt.Rows[0]["step05"].ToString();
-            string step6 = dt.Rows[0]["step06"].ToString();
-            string step7 = dt.Rows[0]["step07"].ToString();
-            string step8 = dt.Rows[0]["step08"].ToString();
-            string step9 = dt.Rows[0]["step09"].ToString();
-            string step10 = dt.Rows[0]["step10"].ToString();
+            string projectName = dt.Rows[0]["projectname"] == null ? "" : dt.Rows[0]["projectname"].ToString();
+            string homeType = dt.Rows[0]["hometype"] == null ? "" : dt.Rows[0]["hometype"].ToString();
+            string customerName = dt.Rows[0]["customername"] == null ? "" : dt.Rows[0]["customername"].ToString();
+            string name = dt.Rows[0]["name"] == null ? "" : dt.Rows[0]["name"].ToString();
+            string company = dt.Rows[0]["company"] == null ? "" : dt.Rows[0]["company"].ToString();
+            string area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
+            string start = dt.Rows[0]["start"] == null ? "" : Convert.ToDateTime(dt.Rows[0]["start"]).ToString();
+            string stop = dt.Rows[0]["stop"] == null ? "" : Convert.ToDateTime(dt.Rows[0]["stop"]).ToString();
+            string month = dt.Rows[0]["Month"] == null ? "" : dt.Rows[0]["Month"].ToString();
+            string total = dt.Rows[0]["Total"] == null ? "" : dt.Rows[0]["Total"].ToString();
+            string step1 = dt.Rows[0]["step01"] == null ? "" : dt.Rows[0]["step01"].ToString();
+            string step2 = dt.Rows[0]["step02"] == null ? "" : dt.Rows[0]["step02"].ToString();
+            string step3 = dt.Rows[0]["step03"] == null ? "" : dt.Rows[0]["step03"].ToString();
+            string step4 = dt.Rows[0]["step04"] == null ? "" : dt.Rows[0]["step04"].ToString();
+            string step5 = dt.Rows[0]["step05"] == null ? "" : dt.Rows[0]["step05"].ToString();
+            string step6 = dt.Rows[0]["step06"] == null ? "" : dt.Rows[0]["step06"].ToString();
+            string step7 = dt.Rows[0]["step07"] == null ? "" : dt.Rows[0]["step07"].ToString();
+            string step8 = dt.Rows[0]["step08"] == null ? "" : dt.Rows[0]["step08"].ToString();
+            string step9 = dt.Rows[0]["step09"] == null ? "" : dt.Rows[0]["step09"].ToString();
+            string step10 = dt.Rows[0]["step10"] == null ? "" : dt.Rows[0]["step10"].ToString();
 
             BaseFont bf_normal = BaseFont.CreateFont(HttpContext.Current.Server.MapPath("fonts/THSarabunNew.ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 
