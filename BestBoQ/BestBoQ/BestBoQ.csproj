@@ -242,6 +242,7 @@
     <Content Include="js\dependencyLibs\inputmask.dependencyLib.js" />
     <Content Include="js\global\document.js" />
     <Content Include="js\global\window.js" />
+    <Content Include="js\init.validate.radio.js" />
     <Content Include="js\inputmask.date.extensions.js" />
     <Content Include="js\inputmask.extensions.js" />
     <Content Include="js\inputmask.js" />

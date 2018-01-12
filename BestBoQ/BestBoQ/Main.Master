@@ -128,7 +128,6 @@
             return $.validate({
                 form: elementForm,
                 modules: 'security',
-
             });
         }
 

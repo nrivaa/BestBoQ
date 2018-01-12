@@ -11,6 +11,8 @@ namespace BestBoQ
     public partial class CreateHomeNestedMaster : System.Web.UI.MasterPage
     {
         string param_projid;
+        public double totalPrice = 0.0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)
@@ -56,6 +58,8 @@ namespace BestBoQ
                     lbPromoPrice.Text = String.Format("{0:N2}", promoPrice);
                     lbOtherPrice.Text = String.Format("{0:N2}", otherPrice);
                     lbLastPrice.Text = String.Format("{0:N2}", lastPrice);
+
+                    this.totalPrice = totalPrice;
                 }
             }
         }

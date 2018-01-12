@@ -66,7 +66,7 @@
                             <div class="panel-body">
                                 <dl class="dl-horizontal dd-align-right room-price">
                                     <dt>ค่าแรงและวัสดุรวม</dt>
-                                    <dd>฿ <span id="totalPrice"> <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="totalPrice" data-value="<%=totalPrice%>"> <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ค่าดำเนินการ</dt>
                                     <dd>฿ <span id="feePrice"><asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ส่วนลด</dt>
@@ -81,8 +81,10 @@
                                     <dt><strong class="h5">รวมสุทธิ</strong></dt>
                                     <dd>
                                         <span>
-                                            <strong id="lastPrice" class="total-amount h5">฿
-                                                <asp:Label ID="lbLastPrice" runat="server" Text="0.00"></asp:Label>
+                                            <strong  class="total-amount h5">฿
+                                                <span id="lastPrice">
+                                                    <asp:Label ID="lbLastPrice" runat="server" Text="0.00"></asp:Label>
+                                                </span>
                                             </strong>
                                         </span>
                                     </dd>
