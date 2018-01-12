@@ -232,25 +232,6 @@
     <Content Include="Images\14WinDoor\win1_a.png" />
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
-    <Content Include="Images\2Home\1.png" />
-    <Content Include="Images\2Home\10.jpg" />
-    <Content Include="Images\2Home\11.png" />
-    <Content Include="Images\2Home\12.png" />
-    <Content Include="Images\2Home\13.png" />
-    <Content Include="Images\2Home\14.png" />
-    <Content Include="Images\2Home\15.png" />
-    <Content Include="Images\2Home\2.png" />
-    <Content Include="Images\2Home\3.png" />
-    <Content Include="Images\2Home\4.png" />
-    <Content Include="Images\2Home\5.png" />
-    <Content Include="Images\2Home\6.png" />
-    <Content Include="Images\2Home\7.jpg" />
-    <Content Include="Images\2Home\7.png" />
-    <Content Include="Images\2Home\8.jpg" />
-    <Content Include="Images\2Home\8.png" />
-    <Content Include="Images\2Home\9.jpg" />
-    <Content Include="Images\2Home\9.png" />
-    <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -261,6 +242,7 @@
     <Content Include="js\dependencyLibs\inputmask.dependencyLib.js" />
     <Content Include="js\global\document.js" />
     <Content Include="js\global\window.js" />
+    <Content Include="js\init.validate.radio.js" />
     <Content Include="js\inputmask.date.extensions.js" />
     <Content Include="js\inputmask.extensions.js" />
     <Content Include="js\inputmask.js" />
@@ -464,7 +446,6 @@
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
     <Content Include="CreateHomeNestedMaster.master" />
-    <Content Include="js\init.validate.radio.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
     <Content Include="Project_Detail.aspx" />
@@ -643,6 +624,7 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppendixA.cs" />
     <Compile Include="Approve.aspx.cs">
       <DependentUpon>Approve.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -653,6 +635,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClassConfig.cs" />
+    <Compile Include="Contract.cs" />
     <Compile Include="CreateHomeNestedMaster.master.cs">
       <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -936,6 +919,7 @@
     <Compile Include="HomeNestedMaster.master.designer.cs">
       <DependentUpon>HomeNestedMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="ITextEvents.cs" />
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -982,7 +966,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\10Color\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

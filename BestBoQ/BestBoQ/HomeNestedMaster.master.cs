@@ -11,7 +11,7 @@ namespace BestBoQ
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Username"] == null) {
+            if (Session["UserID"] == null) {
                 Response.Redirect("Default.aspx");
             }
         }

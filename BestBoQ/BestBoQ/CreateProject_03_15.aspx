@@ -86,4 +86,47 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        var tbfree = '#<%=tbfree.ClientID%>';
+        var tbpromotion = '#<%=tbpromotion.ClientID%>';
+        var tbother = '#<%=tbother.ClientID%>';
+
+        var totalPrice = $("#totalPrice");
+        var totalPriceValue = parseFloat(totalPrice.data("value"));
+
+        var feePriceElem = $("#feePrice");
+        var promoPriceElem = $("#promoPrice");
+        var otherPriceElem = $("#otherPrice");
+        var lastPriceElem = $("#lastPrice");
+
+        $("input").change(function () {
+
+            var val = $(this).val();
+
+            var feePrice = $(tbfree).val();
+            var promoPrice = $(tbpromotion).val();
+            var otherPrice = $(tbother).val();
+
+            if (val >= 0) { // isValid
+
+                var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
+                var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
+                var other = convertFloatToString(otherPrice);
+
+                feePriceElem.html(fee);
+                promoPriceElem.html(promo);
+                otherPriceElem.html(other);
+
+                lastPriceElem.html(convertFloatToString(totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other)));
+            }
+        });
+
+        function calPriceValuePercent(originValue, percent) {
+            return convertFloatToString(originValue * (percent / 100.0));
+        }
+
+        function convertFloatToString(value) {
+            return value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+    </script>
 </asp:Content>
