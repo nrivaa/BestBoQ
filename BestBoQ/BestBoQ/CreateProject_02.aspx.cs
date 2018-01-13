@@ -67,7 +67,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Response.Write("<script>alert('Insert Data 02 Success');</script>");
                 Response.Redirect("CreateProject_03_01?id=" + param_projid);

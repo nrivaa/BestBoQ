@@ -13,6 +13,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -22,6 +23,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -29,7 +31,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command_indoor = " SELECT [ceilingType],[ceilingPart],[cost_mm],[detail],[picpath] "
+            string sql_command_indoor = " SELECT RTRIM([ceilingType]) AS [ceilingType],RTRIM([ceilingPart]) AS [ceilingPart],[cost_mm],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_10_Ceiling] WHERE [ceilingType] = 'INDOOR' ";
             DataTable dt_indoor = ClassConfig.GetDataSQL(sql_command_indoor);
             if (dt_indoor.Rows.Count > 0)
@@ -38,7 +40,7 @@ namespace BestBoQ
                 Repeater1.DataBind();
             }
 
-            string sql_command_outdoor = " SELECT [ceilingType],[ceilingPart],[cost_mm],[detail],[picpath] "
+            string sql_command_outdoor = " SELECT RTRIM([ceilingType]) AS [ceilingType],RTRIM([ceilingPart]) AS [ceilingPart],[cost_mm],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_10_Ceiling] WHERE [ceilingType] = 'OUTDOOR' ";
             DataTable dt_outdoor = ClassConfig.GetDataSQL(sql_command_outdoor);
             if (dt_outdoor.Rows.Count > 0)
@@ -85,7 +87,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_11?id=" + param_projid);
@@ -109,6 +111,48 @@ namespace BestBoQ
                 return "0";
             }
 
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],[ceilingType],[ceilingPart] FROM [BESTBoQ].[dbo].[Project_03_10_Ceiling]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_ceilingType = (string)DataBinder.Eval(e.Item.DataItem, "ceilingType");
+            string param_ceilingPart = (string)DataBinder.Eval(e.Item.DataItem, "ceilingPart");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach(DataRow dr in dt_old.Rows)
+                {
+                    if (param_ceilingType.ToString() == dr["ceilingType"].ToString() && param_ceilingPart.ToString() == dr["ceilingPart"].ToString())
+                    {
+                        rb.Checked = true;
+                    }
+                }
+                
+            }
+        }
+
+        protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_ceilingType = (string)DataBinder.Eval(e.Item.DataItem, "ceilingType");
+            string param_ceilingPart = (string)DataBinder.Eval(e.Item.DataItem, "ceilingPart");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton2");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (param_ceilingType.ToString() == dr["ceilingType"].ToString() && param_ceilingPart.ToString() == dr["ceilingPart"].ToString())
+                    {
+                        rb.Checked = true;
+                    }
+                }
+
+            }
         }
     }
 }

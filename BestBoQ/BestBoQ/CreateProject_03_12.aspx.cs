@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -75,6 +77,25 @@ namespace BestBoQ
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],[colorid] FROM [BESTBoQ].[dbo].[Project_03_12_Color]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Int32 param_colorid = (Int32)DataBinder.Eval(e.Item.DataItem, "colorid");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if (dt_old.Rows.Count > 0)
+            {
+                if (param_colorid.ToString() == dt_old.Rows[0]["colorid"].ToString())
+                {
+                    rb.Checked = true;
+                }
             }
         }
     }

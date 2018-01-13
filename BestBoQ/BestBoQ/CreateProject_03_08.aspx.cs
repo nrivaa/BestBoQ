@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -20,6 +21,7 @@ namespace BestBoQ
                 param_projid = Request.QueryString["id"].ToString();
             if (!IsPostBack)
             {
+                getOldData();
                 bindDD();
             }
         }
@@ -27,7 +29,7 @@ namespace BestBoQ
 
         protected void bindDD()
         {
-            string sql_command = "SELECT [sanitationType],[cost],[detail],[picpath] FROM [BESTBoQ].[dbo].[CFG_3_8_Sanitation]";
+            string sql_command = "SELECT RTRIM([sanitationType]) AS [sanitationType],[cost],[detail],[picpath] FROM [BESTBoQ].[dbo].[CFG_3_8_Sanitation]";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -57,7 +59,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_09?id=" + param_projid);
@@ -65,6 +67,25 @@ namespace BestBoQ
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],RTRIM([sanitationType]) AS [sanitationType] FROM [BESTBoQ].[dbo].[Project_03_08_Sanitation]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_sanitationType = (string)DataBinder.Eval(e.Item.DataItem, "sanitationType");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if (dt_old.Rows.Count > 0)
+            {
+                if (param_sanitationType.ToString() == dt_old.Rows[0]["sanitationType"].ToString())
+                {
+                    rb.Checked = true;
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -28,7 +30,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command = " SELECT [toiletType],[cost_room],[picpath] "
+            string sql_command = " SELECT RTRIM([toiletType]) AS [toiletType],[cost_room],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_7_Toilet] ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
@@ -59,7 +61,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_08?id=" + param_projid);
@@ -67,6 +69,28 @@ namespace BestBoQ
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],RTRIM([toiletType]) AS [toiletType],[numRoom] FROM [BESTBoQ].[dbo].[Project_03_07_Toilet]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_toiletType = (string)DataBinder.Eval(e.Item.DataItem, "toiletType");
+            TextBox tbnumRoom = (TextBox)e.Item.FindControl("TextBox1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["toiletType"].ToString().Trim() == param_toiletType.ToString().Trim())
+                    {
+                        tbnumRoom.Text = dr["numRoom"].ToString().Trim();
+                    }
+                }
             }
         }
     }

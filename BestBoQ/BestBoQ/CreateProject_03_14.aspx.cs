@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -28,7 +30,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command_door1 = " SELECT [windoorPart],[windoorType],[cost_item],[detail],[picpath] "
+            string sql_command_door1 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'ประตูภายใน' ";
             DataTable dt_door1 = ClassConfig.GetDataSQL(sql_command_door1);
             if (dt_door1.Rows.Count > 0)
@@ -37,7 +39,7 @@ namespace BestBoQ
                 Repeater1.DataBind();
             }
 
-            string sql_command_door2 = " SELECT [windoorPart],[windoorType],[cost_item],[detail],[picpath] "
+            string sql_command_door2 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'ประตูห้องน้ำ' ";
             DataTable dt_door2 = ClassConfig.GetDataSQL(sql_command_door2);
             if (dt_door2.Rows.Count > 0)
@@ -46,7 +48,7 @@ namespace BestBoQ
                 Repeater2.DataBind();
             }
 
-            string sql_command_win1 = " SELECT [windoorPart],[windoorType],[cost_item],[detail],[picpath] "
+            string sql_command_win1 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'หน้าต่าง' ";
             DataTable dt_win1 = ClassConfig.GetDataSQL(sql_command_win1);
             if (dt_win1.Rows.Count > 0)
@@ -121,7 +123,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_15?id=" + param_projid);
@@ -129,6 +131,72 @@ namespace BestBoQ
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[numItem] FROM [BESTBoQ].[dbo].[Project_03_14_WinDoor]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_windoorType = (string)DataBinder.Eval(e.Item.DataItem, "windoorType");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach(DataRow dr in dt_old.Rows)
+                {
+                    if(dr["windoorPart"].ToString().Trim() == "ประตูภายใน")
+                    {
+                        if (param_windoorType.ToString() == dr["windoorType"].ToString())
+                        {
+                            rb.Checked = true;
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_windoorType = (string)DataBinder.Eval(e.Item.DataItem, "windoorType");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton2");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["windoorPart"].ToString().Trim() == "ประตูห้องน้ำ")
+                    {
+                        if (param_windoorType.ToString() == dr["windoorType"].ToString())
+                        {
+                            rb.Checked = true;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        protected void Repeater3_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_windoorType = (string)DataBinder.Eval(e.Item.DataItem, "windoorType");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton3");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["windoorPart"].ToString().Trim() == "หน้าต่าง")
+                    {
+                        if (param_windoorType.ToString() == dr["windoorType"].ToString())
+                        {
+                            rb.Checked = true;
+                        }
+                    }
+                }
+
             }
         }
     }

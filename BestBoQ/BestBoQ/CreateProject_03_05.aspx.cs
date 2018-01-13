@@ -13,6 +13,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,13 +22,14 @@ namespace BestBoQ
                 param_projid = Request.QueryString["id"].ToString();
             if (!IsPostBack)
             {
+                getOldData();
                 bindDD();
             }
         }
 
         protected void bindDD()
         {
-            string sql_command = "SELECT [picpath],[wallType],[detail],[cost_mm] FROM [BESTBoQ].[dbo].[CFG_3_5_Wall]";
+            string sql_command = "SELECT [picpath],RTRIM([wallType]) AS [wallType],[detail],[cost_mm] FROM [BESTBoQ].[dbo].[CFG_3_5_Wall]";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -73,7 +75,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_06?id=" + param_projid);
@@ -83,5 +85,26 @@ namespace BestBoQ
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
             }
         }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],RTRIM([wallType]) AS [wallType],[numMM] FROM [BESTBoQ].[dbo].[Project_03_05_Wall]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_wallType = (string)DataBinder.Eval(e.Item.DataItem, "wallType");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if(dt_old.Rows.Count > 0)
+            {
+                if (param_wallType.ToString() == dt_old.Rows[0]["wallType"].ToString())
+                {
+                    rb.Checked = true;
+                }
+            }
+            
+        }
+
     }
 }

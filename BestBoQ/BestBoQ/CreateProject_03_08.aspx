@@ -31,7 +31,7 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                            <asp:Repeater ID="Repeater1" runat="server">
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-12 col-md-6">
                                         <div class="thumbnail">

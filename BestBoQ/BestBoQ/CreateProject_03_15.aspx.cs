@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,8 @@ namespace BestBoQ
                 userID = Session["UserID"].ToString();
             if (Request.QueryString["id"] != null)
                 param_projid = Request.QueryString["id"].ToString();
+
+            getOldData();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace BestBoQ
                 ClassConfig.GetDataSQL(sql_command);
 
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("Project_Detail.aspx?id=" + param_projid);
@@ -49,5 +52,19 @@ namespace BestBoQ
             }
 
         }
+
+        protected void getOldData()
+        {
+            string sql_command = "SELECT [projectid],[pct_free],[pct_promotion],[bht_other],[cost],[detail_other] FROM [BESTBoQ].[dbo].[Project_03_15_Money] WHERE [projectid] = '"+param_projid+"'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            if(dt.Rows.Count > 0)
+            {
+                tbfree.Text = dt.Rows[0]["pct_free"].ToString();
+                tbpromotion.Text = dt.Rows[0]["pct_promotion"].ToString();
+                tbother.Text = dt.Rows[0]["bht_other"].ToString();
+                tbdetail.Text = dt.Rows[0]["detail_other"].ToString();
+            }
+        }
+
     }
 }

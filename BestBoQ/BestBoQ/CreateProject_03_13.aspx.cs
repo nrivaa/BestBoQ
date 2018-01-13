@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -29,7 +31,7 @@ namespace BestBoQ
         protected void bindData()
         {
             //Get data form DB to repeater
-            string sql_command = " SELECT [railingType],[cost_m],[detail],[picpath] "
+            string sql_command = " SELECT RTRIM([railingType]) AS [railingType],[cost_m],[detail],[picpath] "
                                + " FROM [BESTBoQ].[dbo].[CFG_3_13_Railing] ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
@@ -60,7 +62,7 @@ namespace BestBoQ
                     }
                 }
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
                 Response.Redirect("CreateProject_03_14?id=" + param_projid);
@@ -68,6 +70,28 @@ namespace BestBoQ
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],RTRIM([railingType]) AS [railingType],[numMM] FROM [BESTBoQ].[dbo].[Project_03_13_Railing]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_railingType = (string)DataBinder.Eval(e.Item.DataItem, "railingType");
+            TextBox tbnumMM = (TextBox)e.Item.FindControl("TextBox1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["railingType"].ToString().Trim() == param_railingType.ToString().Trim())
+                    {
+                        tbnumMM.Text = dr["numMM"].ToString().Trim();
+                    }
+                }
             }
         }
     }

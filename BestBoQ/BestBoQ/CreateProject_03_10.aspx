@@ -32,7 +32,7 @@
                     <div class="form" role="form">
                         <h3>INDOOR</h3>
                         <div class="row">
-                            <asp:Repeater ID="Repeater1" runat="server">
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">
@@ -54,7 +54,7 @@
                         </div>
                         <h3>OUTDOOR</h3>
                         <div class="row">
-                            <asp:Repeater ID="Repeater2" runat="server">
+                            <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Repeater2_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">

@@ -32,7 +32,7 @@
                     <div class="form" role="form">
                         <h3>ประตูภายใน</h3>
                         <div class="row">
-                            <asp:Repeater ID="Repeater1" runat="server">
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">
@@ -60,7 +60,7 @@
                         </div>
                         <h3>ประตูห้องน้ำ</h3>
                         <div class="row">
-                            <asp:Repeater ID="Repeater2" runat="server">
+                            <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Repeater2_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">
@@ -86,7 +86,7 @@
                         </div>
                         <h3>หน้าต่าง</h3>
                         <div class="row">
-                            <asp:Repeater ID="Repeater3" runat="server">
+                            <asp:Repeater ID="Repeater3" runat="server" OnItemDataBound="Repeater3_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">

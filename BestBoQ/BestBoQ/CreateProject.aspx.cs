@@ -94,7 +94,7 @@ namespace BestBoQ
                 if (dtResult.Rows.Count > 0)
                 {
                     //Update Status
-                    ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+                    ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                     //Redirect
                     string id = dtResult.Rows[0]["projectid"].ToString();
