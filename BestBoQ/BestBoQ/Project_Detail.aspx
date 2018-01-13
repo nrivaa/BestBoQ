@@ -28,10 +28,10 @@
             <br />
             <div class="row ">
                 <div class="col-xs-6 text-left">
-                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline">Back to Home</a>
+                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to Home</a>
                 </div>
                 <div class="col-xs-6 text-right">
-                    <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn">Finish Project</button>
+                    <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn"><i class="fa fa-flag" aria-hidden="true"></i> Finish Project</button>
                 </div>
             </div>
             <br />
