@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
 
@@ -72,5 +74,29 @@ namespace BestBoQ
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
             }
         }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],[beamType],[numM] FROM [BESTBoQ].[dbo].[Project_03_02_Beam] WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_beamType = (string)DataBinder.Eval(e.Item.DataItem, "beamType");
+            TextBox tbNumM = (TextBox)e.Item.FindControl("TextBox1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["beamType"].ToString().Trim() == param_beamType.Trim())
+                    {
+                        tbNumM.Text = dr["numM"].ToString().Trim();
+                    }
+                }
+            }
+        }
+
     }
 }

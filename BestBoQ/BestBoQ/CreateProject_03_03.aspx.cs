@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
         }
@@ -76,5 +78,31 @@ namespace BestBoQ
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
             }
         }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],[floorType],[numMM],[numRoom] FROM [BESTBoQ].[dbo].[Project_03_03_Floor] WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_floorType = (string)DataBinder.Eval(e.Item.DataItem, "floorType");
+            TextBox tbNumRoom = (TextBox)e.Item.FindControl("TextBox2");
+            TextBox tbNumM = (TextBox)e.Item.FindControl("TextBox3");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if (dr["floorType"].ToString().Trim() == param_floorType.Trim())
+                    {
+                        tbNumRoom.Text = dr["numRoom"].ToString().Trim();
+                        tbNumM.Text = dr["numMM"].ToString().Trim();
+                    }
+                }
+            }
+        }
+
     }
 }

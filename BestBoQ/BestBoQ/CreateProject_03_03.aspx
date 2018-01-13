@@ -36,7 +36,7 @@
                                 <img src="Images/03Floor/pic_floor.png" />
                                 </div>
                             </div>
-                            <asp:Repeater ID="Repeater1" runat="server">
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-sm-12 col-lg-6">
                                         <div class="thumbnail">

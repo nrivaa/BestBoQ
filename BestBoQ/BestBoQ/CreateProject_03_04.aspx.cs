@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindDropdown();
             }
         }
@@ -77,6 +79,13 @@ namespace BestBoQ
             }
         }
 
+        protected void getOldData()
+        {
+            string sql_command = " SELECT [projectid],[roofStyle],[roofType] FROM [BESTBoQ].[dbo].[Project_03_04_Roof]  WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+
+        }
+
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             //if (e.Item.ItemType == ListItemType.Item)
@@ -86,7 +95,7 @@ namespace BestBoQ
 
                 //string param_roofStyle = lbRoofStyle.Text.ToString();
 
-                string sql_command = " SELECT [roofType],[detail] FROM [BESTBoQ].[dbo].[CFG_3_4_Roof] "
+                string sql_command = " SELECT RTRIM([roofType]) AS [roofType],[detail] FROM [BESTBoQ].[dbo].[CFG_3_4_Roof] "
                                    + " WHERE [roofStyle] = '" + param_roofStyle.Trim() + "' "
                                    + " GROUP BY [roofType],[detail] ";
                 DataTable dt_type = ClassConfig.GetDataSQL(sql_command);
@@ -94,6 +103,12 @@ namespace BestBoQ
                 rb.DataTextField = "detail";
                 rb.DataValueField = "roofType";
                 rb.DataBind();
+
+            if(param_roofStyle.Trim() == dt_old.Rows[0]["roofStyle"].ToString().Trim())
+            {
+                rb.Items.FindByValue(dt_old.Rows[0]["roofType"].ToString().Trim()).Selected = true;
+            }
+            
             //}
         }
     }
