@@ -41,8 +41,9 @@
                                                     <asp:Label ID="lbProjName" runat="server" Text="#N/A"></asp:Label>
                                                 </h1>
                                                 <i class="edit-booking-hotel-start ficon ficon-16 orange-yellow ficon-star-style ficon-star-4"></i>
-                                                <p class="hotel-address-map">
-                                                    <asp:Label ID="lbCusName" runat="server" Text="#N/A"></asp:Label>
+                                                <p class="hotel-address-map edit-booking-state" id="summary-status">
+                                                    <i class="fa"></i><span><asp:Label ID="lbStatus" runat="server" Text="#N/A"></asp:Label></span>
+                                                    <asp:Label ID="lbCusName" Visible="false" runat="server" Text="#N/A"></asp:Label>
                                                 </p>
                                             </div>
                                         </section>
@@ -56,12 +57,11 @@
                                                 <div class="edit-booking-info-block edit-booking-booking-id-info">
                                                     <div class="edit-booking-info-label">
                                                         <div class="edit-booking-booking-id-info-title">Project Name</div>
-                                                        <div class="edit-booking-booking-id-info-title"></div>
                                                         <div class="edit-booking-booking-id-info-title">Contract Name</div>
                                                     </div>
                                                     <div class="edit-booking-content">
-                                                        <div class="edit-booking-booking-id-info-content">113142054</div>
-                                                        <div class="edit-booking-state" data-selenium="edit-booking-state"><i class="fa fa-check-circle mmb-booking-status-icon-green"></i><span class="mmb-bi-state-green">Completed</span></div>
+                                                        <div class="edit-booking-booking-id-info-content"><asp:Label ID="lbProjName2" runat="server" Text="#N/A"></asp:Label></div>
+                                                        
                                                         <div class="edit-booking-booking-id-info-content">
                                                             <asp:Label ID="lbContract" runat="server" Text="#N/A"></asp:Label>
                                                         </div>
@@ -75,13 +75,12 @@
                                                         <div class="edit-booking-check-out-title">Customer Address</div>
                                                     </div>
                                                     <div class="edit-booking-content ">
-                                                        <div class="edit-booking-check-in-content">June 30, 2017</div>
+                                                        <div class="edit-booking-check-in-content"> <asp:Label ID="lbCusName2" runat="server" Text="#N/A"></asp:Label></div>
                                                         <div class="edit-booking-check-out-content">
                                                             <div class="edit-booking-check-out-date">
                                                                 <asp:Label ID="lbCusAddress" runat="server" Text="#N/A"></asp:Label>
                                                             </div>
                                                         </div>
-                                                        <div class="edit-booking-num-staying-days">3 night(s)</div>
                                                     </div>
                                                     <div class="edit-booking-action edit-booking-change-date-action"></div>
                                                     <div class="edit-booking-block-separator"></div>
@@ -169,4 +168,20 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script>
+        var status = '<%=lbStatus.Text%>';
+        
+
+        if (status.toLowerCase() == "complete") {
+            $("#summary-status i").addClass("mmb-booking-status-icon-green");
+            $("#summary-status i").addClass("fa-check-circle");
+            $("#summary-status span").addClass("mmb-bi-state-green");
+            
+        }
+        else if(status.toLowerCase() == "on progress") {
+            $("#summary-status i").addClass("mmb-booking-status-icon-orange");
+            $("#summary-status i").addClass("fa-clock-o");
+            $("#summary-status span").addClass("mmb-bi-state-orange");
+        }
+    </script>
 </asp:Content>

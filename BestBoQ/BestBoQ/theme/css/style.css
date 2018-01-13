@@ -63,6 +63,14 @@ a {
         color: #004F32;
     }
 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #004F32;
+    border-color: #004F32;
+}
+
 
 /***********************************
 Navigation bar

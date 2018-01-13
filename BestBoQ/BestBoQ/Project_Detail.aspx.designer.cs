@@ -22,6 +22,15 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Label lbProjName;
         
         /// <summary>
+        /// lbStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbStatus;
+        
+        /// <summary>
         /// lbCusName control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Image img;
         
         /// <summary>
+        /// lbProjName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbProjName2;
+        
+        /// <summary>
         /// lbContract control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbContract;
+        
+        /// <summary>
+        /// lbCusName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCusName2;
         
         /// <summary>
         /// lbCusAddress control.

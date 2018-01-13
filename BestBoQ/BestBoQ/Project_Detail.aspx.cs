@@ -39,12 +39,32 @@ namespace BestBoQ
             {
                 img.ImageUrl = dt.Rows[0]["homepic"].ToString();
                 lbProjName.Text = dt.Rows[0]["projectname"].ToString();
+                lbProjName2.Text = dt.Rows[0]["projectname"].ToString();
                 lbProjType.Text = dt.Rows[0]["homename"].ToString();
                 lbCusName.Text = dt.Rows[0]["customername"].ToString();
+                lbCusName2.Text = dt.Rows[0]["customername"].ToString();
                 lbCusAddress.Text = dt.Rows[0]["address"].ToString() + ' ' + dt.Rows[0]["province"].ToString() + ' ' + dt.Rows[0]["country"].ToString();
                 lbProjStart.Text = dt.Rows[0]["projectstart"].ToString();
                 lbContract.Text = dt.Rows[0]["contractid"].ToString();
-                //lbTatalPrice.Text = dt.Rows[0]["Last"].ToString();
+                lbStatus.Text = dt.Rows[0]["status"].ToString();
+
+                double totalPrice = 0.00;
+                double feePrice = 0.00;
+                double promoPrice = 0.00;
+                double otherPrice = 0.00;
+                double lastPrice = 0.00;
+
+                Double.TryParse(dt.Rows[0]["Total"].ToString(), out totalPrice);
+                Double.TryParse(dt.Rows[0]["Free"].ToString(), out feePrice);
+                Double.TryParse(dt.Rows[0]["Promo"].ToString(), out promoPrice);
+                Double.TryParse(dt.Rows[0]["Other"].ToString(), out otherPrice);
+                Double.TryParse(dt.Rows[0]["Last"].ToString(), out lastPrice);
+
+                lbTotalPrice.Text = String.Format("{0:N2}", totalPrice);
+                lbFeePrice.Text = String.Format("{0:N2}", feePrice);
+                lbPromoPrice.Text = String.Format("{0:N2}", promoPrice);
+                lbOtherPrice.Text = String.Format("{0:N2}", otherPrice);
+                lbLastPrice.Text = String.Format("{0:N2}", lastPrice);
             }
         }
 
