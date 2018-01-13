@@ -65,7 +65,10 @@ namespace BestBoQ
                         }
                     }
                 }
+                //Update Status
+                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
 
+                //Redirect
                 Response.Redirect("CreateProject_03_05?id=" + param_projid);
             }
             catch (Exception)

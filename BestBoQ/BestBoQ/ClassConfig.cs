@@ -45,5 +45,19 @@ namespace BestBoQ
             return sb.ToString();
         }
 
+        public static string UpdateStatus(string param_projid, string param_status, string param_userid)
+        {
+            string sql_command = "EXEC [dbo].[set_Status] '"+ param_projid + "','"+ param_status + "','"+ param_userid + "' ";
+            try
+            {
+                GetDataSQL(sql_command);
+                return "Update Status Success";
+            }
+            catch (Exception)
+            {
+                return "Update Status Fail";
+            }
+        }
+
     }
 }

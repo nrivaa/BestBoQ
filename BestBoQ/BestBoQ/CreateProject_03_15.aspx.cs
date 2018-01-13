@@ -35,6 +35,10 @@ namespace BestBoQ
                                    + " '" + param_projid + "','" + param_free + "','" + param_promotion + "','" + param_other + "',N'" + param_detail + "','" + userID + "' ";
                 ClassConfig.GetDataSQL(sql_command);
 
+                //Update Status
+                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+
+                //Redirect
                 Response.Redirect("Project_Detail.aspx?id=" + param_projid);
 
             }

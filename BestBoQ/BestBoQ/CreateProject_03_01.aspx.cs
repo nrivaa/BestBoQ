@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -21,6 +22,7 @@ namespace BestBoQ
 
             if (!IsPostBack)
             {
+                getOldData();
                 bindData();
             }
         }
@@ -60,12 +62,38 @@ namespace BestBoQ
                         }
                     }
                 }
+                //Update Status
+                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
 
+                //Redirect
                 Response.Redirect("CreateProject_03_02?id=" + param_projid);
             }
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT[projectid],[footingType],[numpole] FROM[BESTBoQ].[dbo].[Project_03_01_Footing] WHERE[projectid] = '" + param_projid + "' ";
+            dt_old = ClassConfig.GetDataSQL(sql_command);
+            
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            string param_homeid = (string)DataBinder.Eval(e.Item.DataItem, "footingType");
+            TextBox tbPiles = (TextBox)e.Item.FindControl("TextBox1");
+            if (dt_old.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt_old.Rows)
+                {
+                    if(dr["footingType"].ToString().Trim() == param_homeid.Trim())
+                    {
+                        tbPiles.Text = dr["numpole"].ToString().Trim();
+                    }
+                }
             }
         }
     }

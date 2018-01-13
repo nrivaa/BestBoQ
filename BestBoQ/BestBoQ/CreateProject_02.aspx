@@ -47,7 +47,7 @@
                             </asp:Repeater>
                         </div>
                         <div class="row">
-                            <asp:Repeater ID="Repeater2" runat="server">
+                            <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Repeater2_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="col-xs-6 col-md-4">
                                         <div class="thumbnail">

@@ -14,14 +14,17 @@ namespace BestBoQ
         string param_projid = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["UserID"] != null)
+            if (Session["UserID"] != null)
                 userID = Session["UserID"].ToString();
+            if (Request.QueryString["id"] != null)
+                param_projid = Request.QueryString["id"].ToString();
 
             if (!IsPostBack)
             {
                 bindProjectType();
                 bindCountry();
                 ddProvince.Items.Insert(0, new ListItem("กรุณาเลือกจังหวัด", ""));
+                getOldData();
             }
         }
 
@@ -90,6 +93,10 @@ namespace BestBoQ
 
                 if (dtResult.Rows.Count > 0)
                 {
+                    //Update Status
+                    ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
+
+                    //Redirect
                     string id = dtResult.Rows[0]["projectid"].ToString();
                     Response.Redirect("CreateProject_02?id=" + id);
                 }
@@ -102,5 +109,35 @@ namespace BestBoQ
             }
 
         }
+
+
+        protected void getOldData()
+        {
+            string sql_command = "SELECT [projectid],[projectname],[customername],[projecttype] "
+                               + ",[country],[province],[address],[projectstart]"
+                               + ",[contractid],[userid],[transdate]"
+                               + "FROM[BESTBoQ].[dbo].[Project_01_Desc] WHERE[projectid] = '" + param_projid + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            if(dt.Rows.Count > 0)
+            {
+                tbProjectName.Text = dt.Rows[0]["projectname"].ToString().Trim();
+                tbCustomerName.Text = dt.Rows[0]["customername"].ToString().Trim();
+                ddProjectType.SelectedValue = dt.Rows[0]["projecttype"].ToString().Trim();
+                ddCountry.SelectedValue = dt.Rows[0]["country"].ToString().Trim();
+
+                string param_country = dt.Rows[0]["country"].ToString().Trim();
+                string sql = "SELECT [province] FROM [BESTBoQ].[dbo].[CFG_Province] WHERE [country] = N'" + param_country + "'";
+                DataTable dt1 = ClassConfig.GetDataSQL(sql);
+                ddProvince.DataSource = dt1;
+                ddProvince.DataTextField = "province";
+                ddProvince.DataValueField = "province";
+                ddProvince.DataBind();
+
+                ddProvince.SelectedValue = dt.Rows[0]["province"].ToString().Trim();
+                tbAddress.Text = dt.Rows[0]["address"].ToString().Trim();
+                tbStartProject.Text = dt.Rows[0]["projectstart"].ToString().Trim();
+            }
+        }
+
     }
 }

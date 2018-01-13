@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        string homeid_old;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] != null)
@@ -22,6 +23,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 bindHomeGroup();
+                getOldData();
             }
 
         }
@@ -60,9 +62,12 @@ namespace BestBoQ
                                                + param_homeid + "','"
                                                + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
+
                         }
                     }
                 }
+                //Update Status
+                ClassConfig.UpdateStatus(param_projid, "OnProgress", userID);
 
                 //Response.Write("<script>alert('Insert Data 02 Success');</script>");
                 Response.Redirect("CreateProject_03_01?id=" + param_projid);
@@ -94,6 +99,39 @@ namespace BestBoQ
                     Repeater2.DataSource = dt;
                     Repeater2.DataBind();
                 }
+            }
+        }
+
+        protected void getOldData()
+        {
+            string sql_command = " SELECT A.[homeid],B.[hometype] "
+                               + " FROM[BESTBoQ].[dbo].[Project_02_Home] A LEFT JOIN[BESTBoQ].[dbo].[CFG_Home_Type] B "
+                               + " ON A.[homeid] = B.[homeid] WHERE [projectid] = '" + param_projid + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            if (dt.Rows.Count > 0)
+            {
+                homeid_old = dt.Rows[0]["homeid"].ToString().Trim();
+                string param_hometype = dt.Rows[0]["hometype"].ToString().Trim();
+                string sql = " SELECT [homeid],[homename],[homepic] "
+                               + " FROM [BESTBoQ].[dbo].[CFG_Home_Type] "
+                               + " WHERE [hometype] = N'" + param_hometype + "' "
+                               + " GROUP BY [homeid],[homename],[homepic] ";
+                DataTable dt1 = ClassConfig.GetDataSQL(sql);
+                if (dt1.Rows.Count > 0)
+                {
+                    Repeater2.DataSource = dt1;
+                    Repeater2.DataBind();
+                }
+            }
+        }
+
+        protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Int32 param_homeid = (Int32)DataBinder.Eval(e.Item.DataItem, "homeid");
+            RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
+            if(param_homeid.ToString() == homeid_old)
+            {
+                rb.Checked = true;
             }
         }
     }
