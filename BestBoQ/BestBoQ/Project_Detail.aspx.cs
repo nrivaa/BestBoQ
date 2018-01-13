@@ -44,7 +44,7 @@ namespace BestBoQ
                 lbCusAddress.Text = dt.Rows[0]["address"].ToString() + ' ' + dt.Rows[0]["province"].ToString() + ' ' + dt.Rows[0]["country"].ToString();
                 lbProjStart.Text = dt.Rows[0]["projectstart"].ToString();
                 lbContract.Text = dt.Rows[0]["contractid"].ToString();
-                lbTatalPrice.Text = dt.Rows[0]["Last"].ToString();
+                //lbTatalPrice.Text = dt.Rows[0]["Last"].ToString();
             }
         }
 

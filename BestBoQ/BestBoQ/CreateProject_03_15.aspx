@@ -78,7 +78,7 @@
                 <a href="CreateProject_03_14?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="ประเมิน" />
+                <asp:Button ID="btnSubmit" OnClientClick="return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="ประเมิน" />
             </div>
         </div>
     </div>
@@ -111,13 +111,13 @@
 
                 var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
                 var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
-                var other = convertFloatToString(otherPrice);
+                var other = convertFloatToString(parseFloat(otherPrice));
+                var last = convertFloatToString(totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other));
 
                 feePriceElem.html(fee);
                 promoPriceElem.html(promo);
                 otherPriceElem.html(other);
-
-                lastPriceElem.html(convertFloatToString(totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other)));
+                lastPriceElem.html(last);
             }
         });
 

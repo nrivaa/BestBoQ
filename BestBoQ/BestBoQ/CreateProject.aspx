@@ -69,12 +69,12 @@
             </div>
         </div>
     </div>
-    <div class="your-booking-includes">
+    <%--<div class="your-booking-includes">
         <div class="well confident-message">
             <h5 class="your-booking-includes-title">Remarks</h5>
             <div class="col-xs-12 your-booking-includes-details"><i class="fa fa-address-book fa-2x"></i><span>Airport transfer</span></div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>

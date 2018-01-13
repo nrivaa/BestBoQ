@@ -89,7 +89,7 @@
                                         </span>
                                     </dd>
                                 </dl>
-                                <small class="charge-summary"><strong>Not Included:</strong> <span>Current step, Service charge and Discount</span></small>
+                               <%-- <small class="charge-summary"><strong>Not Included:</strong> <span>Current step, Service charge and Discount</span></small>--%>
                             </div>
                         </div>
                     </div>

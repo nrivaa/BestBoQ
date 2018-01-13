@@ -171,6 +171,8 @@
     <Content Include="CreateTest.aspx" />
     <Content Include="css\createproject.css" />
     <Content Include="css\inputmask.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\projectdetail.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

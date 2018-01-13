@@ -1,0 +1,588 @@
+﻿.mmb-bgc-booking-wrap {
+    display: inline-block;
+    width: 800px;
+    min-height: 225px;
+    margin-left: 45px
+}
+
+.mmb-bic, .mmb-bic-clickable, .mmb-component {
+    width: 831px;
+    color: #5a5b5b;
+    font-family: malloryLight, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.78;
+    letter-spacing: .6px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
+    margin-bottom: 10px
+}
+
+.info-container ul {
+    padding-left: 0px;
+}
+
+.mmb-bic .mmb-action-text, .mmb-bic-clickable .mmb-action-text,
+.mmb-component .mmb-action-text {
+    font-family: malloryMedium, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.71;
+    letter-spacing: .6px
+}
+
+.mmb-bic .mmb-value-text, .mmb-bic-clickable .mmb-value-text, .mmb-component .mmb-value-text {
+    display: block;
+    width: 600px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.mmb-bic input[type=password].mmb-field-error, .mmb-bic input[type=text].mmb-field-error,
+.mmb-bic select.mmb-field-error, .mmb-bic-clickable input[type=password].mmb-field-error,
+.mmb-bic-clickable input[type=text].mmb-field-error, .mmb-bic-clickable select.mmb-field-error,
+.mmb-component input[type=password].mmb-field-error, .mmb-component input[type=text].mmb-field-error,
+.mmb-component select.mmb-field-error {
+    color: #c50000;
+    background-color: #fff4e5;
+    border-color: #c50000
+}
+
+.mmb-bic-clickable:hover, .mmb-bic:hover, .mmb-component:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .3)
+}
+
+.mmb-bic h2, .mmb-bic-clickable h2, .mmb-component h2 {
+    margin: 0;
+    padding: 0;
+    font-family: malloryMedium, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 2.04;
+    letter-spacing: .6px
+}
+
+.mmb-bic input[type=password], .mmb-bic input[type=text], .mmb-bic-clickable input[type=password],
+.mmb-bic-clickable input[type=text], .mmb-component input[type=password],
+.mmb-component input[type=text] {
+    width: 443px;
+    height: 45px;
+    margin: 10px 0;
+    color: #5a5b5b
+}
+
+.mmb-bic input[type=button], .mmb-bic-clickable input[type=button],
+.mmb-component input[type=button] {
+    display: inline-block;
+    min-width: 120px
+}
+
+.mmb-bic, .mmb-bic-clickable {
+    transition: .3s ease-in-out;
+    display: inline-table;
+    margin-bottom: 0;
+    width: 800px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 600
+}
+
+    .mmb-bic .zero-height, .mmb-bic-clickable .zero-height {
+        height: 0 !important;
+        min-height: 110px
+    }
+
+    .mmb-bic .info-container, .mmb-bic-clickable .info-container {
+        float: left;
+        width: 569px;
+        position: relative
+    }
+
+    .mmb-bic .hotel-picture, .mmb-bic-clickable .hotel-picture {
+        vertical-align: top;
+        float: left
+    }
+
+        .mmb-bic .hotel-picture figure, .mmb-bic-clickable .hotel-picture figure {
+            width: 231px;
+            height: 221px
+        }
+
+            .mmb-bic .hotel-picture figure img, .mmb-bic-clickable .hotel-picture figure img {
+                object-fit: cover
+            }
+
+    .mmb-bic .hotel-info-top, .mmb-bic-clickable .hotel-info-top {
+        position: relative;
+        height: 128px;
+        vertical-align: top;
+        padding-top: 18px;
+        padding-left: 20px
+    }
+
+        .mmb-bic .hotel-info-top .mmb-booking-status-icon-green, .mmb-bic-clickable .hotel-info-top .mmb-booking-status-icon-green {
+            color: #85c150
+        }
+
+        .mmb-bic .hotel-info-top .mmb-booking-status-icon-orange, .mmb-bic-clickable .hotel-info-top .mmb-booking-status-icon-orange {
+            color: #ffa726
+        }
+
+        .mmb-bic .hotel-info-top .mmb-booking-status-icon-red, .mmb-bic-clickable .hotel-info-top .mmb-booking-status-icon-red {
+            color: #e44746
+        }
+
+        .mmb-bic .hotel-info-top .mmb-booking-status-icon-gray, .mmb-bic-clickable .hotel-info-top .mmb-booking-status-icon-gray {
+            color: #888
+        }
+
+        .mmb-bic .hotel-info-top .mmb-bi-state-orange, .mmb-bic .hotel-info-top .mmb-bi-state-processing,
+        .mmb-bic-clickable .hotel-info-top .mmb-bi-state-orange, .mmb-bic-clickable .hotel-info-top .mmb-bi-state-processing {
+            color: #ffa726
+        }
+
+        .mmb-bic .hotel-info-top .mmb-bi-state-green, .mmb-bic-clickable .hotel-info-top .mmb-bi-state-green {
+            color: #85c150
+        }
+
+        .mmb-bic .hotel-info-top .mmb-bi-state-red, .mmb-bic-clickable .hotel-info-top .mmb-bi-state-red {
+            color: #e44746
+        }
+
+        .mmb-bic .hotel-info-top .mmb-bi-state-gray, .mmb-bic-clickable .hotel-info-top .mmb-bi-state-gray {
+            color: #888
+        }
+
+        .mmb-bic .hotel-info-top i, .mmb-bic-clickable .hotel-info-top i {
+            float: left;
+            margin: 2px 0 0
+        }
+
+        .mmb-bic .hotel-info-top .booking-status-label, .mmb-bic-clickable .hotel-info-top .booking-status-label {
+            display: block;
+            margin-left: 25px;
+            padding: 0;
+            font-size: 11px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 2;
+            letter-spacing: .1px;
+            text-align: left
+        }
+
+        .mmb-bic .hotel-info-top .hotel-title, .mmb-bic-clickable .hotel-info-top .hotel-title {
+            font-size: 17px;
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: .7px;
+            color: #464646;
+            overflow: hidden;
+            position: relative;
+            line-height: 1.1;
+            max-height: 37.4px
+        }
+
+        .mmb-bic .hotel-info-top .booking-id, .mmb-bic-clickable .hotel-info-top .booking-id {
+            font-size: 14px;
+            text-align: left;
+            color: #5a5b5b;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 2.04;
+            letter-spacing: .6px
+        }
+
+            .mmb-bic .hotel-info-top .booking-id span, .mmb-bic-clickable .hotel-info-top .booking-id span {
+                font-weight: 700
+            }
+
+    .mmb-bic .hotel-info-bottom, .mmb-bic-clickable .hotel-info-bottom {
+        bottom: 0;
+        float: left;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 8px;
+        vertical-align: bottom;
+        position: absolute
+    }
+
+        .mmb-bic .hotel-info-bottom ul, .mmb-bic-clickable .hotel-info-bottom ul {
+            margin-bottom: 0
+        }
+
+        .mmb-bic .hotel-info-bottom .hotel-info-text, .mmb-bic-clickable .hotel-info-bottom .hotel-info-text {
+            vertical-align: bottom;
+            font-size: 11px;
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.35;
+            letter-spacing: normal;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #464646
+        }
+
+        .mmb-bic .hotel-info-bottom .hotel-info-text-wraping, .mmb-bic-clickable .hotel-info-bottom .hotel-info-text-wraping {
+            max-width: 310px
+        }
+
+        .mmb-bic .hotel-info-bottom .cancellation-policy, .mmb-bic-clickable .hotel-info-bottom .cancellation-policy {
+            color: #0283df;
+            font-weight: 300
+        }
+
+            .mmb-bic .hotel-info-bottom .cancellation-policy i, .mmb-bic-clickable .hotel-info-bottom .cancellation-policy i {
+                padding-left: 5px
+            }
+
+        .mmb-bic .hotel-info-bottom .mmb-freebies-container, .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container {
+            position: relative;
+            height: 19px;
+            overflow: hidden;
+            padding-right: 0;
+            color: #5fc54e;
+            font-weight: 700;
+            font-size: 11px;
+            font-size: 1.1rem;
+            display: inline-block;
+            zoom: 1;
+            background-color: #fff;
+            box-shadow: 1px 1px 10px 1px #ededed
+        }
+
+            .mmb-bic .hotel-info-bottom .mmb-freebies-container.hasMore, .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container.hasMore {
+                padding-right: 30px
+            }
+
+            .mmb-bic .hotel-info-bottom .mmb-freebies-container li, .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li {
+                display: inline-block;
+                zoom: 1;
+                padding: 0 5px;
+                border-left: 1px solid #eee;
+                border-right: none;
+                top: -1px
+            }
+
+                .mmb-bic .hotel-info-bottom .mmb-freebies-container li:first-child,
+                .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li:first-child {
+                    margin-right: 3px;
+                    padding-left: 8px;
+                    border-bottom-left-radius: 2px;
+                    border-top-left-radius: 2px;
+                    background-color: #5fc54e;
+                    color: #fff;
+                    position: relative;
+                    border-left: none
+                }
+
+                    .mmb-bic .hotel-info-bottom .mmb-freebies-container li:first-child:after,
+                    .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li:first-child:after {
+                        width: 0;
+                        height: 0;
+                        border-top: 20px solid #5fc54e;
+                        border-right: 6px solid transparent;
+                        content: "";
+                        position: absolute;
+                        right: -5px;
+                        top: 0
+                    }
+
+                .mmb-bic .hotel-info-bottom .mmb-freebies-container li:nth-child(2),
+                .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li:nth-child(2) {
+                    border-left: none
+                }
+
+                .mmb-bic .hotel-info-bottom .mmb-freebies-container li:last-child,
+                .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li:last-child {
+                    padding-right: 8px;
+                    border-bottom-right-radius: 2px;
+                    border-top-right-radius: 2px
+                }
+
+                .mmb-bic .hotel-info-bottom .mmb-freebies-container li.mmb-freebies-item .freebies-txt,
+                .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container li.mmb-freebies-item .freebies-txt {
+                    padding-top: 0;
+                    padding-right: 5px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-stretch: normal;
+                    letter-spacing: normal
+                }
+
+            .mmb-bic .hotel-info-bottom .mmb-freebies-container .mmb-freebies-eol,
+            .mmb-bic-clickable .hotel-info-bottom .mmb-freebies-container .mmb-freebies-eol {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0 10px;
+                height: 19px;
+                border-left: 1px solid #eee;
+                line-height: 12px;
+                font-size: 16px;
+                font-size: 1.6rem
+            }
+
+        .mmb-bic .hotel-info-bottom .cancellation-policy-tooltip, .mmb-bic-clickable .hotel-info-bottom .cancellation-policy-tooltip {
+            text-align: center
+        }
+
+            .mmb-bic .hotel-info-bottom .cancellation-policy-tooltip .tooltip-title,
+            .mmb-bic-clickable .hotel-info-bottom .cancellation-policy-tooltip .tooltip-title {
+                color: #85c150
+            }
+
+        .mmb-bic .hotel-info-bottom .hotel-info-text .tooltip .tooltip-inner,
+        .mmb-bic-clickable .hotel-info-bottom .hotel-info-text .tooltip .tooltip-inner {
+            width: 350px;
+            max-width: 350px
+        }
+
+        .mmb-bic .hotel-info-bottom .freebies-wrapper .tooltip, .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .tooltip {
+            max-width: 94%
+        }
+
+            .mmb-bic .hotel-info-bottom .freebies-wrapper .tooltip .tooltip-inner,
+            .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .tooltip .tooltip-inner {
+                width: auto;
+                max-width: 94%;
+                min-width: 250px;
+                padding: 10px
+            }
+
+        .mmb-bic .hotel-info-bottom .freebies-wrapper .freebies-tooltip-header,
+        .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .freebies-tooltip-header {
+            margin: 0 0 10px;
+            text-align: left
+        }
+
+        .mmb-bic .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container,
+        .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container {
+            overflow: hidden;
+            list-style-type: disc;
+            color: #5fc54e
+        }
+
+            .mmb-bic .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container .freebies-tooltip-item,
+            .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container .freebies-tooltip-item {
+                float: left;
+                text-align: left;
+                width: 42%;
+                margin-left: 17px
+            }
+
+            .mmb-bic .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container .freebies-tooltip-text,
+            .mmb-bic-clickable .hotel-info-bottom .freebies-wrapper .freebies-tooltip-container .freebies-tooltip-text {
+                color: #fff
+            }
+
+    .mmb-bic .booking-info-top, .mmb-bic-clickable .booking-info-top {
+        float: right;
+        vertical-align: top;
+        padding: 15px 15px 0;
+        height: 128px;
+        letter-spacing: normal;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        position: relative
+    }
+
+        .mmb-bic .booking-info-top .check-spacer, .mmb-bic-clickable .booking-info-top .check-spacer {
+            display: inline-table;
+            margin-left: 10px;
+            margin-right: 10px;
+            height: 80px;
+            border: dashed #ccc;
+            border-width: 1px 0 1px 1px
+        }
+
+        .mmb-bic .booking-info-top .check-dates, .mmb-bic-clickable .booking-info-top .check-dates {
+            display: inline-table
+        }
+
+            .mmb-bic .booking-info-top .check-dates .check-info, .mmb-bic-clickable .booking-info-top .check-dates .check-info {
+                display: inline-table;
+                vertical-align: top
+            }
+
+                .mmb-bic .booking-info-top .check-dates .check-info .check-title,
+                .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-title {
+                    margin-bottom: 3px;
+                    font-size: 10px;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 2.4;
+                    letter-spacing: .4px;
+                    color: #959595;
+                    text-transform: uppercase
+                }
+
+                .mmb-bic .booking-info-top .check-dates .check-info .check-date,
+                .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-date {
+                    display: inline-table
+                }
+
+                    .mmb-bic .booking-info-top .check-dates .check-info .check-date .check-day,
+                    .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-date .check-day {
+                        display: inline-table;
+                        margin-right: 5px;
+                        font-size: 30px;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: .8;
+                        letter-spacing: 1.2px;
+                        color: #5a5b5b
+                    }
+
+                    .mmb-bic .booking-info-top .check-dates .check-info .check-date .check-mon-weekday,
+                    .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-date .check-mon-weekday {
+                        font-size: 10px;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 2.4;
+                        margin-top: -2px;
+                        vertical-align: top;
+                        display: inline-table;
+                        letter-spacing: .4px;
+                        color: #5a5b5b
+                    }
+
+                        .mmb-bic .booking-info-top .check-dates .check-info .check-date .check-mon-weekday .check-mon,
+                        .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-date .check-mon-weekday .check-mon {
+                            margin-top: -5px;
+                            margin-bottom: -10px
+                        }
+
+                .mmb-bic .booking-info-top .check-dates .check-info .check-time,
+                .mmb-bic-clickable .booking-info-top .check-dates .check-info .check-time {
+                    font-size: 12px;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 2;
+                    letter-spacing: .5px;
+                    text-align: left;
+                    color: #5a5b5b
+                }
+
+    .mmb-bic .m150-message-container .ficon-info-with-circle, .mmb-bic-clickable .m150-message-container .ficon-info-with-circle {
+        color: #488bf8;
+        margin-bottom: 25px;
+        display: inline-block
+    }
+
+    .mmb-bic .m150-message-container .m150-policytext-trimming, .mmb-bic-clickable .m150-message-container .m150-policytext-trimming {
+        width: 250px;
+        height: 23px;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 3px;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .mmb-bic .m150-message-container .footnote-continue, .mmb-bic-clickable .m150-message-container .footnote-continue {
+        vertical-align: text-bottom;
+        font-size: 15px;
+        padding-bottom: 5px;
+        display: inline-block
+    }
+
+    .mmb-bic .booking-info-bottom, .mmb-bic-clickable .booking-info-bottom {
+        float: right;
+        padding-right: 18px;
+        bottom: 0
+    }
+
+        .mmb-bic .booking-info-bottom.m150-message, .mmb-bic-clickable .booking-info-bottom.m150-message {
+            margin-top: -20px
+        }
+
+        .mmb-bic .booking-info-bottom .tooltip, .mmb-bic-clickable .booking-info-bottom .tooltip {
+            margin-left: 133px
+        }
+
+        .mmb-bic .booking-info-bottom .price, .mmb-bic-clickable .booking-info-bottom .price {
+            text-align: right;
+            margin-bottom: 6px
+        }
+
+            .mmb-bic .booking-info-bottom .price .price-ammount, .mmb-bic-clickable .booking-info-bottom .price .price-ammount {
+                display: inline-table;
+                font-size: 24px;
+                font-weight: 300;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1;
+                letter-spacing: 1px;
+                text-align: right;
+                color: #e44746
+            }
+
+            .mmb-bic .booking-info-bottom .price .price-currency, .mmb-bic-clickable .booking-info-bottom .price .price-currency {
+                margin-top: -2px;
+                display: inline-table;
+                font-size: 16px;
+                font-weight: 300;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.5;
+                letter-spacing: normal;
+                text-align: right;
+                color: #959595;
+                vertical-align: top
+            }
+
+            .mmb-bic .booking-info-bottom .price i.mmb-payment-tooltip-icon,
+            .mmb-bic-clickable .booking-info-bottom .price i.mmb-payment-tooltip-icon {
+                color: #0283df;
+                padding-bottom: 10px
+            }
+
+        .mmb-bic .booking-info-bottom .m150-price, .mmb-bic-clickable .booking-info-bottom .m150-price {
+            margin-bottom: 0
+        }
+
+        .mmb-bic .booking-info-bottom .edit-booking, .mmb-bic-clickable .booking-info-bottom .edit-booking {
+            float: right;
+            padding-bottom: 17px
+        }
+
+            .mmb-bic .booking-info-bottom .edit-booking .btn, .mmb-bic-clickable .booking-info-bottom .edit-booking .btn {
+                margin-left: 6px;
+                margin-right: 0;
+                padding: 8px 15px;
+                font-size: 14px;
+                font-weight: 700
+            }
+
+        .mmb-bic .booking-info-bottom .btn-primary.disabled, .mmb-bic-clickable .booking-info-bottom .btn-primary.disabled {
+            background-color: #d1d1d1
+        }
+
+        .mmb-bic .booking-info-bottom .m150-message-container, .mmb-bic-clickable .booking-info-bottom .m150-message-container {
+            max-width: 328px;
+            font-size: 12px;
+            font-weight: 300;
+            text-align: right;
+            color: #5a5b5b;
+            padding-bottom: 5px;
+            max-height: 30px
+        }
+
+.mmb-bic-clickable {
+    cursor: pointer
+}

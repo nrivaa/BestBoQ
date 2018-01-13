@@ -13,15 +13,6 @@ namespace BestBoQ {
     public partial class Project_Detail {
         
         /// <summary>
-        /// img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img;
-        
-        /// <summary>
         /// lbProjName control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,24 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbCusName;
+        
+        /// <summary>
+        /// img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image img;
+        
+        /// <summary>
+        /// lbContract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbContract;
         
         /// <summary>
         /// lbCusAddress control.
@@ -67,66 +76,48 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Label lbProjStart;
         
         /// <summary>
-        /// lbContract control.
+        /// lbTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbContract;
+        protected global::System.Web.UI.WebControls.Label lbTotalPrice;
         
         /// <summary>
-        /// lbTatalPrice control.
+        /// lbFeePrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTatalPrice;
+        protected global::System.Web.UI.WebControls.Label lbFeePrice;
         
         /// <summary>
-        /// btnBoq control.
+        /// lbPromoPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBoq;
+        protected global::System.Web.UI.WebControls.Label lbPromoPrice;
         
         /// <summary>
-        /// btnContract control.
+        /// lbOtherPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContract;
+        protected global::System.Web.UI.WebControls.Label lbOtherPrice;
         
         /// <summary>
-        /// btnPayment control.
+        /// lbLastPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPayment;
-        
-        /// <summary>
-        /// btnPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPlan;
-        
-        /// <summary>
-        /// btnReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReport;
+        protected global::System.Web.UI.WebControls.Label lbLastPrice;
     }
 }

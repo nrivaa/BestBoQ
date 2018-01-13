@@ -890,6 +890,19 @@ Footer
     transition: all 0.3s ease-in-out;
 }
 
+.btn-greenline {
+    background-color: #fff;
+    color: #004F32;
+    border: 1px solid #004F32 !important;
+}
+
+
+    .btn-greenline:hover, .btn-greenline:focus {
+        background-color: #004F32;
+        color: #fff;
+        font-weight: 700;
+    }
+
 .btn-green {
     background-color: #004F32;
     color: #fff;
