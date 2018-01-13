@@ -7,19 +7,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
         <div class="container">
+
             <div class="row">
-                <div class="header-section text-center">
-                    <%--  <h2>My Project</h2>
-                    <p></p>
-                    <hr class="bottom-line" />--%>
+                <div class="col-md-12 progress-tracker-container">
+                    <ul class="progress-tracker">
+                        <li class="step-0-title progress-tracker-visited"><span class="visible-md-block visible-lg-block desktop">1. Enter project details</span> <small class="visible-xs-block visible-sm-block mobile">Details</small> </li>
+                        <li class="step-1-title progress-tracker-visited"><span class="visible-md-block visible-lg-block desktop">2. Select project type</span> <small class="visible-xs-block visible-sm-block mobile">Type</small> </li>
+                        <li class="step-2-title progress-tracker-visited"><span class="visible-md-block visible-lg-block desktop">3. Choose project materials</span> <small class="visible-xs-block visible-sm-block mobile">Materials</small> </li>
+                        <li class="step-3-title  progress-tracker-active"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
+                    </ul>
+
+                    <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>พบข้อผิดพลาด!</strong> <span id="alert-message">กรุณาลองอีกครั้งหรือติดต่อผู้ดูแลระบบ</span>
+                    </div>
                 </div>
             </div>
-
+            <br />
             <div class="row ">
-                <div class="col-sm-6 text-left">
+                <div class="col-xs-6 text-left">
                     <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline">Back to Home</a>
                 </div>
-                <div class="col-sm-6 text-right">
+                <div class="col-xs-6 text-right">
                     <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn">Finish Project</button>
                 </div>
             </div>
@@ -27,13 +38,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-
                         <div class="col-sm-8">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="edit-booking-property-infos">
                                         <div class="edit-booking-action edit-booking-resend-voucher-container">
-                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline">Modify</a>
+                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i> Modify</a>
                                         </div>
                                         <section class="edit-booking-wrapper">
                                             <div id="edit-booking-hotel-header">
@@ -41,9 +51,8 @@
                                                     <asp:Label ID="lbProjName" runat="server" Text="#N/A"></asp:Label>
                                                 </h1>
                                                 <i class="edit-booking-hotel-start ficon ficon-16 orange-yellow ficon-star-style ficon-star-4"></i>
-                                                <p class="hotel-address-map edit-booking-state" id="summary-status">
-                                                    <i class="fa"></i><span><asp:Label ID="lbStatus" runat="server" Text="#N/A"></asp:Label></span>
-                                                    <asp:Label ID="lbCusName" Visible="false" runat="server" Text="#N/A"></asp:Label>
+                                                <p class="hotel-address-map">
+                                                    <asp:Label ID="lbCusName" runat="server" Text="#N/A"></asp:Label>
                                                 </p>
                                             </div>
                                         </section>
@@ -51,17 +60,22 @@
                                     <div class="edit-booking-informations">
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <asp:Image width="100%" CssClass="img-rounded text-center" ID="img" runat="server" />
+                                                <asp:Image Width="100%" CssClass="img-rounded text-center" ID="img" runat="server" />
                                             </div>
                                             <div class="col-xs-9">
                                                 <div class="edit-booking-info-block edit-booking-booking-id-info">
                                                     <div class="edit-booking-info-label">
                                                         <div class="edit-booking-booking-id-info-title">Project Name</div>
+                                                        <div class="edit-booking-booking-id-info-title">&nbsp;</div>
                                                         <div class="edit-booking-booking-id-info-title">Contract Name</div>
                                                     </div>
                                                     <div class="edit-booking-content">
-                                                        <div class="edit-booking-booking-id-info-content"><asp:Label ID="lbProjName2" runat="server" Text="#N/A"></asp:Label></div>
-                                                        
+                                                        <div class="edit-booking-booking-id-info-content">
+                                                            <asp:Label ID="lbProjName2" runat="server" Text="#N/A"></asp:Label></div>
+                                                        <div class="edit-booking-state" id="summary-status">
+                                                            <i class="fa"></i><span>
+                                                                <asp:Label ID="lbStatus" runat="server" Text="#N/A"></asp:Label>&nbsp;</span>
+                                                        </div>
                                                         <div class="edit-booking-booking-id-info-content">
                                                             <asp:Label ID="lbContract" runat="server" Text="#N/A"></asp:Label>
                                                         </div>
@@ -75,7 +89,8 @@
                                                         <div class="edit-booking-check-out-title">Customer Address</div>
                                                     </div>
                                                     <div class="edit-booking-content ">
-                                                        <div class="edit-booking-check-in-content"> <asp:Label ID="lbCusName2" runat="server" Text="#N/A"></asp:Label></div>
+                                                        <div class="edit-booking-check-in-content">
+                                                            <asp:Label ID="lbCusName2" runat="server" Text="#N/A"></asp:Label></div>
                                                         <div class="edit-booking-check-out-content">
                                                             <div class="edit-booking-check-out-date">
                                                                 <asp:Label ID="lbCusAddress" runat="server" Text="#N/A"></asp:Label>
@@ -151,11 +166,11 @@
                                     <div class="panel-body">
                                         <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i> Documents</h5>
                                         <ul class="nav nav-pills nav-stacked nav-generate">
-                                          <li role="presentation"><a href="#">BOQ <small>(สรุปรายการวัสดุ)</small></a></li>
-                                        <li role="presentation"><a href="#">Contract <small>(สัญญาว่าจ้าง)</small></a></li>
-                                          <li role="presentation"><a href="#">Payment Term <small>(งวดงานก่อสร้าง)</small></a></li>
+                                            <li role="presentation"><a href="#">BOQ <small>(สรุปรายการวัสดุ)</small></a></li>
+                                            <li role="presentation"><a href="#">Contract <small>(สัญญาว่าจ้าง)</small></a></li>
+                                            <li role="presentation"><a href="#">Payment Term <small>(งวดงานก่อสร้าง)</small></a></li>
                                             <li role="presentation"><a href="#">Plan <small>(แผนงานก่อสร้าง)</small></a></li>
-                                             <li role="presentation"><a href="#">Report <small>(รายการแยกต้นทุน)</small></a></li>
+                                            <li role="presentation"><a href="#">Report <small>(รายการแยกต้นทุน)</small></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -170,15 +185,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
         var status = '<%=lbStatus.Text%>';
-        
+
 
         if (status.toLowerCase() == "complete") {
             $("#summary-status i").addClass("mmb-booking-status-icon-green");
             $("#summary-status i").addClass("fa-check-circle");
             $("#summary-status span").addClass("mmb-bi-state-green");
-            
+
         }
-        else if(status.toLowerCase() == "on progress") {
+        else if (status.toLowerCase() == "on progress") {
             $("#summary-status i").addClass("mmb-booking-status-icon-orange");
             $("#summary-status i").addClass("fa-clock-o");
             $("#summary-status span").addClass("mmb-bi-state-orange");
