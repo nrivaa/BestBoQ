@@ -7,13 +7,13 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="navcontent" runat="server">
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="#feature">Features</a>
+            <a href="#feature">รู้จัก bestboq</a>
         </li>
         <li>
-            <a href="#register">Register</a>
+            <a href="#register">สมัครใช้งาน</a>
         </li>
         <li class="btn-trial">
-            <a href="#" data-target="#login" data-toggle="modal">Login</a>
+            <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
         </li>
     </ul>
 </asp:Content>
@@ -27,11 +27,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center form-title">Login</h4>
+                    <h4 class="modal-title text-center form-title">เข้าสู่ระบบ</h4>
                 </div>
                 <div class="modal-body padtrbl">
                     <div class="login-box-body">
-                        <p class="login-box-msg">Sign in to BestBoQ</p>
+                        <p class="login-box-msg">เข้าสู่ระบบ BestBoQ</p>
                         <div class="form-group">
                             <div class="form-group has-feedback">
                                 <!----- username -------------->
@@ -111,9 +111,9 @@
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>Features</h2>
+                    <h2>รู้จัก bestboq</h2>
                     <p>
-                        ขั้นตอนการใช้งานโปรแกรม BESTBoQ
+                        Features
                     </p>
                     <hr class="bottom-line" />
                 </div>
@@ -161,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>Register</h2>
+                    <h2>สมัครใช้งาน</h2>
                     <p>
                         สมัครสมาชิก Nature Estate เพื่อใช้งานโปรแกรม BESTBoQ
                     </p>

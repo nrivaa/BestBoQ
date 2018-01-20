@@ -13,6 +13,10 @@ namespace BestBoQ
         string param_projid;
         public double totalPrice = 0.0;
 
+        public double pctFee = 0.0;
+        public double pctPromo = 0.0;
+        public double otherPrice = 0.0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)
@@ -47,11 +51,21 @@ namespace BestBoQ
                     double otherPrice = 0.00;
                     double lastPrice = 0.00;
 
+                    double pctFee = 0.00;
+                    double pctPromo = 0.00;
+
                     Double.TryParse(dr["TotalMoney"].ToString(), out totalPrice);
                     Double.TryParse(dr["FreeMoney"].ToString(), out feePrice);
                     Double.TryParse(dr["PromoMoney"].ToString(), out promoPrice);
                     Double.TryParse(dr["OtherMoney"].ToString(), out otherPrice);
                     Double.TryParse(dr["LastMoney"].ToString(), out lastPrice);
+
+                    Double.TryParse(dr["pct_free"].ToString(), out pctFee);
+                    Double.TryParse(dr["pct_promo"].ToString(), out pctPromo);
+
+                    this.pctFee = pctFee;
+                    this.pctPromo = pctPromo;
+                    this.otherPrice = otherPrice;
 
                     lbTotalPrice.Text = String.Format("{0:N2}", totalPrice);
                     lbFeePrice.Text = String.Format("{0:N2}", feePrice);

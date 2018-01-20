@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CreateHomeNestedMaster.master" AutoEventWireup="true" CodeBehind="CreateProject_03_07.aspx.cs" Inherits="BestBoQ.CreateProject_03_07" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="progress" runat="server">
@@ -36,16 +37,19 @@
                                         <div class="thumbnail">
                                             <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
                                             <div class="caption text-center">
-                                                <h3>
-                                                    ห้องน้ำ Type - <asp:Label ID="Label1" runat="server" Text='<%# Eval("toiletType")%>'></asp:Label>
+                                                <h3>ห้องน้ำ Type -
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("toiletType")%>'></asp:Label>
                                                 </h3>
                                                 ราคา 
-                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_room")%>'></asp:Label>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
                                                 บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                          <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number" CssClass="form-control" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number,maxRoom" CssClass="form-control inputValue" runat="server" autocomplete="off"></asp:TextBox>
                                                         <span class="input-group-addon">ห้อง</span>
+                                                        <input type="hidden" class="dataMaxRoom" value="<%# Eval("maxRoom")%>" />
+                                                        <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                        <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,6 +57,11 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice">0</span> บาท</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,4 +81,67 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+
+        var maxRoom = $('.form').find(".dataMaxRoom").val();
+
+        initVaidateMaxRoom();
+        calculatePrice();
+
+        $(".inputValue").on("change", function () {
+            calculatePrice();
+        });
+
+        function initVaidateMaxRoom() {
+            $.formUtils.addValidator({
+                name: 'maxRoom',
+                validatorFunction: function (value, $el, config, language, $form) {
+                    var sumRoom = 0;
+                    $.each($('.form input[type=text]'), function () {
+                        sumRoom = sumRoom + parseInt($(this).val());
+                    });
+                    return sumRoom <= maxRoom;
+                },
+                errorMessage: 'The maximum number of rooms has been reached (' + maxRoom + " Rooms)",
+                errorMessageKey: 'badMaxRoom'
+            });
+
+            // Setup form validation
+            $.validate();
+        }
+
+        function calculatePrice() {
+            var sumPrice = 0.0;
+
+            if ($('.form').isValid()) {
+                $.each($('.form input[type=text]'), function () {
+
+                    var em = $(this);
+
+                    var block = em.closest('.input-group')
+                    var cost = parseFloat(block.find(".dataCost").val());
+                    var maxRoom = block.find(".dataMaxRoom").val();
+                    var flag = block.find(".dataflag").val();
+
+
+                    sumPrice = sumPrice + (parseFloat($(this).val()) * cost);
+
+
+
+                });
+
+                sumPrice = convertFloatToString(sumPrice);
+
+            }
+            else {
+                sumPrice = "N/A";
+            }
+            
+            $("#sectionPrice").html(sumPrice);
+        }
+
+        function convertFloatToString(value) {
+            return value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+    </script>
 </asp:Content>

@@ -41,8 +41,11 @@
                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("footingType")%>'></asp:Label></h3>
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1"  data-inputmask="'alias': 'integer'" Text="0" CssClass="form-control" data-validation="number" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" CssClass="form-control" data-validation="number" runat="server"></asp:TextBox>
                                                         <span class="input-group-addon">ต้น</span>
+                                                        <input type="hidden" class="dataWeight" value="<%# Eval("weightSupport")%>" />
+                                                        <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                        <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -50,6 +53,11 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,4 +95,27 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        calculatePrice();
+
+        $('.form input[type=text]').on("change", function () {
+            calculatePrice();
+        });
+        
+        function calculatePrice() {
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+            $.each($('.form input[type=text]'), function () {
+                var em = $(this);
+           
+                var block = em.closest('.input-group')
+                var cost = parseFloat(block.find(".dataCost").val());
+                var weight = parseFloat(block.find(".dataWeight").val());
+
+                sumPrice = sumPrice + (parseFloat($(this).val()) * cost);
+            });
+            
+            updateTotalPriceFromSection(sectionPriceElem,sumPrice);
+        }
+    </script>
 </asp:Content>

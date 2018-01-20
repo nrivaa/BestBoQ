@@ -30,8 +30,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command = " SELECT RTRIM([toiletType]) AS [toiletType],[cost_room],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_7_Toilet] ";
+            string sql_command = " EXEC [dbo].[get_template_03_07] '"+ param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -64,7 +63,7 @@ namespace BestBoQ
                 ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
-                Response.Redirect("CreateProject_03_08?id=" + param_projid);
+                Response.Redirect("CreateProject_03_09?id=" + param_projid);
             }
             catch (Exception ex)
             {

@@ -53,7 +53,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <p class="text-right"><small>ราคารวม 0 บาท</small></p>
+                                <p class="text-right"><small>ราคารวม <span class="sectionPrice">0</span> บาท</small></p>
                             </div>
                         </div>
                         <br />
@@ -74,4 +74,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+
+    </script>
 </asp:Content>

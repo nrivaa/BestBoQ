@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price;
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,14 +25,14 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
         }
 
         protected void bindData()
         {
-            string sql_command = " SELECT [footingType],[cost_pole],[weightSupport],[recomment],[picpath] "
-                               + " FROM[BESTBoQ].[dbo].[CFG_3_1_Footing] ";
+            string sql_command = " EXEC [dbo].[get_template_03_01] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -78,7 +80,19 @@ namespace BestBoQ
         {
             string sql_command = " SELECT[projectid],[footingType],[numpole] FROM[BESTBoQ].[dbo].[Project_03_01_Footing] WHERE[projectid] = '" + param_projid + "' ";
             dt_old = ClassConfig.GetDataSQL(sql_command);
-            
+        }
+
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[0].ToString();
+                }
+            }
         }
 
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)

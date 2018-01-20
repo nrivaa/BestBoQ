@@ -240,6 +240,7 @@
     <Content Include="Images\2Home\7.jpg" />
     <Content Include="Images\2Home\8.jpg" />
     <Content Include="Images\2Home\9.jpg" />
+    <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

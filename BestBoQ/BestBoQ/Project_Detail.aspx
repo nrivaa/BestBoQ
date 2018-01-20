@@ -193,7 +193,7 @@
             $("#summary-status span").addClass("mmb-bi-state-green");
 
         }
-        else if (status.toLowerCase() == "on progress") {
+        else if (status.toLowerCase() == "on progress" || status.toLowerCase() == "onprogress") {
             $("#summary-status i").addClass("mmb-booking-status-icon-orange");
             $("#summary-status i").addClass("fa-clock-o");
             $("#summary-status span").addClass("mmb-bi-state-orange");

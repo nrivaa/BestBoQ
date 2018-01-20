@@ -20,7 +20,9 @@ namespace BestBoQ
             if (Request.QueryString["id"] != null)
                 param_projid = Request.QueryString["id"].ToString();
 
-            getOldData();
+            if (!IsPostBack) {
+                getOldData();
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

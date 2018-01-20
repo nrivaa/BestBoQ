@@ -57,7 +57,6 @@ namespace BestBoQ
             {
                 //SQL Error or Network Error
                 Response.Write("<script>alert('ระบบมีปัญหา กรุณาติดต่อผู้ดูแล');</script>");
-                throw;
             }
         }
 

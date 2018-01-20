@@ -82,6 +82,31 @@
             </div>
         </div>
     </div>
+
+<%--  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>--%>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
@@ -111,22 +136,14 @@
 
                 var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
                 var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
-                var other = convertFloatToString(parseFloat(otherPrice));
-                var last = convertFloatToString(totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other));
+                var other = parseFloat(otherPrice);
+                var last = totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other);
 
-                feePriceElem.html(fee);
-                promoPriceElem.html(promo);
-                otherPriceElem.html(other);
-                lastPriceElem.html(last);
+                feePriceElem.html(convertFloatToString(fee));
+                promoPriceElem.html(convertFloatToString(promo));
+                otherPriceElem.html(convertFloatToString(other));
+                lastPriceElem.html(convertFloatToString(last));
             }
         });
-
-        function calPriceValuePercent(originValue, percent) {
-            return convertFloatToString(originValue * (percent / 100.0));
-        }
-
-        function convertFloatToString(value) {
-            return value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
     </script>
 </asp:Content>

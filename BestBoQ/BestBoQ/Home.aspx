@@ -115,8 +115,9 @@
                         </asp:TemplateField>--%>
                             <asp:TemplateField HeaderText="Home Type" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
                                 <ItemTemplate>
-                                    <asp:Image ID="imgOnly" runat="server" ImageUrl='<%#Eval("homepic") %>' Height="70px" Width="70px" />
+                                    <asp:Image ID="imgOnly" runat="server" AlternateText='<%#Eval("projecttype") %>' ImageUrl='<%#Eval("homepic") %>' Height="70px" Width="70px" />
                                     <asp:HiddenField ID="hdfID" runat="server" Value='<%#Eval("projectid") %>' />
+                                    <small style="display:none"><%#Eval("projecttype") %></small>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="projectname" HeaderText="Project Name" />
@@ -128,7 +129,7 @@
                         <asp:BoundField DataField="Status" HeaderText="Status" />
                         <asp:BoundField DataField="user" HeaderText="user" />--%>
                             <asp:BoundField DataField="transdate" HeaderText="Create Date" />
-                            <asp:HyperLinkField HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="Project_Detail.aspx?id={0}" HeaderText="View" Text="<i class='fa fa-search fa-2x' aria-hidden='true'></i>" />
+                            <asp:HyperLinkField HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" DataNavigateUrlFields="projectid" DataNavigateUrlFormatString="Project_Detail.aspx?id={0}" HeaderText="View" Text="<i class='fa fa-book fa-2x' aria-hidden='true'></i>" />
                         </Columns>
                     </asp:GridView>
                 </div>

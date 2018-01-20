@@ -68,11 +68,11 @@
                                     <dt>ค่าแรงและวัสดุรวม</dt>
                                     <dd>฿ <span id="totalPrice" data-value="<%=totalPrice%>"> <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ค่าดำเนินการ</dt>
-                                    <dd>฿ <span id="feePrice"><asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="feePrice" data-value="<%=pctFee%>"><asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ส่วนลด</dt>
-                                    <dd>฿ <span id="promoPrice"><asp:Label ID="lbPromoPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="promoPrice" data-value="<%=pctPromo%>"><asp:Label ID="lbPromoPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>อื่นๆ</dt>
-                                    <dd>฿ <span id="otherPrice"><asp:Label ID="lbOtherPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="otherPrice" data-value="<%=otherPrice%>"><asp:Label ID="lbOtherPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                 </dl>
                             </div>
                             <div class="panel-footer">
@@ -109,6 +109,50 @@
         $(document).ready(function () {
             validateForm('.form');
         });
+
+        function updateTotalPriceFromSection(sectionPriceElem, newSectionPrice) {
+            var totalPriceElem = $("#totalPrice");
+            var feePriceElem = $("#feePrice");
+            var promoPriceElem = $("#promoPrice");
+            var otherPriceElem = $("#otherPrice");
+            var lastPriceElem = $("#lastPrice");
+
+            var totalPriceValue = getDataValueInElem(totalPriceElem);
+            var feePriceElemValue = getDataValueInElem(feePriceElem);
+            var promoPriceElemValue = getDataValueInElem(promoPriceElem);
+            var otherPriceElemValue = getDataValueInElem(otherPriceElem);
+            var sectionPriceElemValue = getDataValueInElem(sectionPriceElem);
+
+            var total = totalPriceValue - sectionPriceElemValue + newSectionPrice;
+            var fee = calPriceValuePercent(total, parseFloat(feePriceElemValue));
+            var promo = calPriceValuePercent(total, parseFloat(promoPriceElemValue))
+            var other = parseFloat(otherPriceElemValue);
+            var last = parseFloat(total) + parseFloat(fee) - parseFloat(promo) + parseFloat(other);
+
+            updateValueInElem(totalPriceElem, total);
+            updateValueInElem(feePriceElem, fee);
+            updateValueInElem(promoPriceElem, promo);
+            updateValueInElem(otherPriceElem, other);
+            updateValueInElem(lastPriceElem, last);
+            updateValueInElem(sectionPriceElem, newSectionPrice);
+        }
+
+        function getDataValueInElem(em) {
+            return parseFloat(em.data("value"));
+        }
+
+        function updateValueInElem(em, val) {
+            em.html(convertFloatToString(val));
+        }
+
+        function calPriceValuePercent(originValue, percent) {
+            return originValue * (percent / 100.0);
+        }
+
+        function convertFloatToString(value) {
+            return value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
     </script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
