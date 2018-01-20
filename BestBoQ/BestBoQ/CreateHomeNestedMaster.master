@@ -111,6 +111,7 @@
         });
 
         function updateTotalPriceFromSection(sectionPriceElem, newSectionPrice) {
+
             var totalPriceElem = $("#totalPrice");
             var feePriceElem = $("#feePrice");
             var promoPriceElem = $("#promoPrice");

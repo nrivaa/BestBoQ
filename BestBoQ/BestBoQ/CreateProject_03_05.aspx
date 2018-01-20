@@ -14,7 +14,7 @@
 
             <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong>5. ระบบงานผนัง (Wall)</strong></div>
 
-           <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
+            <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -44,6 +44,9 @@
                                                 </h3>
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataMM" value="<%# Eval("numMM")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +56,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <p class="text-right"><small>ราคารวม <span class="sectionPrice">0</span> บาท</small></p>
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
                             </div>
                         </div>
                         <br />
@@ -75,6 +78,30 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
+        calculatePrice();
 
+        $('.form input[type=radio]').on('ifChecked', function (event) {
+            calculatePrice($(this));
+        });
+
+        function calculatePrice(em) {
+            
+
+            if (!em) {
+                em = $('.form input[type=radio]:checked');
+            }
+
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+
+            if (em.length > 0) {
+                var block = em.closest('.form-group')
+                var cost = parseFloat(block.find(".dataCost").val());
+                var MM = parseFloat(block.find(".dataMM").val());
+                sumPrice = parseFloat(cost * MM);
+            }
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+        }
     </script>
 </asp:Content>

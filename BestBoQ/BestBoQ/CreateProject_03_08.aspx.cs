@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +24,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindDD();
             }
         }
@@ -29,7 +32,7 @@ namespace BestBoQ
 
         protected void bindDD()
         {
-            string sql_command = "SELECT RTRIM([sanitationType]) AS [sanitationType],[cost],[detail],[picpath] FROM [BESTBoQ].[dbo].[CFG_3_8_Sanitation]";
+            string sql_command = " EXEC [dbo].[get_template_03_08] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -69,6 +72,19 @@ namespace BestBoQ
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
             }
         }
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[7].ToString();
+                }
+            }
+        }
+
 
         protected void getOldData()
         {
@@ -82,7 +98,7 @@ namespace BestBoQ
             RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
             if (dt_old.Rows.Count > 0)
             {
-                if (param_sanitationType.ToString() == dt_old.Rows[0]["sanitationType"].ToString())
+                if (param_sanitationType.Trim().ToString() == dt_old.Rows[0]["sanitationType"].ToString())
                 {
                     rb.Checked = true;
                 }

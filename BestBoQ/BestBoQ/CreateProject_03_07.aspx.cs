@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
 
@@ -50,7 +53,7 @@ namespace BestBoQ
                     if (lbtoiletType != null)
                     {
                         string param_toiletType = lbtoiletType.Text.Trim();
-                        if (tbNumRoom != null && tbNumRoom.Text.Trim() != "0")
+                        if (tbNumRoom != null)
                         {
                             string param_numRoom = tbNumRoom.Text.Trim();
                             string sql_command = " EXEC [dbo].[set_Project_03_07_Toilet] "
@@ -63,11 +66,24 @@ namespace BestBoQ
                 ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
-                Response.Redirect("CreateProject_03_09?id=" + param_projid);
+                Response.Redirect("CreateProject_03_08?id=" + param_projid);
             }
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[6].ToString();
+                }
             }
         }
 

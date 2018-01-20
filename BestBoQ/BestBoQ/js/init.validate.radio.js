@@ -44,7 +44,7 @@ function validateRadioOne() {
 
 function fixRadiogroupOneBug() {
     $('[type="radio"]').on('ifChecked', function (event) {
-        $('[type="radio"]').not(this).iCheck('indeterminate');
+        $('[type="radio"]').not('.not-include [type="radio"]').not(this).iCheck('indeterminate');
     });
 }
 
@@ -85,7 +85,7 @@ function validateRadio(idRadio) {
     });
 
     if (count === 0) {
-       showAlertWithMessage("กรุณาเลือกให้ครบทุกตัวเลือก");
+       showAlertWithMessage("กรุณาเลือกรายการ");
 
         return false;
     }

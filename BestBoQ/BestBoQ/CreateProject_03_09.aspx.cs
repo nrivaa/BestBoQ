@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
 
@@ -30,8 +33,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command = " SELECT RTRIM([plumbingType]) AS [plumbingType],[pipe1],[pipe2],[pipe3],[cost/room],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_9_Plumbing] ";
+            string sql_command = " EXEC [dbo].[get_template_03_09] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -79,6 +81,20 @@ namespace BestBoQ
             }
         }
 
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[8].ToString();
+                }
+            }
+        }
+
+
         protected void getOldData()
         {
             string sql_command = " SELECT [projectid],RTRIM([plumbingType]) AS [plumbingType] FROM [BESTBoQ].[dbo].[Project_03_09_Plumbing]  WHERE[projectid] = '" + param_projid + "' ";
@@ -91,7 +107,7 @@ namespace BestBoQ
             RadioButton rb = (RadioButton)e.Item.FindControl("RadioButton1");
             if (dt_old.Rows.Count > 0)
             {
-                if (param_plumbingType.ToString() == dt_old.Rows[0]["plumbingType"].ToString())
+                if (param_plumbingType.Trim().ToString() == dt_old.Rows[0]["plumbingType"].ToString())
                 {
                     rb.Checked = true;
                 }

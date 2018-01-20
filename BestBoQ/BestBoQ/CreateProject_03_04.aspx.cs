@@ -46,7 +46,7 @@ namespace BestBoQ
 
                 foreach (RepeaterItem item in Repeater1.Items)
                 {
-                    RadioButtonList rbSelect = (RadioButtonList) item.FindControl("RadioButtonList1");
+                    RadioButtonList rbSelect = (RadioButtonList)item.FindControl("RadioButtonList1");
 
                     Label lbRoofStyle = (Label)item.FindControl("Label1");
 
@@ -90,25 +90,31 @@ namespace BestBoQ
         {
             //if (e.Item.ItemType == ListItemType.Item)
             //{
-                string param_roofStyle = (string) DataBinder.Eval(e.Item.DataItem, "roofStyle");
-                RadioButtonList rb = (RadioButtonList) e.Item.FindControl("RadioButtonList1");
+            string param_roofStyle = (string)DataBinder.Eval(e.Item.DataItem, "roofStyle");
+            RadioButtonList rb = (RadioButtonList)e.Item.FindControl("RadioButtonList1");
 
-                //string param_roofStyle = lbRoofStyle.Text.ToString();
+            //string param_roofStyle = lbRoofStyle.Text.ToString();
 
-                string sql_command = " SELECT RTRIM([roofType]) AS [roofType],[detail] FROM [BESTBoQ].[dbo].[CFG_3_4_Roof] "
-                                   + " WHERE [roofStyle] = '" + param_roofStyle.Trim() + "' "
-                                   + " GROUP BY [roofType],[detail] ";
-                DataTable dt_type = ClassConfig.GetDataSQL(sql_command);
-                rb.DataSource = dt_type;
-                rb.DataTextField = "detail";
-                rb.DataValueField = "roofType";
-                rb.DataBind();
+            string sql_command = " SELECT RTRIM([roofType]) AS [roofType],[detail] FROM [BESTBoQ].[dbo].[CFG_3_4_Roof] "
+                               + " WHERE [roofStyle] = '" + param_roofStyle.Trim() + "' "
+                               + " GROUP BY [roofType],[detail] ";
+            DataTable dt_type = ClassConfig.GetDataSQL(sql_command);
 
-            if(param_roofStyle.Trim() == dt_old.Rows[0]["roofStyle"].ToString().Trim())
+            rb.CssClass = param_roofStyle.Trim() == "Slap" ? "not-include" : "";
+            if (param_roofStyle.Trim() == "Slap")
+            {
+                rb.SelectedIndex = 0;
+            }
+            rb.DataSource = dt_type;
+            rb.DataTextField = "detail";
+            rb.DataValueField = "roofType";
+            rb.DataBind();
+
+            if (param_roofStyle.Trim() == dt_old.Rows[0]["roofStyle"].ToString().Trim())
             {
                 rb.Items.FindByValue(dt_old.Rows[0]["roofType"].ToString().Trim()).Selected = true;
             }
-            
+
             //}
         }
     }

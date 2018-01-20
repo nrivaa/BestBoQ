@@ -47,12 +47,19 @@
                                                 บาท
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
                         </div>
                         <br />
                     </div>
@@ -72,4 +79,28 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        calculatePrice();
+
+        $('.form input[type=radio]').on('ifChecked', function (event) {
+            calculatePrice($(this));
+        });
+
+        function calculatePrice(em) {
+
+            if (!em) {
+                em = $('.form input[type=radio]:checked');
+            }
+
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+
+            if (em.length > 0) {
+                var block = em.closest('.form-group')
+                var sumPrice = parseFloat(block.find(".dataCost").val());
+            }
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+        }
+    </script>
 </asp:Content>

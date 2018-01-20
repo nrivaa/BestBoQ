@@ -60,7 +60,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <p class="text-right"><small>ราคารวม <span id="sectionPrice">0</span> บาท</small></p>
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
                             </div>
                         </div>
                     </div>
@@ -111,33 +111,22 @@
         }
 
         function calculatePrice() {
+            var sectionPriceElem = $("#sectionPrice");
             var sumPrice = 0.0;
 
             if ($('.form').isValid()) {
                 $.each($('.form input[type=text]'), function () {
-
                     var em = $(this);
 
                     var block = em.closest('.input-group')
                     var cost = parseFloat(block.find(".dataCost").val());
-                    var maxRoom = block.find(".dataMaxRoom").val();
-                    var flag = block.find(".dataflag").val();
-
+                    var weight = parseFloat(block.find(".dataWeight").val());
 
                     sumPrice = sumPrice + (parseFloat($(this).val()) * cost);
-
-
-
                 });
-
-                sumPrice = convertFloatToString(sumPrice);
-
             }
-            else {
-                sumPrice = "N/A";
-            }
-            
-            $("#sectionPrice").html(sumPrice);
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
         }
 
         function convertFloatToString(value) {

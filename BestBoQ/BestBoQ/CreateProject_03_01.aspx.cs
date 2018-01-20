@@ -12,7 +12,7 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
-        public string section_price;
+        public string section_price = "0";
 
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)

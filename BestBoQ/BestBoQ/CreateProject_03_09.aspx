@@ -58,12 +58,20 @@
                                                 </div>
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                      <input type="hidden" class="dataRoom" value="<%# Eval("Room")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +80,7 @@
         <br />
         <div class="row">
             <div class="col-xs-6">
-                <a href="CreateProject_03_07?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
+                <a href="CreateProject_03_08?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
                 <asp:Button ID="btnSubmit" OnClientClick="return checkValidateWithRadio();" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
@@ -83,4 +91,30 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        calculatePrice();
+
+        $('.form input[type=radio]').on('ifChecked', function (event) {
+            calculatePrice($(this));
+        });
+
+        function calculatePrice(em) {
+
+            if (!em) {
+                em = $('.form input[type=radio]:checked');
+            }
+
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+
+            if (em.length > 0) {
+                var block = em.closest('.form-group')
+                var cost = parseFloat(block.find(".dataCost").val());
+                var room = parseFloat(block.find(".dataRoom").val());
+                sumPrice = parseFloat(cost * room);
+            }
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+        }
+    </script>
 </asp:Content>
