@@ -110,10 +110,15 @@ namespace BestBoQ
             rb.DataValueField = "roofType";
             rb.DataBind();
 
-            if (param_roofStyle.Trim() == dt_old.Rows[0]["roofStyle"].ToString().Trim())
+
+            if (dt_old.Rows.Count > 0)
             {
-                rb.Items.FindByValue(dt_old.Rows[0]["roofType"].ToString().Trim()).Selected = true;
+                if (param_roofStyle.Trim() == dt_old.Rows[0]["roofStyle"].ToString().Trim())
+                {
+                    rb.Items.FindByValue(dt_old.Rows[0]["roofType"].ToString().Trim()).Selected = true;
+                }
             }
+            
 
             //}
         }

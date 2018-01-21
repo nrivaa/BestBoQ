@@ -187,6 +187,10 @@
     <Content Include="Images\04Roof\m.png" />
     <Content Include="Images\04Roof\s.png" />
     <Content Include="Images\04Roof\v.png" />
+    <Content Include="Images\04Roof\v1.png" />
+    <Content Include="Images\04Roof\v2.png" />
+    <Content Include="Images\04Roof\v3.png" />
+    <Content Include="Images\04Roof\v4.png" />
     <Content Include="Images\05Wall\w1.png" />
     <Content Include="Images\05Wall\w2.png" />
     <Content Include="Images\05Wall\w3.png" />

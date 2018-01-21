@@ -30,11 +30,11 @@ namespace BestBoQ
 
         protected void bindProjectType()
         {
-            string sql_command = "SELECT [projecttype] FROM [BESTBoQ].[dbo].[CFG_Project_Type]";
+            string sql_command = "SELECT [homegroup] FROM [BESTBoQ].[dbo].[CFG_Home_Type] GROUP BY [homegroup]";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             ddProjectType.DataSource = dt;
-            ddProjectType.DataTextField = "projecttype";
-            ddProjectType.DataValueField = "projecttype";
+            ddProjectType.DataTextField = "homegroup";
+            ddProjectType.DataValueField = "homegroup";
             ddProjectType.DataBind();
 
             ddProjectType.Items.Insert(0, new ListItem("กรุณาเลือกประเภทของโครงการ", ""));
