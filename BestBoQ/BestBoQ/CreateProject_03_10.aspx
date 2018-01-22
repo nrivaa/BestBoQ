@@ -45,6 +45,9 @@
                                                 </h3>
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataMM" value="<%# Eval("numMM")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -67,12 +70,20 @@
                                                 </h3>
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton2" runat="server" />
+                                                    <input type="hidden" class="dataMM" value="<%# Eval("numMM")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                         <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,4 +103,32 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(document).ready(function () {
+
+            calculatePrice();
+
+            $('.form input[type=radio]').on('ifChecked', function (event) {
+                calculatePrice();
+            });
+
+            function calculatePrice() {
+                var sectionPriceElem = $("#sectionPrice");
+                var sumPrice = 0.0;
+
+                $.each($('.form input[type=radio]'), function () {
+                    var em = $(this);
+
+                    if (em.is(':checked')) {
+                        var block = em.closest('.form-group');
+                        var cost = parseFloat(block.find(".dataCost").val());
+                        var MM = parseFloat(block.find(".dataMM").val());
+                        sumPrice = sumPrice + parseFloat(cost * MM);
+                    }
+                });
+
+                updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+            }
+        });
+    </script>
 </asp:Content>

@@ -46,11 +46,14 @@
                                                     </small>
                                                 </h3>
                                                 ราคา 
-                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
                                                 บาท/ชุด
                                                 
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataItem" value="<%# Eval("numItem")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -73,10 +76,13 @@
                                                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("detail")%>'></asp:Label></small>
                                                 </h3>
                                                 ราคา 
-                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
                                                 บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton2" runat="server" />
+                                                    <input type="hidden" class="dataItem" value="<%# Eval("numItem")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -99,10 +105,13 @@
                                                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("detail")%>'></asp:Label></small>
                                                 </h3>
                                                 ราคา 
-                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost_item")%>'></asp:Label>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
                                                 บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton3" runat="server" />
+                                                    <input type="hidden" class="dataItem" value="<%# Eval("numItem")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -110,16 +119,23 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
+                        </div>
                         <h3>สรุปจำนวนประตูหน้าต่างที่ต้องใช้</h3>
                         <div class="row">
-                            จำนวนประตูภายในที่ต้องใช้ : 
-                            <asp:Label ID="lbdoor1" runat="server"></asp:Label>
-                            <br />
-                            จำนวนประตูห้องน้ำที่ต้องใช้ : 
-                            <asp:Label ID="lbdoor2" runat="server"></asp:Label>
-                            <br />
-                            จำนวนหน้าต่างที่ต้องใช้ : 
-                            <asp:Label ID="lbwin1" runat="server"></asp:Label>
+                            <div class="col-sm-12">
+                                จำนวนประตูภายในที่ต้องใช้ :
+                                <asp:Label ID="lbdoor1" runat="server"></asp:Label>
+                                <br />
+                                จำนวนประตูห้องน้ำที่ต้องใช้ :
+                                <asp:Label ID="lbdoor2" runat="server"></asp:Label>
+                                <br />
+                                จำนวนหน้าต่างที่ต้องใช้ :
+                                <asp:Label ID="lbwin1" runat="server"></asp:Label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,4 +155,32 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(document).ready(function () {
+
+            calculatePrice();
+
+            $('.form input[type=radio]').on('ifChecked', function (event) {
+                calculatePrice();
+            });
+
+            function calculatePrice() {
+                var sectionPriceElem = $("#sectionPrice");
+                var sumPrice = 0.0;
+
+                $.each($('.form input[type=radio]'), function () {
+                    var em = $(this);
+
+                    if (em.is(':checked')) {
+                        var block = em.closest('.form-group');
+                        var cost = parseFloat(block.find(".dataCost").val());
+                        var item = parseFloat(block.find(".dataItem").val());
+                        sumPrice = sumPrice + parseFloat(cost * item);
+                    }
+                });
+
+                updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+            }
+        });
+    </script>
 </asp:Content>

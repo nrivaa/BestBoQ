@@ -70,7 +70,7 @@
         <br />
         <div class="row">
             <div class="col-xs-6">
-                <a href="CreateProject_03_06?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
+                <a href="CreateProject_03_05?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
                 <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />
@@ -82,7 +82,6 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
-
         var maxRoom = $('.form').find(".dataMaxRoom").val();
 
         initVaidateMaxRoom();
@@ -127,10 +126,6 @@
             }
 
             updateTotalPriceFromSection(sectionPriceElem, sumPrice);
-        }
-
-        function convertFloatToString(value) {
-            return value.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
     </script>
 </asp:Content>

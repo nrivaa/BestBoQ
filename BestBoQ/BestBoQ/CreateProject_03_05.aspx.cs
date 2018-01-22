@@ -81,7 +81,7 @@ namespace BestBoQ
                 ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
                 //Redirect
-                Response.Redirect("CreateProject_03_06?id=" + param_projid);
+                Response.Redirect("CreateProject_03_07?id=" + param_projid);
             }
             catch (Exception ex)
             {

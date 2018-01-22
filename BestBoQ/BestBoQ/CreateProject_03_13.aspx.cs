@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
 
@@ -31,8 +34,7 @@ namespace BestBoQ
         protected void bindData()
         {
             //Get data form DB to repeater
-            string sql_command = " SELECT RTRIM([railingType]) AS [railingType],[cost_m],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_13_Railing] ";
+            string sql_command = " EXEC [dbo].[get_template_03_13] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
@@ -70,6 +72,19 @@ namespace BestBoQ
             catch (Exception ex)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[12].ToString();
+                }
             }
         }
 

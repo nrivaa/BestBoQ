@@ -12,6 +12,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
 
@@ -30,8 +33,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command_door1 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'ประตูภายใน' ";
+            string sql_command_door1 = " EXEC [dbo].[get_template_03_14] '" + param_projid + "',N'ประตูภายใน'";
             DataTable dt_door1 = ClassConfig.GetDataSQL(sql_command_door1);
             if (dt_door1.Rows.Count > 0)
             {
@@ -39,8 +41,7 @@ namespace BestBoQ
                 Repeater1.DataBind();
             }
 
-            string sql_command_door2 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'ประตูห้องน้ำ' ";
+            string sql_command_door2 = " EXEC [dbo].[get_template_03_14] '" + param_projid + "',N'ประตูห้องน้ำ'";
             DataTable dt_door2 = ClassConfig.GetDataSQL(sql_command_door2);
             if (dt_door2.Rows.Count > 0)
             {
@@ -48,8 +49,7 @@ namespace BestBoQ
                 Repeater2.DataBind();
             }
 
-            string sql_command_win1 = " SELECT RTRIM([windoorPart]) AS [windoorPart],RTRIM([windoorType]) AS[windoorType],[cost_item],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_14_WinDoor] WHERE [windoorPart] = N'หน้าต่าง' ";
+            string sql_command_win1 = " EXEC [dbo].[get_template_03_14] '" + param_projid + "',N'หน้าต่าง'";
             DataTable dt_win1 = ClassConfig.GetDataSQL(sql_command_win1);
             if (dt_win1.Rows.Count > 0)
             {
@@ -131,6 +131,19 @@ namespace BestBoQ
             catch (Exception)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#alertError').show();", true);
+            }
+        }
+
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[13].ToString();
+                }
             }
         }
 

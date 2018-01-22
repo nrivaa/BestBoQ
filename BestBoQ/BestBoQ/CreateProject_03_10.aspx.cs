@@ -13,6 +13,8 @@ namespace BestBoQ
     {
         string userID;
         public string param_projid;
+        public string section_price = "0";
+
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +26,7 @@ namespace BestBoQ
             if (!IsPostBack)
             {
                 getOldData();
+                getSectionPrice();
                 bindData();
             }
 
@@ -31,8 +34,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command_indoor = " SELECT RTRIM([ceilingType]) AS [ceilingType],RTRIM([ceilingPart]) AS [ceilingPart],[cost_mm],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_10_Ceiling] WHERE [ceilingType] = 'INDOOR' ";
+            string sql_command_indoor = " EXEC [dbo].[get_template_03_10] '" + param_projid + "','INDOOR'";
             DataTable dt_indoor = ClassConfig.GetDataSQL(sql_command_indoor);
             if (dt_indoor.Rows.Count > 0)
             {
@@ -40,8 +42,7 @@ namespace BestBoQ
                 Repeater1.DataBind();
             }
 
-            string sql_command_outdoor = " SELECT RTRIM([ceilingType]) AS [ceilingType],RTRIM([ceilingPart]) AS [ceilingPart],[cost_mm],[detail],[picpath] "
-                               + " FROM [BESTBoQ].[dbo].[CFG_3_10_Ceiling] WHERE [ceilingType] = 'OUTDOOR' ";
+            string sql_command_outdoor = " EXEC [dbo].[get_template_03_10] '" + param_projid + "','OUTDOOR'";
             DataTable dt_outdoor = ClassConfig.GetDataSQL(sql_command_outdoor);
             if (dt_outdoor.Rows.Count > 0)
             {
@@ -117,6 +118,19 @@ namespace BestBoQ
         {
             string sql_command = " SELECT [projectid],[ceilingType],[ceilingPart] FROM [BESTBoQ].[dbo].[Project_03_10_Ceiling]  WHERE[projectid] = '" + param_projid + "' ";
             dt_old = ClassConfig.GetDataSQL(sql_command);
+        }
+
+        private void getSectionPrice()
+        {
+            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
+            if (dtPrice.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtPrice.Rows)
+                {
+                    section_price = dr[9].ToString();
+                }
+            }
         }
 
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)

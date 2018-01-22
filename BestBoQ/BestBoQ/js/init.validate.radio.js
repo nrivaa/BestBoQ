@@ -44,7 +44,7 @@ function validateRadioOne() {
 
 function fixRadiogroupOneBug() {
     $('[type="radio"]').on('ifChecked', function (event) {
-        $('[type="radio"]').not('.not-include [type="radio"]').not(this).iCheck('indeterminate');
+        $('[type="radio"]').not('.not-include [type="radio"]').not(":hidden").not(this).iCheck('indeterminate');
     });
 }
 
@@ -101,7 +101,7 @@ function fixRadiogroupAll() {
 
 function fixRadiogroupBug(idRadio) {
     $('[type="radio"][value=' + idRadio + ']').on('ifChecked', function (event) {
-        $('[type="radio"][value=' + idRadio + ']').not(this).iCheck('indeterminate');
+        $('[type="radio"][value=' + idRadio + ']').not(":hidden").not(this).iCheck('indeterminate');
     });
 }
 
@@ -123,9 +123,11 @@ var radioOne;
 $(document).ready(function () {
     if (!radioOne){
         fixRadiogroupAll(); 
+        console.log("Fixed Radio Group All");
     }
     else {
         fixRadiogroupOneBug();
+        console.log("Fixed Radio Group One");
     }
 });
 
