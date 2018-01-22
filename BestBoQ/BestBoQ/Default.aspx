@@ -265,7 +265,7 @@
                         <div class="form-group">
                             <div class="form-group has-feedback">
                                 <!----- username -------------->
-                                <asp:TextBox ID="tbLoginUsername" CssClass="form-control" runat="server" placeholder="Username" autocomplete="off"></asp:TextBox>
+                                <asp:TextBox ID="tbLoginUsername" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*" autocomplete="off"></asp:TextBox>
                                 <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
                                 <!---Alredy exists  ! -->
                                 <span class="fa fa-user  form-control-feedback"></span>
@@ -412,8 +412,8 @@
                             <h2 class="fs-title">ข้อมูลทั่วไป</h2>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username"></asp:TextBox>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" ></span></span>
+                                    <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
 
                                 </div>
                             </div>
@@ -427,7 +427,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input type="password" id="tbRepassword" runat="server" autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
+                                    <input type="password" id="tbRepassword" runat="server" autocomplete="off" data-validation="required,confirmPassword" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
 
                                 </div>
                             </div>
@@ -530,7 +530,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script>
         $(document).ready(function () {
-
+            initPassword();
             renderLogoSponsor();
             validateForm('.contactForm');
 
@@ -551,6 +551,18 @@
                 validateForm('.contactForm');
             });
 
+            function initPassword() {
+                $.formUtils.addValidator({
+                    name: 'confirmPassword',
+                    validatorFunction: function (value, $el, config, language, $form) {
+                        var emPass = $('#<%=tbPassword.ClientID%>');
+                        var emPassConfim = $('#<%=tbRepassword.ClientID%>');
+                        return emPass.val() == emPassConfim.val();
+                    },
+                    errorMessage: 'Password does not match',
+                    errorMessageKey: 'confirmPassword'
+                });
+            }
 
             function renderLogoSponsor() {
                 $('.customer-logos').slick({
