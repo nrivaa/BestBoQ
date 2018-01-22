@@ -1,6 +1,8 @@
 /*
     Theme Name: Mentor
     Author: BootstrapMade.com
+    Color Rev.1 004F32
+    Color Rev.2 00ba66 0866C6;
 */
 
 body {
@@ -55,20 +57,20 @@ h6 {
 }
 
 a {
-    color: #004F32;
+    color: #00ba66;
 }
 
     a:hover,
     a:focus {
-        color: #004F32;
+        color: #00ba66;
     }
 
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #004F32;
-    border-color: #004F32;
+    background-color: #00ba66;
+    border-color: #00ba66;
 }
 
 
@@ -77,7 +79,7 @@ Navigation bar
 ************************************/
 
 .navbar-default .navbar-brand {
-    color: #004F32;
+    color: #00ba66;
 }
 
 .navbar-default {
@@ -96,7 +98,7 @@ Navigation bar
 }
 
     .navbar-text > a {
-        color: #004F32 !important;
+        color: #00ba66 !important;
     }
 
 .navbar-default .navbar-nav > li > a {
@@ -119,18 +121,18 @@ Navigation bar
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-    color: #004F32;
+    color: #00ba66;
 }
 
 .navbar-default .dropdown-menu > li > a:focus,
 .navbar-default .dropdown-menu > li > a:hover {
-    color: #004F32;
+    color: #00ba66;
     background: none;
 }
 
 .navbar-nav .active > a {
     background: none !important;
-    color: #004F32 !important;
+    color: #00ba66 !important;
     outline: none;
 }
 
@@ -143,17 +145,17 @@ Navigation bar
 }
 
 .btn-trial a {
-    background-color: #004F32;
+    background-color: #00ba66;
     border-radius: 25px;
     color: #ffffff !important;
-    border: 1px solid #004F32;
+    border: 1px solid #00ba66;
 }
 
     .btn-trial a:hover,
     .btn-trial a:focus {
-        border: 1px solid #004F32;
+        border: 1px solid #00ba66;
         background-color: #fff;
-        color: #004F32 !important;
+        color: #00ba66 !important;
     }
 
 .navbar-default .navbar-brand {
@@ -209,7 +211,7 @@ Banner
 }
 
 .text-border {
-    border: 5px solid #004F32;
+    border: 5px solid #00ba66;
     display: inline-block;
     margin-top: 150px;
 }
@@ -357,7 +359,7 @@ Banner
 }
 
 .quote .btn {
-    background-color: #004F32;
+    background-color: #00ba66;
     color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -368,7 +370,7 @@ Banner
     .quote .btn:hover,
     .quote .btn:focus {
         background-color: #fff;
-        color: #004F32;
+        color: #00ba66;
         border-color: #fff;
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
@@ -405,7 +407,7 @@ h2 {
 
 .fea i {
     font-size: 39px;
-    color: #004F32;
+    color: #00ba66;
     margin-top: 7px;
 }
 
@@ -427,12 +429,12 @@ h2 {
  Organisations
 ************************************/
 
-#organisations, #register {
+#organisations, #feature, #cta-2 {
     background-color: rgb(247, 247, 247);
 }
 
 .orga-stru {
-    background-color: #004F32;
+    background-color: #00ba66;
     width: 109px;
     height: auto;
     padding: 10px 10px 25px 10px;
@@ -470,7 +472,7 @@ h3.det-txt {
 }
 
 h4.sm-txt {
-    color: #004F32;
+    color: #00ba66;
     font-size: 24px;
 }
 
@@ -488,7 +490,7 @@ Cta
 ************************************/
 
 #cta-2 {
-    padding: 140px 0;
+    padding: 30px 0;
 }
 
 .cta-2-txt {
@@ -508,7 +510,7 @@ Cta
     min-width: 280px;
     margin-left: -4px;
     margin-bottom: 2px;
-    border: 1px solid #004F32;
+    border: 1px solid #00ba66;
     background-color: rgb(247, 247, 247);
     border-radius: 30px 0px 0px 30px;
 }
@@ -517,7 +519,7 @@ Cta
     font-size: 18px;
     text-transform: capitalize;
     color: #fff;
-    background-color: #004F32;
+    background-color: #00ba66;
     border: 2px solid #fff;
     padding: 14px 30px;
     margin-left: -4px;
@@ -545,7 +547,7 @@ Work Shop
 }
 
 .icon-box i {
-    color: #004F32;
+    color: #00ba66;
     font-size: 65px;
 }
 
@@ -624,12 +626,12 @@ Course
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
-    background-color: #004F32;
+    background-color: #00ba66;
 }
 
 [class*=" imghvr-"],
 [class^="imghvr-"] {
-    background-color: #004F32;
+    background-color: #00ba66;
     color: #fff;
 }
 
@@ -682,7 +684,7 @@ Price Table
     padding: 20px 0px;
     font-weight: bold !important;
     font-size: 14px;
-    background-color: #004F32;
+    background-color: #00ba66;
 }
 
 
@@ -819,7 +821,7 @@ Footer
 
 .btn-submit:hover,
 .btn-submit:focus {
-    background-color: #004F32;
+    background-color: #00ba66;
     color: #fff;
 }
 
@@ -827,7 +829,7 @@ Footer
     padding: 14px 12px;
     border-radius: 50px;
     text-transform: uppercase;
-    background-color: #004F32;
+    background-color: #00ba66;
     color: #fff;
 }
 
@@ -884,7 +886,7 @@ Footer
 }
 
 .light-form-button {
-    background: #004F32;
+    background: #00ba66;
     border: 1px solid rgba(119, 81, 81, 0.34);
     width: 24%;
     padding: 10px 10px;
@@ -900,19 +902,19 @@ Footer
 
 .btn-greenline {
     background-color: #fff;
-    color: #004F32;
-    border: 1px solid #004F32 !important;
+    color: #00ba66;
+    border: 1px solid #00ba66 !important;
 }
 
 
     .btn-greenline:hover, .btn-greenline:focus {
-        background-color: #004F32;
+        background-color: #00ba66;
         color: #fff;
         font-weight: 700;
     }
 
 .btn-green {
-    background-color: #004F32;
+    background-color: #00ba66;
     color: #fff;
     font-weight: 700;
 }
@@ -920,10 +922,40 @@ Footer
 
     .btn-green:hover, .btn-green:focus {
         background-color: #fff;
-        color: #004F32;
-        border: 1px solid #004F32;
+        color: #00ba66;
+        border: 1px solid #00ba66;
     }
 
+
+.btn-blueline {
+    background-color: #fff;
+    color: #0866C6;
+    border: 1px solid #0866C6 !important;
+}
+
+
+    .btn-blueline:hover, .btn-blueline:focus {
+        background-color: #0866C6;
+        color: #fff;
+        font-weight: 700;
+    }
+
+.btn-blue {
+    background-color: #0866C6;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+    .btn-blue:hover, .btn-blue:focus {
+        background-color: #fff;
+        color: #0866C6;
+        border: 1px solid #0866C6;
+    }
+
+
+
+    
 .footer .form-control:focus {
     box-shadow: none;
 }
@@ -1075,8 +1107,8 @@ Fade Bs-carousel
 
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
-    background-color: #004F32;
-    border-color: #004F32;
+    background-color: #00ba66;
+    border-color: #00ba66;
     opacity: .7;
 }
 

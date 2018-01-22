@@ -85,7 +85,7 @@ namespace BestBoQ
             string cusProvince = dt.Rows[0]["cusprovince"] == null ? "" : dt.Rows[0]["cusprovince"].ToString();
             string cusAddress = dt.Rows[0]["cusaddress"] == null ? "" : dt.Rows[0]["cusaddress"].ToString();
             string projectStart = dt.Rows[0]["projectstart"] == null ? "" : Convert.ToDateTime(dt.Rows[0]["projectstart"]).ToString("dd/MM/YYYY");
-            string contractID = dt.Rows[0]["coontractid"] == null ? "" : dt.Rows[0]["coontractid"].ToString();
+            string contractID = dt.Rows[0]["contractid"] == null ? "" : dt.Rows[0]["contractid"].ToString();
             string area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
             string month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
             string totalprice = dt.Rows[0]["totalprice"] == null ? "" : dt.Rows[0]["totalprice"].ToString();

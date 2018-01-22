@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/projectdetail.css" rel="stylesheet" />
     <link href="css/createproject.css" rel="stylesheet" />
+    <style>
+        .nav-documents img {
+            height: 35px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
@@ -28,10 +33,10 @@
             <br />
             <div class="row ">
                 <div class="col-xs-6 text-left">
-                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to Home</a>
+                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i>&nbsp;Back to Home</a>
                 </div>
                 <div class="col-xs-6 text-right">
-                    <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn"><i class="fa fa-flag" aria-hidden="true"></i> Finish Project</button>
+                    <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Finish Project</button>
                 </div>
             </div>
             <br />
@@ -43,7 +48,7 @@
                                 <div class="panel-body">
                                     <div class="edit-booking-property-infos">
                                         <div class="edit-booking-action edit-booking-resend-voucher-container">
-                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i> Modify</a>
+                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modify</a>
                                         </div>
                                         <section class="edit-booking-wrapper">
                                             <div id="edit-booking-hotel-header">
@@ -71,7 +76,8 @@
                                                     </div>
                                                     <div class="edit-booking-content">
                                                         <div class="edit-booking-booking-id-info-content">
-                                                            <asp:Label ID="lbProjName2" runat="server" Text="#N/A"></asp:Label></div>
+                                                            <asp:Label ID="lbProjName2" runat="server" Text="#N/A"></asp:Label>
+                                                        </div>
                                                         <div class="edit-booking-state" id="summary-status">
                                                             <i class="fa"></i><span>
                                                                 <asp:Label ID="lbStatus" runat="server" Text="#N/A"></asp:Label>&nbsp;</span>
@@ -90,7 +96,8 @@
                                                     </div>
                                                     <div class="edit-booking-content ">
                                                         <div class="edit-booking-check-in-content">
-                                                            <asp:Label ID="lbCusName2" runat="server" Text="#N/A"></asp:Label></div>
+                                                            <asp:Label ID="lbCusName2" runat="server" Text="#N/A"></asp:Label>
+                                                        </div>
                                                         <div class="edit-booking-check-out-content">
                                                             <div class="edit-booking-check-out-date">
                                                                 <asp:Label ID="lbCusAddress" runat="server" Text="#N/A"></asp:Label>
@@ -129,7 +136,7 @@
                             <div>
                                 <div class="panel panel-default price-details">
                                     <div class="panel-body">
-                                        <h5 class="m-b-4 m-t-0"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payment details</h5>
+                                        <h5 class="m-b-4 m-t-0"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;Payment details</h5>
                                         <dl class="dl-horizontal dd-align-right room-price">
                                             <dt>ค่าแรงและวัสดุรวม</dt>
                                             <dd>฿ <span id="totalPrice">
@@ -164,13 +171,31 @@
 
                                 <div class="panel panel-default project-details">
                                     <div class="panel-body">
-                                        <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i> Documents</h5>
-                                        <ul class="nav nav-pills nav-stacked nav-generate">
-                                            <li role="presentation"><a href="#">BOQ <small>(สรุปรายการวัสดุ)</small></a></li>
-                                            <li role="presentation"><a href="#">Contract <small>(สัญญาว่าจ้าง)</small></a></li>
-                                            <li role="presentation"><a href="#">Payment Term <small>(งวดงานก่อสร้าง)</small></a></li>
-                                            <li role="presentation"><a href="#">Plan <small>(แผนงานก่อสร้าง)</small></a></li>
-                                            <li role="presentation"><a href="#">Report <small>(รายการแยกต้นทุน)</small></a></li>
+                                        <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Documents</h5>
+                                        <ul class="nav nav-pills nav-stacked nav-generate nav-documents">
+                                            <li role="presentation"><a href="#">
+                                                <img src="Images/IconDocument/BOQ.png" />&nbsp;
+                                                BOQ <small>(สรุปรายการวัสดุ)</small>
+                                            </a></li>
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnContractDoc" OnClick="lbtnContractDoc_Click" runat="server">
+                                                    <img src="Images/IconDocument/contract.png" />&nbsp;
+                                                    Contract <small>(สัญญาว่าจ้าง)</small>
+                                                </asp:LinkButton>
+                                            </li>
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnAppendixDoc" OnClick="lbtnAppendixDoc_Click" runat="server">
+                                                <img src="Images/IconDocument/Payment.png" />&nbsp;
+                                                Payment Term <small>(งวดงานก่อสร้าง)</small>
+                                             </asp:LinkButton></li>
+                                            <li role="presentation"><a href="#">
+                                                <img src="Images/IconDocument/Plan.png" />&nbsp;
+                                                Plan <small>(แผนงานก่อสร้าง)</small>
+                                            </a></li>
+                                            <li role="presentation"><a href="#">
+                                                <img src="Images/IconDocument/All.png" />&nbsp;
+                                                Report <small>(รายการแยกต้นทุน)</small>
+                                            </a></li>
                                         </ul>
                                     </div>
                                 </div>

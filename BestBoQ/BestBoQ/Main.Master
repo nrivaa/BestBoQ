@@ -14,14 +14,25 @@
     <link rel="stylesheet" type="text/css" href="theme/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/imagehover.min.css" />
-    <link href="lib/icheck/skins/square/green.css" rel="stylesheet" />
+    <link href="lib/icheck/skins/flat/green.css" rel="stylesheet" />
     <link href="lib/Inputmask/css/inputmask.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
 
     <script src="theme/js/jquery.min.js"></script>
     <style>
+        .navbar-theme {
+            background-color: #fafafa;
+        }
+
         .iradio_square-green {
+            margin-bottom: 6px;
+            margin-top: 6px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .iradio_flat-green {
             margin-bottom: 6px;
             margin-top: 6px;
             margin-right: 10px;
@@ -44,7 +55,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-theme navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -110,7 +121,7 @@
         <!--/ Footer-->
     </form>
 
-  
+
     <script src="theme/js/jquery.easing.min.js"></script>
     <script src="theme/js/bootstrap.min.js"></script>
     <script src="theme/js/custom.js"></script>
@@ -133,8 +144,8 @@
 
         $(document).ready(function () {
             $('input').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green',
                 increaseArea: '20%' // optional
             });
 

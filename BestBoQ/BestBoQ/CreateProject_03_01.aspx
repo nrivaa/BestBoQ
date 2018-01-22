@@ -41,7 +41,7 @@
                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("footingType")%>'></asp:Label></h3>
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" CssClass="form-control" data-validation="number" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" CssClass="form-control" data-validation="number" runat="server" Enabled='<%# Eval("flag_select").ToString() == "yes" ? true : false%>'></asp:TextBox>
                                                         <span class="input-group-addon">ต้น</span>
                                                         <input type="hidden" class="dataWeight" value="<%# Eval("weightSupport")%>" />
                                                         <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />

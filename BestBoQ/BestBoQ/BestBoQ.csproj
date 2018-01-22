@@ -244,6 +244,12 @@
     <Content Include="Images\2Home\7.jpg" />
     <Content Include="Images\2Home\8.jpg" />
     <Content Include="Images\2Home\9.jpg" />
+    <Content Include="Images\IconDocument\All.png" />
+    <Content Include="Images\IconDocument\BOQ.png" />
+    <Content Include="Images\IconDocument\contract.png" />
+    <Content Include="Images\IconDocument\Payment.png" />
+    <Content Include="Images\IconDocument\Plan.png" />
+    <Content Include="Images\IconDocument\Report.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\thai_gov.png">
@@ -862,6 +868,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="PDFs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

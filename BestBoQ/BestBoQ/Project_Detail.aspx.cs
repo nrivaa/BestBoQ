@@ -71,14 +71,23 @@ namespace BestBoQ
         protected void DownloadContract()
         {
             Contract contract = new Contract(this);
-            Response.Redirect(contract.CreatePDF(param_projid));
+            Response.Redirect("~/PDFs/" + contract.CreatePDF(param_projid));
         }
 
         protected void DownloadAppendixA()
         {
             AppendixA appendix = new AppendixA(this);
-            Response.Redirect(appendix.CreatePDF(param_projid));
+            Response.Redirect("~/PDFs/" + appendix.CreatePDF(param_projid));
         }
 
+        protected void lbtnContractDoc_Click(object sender, EventArgs e)
+        {
+            DownloadContract();
+        }
+
+        protected void lbtnAppendixDoc_Click(object sender, EventArgs e)
+        {
+            DownloadAppendixA();
+        }
     }
 }

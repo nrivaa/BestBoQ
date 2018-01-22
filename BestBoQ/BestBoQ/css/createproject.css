@@ -67,17 +67,17 @@ li {
 }
 
 .progress-tracker-container .progress-tracker li.progress-tracker-active {
-    background-color: #004F32;
+    background-color: #00ba66;
     border-color: #cbd3db;
     color: #fff;
 }
 
     .progress-tracker-container .progress-tracker li.progress-tracker-active:not(:last-child):after {
-        border-left-color: #004F32;
+        border-left-color: #00ba66;
     }
 
 .progress-tracker-container .progress-tracker li.progress-tracker-visited {
-    color: #004F32;
+    color: #00ba66;
     font-weight: 700;
 }
 
@@ -173,7 +173,7 @@ a {
 }
 
 .alert-success {
-    color: #004F32;
+    color: #00ba66;
 }
 
 .alert-info {
