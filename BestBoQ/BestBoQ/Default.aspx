@@ -8,7 +8,8 @@
         }
 
             .slick-slide img {
-                width: 70%;
+                /*width: 70%;*/
+                width: 200px;
                 padding: 0 30px;
                 background-color: #FFF;
                 border: 1px solid white;
