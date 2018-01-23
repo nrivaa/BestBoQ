@@ -671,8 +671,11 @@
                 if (animating) return false;
                 animating = true;
 
-                current_fs = $(this).parent();
-                previous_fs = $(this).parent().prev();
+                //current_fs = $(this).parent();
+                //previous_fs = $(this).parent().prev();
+
+                current_fs = $(this).closest("fieldset");
+                previous_fs = current_fs.prev();
 
                 //de-activate current step on progressbar
                 $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
