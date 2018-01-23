@@ -9,6 +9,10 @@
 
             .slick-slide img {
                 width: 70%;
+                padding: 0 30px;
+                background-color: #FFF;
+                border: 1px solid white;
+                border-radius: 10px;
                 /*height: 60px;*/
             }
 
@@ -117,20 +121,20 @@
 
 
         #msform {
-            width: 70%;
-            margin: 50px auto;
+            /*width: 70%;*/
+            margin: 10px auto;
             text-align: center;
             position: relative;
         }
 
             #msform fieldset {
-                background: white;
+                /*background: white;*/
                 border: 0 none;
-                border-radius: 3px;
-                box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-                padding: 20px 30px;
+                /*border-radius: 3px;*/
+                /*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*/
+                /*padding: 20px 30px;*/
                 box-sizing: border-box;
-                width: 80%;
+                /*width: 80%;*/
                 margin: 0 10%;
                 /*stacking fieldsets above each other*/
                 position: relative;
@@ -183,7 +187,7 @@
         }
         /*progressbar*/
         #progressbar {
-            margin-bottom: 30px;
+            /*margin-bottom: 30px;*/
             overflow: hidden;
             padding: 0;
             /*CSS counters to number the steps*/
@@ -214,13 +218,15 @@
                 /*progressbar connectors*/
                 #progressbar li:after {
                     content: '';
-                    width: 100%;
+                    /*width: 100%;*/
+                    width: 93%;
                     height: 2px;
                     background: #4B4B4C;
                     position: absolute;
-                    left: -50%;
+                    left: -46.5%;
+                    /*left: -50%;*/
                     top: 9px;
-                    z-index: -1; /*put it behind the numbers*/
+                    /*z-index: -1;*/ /*put it behind the numbers*/
                 }
 
                 #progressbar li:first-child:after {
@@ -240,7 +246,7 @@
             <a href="#feature">รู้จัก bestboq</a>
         </li>
         <li>
-            <a href="#register">สมัครใช้งาน</a>
+            <a href="#" data-target="#registerForm" data-toggle="modal">สมัครใช้งาน</a>
         </li>
         <li class="btn-trial">
             <a href="#" data-target="#login" data-toggle="modal">เข้าสู่ระบบ</a>
@@ -250,9 +256,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
-    <!--Modal box-->
+    <!--Modal Login box-->
     <div class="modal fade" id="login" role="dialog">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-sm modal-small">
             <!-- Modal content no 1-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -294,10 +300,115 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <!--/ Modal box-->
+    <!--/ Modal Login box-->
+
+    <!--Modal Login box-->
+    <div class="modal fade" id="registerForm" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content no 1-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center form-title">สมัครใช้งาน</h4>
+                </div>
+                <div class="modal-body padtrbl">
+                    <div class="register-box-body">
+                        <div class="contactForm" role="form">
+                            <!-- multistep form -->
+                            <div id="msform">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active">ข้อมูลทั่วไป</li>
+                                    <li>ข้อมูลเกี่ยวกับบริษัท/บุคคล</li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset id="msform-step1">
+                                    <h2 class="fs-title">ข้อมูลทั่วไป</h2>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                            <input type="password" id="tbPassword" runat="server" autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Password" />
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                            <input type="password" id="tbRepassword" runat="server" autocomplete="off" data-validation="required,confirmPassword" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                            <asp:TextBox ID="tbEmail" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                                            <asp:TextBox ID="tbMobile" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <input type="button" name="next" class="next btn btn-green btn-block btn-flat" value="Next" />
+                                </fieldset>
+                                <fieldset>
+                                    <h2 class="fs-title">ข้อมูลเกี่ยวกับบริษัท/บุคคล</h2>
+                                    <div class="form-group form-group-radio">
+                                        <label class="col-sm-3 control-label lable_type text-left">ประเภท</label>
+                                        <div class="col-sm-9">
+                                            <asp:RadioButtonList class="radio-type" ID="rbType" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Selected="True">บุคคล</asp:ListItem>
+                                                <asp:ListItem>บริษัท</asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อ-นามสกุล"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbCompany" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อบริษัท"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbAddress" runat="server" data-validation="length" data-validation-length="min10" CssClass="form-control" autocomplete="off" placeholder="Address"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbID" runat="server" CssClass="form-control" data-validation="required" autocomplete="off" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbTax" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="button" name="previous" class="previous btn btn-greenline btn-block btn-flat" value="Previous" />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <asp:Button ID="btnRegister" runat="server" Text="Register" OnClientClick=" return $('.contactForm').isValid()" CssClass="btn btn-green btn-block btn-flat" OnClick="btnRegister_Click" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Modal Login box-->
 
     <!--Banner-->
     <div class="banner">
@@ -387,7 +498,7 @@
     </section>
     <!--/ feature-->
     <!--Contact-->
-    <section id="register" class="section-padding">
+    <%--<section id="register" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
@@ -395,94 +506,13 @@
                     <p>
                         สมัครสมาชิกเพื่อใช้งานโปรแกรม bestBOQ
                     </p>
-                    <%--<hr class="bottom-line" />--%>
                 </div>
                 <div id="sendmessage">Your message has been sent. Thank you!</div>
                 <div id="errormessage"></div>
-                <div class="contactForm" role="form">
-                    <!-- multistep form -->
-                    <div id="msform">
-                        <!-- progressbar -->
-                        <ul id="progressbar">
-                            <li class="active">ข้อมูลทั่วไป</li>
-                            <li>ข้อมูลเกี่ยวกับบริษัท/บุคคล</li>
-                        </ul>
-                        <!-- fieldsets -->
-                        <fieldset id="msform-step1">
-                            <h2 class="fs-title">ข้อมูลทั่วไป</h2>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" ></span></span>
-                                    <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input type="password" id="tbPassword" runat="server" autocomplete="off" data-validation="required" name="pass_confirmation" class="form-control" placeholder="Password" />
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input type="password" id="tbRepassword" runat="server" autocomplete="off" data-validation="required,confirmPassword" name="pass_confirmation" class="form-control" placeholder="Confirm Password" />
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                    <asp:TextBox ID="tbEmail" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                                    <asp:TextBox ID="tbMobile" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
-                                </div>
-                            </div>
-                            <input type="button" name="next" class="next action-button" value="Next" />
-                        </fieldset>
-                        <fieldset>
-                            <h2 class="fs-title">ข้อมูลเกี่ยวกับบริษัท/บุคคล</h2>
-                            <div class="form-group form-group-radio">
-                                <label class="col-sm-2 control-label lable_type">ประเภท</label>
-                                <div class="col-sm-10">
-                                    <asp:RadioButtonList class="radio-type" ID="rbType" runat="server" RepeatDirection="Horizontal">
-                                        <asp:ListItem Selected="True">บุคคล</asp:ListItem>
-                                        <asp:ListItem>บริษัท</asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="form-group">
-                                <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อ-นามสกุล"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <asp:TextBox ID="tbCompany" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อบริษัท"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <asp:TextBox ID="tbAddress" runat="server" data-validation="length" data-validation-length="min10" CssClass="form-control" autocomplete="off" placeholder="Address"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <asp:TextBox ID="tbID" runat="server" CssClass="form-control" data-validation="required" autocomplete="off" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <asp:TextBox ID="tbTax" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
-                            </div>
-                            <input type="button" name="previous" class="previous action-button" value="Previous" />
-                            <asp:Button ID="btnRegister" runat="server" Text="Register" OnClientClick=" return $('.contactForm').isValid()" CssClass="action-button" OnClick="btnRegister_Click" />
-                        </fieldset>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
+    </section>--%>
     <!--/ Contact-->
     <section id="cta-2">
         <div class="container">
@@ -598,8 +628,9 @@
                 if (animating) return false;
                 animating = true;
 
-                if ($("#msform-step1").isValid()) {
-
+                var isValid = $("#msform-step1").isValid();
+                console.log(isValid);
+                if (isValid) {
                     current_fs = $(this).parent();
                     next_fs = $(this).parent().next();
 
@@ -632,7 +663,7 @@
                     });
                 }
                 else {
-                    return false;
+                    animating = false;
                 }
             });
 

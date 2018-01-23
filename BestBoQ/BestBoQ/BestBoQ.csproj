@@ -466,6 +466,8 @@
     <Content Include="lib\icheck\icheck.jquery.json" />
     <Content Include="HomeNestedMaster.master" />
     <Content Include="CreateHomeNestedMaster.master" />
+    <Content Include="fonts\THSarabunNew.ttf" />
+    <Content Include="fonts\THSarabunNewBold.ttf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
@@ -641,7 +643,9 @@
     <Content Include="theme\js\custom.js" />
     <Content Include="theme\js\jquery.easing.min.js" />
     <Content Include="theme\js\jquery.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>

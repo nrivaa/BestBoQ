@@ -39,9 +39,15 @@
                                             <div class="caption text-center">
                                                 <h3>
                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("roofStyle")%>'></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("roofType")%>'></asp:Label>
                                                 </h3>
+                                                <small><asp:Label ID="Label3" runat="server" Text='<%# Eval("detail")%>'></asp:Label></small>
                                                 <div class="form-group has-feedback">
-                                                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Vertical" RepeatLayout="Table"></asp:RadioButtonList>
+                                                   <%-- <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Vertical" RepeatLayout="Table"></asp:RadioButtonList>--%>
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataMM" value="<%# Eval("numMM")%>" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +55,11 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
-                        <p class="text-right"><small>ราคารวม 0 บาท</small></p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,6 +78,31 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
-        var radioOne = true;
+        //var radioOne = true;
+
+        calculatePrice();
+
+        $('.form input[type=radio]').on('ifChecked', function (event) {
+                calculatePrice($(this));
+            });
+
+        function calculatePrice(em) {
+
+            if (!em) {
+                em = $('.form input[type=radio]:checked');
+            }
+
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+
+            if (em.length > 0) {
+                var block = em.closest('.form-group')
+                var cost = parseFloat(block.find(".dataCost").val());
+                var MM = parseFloat(block.find(".dataMM").val());
+                sumPrice = parseFloat(cost * MM);
+            }
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+        }
     </script>
 </asp:Content>

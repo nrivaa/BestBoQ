@@ -157,6 +157,7 @@
                 var elem_modal = $(this).closest(".modal");
                 var val_selected = elem_modal.find("input[type=radio]:checked").closest(".thumbnail").find("h3 span").html();
                 $(this).closest(".blockFlooring").find(".lable-flooring-selected").html(val_selected);
+                processPrice();
                 elem_modal.modal('hide');
             });
 
