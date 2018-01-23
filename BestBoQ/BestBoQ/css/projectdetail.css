@@ -1,5 +1,5 @@
 ﻿.nav-generate a {
-    color: #00ba66;
+    color: #5a5b5b;
     font-size: 15px;
     font-weight: 500;
     font-style: normal;
@@ -10,7 +10,7 @@
 }
 
     .nav-generate a:hover {
-        background-color: #00ba66 !important;
+        background-color: #8dc73f !important;
         color: #FFF !important;
     }
 
@@ -9979,7 +9979,7 @@ html[dir=rtl] .rtl.ADL-RTL-MMB .edit-booking-top-header .mmb-add-to-my-calendar-
 }
 
 .edit-booking-property-infos .edit-booking-hotel-name {
-    color: #00ba66;
+    color: #8dc73f;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.59;

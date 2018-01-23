@@ -3,6 +3,7 @@
     Author: BootstrapMade.com
     Color Rev.1 004F32
     Color Rev.2 00ba66 0866C6;
+    Color Rev.3 8dc73f
 */
 
 body {
@@ -57,20 +58,20 @@ h6 {
 }
 
 a {
-    color: #00ba66;
+    color: #8dc73f;
 }
 
     a:hover,
     a:focus {
-        color: #00ba66;
+        color: #8dc73f;
     }
 
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #00ba66;
-    border-color: #00ba66;
+    background-color: #8dc73f;
+    border-color: #8dc73f;
 }
 
 
@@ -79,7 +80,7 @@ Navigation bar
 ************************************/
 
 .navbar-default .navbar-brand {
-    color: #00ba66;
+    color: #8dc73f;
 }
 
 .navbar-default {
@@ -98,7 +99,7 @@ Navigation bar
 }
 
     .navbar-text > a {
-        color: #00ba66 !important;
+        color: #8dc73f !important;
     }
 
 .navbar-default .navbar-nav > li > a {
@@ -121,18 +122,18 @@ Navigation bar
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-    color: #00ba66;
+    color: #8dc73f;
 }
 
 .navbar-default .dropdown-menu > li > a:focus,
 .navbar-default .dropdown-menu > li > a:hover {
-    color: #00ba66;
+    color: #8dc73f;
     background: none;
 }
 
 .navbar-nav .active > a {
     background: none !important;
-    color: #00ba66 !important;
+    color: #8dc73f !important;
     outline: none;
 }
 
@@ -145,17 +146,17 @@ Navigation bar
 }
 
 .btn-trial a {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     border-radius: 25px;
     color: #ffffff !important;
-    border: 1px solid #00ba66;
+    border: 1px solid #8dc73f;
 }
 
     .btn-trial a:hover,
     .btn-trial a:focus {
-        border: 1px solid #00ba66;
+        border: 1px solid #8dc73f;
         background-color: #fff;
-        color: #00ba66 !important;
+        color: #8dc73f !important;
     }
 
 .navbar-default .navbar-brand {
@@ -211,7 +212,7 @@ Banner
 }
 
 .text-border {
-    border: 5px solid #00ba66;
+    border: 5px solid #8dc73f;
     display: inline-block;
     margin-top: 150px;
 }
@@ -360,7 +361,7 @@ Banner
 }
 
 .quote .btn {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -371,7 +372,7 @@ Banner
     .quote .btn:hover,
     .quote .btn:focus {
         background-color: #fff;
-        color: #00ba66;
+        color: #8dc73f;
         border-color: #fff;
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
@@ -408,7 +409,7 @@ h2 {
 
 .fea i {
     font-size: 39px;
-    color: #00ba66;
+    color: #8dc73f;
     margin-top: 7px;
 }
 
@@ -435,7 +436,7 @@ h2 {
 }
 
 .orga-stru {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     width: 109px;
     height: auto;
     padding: 10px 10px 25px 10px;
@@ -473,7 +474,7 @@ h3.det-txt {
 }
 
 h4.sm-txt {
-    color: #00ba66;
+    color: #8dc73f;
     font-size: 24px;
 }
 
@@ -493,7 +494,7 @@ Cta
 #cta-2 {
     padding: 30px 0;
     padding-bottom: 50px;
-    border-top: 6px solid #27AE60 !important;
+    border-top: 6px solid #8dc73f !important;
     background: rgb(24, 26, 28) url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818) no-repeat top center fixed;
 }
 
@@ -519,7 +520,7 @@ Cta
     min-width: 280px;
     margin-left: -4px;
     margin-bottom: 2px;
-    border: 1px solid #00ba66;
+    border: 1px solid #8dc73f;
     background-color: rgb(247, 247, 247);
     border-radius: 30px 0px 0px 30px;
 }
@@ -528,7 +529,7 @@ Cta
     font-size: 18px;
     text-transform: capitalize;
     color: #fff;
-    background-color: #00ba66;
+    background-color: #8dc73f;
     border: 2px solid #fff;
     padding: 14px 30px;
     margin-left: -4px;
@@ -556,7 +557,7 @@ Work Shop
 }
 
 .icon-box i {
-    color: #00ba66;
+    color: #8dc73f;
     font-size: 65px;
 }
 
@@ -635,12 +636,12 @@ Course
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
-    background-color: #00ba66;
+    background-color: #8dc73f;
 }
 
 [class*=" imghvr-"],
 [class^="imghvr-"] {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     color: #fff;
 }
 
@@ -693,7 +694,7 @@ Price Table
     padding: 20px 0px;
     font-weight: bold !important;
     font-size: 14px;
-    background-color: #00ba66;
+    background-color: #8dc73f;
 }
 
 
@@ -831,7 +832,7 @@ Footer
 
 .btn-submit:hover,
 .btn-submit:focus {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     color: #fff;
 }
 
@@ -839,7 +840,7 @@ Footer
     padding: 14px 12px;
     border-radius: 50px;
     text-transform: uppercase;
-    background-color: #00ba66;
+    background-color: #8dc73f;
     color: #fff;
 }
 
@@ -896,7 +897,7 @@ Footer
 }
 
 .light-form-button {
-    background: #00ba66;
+    background: #8dc73f;
     border: 1px solid rgba(119, 81, 81, 0.34);
     width: 24%;
     padding: 10px 10px;
@@ -912,19 +913,19 @@ Footer
 
 .btn-greenline {
     background-color: #fff;
-    color: #00ba66;
-    border: 1px solid #00ba66 !important;
+    color: #8dc73f;
+    border: 1px solid #8dc73f !important;
 }
 
 
     .btn-greenline:hover, .btn-greenline:focus {
-        background-color: #00ba66;
+        background-color: #8dc73f;
         color: #fff;
         font-weight: 700;
     }
 
 .btn-green {
-    background-color: #00ba66;
+    background-color: #8dc73f;
     color: #fff;
     font-weight: 700;
 }
@@ -932,8 +933,8 @@ Footer
 
     .btn-green:hover, .btn-green:focus {
         background-color: #fff;
-        color: #00ba66;
-        border: 1px solid #00ba66;
+        color: #8dc73f;
+        border: 1px solid #8dc73f;
     }
 
 
@@ -1117,8 +1118,8 @@ Fade Bs-carousel
 
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
-    background-color: #00ba66;
-    border-color: #00ba66;
+    background-color: #8dc73f;
+    border-color: #8dc73f;
     opacity: .7;
 }
 

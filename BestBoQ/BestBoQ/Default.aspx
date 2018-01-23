@@ -159,7 +159,7 @@
             /*buttons*/
             #msform .action-button {
                 width: 100px;
-                background: #27AE60;
+                background: #8dc73f;
                 font-weight: bold;
                 color: white;
                 border: 0 none;
@@ -170,7 +170,7 @@
             }
 
                 #msform .action-button:hover, #msform .action-button:focus {
-                    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+                    box-shadow: 0 0 0 2px white, 0 0 0 3px #8dc73f;
                 }
         /*headings*/
         .fs-title {
@@ -235,7 +235,7 @@
                 }
 
                 #progressbar li.active:before, #progressbar li.active:after {
-                    background: #00ba66;
+                    background: #8dc73f;
                     color: white;
                 }
     </style>
