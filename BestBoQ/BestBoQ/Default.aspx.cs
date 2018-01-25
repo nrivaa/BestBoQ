@@ -27,7 +27,7 @@ namespace BestBoQ
             //Execute Command
             try
             {
-                string sql_command = "SELECT [status],[userid] FROM [BESTBoQ].[dbo].[userinfo] "
+                string sql_command = "SELECT [status1],[status2],[status3],[status4],[status5],[status6],[userid] FROM [BESTBoQ].[dbo].[userinfo] "
                                + " WHERE [username] = '" + param_username + "' AND [password] = '" + param_password + "' ";
                 DataTable dt = ClassConfig.GetDataSQL(sql_command);
 
@@ -38,7 +38,7 @@ namespace BestBoQ
                 }
                 else
                 {
-                    if (dt.Rows[0][0].ToString() != "Approve")
+                    if (dt.Rows[0][0].ToString() != "true")
                     {
                         //Not Yet Approve
                         Response.Write("<script>alert('username ของท่านยังไม่ได้รับการอนุมัติ กรุณาติดต่อผู้ดูแล');</script>");
@@ -46,7 +46,7 @@ namespace BestBoQ
                     else
                     {
                         Session["Username"] = param_username;
-                        Session["UserID"] = dt.Rows[0][1].ToString();
+                        Session["UserID"] = dt.Rows[0][6].ToString();
                         Session.Timeout = 24 * 60;
 
                         Response.Redirect("Home.aspx");
