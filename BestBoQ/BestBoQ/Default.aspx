@@ -268,7 +268,7 @@
                 </div>
                 <div class="modal-body padtrbl">
                     <div class="login-box-body">
-                        <p class="login-box-msg">เข้าสู่ระบบ BestBoQ</p>
+                        <p cla ss="login-box-msg">เข้าสู่ระบบ BestBoQ</p>
                         <div class="form-group">
                             <div class="form-group has-feedback">
                                 <!----- username -------------->
@@ -295,6 +295,11 @@
                                 </div>--%>
                                 <div class="col-xs-12">
                                     <asp:Button ID="btnLogin" CssClass="btn btn-green btn-block btn-flat" runat="server" Text="เข้าสู่ระบบ" OnClick="btnLogin_Click" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <asp:Label ID="lbForgot" runat="server" Text="ลืมรหัสผ่าน?"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -427,13 +432,13 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item slides active">
-                    <img src="https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818" />
+                    <img src="Images/Default/home01.jpg" />
                 </div>
                 <div class="item slides">
-                    <img src="https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af" />
+                    <img src="Images/Default/home02.jpg" />
                 </div>
                 <div class="item slides">
-                    <img src="https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327" />
+                    <img src="Images/Default/home03.jpg" />
                 </div>
             </div>
             <!-- Controls -->

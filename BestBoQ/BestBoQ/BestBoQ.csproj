@@ -244,6 +244,9 @@
     <Content Include="Images\2Home\7.jpg" />
     <Content Include="Images\2Home\8.jpg" />
     <Content Include="Images\2Home\9.jpg" />
+    <Content Include="Images\Default\home01.jpg" />
+    <Content Include="Images\Default\home02.jpg" />
+    <Content Include="Images\Default\home03.jpg" />
     <Content Include="Images\IconDocument\All.png" />
     <Content Include="Images\IconDocument\BOQ.png" />
     <Content Include="Images\IconDocument\contract.png" />

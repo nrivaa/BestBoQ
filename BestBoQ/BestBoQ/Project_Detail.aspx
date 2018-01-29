@@ -193,8 +193,12 @@
                                                 Plan <small>(แผนงานก่อสร้าง)</small>
                                             </a></li>
                                             <li role="presentation"><a href="#">
-                                                <img src="Images/IconDocument/All.png" />&nbsp;
+                                                <img src="Images/IconDocument/Report.png" />&nbsp;
                                                 Report <small>(รายการแยกต้นทุน)</small>
+                                            </a></li>
+                                            <li role="presentation"><a href="#">
+                                                <img src="Images/IconDocument/All.png" />&nbsp;
+                                                All Report <small>(รวมทุกเอกสาร)</small>
                                             </a></li>
                                         </ul>
                                     </div>
