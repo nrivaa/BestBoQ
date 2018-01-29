@@ -299,7 +299,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <asp:Label ID="lbForgot" runat="server" Text="ลืมรหัสผ่าน?"></asp:Label>
+                                    <a href="#" data-target="#forget" data-toggle="modal">ลืมรหัสผ่าน?</a>
                                 </div>
                             </div>
                         </div>
@@ -310,7 +310,40 @@
     </div>
     <!--/ Modal Login box-->
 
-    <!--Modal Login box-->
+    <!--Modal Forget password box-->
+    <div class="modal fade" id="forget" role="dialog">
+        <div class="modal-dialog modal-sm modal-small">
+            <!-- Modal content no 1-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center form-title">ลืมรหัสผ่าน</h4>
+                </div>
+                <div class="modal-body padtrbl">
+                    <div class="login-box-body">
+                        <p cla ss="login-box-msg">ระบบจะส่ง password ไปให้คุณตาม email ที่ท่านสมัครไว้</p>
+                        <div class="form-group">
+                            <div class="form-group has-feedback">
+                                <!----- username -------------->
+                                <asp:TextBox ID="tbFuser" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*" autocomplete="off"></asp:TextBox>
+                                <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
+                                <!---Alredy exists  ! -->
+                                <span class="fa fa-user  form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <asp:Button ID="btnForget" CssClass="btn btn-green btn-block btn-flat" runat="server" Text="แจ้งลืมรหัส" OnClick="btnForget_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Modal Forget password box-->
+
+    <!--Modal Register box-->
     <div class="modal fade" id="registerForm" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content no 1-->
@@ -455,7 +488,40 @@
     <!--/ Banner-->
     <!--Feature-->
     <section id="feature" class="section-padding">
-        <div class="container">
+        <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel1">
+            <!-- Overlay -->
+            <div class="overlay"></div>
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#bs-carousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#bs-carousel1" data-slide-to="1"></li>
+                <li data-target="#bs-carousel1" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item slides active">
+                    <img src="Images/HowTo/1.png" />
+                </div>
+                <div class="item slides">
+                    <img src="Images/HowTo/2.png" />
+                </div>
+                <div class="item slides">
+                    <img src="Images/HowTo/3.png" />
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#bs-carousel1" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#bs-carousel1" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <%--<div class="container">
             <div class="row">
                 <div class="header-section text-center">
                     <h2>รู้จัก bestboq</h2>
@@ -500,7 +566,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </section>
     <!--/ feature-->
     <!--Contact-->

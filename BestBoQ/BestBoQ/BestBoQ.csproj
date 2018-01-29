@@ -231,6 +231,7 @@
     <Content Include="Images\14WinDoor\win1_c.png" />
     <Content Include="Images\2Home\1.png" />
     <Content Include="Images\2Home\10.jpg" />
+    <Content Include="Images\2Home\10.png" />
     <Content Include="Images\2Home\11.png" />
     <Content Include="Images\2Home\12.png" />
     <Content Include="Images\2Home\13.png" />
@@ -242,11 +243,17 @@
     <Content Include="Images\2Home\5.png" />
     <Content Include="Images\2Home\6.png" />
     <Content Include="Images\2Home\7.jpg" />
+    <Content Include="Images\2Home\7.png" />
     <Content Include="Images\2Home\8.jpg" />
+    <Content Include="Images\2Home\8.png" />
     <Content Include="Images\2Home\9.jpg" />
+    <Content Include="Images\2Home\9.png" />
     <Content Include="Images\Default\home01.jpg" />
     <Content Include="Images\Default\home02.jpg" />
     <Content Include="Images\Default\home03.jpg" />
+    <Content Include="Images\HowTo\1.png" />
+    <Content Include="Images\HowTo\2.png" />
+    <Content Include="Images\HowTo\3.png" />
     <Content Include="Images\IconDocument\All.png" />
     <Content Include="Images\IconDocument\BOQ.png" />
     <Content Include="Images\IconDocument\contract.png" />
