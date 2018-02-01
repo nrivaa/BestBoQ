@@ -173,10 +173,12 @@
                                     <div class="panel-body">
                                         <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Documents</h5>
                                         <ul class="nav nav-pills nav-stacked nav-generate nav-documents">
-                                            <li role="presentation"><a href="#">
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnBoq" OnClick="lbtnBoq_Click" runat="server">
                                                 <img src="Images/IconDocument/BOQ.png" />&nbsp;
                                                 BOQ <small>(สรุปรายการวัสดุ)</small>
-                                            </a></li>
+                                                </asp:LinkButton>
+                                            </li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnContractDoc" OnClick="lbtnContractDoc_Click" runat="server">
                                                     <img src="Images/IconDocument/contract.png" />&nbsp;
@@ -187,19 +189,25 @@
                                                 <asp:LinkButton ID="lbtnAppendixDoc" OnClick="lbtnAppendixDoc_Click" runat="server">
                                                 <img src="Images/IconDocument/Payment.png" />&nbsp;
                                                 Payment Term <small>(งวดงานก่อสร้าง)</small>
-                                             </asp:LinkButton></li>
-                                            <li role="presentation"><a href="#">
+                                                </asp:LinkButton></li>
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnPlan" OnClick="lbtnPlan_Click" runat="server">
                                                 <img src="Images/IconDocument/Plan.png" />&nbsp;
                                                 Plan <small>(แผนงานก่อสร้าง)</small>
-                                            </a></li>
-                                            <li role="presentation"><a href="#">
+                                                </asp:LinkButton>
+                                            </li>
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnReport" OnClick="lbtnReport_Click" runat="server">
                                                 <img src="Images/IconDocument/Report.png" />&nbsp;
                                                 Report <small>(รายการแยกต้นทุน)</small>
-                                            </a></li>
-                                            <li role="presentation"><a href="#">
+                                                </asp:LinkButton>
+                                            </li>
+                                            <li role="presentation">
+                                                <asp:LinkButton ID="lbtnAll" OnClick="lbtnAll_Click" runat="server">
                                                 <img src="Images/IconDocument/All.png" />&nbsp;
                                                 All Report <small>(รวมทุกเอกสาร)</small>
-                                            </a></li>
+                                                </asp:LinkButton>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

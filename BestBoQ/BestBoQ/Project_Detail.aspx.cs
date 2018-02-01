@@ -11,6 +11,7 @@ namespace BestBoQ
     public partial class Project_Detail : System.Web.UI.Page
     {
         string userID;
+        string s1, s2, s3, s4, s5, s6;
         public string param_projid;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -68,6 +69,21 @@ namespace BestBoQ
             }
         }
 
+        protected void getUserInfo()
+        {
+            string sql_command = "SELECT [status1],[status2],[status3],[status4],[status5],[status6] FROM [BESTBoQ].[dbo].[userinfo] WHERE [userid] = '" + userID + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            if(dt.Rows.Count >0)
+            {
+                s1 = dt.Rows[0]["status1"].ToString();
+                s2 = dt.Rows[0]["status2"].ToString();
+                s3 = dt.Rows[0]["status3"].ToString();
+                s4 = dt.Rows[0]["status4"].ToString();
+                s5 = dt.Rows[0]["status5"].ToString();
+                s6 = dt.Rows[0]["status6"].ToString();
+            }
+        }
+
         protected void DownloadContract()
         {
             Contract contract = new Contract(this);
@@ -80,14 +96,76 @@ namespace BestBoQ
             Response.Redirect("~/PDFs/" + appendix.CreatePDF(param_projid));
         }
 
+        protected void lbtnBoq_Click(object sender, EventArgs e)
+        {
+            if (s1 == "true")
+            {
+               
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
+        }
+
         protected void lbtnContractDoc_Click(object sender, EventArgs e)
         {
-            DownloadContract();
+            if (s2 == "true")
+            {
+                DownloadContract();
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
         }
 
         protected void lbtnAppendixDoc_Click(object sender, EventArgs e)
         {
-            DownloadAppendixA();
+            if (s3 == "true")
+            {
+                DownloadContract();
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
+        }
+
+        protected void lbtnPlan_Click(object sender, EventArgs e)
+        {
+            if (s4 == "true")
+            {
+                
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
+        }
+
+        protected void lbtnReport_Click(object sender, EventArgs e)
+        {
+            if (s5 == "true")
+            {
+                
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
+        }
+
+        protected void lbtnAll_Click(object sender, EventArgs e)
+        {
+            if (s6 == "true")
+            {
+                
+            }
+            else
+            {
+                Response.Write("<script>alert('ท่านไม่มีสิทธิ์ใช่งานในModeนี้!!!!');</script>");
+            }
         }
     }
 }
