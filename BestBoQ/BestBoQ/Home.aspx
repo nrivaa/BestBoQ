@@ -120,6 +120,7 @@
                                     <small style="display:none"><%#Eval("projecttype") %></small>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:BoundField DataField="projecttype" HeaderText="Project Type" />
                             <asp:BoundField DataField="projectname" HeaderText="Project Name" />
                             <asp:BoundField DataField="customername" HeaderText="Customer Name" />
                             <asp:BoundField DataField="contractid" HeaderText="Contract Name" />

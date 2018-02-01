@@ -28,9 +28,7 @@ namespace BestBoQ
 
         protected void bindData()
         {
-            string sql_command = " SELECT *"
-                               + " FROM [BESTBoQ].[dbo].[Project_03_11_Electric] " 
-                               + " WHERE[projectid] = '" + param_projid + "' ";
+            string sql_command = " EXEC [dbo].[get_Result_11] '" + param_projid + "' ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {

@@ -49,6 +49,7 @@
                                                 <td><asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label></td>
                                                 <td><asp:Label ID="Label4" runat="server" Text='<%# Eval("point")%>'></asp:Label></td>
                                                 <td><asp:Label ID="Label3" runat="server" Text='<%# Eval("unit")%>'></asp:Label></td>
+                                                <td><asp:Label ID="Label5" runat="server" Text='<%# Eval("total")%>'></asp:Label></td>
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
