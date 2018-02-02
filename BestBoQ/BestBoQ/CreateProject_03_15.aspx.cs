@@ -41,7 +41,7 @@ namespace BestBoQ
                 ClassConfig.GetDataSQL(sql_command);
 
                 //Update Status
-                ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
+                ClassConfig.UpdateStatus(param_projid, "Complete", userID);
 
                 //Redirect
                 Response.Redirect("Project_Detail.aspx?id=" + param_projid);

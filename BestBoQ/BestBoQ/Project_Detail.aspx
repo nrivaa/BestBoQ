@@ -35,9 +35,9 @@
                 <div class="col-xs-6 text-left">
                     <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i>&nbsp;Back to Home</a>
                 </div>
-                <div class="col-xs-6 text-right">
+                <%--<div class="col-xs-6 text-right">
                     <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Finish Project</button>
-                </div>
+                </div>--%>
             </div>
             <br />
             <div class="row">
@@ -47,7 +47,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="edit-booking-property-infos">
-                                        <div class="edit-booking-action edit-booking-resend-voucher-container">
+                                        <div id="div-edit" class="edit-booking-action edit-booking-resend-voucher-container">
                                             <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modify</a>
                                         </div>
                                         <section class="edit-booking-wrapper">
@@ -222,18 +222,19 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
         var status = '<%=lbStatus.Text%>';
-
+        var x = document.getElementById("div-edit");
 
         if (status.toLowerCase() == "complete") {
             $("#summary-status i").addClass("mmb-booking-status-icon-green");
             $("#summary-status i").addClass("fa-check-circle");
             $("#summary-status span").addClass("mmb-bi-state-green");
-
+            x.style.display = "none";
         }
         else if (status.toLowerCase() == "on progress" || status.toLowerCase() == "onprogress") {
             $("#summary-status i").addClass("mmb-booking-status-icon-orange");
             $("#summary-status i").addClass("fa-clock-o");
             $("#summary-status span").addClass("mmb-bi-state-orange");
+            x.style.display = "block";
         }
     </script>
 </asp:Content>
