@@ -19,10 +19,17 @@ namespace BestBoQ
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
-                param_projid = Request.QueryString["id"].ToString();
+            string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
 
-            bindData();
+            if (Request.QueryString["id"] != null)
+            {
+                param_projid = Request.QueryString["id"].ToString();
+                bindData();
+            }
+            else if (currentPage != "CreateProject")
+            {
+                Response.Redirect("Home?r=notfound");
+            }
         }
 
         protected void bindData()
@@ -30,12 +37,30 @@ namespace BestBoQ
             string sql_command = " [dbo].[get_ProjInfo] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
 
-            if (dt.Rows.Count > 0) {
-                foreach (DataRow dr in dt.Rows) {
-                    Label1.Text = dr["projectname"].ToString();
-                    Label2.Text = dr["customername"].ToString();
-                    Label3.Text = dr["projecttype"].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                    if (dr["userid"].ToString().Trim().ToLower() != Session["UserID"].ToString().Trim().ToLower())
+                    {
+                        Response.Redirect("Home?r=permission");
+                    }
+                    else if (dr["status"].ToString().Trim().ToLower() == "complete")
+                    {
+                        Response.Redirect("Home?r=complete");
+                    }
+                    else
+                    {
+                        Label1.Text = dr["projectname"].ToString();
+                        Label2.Text = dr["customername"].ToString();
+                        Label3.Text = dr["projecttype"].ToString();
+                    }
                 }
+            }
+            else 
+            {
+                Response.Redirect("Home?r=notfound");
             }
 
             sql_command = " [dbo].[get_Last_Price] '" + param_projid + "'";

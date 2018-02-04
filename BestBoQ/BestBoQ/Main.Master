@@ -162,6 +162,18 @@
         <!--/ Footer-->
     </form>
 
+    <div class="modal fade" id="completeModal" role="dialog">
+        <div class="modal-dialog" style="margin-top: 10%;">
+            <!-- Modal content no 1-->
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p><img width="150" src="Images/MrBestBoQ.png" /></p>
+                    <p id="completeModal-message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="theme/js/jquery.easing.min.js"></script>
     <script src="theme/js/bootstrap.min.js"></script>
@@ -176,6 +188,27 @@
     <script src="lib/Inputmask/dist/inputmask/jquery.inputmask.js"></script>
     <script src="lib/Inputmask/dist/inputmask/phone-codes/phone.js"></script>
     <script>
+
+        if (getUrlParameter("r") == "regisComplete") {
+            showCompleteMessage('ลงทะเบียนเรียบร้อยค้าบ');
+        }
+        else if (getUrlParameter("r") == "estimateComplete") {
+            showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        function showCompleteMessage(message) {
+            $("#completeModal-message").html(message);
+            $("#completeModal").modal('show');
+        }
+
+
         function validateForm(elementForm) {
             return $.validate({
                 form: elementForm,

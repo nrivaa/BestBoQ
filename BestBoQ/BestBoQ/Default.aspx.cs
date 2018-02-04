@@ -106,7 +106,8 @@ namespace BestBoQ
                                            + param_alias + "' ";
                         ClassConfig.GetDataSQL(param_command);
 
-                        Response.Write("<script>alert('Register Success');</script>");
+                        Response.Redirect("Default?r=regisComplete");
+                        //Response.Write("<script>alert('Register Success');</script>");
                     }
                     catch (Exception)
                     {

@@ -11,6 +11,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
         <div class="container">
+            <%--<div class="alert alert-danger alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4>Something wrong!</h4>
+                <p>คุณไม่มี Permission</p>
+            </div>--%>
             <div class="row">
                 <div class="header-section text-center">
                     <h2>My Project</h2>
@@ -117,7 +122,7 @@
                                 <ItemTemplate>
                                     <asp:Image ID="imgOnly" runat="server" AlternateText='<%#Eval("projecttype") %>' ImageUrl='<%#Eval("homepic") %>' Height="70px" Width="70px" />
                                     <asp:HiddenField ID="hdfID" runat="server" Value='<%#Eval("projectid") %>' />
-                                    <small style="display:none"><%#Eval("projecttype") %></small>
+                                    <small style="display: none"><%#Eval("projecttype") %></small>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="projecttype" HeaderText="Project Type" />
