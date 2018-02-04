@@ -3,6 +3,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/createproject.css" rel="stylesheet" />
     <link href="lib/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+    <style>
+        .pager {
+            margin: 2px 0;
+        }
+
+            .pager > .disabled > a, .pager > .disabled > a:focus, .pager > .pager > a:hover, .pager > .disabled > span, .pager > .disabled > span:focus, .pager > .disabled > span:hover {
+                cursor: not-allowed;
+            }
+
+            .pager > li > a, .pager > li > span {
+                color: #8dc73f;
+            }
+
+            .pager > .active > a, .pager > .active > a:focus, .pager > .active > a:hover, .pager > .active > span, .pager > .active > span:focus, .pager > .active > span:hover {
+                background-color: #8dc73f;
+                color: #FFF;
+            }
+
+            .pager li > a, .pager li > span {
+                display: inline-block;
+                padding: 5px 14px;
+                background-color: #fff;
+                border: 1px solid #8dc73f;
+                border-radius: 10px;
+            }
+
+                .pager li > a:focus, .pager li > a:hover {
+                    text-decoration: none;
+                    background-color: #8dc73f;
+                    color: #FFF;
+                }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -66,13 +99,17 @@
                             <div class="panel-body">
                                 <dl class="dl-horizontal dd-align-right room-price">
                                     <dt>ค่าแรงและวัสดุรวม</dt>
-                                    <dd>฿ <span id="totalPrice" data-value="<%=totalPrice%>"> <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="totalPrice" data-value="<%=totalPrice%>">
+                                        <asp:Label ID="lbTotalPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ค่าดำเนินการ</dt>
-                                    <dd>฿ <span id="feePrice" data-value="<%=pctFee%>"><asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="feePrice" data-value="<%=pctFee%>">
+                                        <asp:Label ID="lbFeePrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>ส่วนลด</dt>
-                                    <dd>฿ <span id="promoPrice" data-value="<%=pctPromo%>"><asp:Label ID="lbPromoPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="promoPrice" data-value="<%=pctPromo%>">
+                                        <asp:Label ID="lbPromoPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                     <dt>อื่นๆ</dt>
-                                    <dd>฿ <span id="otherPrice" data-value="<%=otherPrice%>"><asp:Label ID="lbOtherPrice" runat="server" Text="0.00"></asp:Label></span></dd>
+                                    <dd>฿ <span id="otherPrice" data-value="<%=otherPrice%>">
+                                        <asp:Label ID="lbOtherPrice" runat="server" Text="0.00"></asp:Label></span></dd>
                                 </dl>
                             </div>
                             <div class="panel-footer">
@@ -81,7 +118,7 @@
                                     <dt><strong class="h5">รวมสุทธิ</strong></dt>
                                     <dd>
                                         <span>
-                                            <strong  class="total-amount h5">฿
+                                            <strong class="total-amount h5">฿
                                                 <span id="lastPrice">
                                                     <asp:Label ID="lbLastPrice" runat="server" Text="0.00"></asp:Label>
                                                 </span>
@@ -89,7 +126,7 @@
                                         </span>
                                     </dd>
                                 </dl>
-                               <%-- <small class="charge-summary"><strong>Not Included:</strong> <span>Current step, Service charge and Discount</span></small>--%>
+                                <%-- <small class="charge-summary"><strong>Not Included:</strong> <span>Current step, Service charge and Discount</span></small>--%>
                             </div>
                         </div>
                     </div>

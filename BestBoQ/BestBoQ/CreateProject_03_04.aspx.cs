@@ -13,6 +13,7 @@ namespace BestBoQ
         string userID;
         public string param_projid;
         public string section_price = "0";
+        public string section_price_A6 = "0";
 
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
@@ -99,6 +100,16 @@ namespace BestBoQ
                 foreach (DataRow dr in dtPrice.Rows)
                 {
                     section_price = dr[3].ToString();
+                }
+            }
+
+            string sql_a6_command = " [dbo].[get_A6] '" + param_projid + "'";
+            DataTable dtA6 = ClassConfig.GetDataSQL(sql_a6_command);
+            if (dtA6.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtA6.Rows)
+                {
+                    section_price_A6 = dr[0].ToString();
                 }
             }
         }

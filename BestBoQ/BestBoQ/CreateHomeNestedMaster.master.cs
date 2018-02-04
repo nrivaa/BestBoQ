@@ -21,6 +21,10 @@ namespace BestBoQ
         {
             string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
 
+            if (Session["UserID"] == null) {
+                Response.Redirect("Default");
+            }
+
             if (Request.QueryString["id"] != null)
             {
                 param_projid = Request.QueryString["id"].ToString();

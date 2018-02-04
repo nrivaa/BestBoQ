@@ -12,7 +12,28 @@
                 <li class="step-3-title"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
             </ul>
 
-            <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong>10. งานฝ้า (Ceiling)</strong></div>
+            <div class="alert alert-success confident-message text-center nearly-done">
+                <nav>
+                    <ul class="pager">
+                        <li class="previous"><a href="CreateProject_03_09?id=<%=param_projid%>"><span aria-hidden="true">&larr;</span></a></li>
+                        <li><a href="CreateProject_03_01?id=<%=param_projid%>">1</a></li>
+                        <li><a href="CreateProject_03_02?id=<%=param_projid%>">2</a></li>
+                        <li><a href="CreateProject_03_03?id=<%=param_projid%>">3</a></li>
+                        <li><a href="CreateProject_03_04?id=<%=param_projid%>">4</a></li>
+                        <li><a href="CreateProject_03_05?id=<%=param_projid%>">5</a></li>
+                        <li><a href="CreateProject_03_07?id=<%=param_projid%>">6</a></li>
+                        <li><a href="CreateProject_03_08?id=<%=param_projid%>">7</a></li>
+                        <li><a href="CreateProject_03_09?id=<%=param_projid%>">8</a></li>
+                        <li class="active"><a href="CreateProject_03_10?id=<%=param_projid%>">9. งานฝ้า (Ceiling)</a></li>
+                        <li><a href="CreateProject_03_11?id=<%=param_projid%>">10</a></li>
+                        <li><a href="CreateProject_03_12?id=<%=param_projid%>">11</a></li>
+                        <li><a href="CreateProject_03_13?id=<%=param_projid%>">12</a></li>
+                        <li><a href="CreateProject_03_14?id=<%=param_projid%>">13</a></li>
+                        <li><a href="CreateProject_03_15?id=<%=param_projid%>">14</a></li>
+                        <li class="next"><a href="CreateProject_03_11?id=<%=param_projid%>"><span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
 
             <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
