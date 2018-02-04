@@ -63,7 +63,7 @@ namespace BestBoQ
                         {
 
                             string sql_command = " EXEC [dbo].[set_Project_03_04_Roof] "
-                                   + " '" + param_projid + "','" + param_roofStyle + "','" + param_roofType + "','" + userID + "'";
+                                   + " '" + param_projid + "','" + param_roofStyle + "','" + param_roofType + "','" + userID + "','All'";
                             ClassConfig.GetDataSQL(sql_command);
                         }
 
@@ -105,7 +105,7 @@ namespace BestBoQ
 
         protected void getOldData()
         {
-            string sql_command = " SELECT [projectid],[roofStyle],[roofType] FROM [BESTBoQ].[dbo].[Project_03_04_Roof]  WHERE[projectid] = '" + param_projid + "' ";
+            string sql_command = " SELECT [projectid],[roofStyle],[roofType] FROM [BESTBoQ].[dbo].[Project_03_04_Roof]  WHERE[projectid] = '" + param_projid + "' AND [floorType] <> 'A6' ";
             dt_old = ClassConfig.GetDataSQL(sql_command);
 
         }
