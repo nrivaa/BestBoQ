@@ -45,7 +45,7 @@
                                                 บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number,maxRoom" CssClass="form-control inputValue" runat="server" autocomplete="off"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number,maxRoom,completeRoom" CssClass="form-control inputValue" runat="server" autocomplete="off"></asp:TextBox>
                                                         <span class="input-group-addon">ห้อง</span>
                                                         <input type="hidden" class="dataMaxRoom" value="<%# Eval("maxRoom")%>" />
                                                         <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
@@ -103,6 +103,19 @@
                 },
                 errorMessage: 'The maximum number of rooms has been reached (' + maxRoom + " Rooms)",
                 errorMessageKey: 'badMaxRoom'
+            });
+
+            $.formUtils.addValidator({
+                name: 'completeRoom',
+                validatorFunction: function (value, $el, config, language, $form) {
+                    var sumRoom = 0;
+                    $.each($('.form input[type=text]'), function () {
+                        sumRoom = sumRoom + parseInt($(this).val());
+                    });
+                    return sumRoom == maxRoom;
+                },
+                errorMessage: 'Total number of rooms not equal ' + maxRoom,
+                errorMessageKey: 'badCompleteRoom'
             });
 
             // Setup form validation

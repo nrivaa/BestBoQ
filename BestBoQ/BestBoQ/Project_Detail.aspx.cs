@@ -18,6 +18,7 @@ namespace BestBoQ
             if (Session["UserID"] != null)
             {
                 userID = Session["UserID"].ToString();
+                getUserInfo();
                 if (Request.QueryString["id"] != null)
                 {
                     param_projid = Request.QueryString["id"].ToString();

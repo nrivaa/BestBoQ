@@ -17,6 +17,7 @@
     <link href="lib/icheck/skins/minimal/green.css" rel="stylesheet" />
     <link href="lib/Inputmask/css/inputmask.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/pluton.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
 
     <script src="theme/js/jquery.min.js"></script>
@@ -55,6 +56,20 @@
                 margin-bottom: 48px;
             }
         }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.58);
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer .social-links li a {
+            line-height: 32px !important;
+            padding: 10px 10px !important;
+            font-size: 50px !important;
+            transition: margin 0.4s !important;
+            -webkit-transition: margin 0.4s !important;
+        }
     </style>
     <link href="lib/DataTables/datatables.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -85,9 +100,28 @@
 
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
-
+        <div class="footer">
+            <div class="container text-center">
+                <ul class="social-links">
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/natureestatethailand/">
+                            <span class="icon-facebook-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.natureestate.co.th">
+                            <span class="icon-dribbble-circled"></span>
+                        </a>
+                    </li>
+                </ul>
+                <p>Copyright © 2018 <span style="color: #8dc73f;">NATURE ESTATE CO,.LTD </span>All Rights Reserved.</p>
+                <p><a href="mailto:info@natureestate.co.th">info@natureestate.co.th</a></p>
+                <p>085-445-4334 | 091-065-0090 | 087-951-1212 | 042-713-413</p>
+                <p>373/31 ถ.สกลนคร-กาฬสินธุ์ ต.ธาตุเชิงชุม อ.เมืองสกลนคร จ.สกลนคร 47000</p>
+            </div>
+        </div>
         <!--Footer-->
-        <footer id="footer" class="footer">
+        <%-- <footer id="footer" class="footer">
             <div class="container text-center">
                 <!-- End newsletter-form -->
                 <ul class="social-links">
@@ -119,12 +153,12 @@
                     </div>
                     <div>
                         <p>
-                            <span>373/31 ถ.สกลนคร-กาฬสินธุ์ ต.ธาตุเชิงชุม อ.เมืองสกลนคร จ.สกลนคร 47000</span>
+                            <span></span>
                         </p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer>--%>
         <!--/ Footer-->
     </form>
 

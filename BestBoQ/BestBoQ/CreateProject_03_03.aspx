@@ -65,7 +65,7 @@
                                                     <div class="col-lg-<%#Eval("visible").ToString() == "true" ? "6": "12"%>">
                                                         <div class="form-group has-feedback">
                                                             <div class="input-group">
-                                                                <asp:TextBox ID="TextBox3" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number" CssClass="form-control input-value" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="TextBox3" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number,validFlooring" CssClass="form-control input-value" runat="server"></asp:TextBox>
                                                                 <span class="input-group-addon">ตรม.</span>
                                                                 <input type="hidden" class="dataCostMain" value="<%# Eval("cost")%>" />
                                                             </div>
@@ -152,6 +152,28 @@
         $(document).ready(function () {
 
             processPrice();
+            initVaidateFlooring();
+
+            function initVaidateFlooring() {
+                $.formUtils.addValidator({
+                    name: 'validFlooring',
+                    validatorFunction: function (value, $el, config, language, $form) {
+                        var val = parseInt(value);
+                        if (val > 0) {
+                            var floorVal = "N/A";
+                            floorVal = $el.closest('.caption').find('.lable-flooring-selected').html();
+                            return (floorVal != "N/A" && floorVal);
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                    errorMessage: 'Please select floor',
+                    errorMessageKey: 'invalidFlooring'
+                });
+                // Setup form validation
+                $.validate();
+            }
 
             $(".btnSelectFlooring").click(function () {
                 var elem_modal = $(this).closest(".modal");

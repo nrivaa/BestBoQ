@@ -13,15 +13,6 @@ namespace BestBoQ {
     public partial class Approve {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// ddName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddName;
+        
+        /// <summary>
+        /// blockDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl blockDetail;
         
         /// <summary>
         /// lbUsername control.
@@ -76,13 +76,13 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Label lbRegisterdate;
         
         /// <summary>
-        /// lb1 control.
+        /// btnApprove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb1;
+        protected global::System.Web.UI.WebControls.Button btnApprove;
         
         /// <summary>
         /// cb1 control.
@@ -94,15 +94,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb1;
         
         /// <summary>
-        /// lb2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb2;
-        
-        /// <summary>
         /// cb2 control.
         /// </summary>
         /// <remarks>
@@ -110,15 +101,6 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb2;
-        
-        /// <summary>
-        /// lb3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb3;
         
         /// <summary>
         /// cb3 control.
@@ -130,15 +112,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb3;
         
         /// <summary>
-        /// lb4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb4;
-        
-        /// <summary>
         /// cb4 control.
         /// </summary>
         /// <remarks>
@@ -146,15 +119,6 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb4;
-        
-        /// <summary>
-        /// lb5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb5;
         
         /// <summary>
         /// cb5 control.
@@ -166,15 +130,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb5;
         
         /// <summary>
-        /// lb6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb6;
-        
-        /// <summary>
         /// cb6 control.
         /// </summary>
         /// <remarks>
@@ -182,14 +137,5 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb6;
-        
-        /// <summary>
-        /// btnApprove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprove;
     }
 }

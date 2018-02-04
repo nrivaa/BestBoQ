@@ -16,7 +16,7 @@ namespace BestBoQ
             {
                 ClearInfo();
                 bindData();
-                ddName.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", "NA"));
+                ddName.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
             }
             
         }
@@ -57,12 +57,12 @@ namespace BestBoQ
             cb5.Visible = false;
             cb6.Visible = false;
 
-            lb1.Visible = false;
-            lb2.Visible = false;
-            lb3.Visible = false;
-            lb4.Visible = false;
-            lb5.Visible = false;
-            lb6.Visible = false;
+            //lb1.Visible = false;
+            //lb2.Visible = false;
+            //lb3.Visible = false;
+            //lb4.Visible = false;
+            //lb5.Visible = false;
+            //lb6.Visible = false;
         }
 
         protected void ddName_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,11 +73,12 @@ namespace BestBoQ
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count >0)
             {
-                lbUsername.Text = "UserName: " + dt.Rows[0]["username"].ToString();
-                lbType.Text = "Type: " + dt.Rows[0]["type"].ToString();
-                lbEmail.Text = "Email: " + dt.Rows[0]["email"].ToString();
-                lbCompany.Text = "Company: " + dt.Rows[0]["companyname"].ToString();
-                lbRegisterdate.Text = "Register Date: " + dt.Rows[0]["registerdate"].ToString();
+                blockDetail.Visible = true;
+                lbUsername.Text = dt.Rows[0]["username"].ToString();
+                lbType.Text = dt.Rows[0]["type"].ToString();
+                lbEmail.Text = dt.Rows[0]["email"].ToString();
+                lbCompany.Text = dt.Rows[0]["companyname"].ToString();
+                lbRegisterdate.Text = dt.Rows[0]["registerdate"].ToString();
 
                 if(dt.Rows[0]["status1"].ToString() == "true")
                 {
@@ -116,12 +117,12 @@ namespace BestBoQ
                 cb5.Visible = true;
                 cb6.Visible = true;
 
-                lb1.Visible = true;
-                lb2.Visible = true;
-                lb3.Visible = true;
-                lb4.Visible = true;
-                lb5.Visible = true;
-                lb6.Visible = true;
+                //lb1.Visible = true;
+                //lb2.Visible = true;
+                //lb3.Visible = true;
+                //lb4.Visible = true;
+                //lb5.Visible = true;
+                //lb6.Visible = true;
             }
         }
 
