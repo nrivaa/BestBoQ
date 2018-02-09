@@ -76,15 +76,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Label lbRegisterdate;
         
         /// <summary>
-        /// btnApprove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprove;
-        
-        /// <summary>
         /// cb1 control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,33 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb1;
+        
+        /// <summary>
+        /// tbStartCan1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan1;
+        
+        /// <summary>
+        /// tbPeriodCan1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan1;
+        
+        /// <summary>
+        /// btnCan1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan1;
         
         /// <summary>
         /// cb2 control.
@@ -103,6 +121,33 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb2;
         
         /// <summary>
+        /// tbStartCan2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan2;
+        
+        /// <summary>
+        /// tbPeriodCan2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan2;
+        
+        /// <summary>
+        /// btnCan2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan2;
+        
+        /// <summary>
         /// cb3 control.
         /// </summary>
         /// <remarks>
@@ -110,6 +155,33 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb3;
+        
+        /// <summary>
+        /// tbStartCan3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan3;
+        
+        /// <summary>
+        /// tbPeriodCan3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan3;
+        
+        /// <summary>
+        /// btnCan3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan3;
         
         /// <summary>
         /// cb4 control.
@@ -121,6 +193,33 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb4;
         
         /// <summary>
+        /// tbStartCan4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan4;
+        
+        /// <summary>
+        /// tbPeriodCan4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan4;
+        
+        /// <summary>
+        /// btnCan4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan4;
+        
+        /// <summary>
         /// cb5 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +229,33 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.CheckBox cb5;
         
         /// <summary>
+        /// tbStartCan5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan5;
+        
+        /// <summary>
+        /// tbPeriodCan5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan5;
+        
+        /// <summary>
+        /// btnCan5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan5;
+        
+        /// <summary>
         /// cb6 control.
         /// </summary>
         /// <remarks>
@@ -137,5 +263,32 @@ namespace BestBoQ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cb6;
+        
+        /// <summary>
+        /// tbStartCan6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStartCan6;
+        
+        /// <summary>
+        /// tbPeriodCan6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPeriodCan6;
+        
+        /// <summary>
+        /// btnCan6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCan6;
     }
 }
