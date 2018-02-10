@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/HomeNestedMaster.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="BestBoQ.Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeNestedMaster.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="BestBoQ.Profile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

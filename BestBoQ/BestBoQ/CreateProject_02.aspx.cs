@@ -31,14 +31,14 @@ namespace BestBoQ
 
         private void bindHomeGroup()
         {
-            string sql_command = " SELECT [hometype],[homegroup],[homegrouppic] "
-                               + " FROM[BESTBoQ].[dbo].[CFG_Home_Type] "
-                               + " GROUP BY[hometype],[homegroup],[homegrouppic] ";
+            string sql_command = " SELECT B.[homeid],B.[homename],B.[homepic] " 
+                               + " FROM[BESTBoQ].[dbo].[Project_01_Desc] A LEFT JOIN[BESTBoQ].[dbo].[CFG_Home_Type] B "
+                               + " ON A.[projecttype] = B.[homegroup] WHERE A.[projectid] = '"+param_projid+"' ";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {
-                Repeater1.DataSource = dt;
-                Repeater1.DataBind();
+                Repeater2.DataSource = dt;
+                Repeater2.DataBind();
             }
         }
         

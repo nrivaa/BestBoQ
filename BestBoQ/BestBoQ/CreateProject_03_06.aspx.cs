@@ -15,10 +15,13 @@ namespace BestBoQ
         DataTable dt_old;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["UserID"] != null)
                 userID = Session["UserID"].ToString();
             if (Request.QueryString["id"] != null)
                 param_projid = Request.QueryString["id"].ToString();
+
+            Response.Redirect("CreateProject_03_03?id=" + param_projid);
 
             if (!IsPostBack)
             {

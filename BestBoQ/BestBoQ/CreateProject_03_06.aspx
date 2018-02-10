@@ -10,8 +10,10 @@
                 <li class="step-2-title progress-tracker-active"><span class="visible-md-block visible-lg-block desktop">3. Choose project materials</span> <small class="visible-xs-block visible-sm-block mobile">Materials</small> </li>
                 <li class="step-3-title"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
             </ul>
-
-            <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong>6. ระบบงานกรุพื้น (Flooring)</strong></div>
+            <div class="alert alert-success confident-message text-center nearly-done">
+                <strong>6. ระบบงานกรุพื้น (Flooring)</strong>
+            </div>
+            <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong></strong></div>
 
             <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">

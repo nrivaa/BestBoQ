@@ -12,7 +12,28 @@
                 <li class="step-3-title"><span class="visible-md-block visible-lg-block desktop">4. Review project summary</span> <small class="visible-xs-block visible-sm-block mobile">Summary!</small> </li>
             </ul>
 
-            <div class="alert alert-success confident-message text-center nearly-done" data-bind="html: progressTracker.nearlyDoneText"><strong>7. ระบบงานสุขภัณฑ์ห้องน้า (Toilet)</strong></div>
+            <div class="alert alert-success confident-message text-center nearly-done">
+                <nav>
+                    <ul class="pager">
+                        <li class="previous"><a href="CreateProject_03_05?id=<%=param_projid%>"><span aria-hidden="true">&larr;</span></a></li>
+                        <li><a href="CreateProject_03_01?id=<%=param_projid%>">1</a></li>
+                        <li><a href="CreateProject_03_02?id=<%=param_projid%>">2</a></li>
+                        <li><a href="CreateProject_03_03?id=<%=param_projid%>">3</a></li>
+                        <li><a href="CreateProject_03_04?id=<%=param_projid%>">4</a></li>
+                        <li><a href="CreateProject_03_05?id=<%=param_projid%>">5</a></li>
+                        <li class="active"><a href="CreateProject_03_07?id=<%=param_projid%>">6. ระบบงานสุขภัณฑ์ห้องน้า (Toilet)</a></li>
+                        <li><a href="CreateProject_03_08?id=<%=param_projid%>">7</a></li>
+                        <li><a href="CreateProject_03_09?id=<%=param_projid%>">8</a></li>
+                        <li><a href="CreateProject_03_10?id=<%=param_projid%>">9</a></li>
+                        <li><a href="CreateProject_03_11?id=<%=param_projid%>">10</a></li>
+                        <li><a href="CreateProject_03_12?id=<%=param_projid%>">11</a></li>
+                        <li><a href="CreateProject_03_13?id=<%=param_projid%>">12</a></li>
+                        <li><a href="CreateProject_03_14?id=<%=param_projid%>">13</a></li>
+                        <li><a href="CreateProject_03_15?id=<%=param_projid%>">14</a></li>
+                        <li class="next"><a href="CreateProject_03_08?id=<%=param_projid%>"><span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
 
             <div class="alert alert-danger alert-dismissible fade in" id="alertError" style="display: none" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top: 0; right: 0;">
@@ -45,7 +66,7 @@
                                                 บาท/ชุด
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number,maxRoom" CssClass="form-control inputValue" runat="server" autocomplete="off"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'integer'" Text="0" data-validation="number,maxRoom,completeRoom" CssClass="form-control inputValue" runat="server" autocomplete="off"></asp:TextBox>
                                                         <span class="input-group-addon">ห้อง</span>
                                                         <input type="hidden" class="dataMaxRoom" value="<%# Eval("maxRoom")%>" />
                                                         <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
@@ -103,6 +124,19 @@
                 },
                 errorMessage: 'The maximum number of rooms has been reached (' + maxRoom + " Rooms)",
                 errorMessageKey: 'badMaxRoom'
+            });
+
+            $.formUtils.addValidator({
+                name: 'completeRoom',
+                validatorFunction: function (value, $el, config, language, $form) {
+                    var sumRoom = 0;
+                    $.each($('.form input[type=text]'), function () {
+                        sumRoom = sumRoom + parseInt($(this).val());
+                    });
+                    return sumRoom == maxRoom;
+                },
+                errorMessage: 'Total number of rooms not equal ' + maxRoom,
+                errorMessageKey: 'badCompleteRoom'
             });
 
             // Setup form validation

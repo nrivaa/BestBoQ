@@ -10,13 +10,16 @@ namespace BestBoQ
 {
     public partial class Approve : System.Web.UI.Page
     {
+        string userID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Session["UserID"] != null)
+            userID = "967882";
             if (!IsPostBack)
             {
                 ClearInfo();
                 bindData();
-                ddName.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", "NA"));
+                ddName.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
             }
             
         }
@@ -57,12 +60,12 @@ namespace BestBoQ
             cb5.Visible = false;
             cb6.Visible = false;
 
-            lb1.Visible = false;
-            lb2.Visible = false;
-            lb3.Visible = false;
-            lb4.Visible = false;
-            lb5.Visible = false;
-            lb6.Visible = false;
+            //lb1.Visible = false;
+            //lb2.Visible = false;
+            //lb3.Visible = false;
+            //lb4.Visible = false;
+            //lb5.Visible = false;
+            //lb6.Visible = false;
         }
 
         protected void ddName_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,11 +76,12 @@ namespace BestBoQ
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count >0)
             {
-                lbUsername.Text = "UserName: " + dt.Rows[0]["username"].ToString();
-                lbType.Text = "Type: " + dt.Rows[0]["type"].ToString();
-                lbEmail.Text = "Email: " + dt.Rows[0]["email"].ToString();
-                lbCompany.Text = "Company: " + dt.Rows[0]["companyname"].ToString();
-                lbRegisterdate.Text = "Register Date: " + dt.Rows[0]["registerdate"].ToString();
+                blockDetail.Visible = true;
+                lbUsername.Text = dt.Rows[0]["username"].ToString();
+                lbType.Text = dt.Rows[0]["type"].ToString();
+                lbEmail.Text = dt.Rows[0]["email"].ToString();
+                lbCompany.Text = dt.Rows[0]["companyname"].ToString();
+                lbRegisterdate.Text = dt.Rows[0]["registerdate"].ToString();
 
                 if(dt.Rows[0]["status1"].ToString() == "true")
                 {
@@ -115,14 +119,34 @@ namespace BestBoQ
                 cb4.Visible = true;
                 cb5.Visible = true;
                 cb6.Visible = true;
-
-                lb1.Visible = true;
-                lb2.Visible = true;
-                lb3.Visible = true;
-                lb4.Visible = true;
-                lb5.Visible = true;
-                lb6.Visible = true;
             }
+
+
+            string period_command = "SELECT * FROM [BESTBoQ].[dbo].[userperiod] WHERE [userid] ='" + param_userid + "'";
+            DataTable dt_period = ClassConfig.GetDataSQL(period_command);
+            if(dt_period.Rows.Count > 0)
+            {
+                tbStartCan1.Text = dt_period.Rows[0]["status1_T"].ToString();
+                tbStartCan2.Text = dt_period.Rows[0]["status2_T"].ToString();
+                tbStartCan3.Text = dt_period.Rows[0]["status3_T"].ToString();
+                tbStartCan4.Text = dt_period.Rows[0]["status4_T"].ToString();
+                tbStartCan5.Text = dt_period.Rows[0]["status5_T"].ToString();
+                tbStartCan6.Text = dt_period.Rows[0]["status6_T"].ToString();
+
+                tbPeriodCan1.Text = dt_period.Rows[0]["status1_P"].ToString();
+                tbPeriodCan2.Text = dt_period.Rows[0]["status2_P"].ToString();
+                tbPeriodCan3.Text = dt_period.Rows[0]["status3_P"].ToString();
+                tbPeriodCan4.Text = dt_period.Rows[0]["status4_P"].ToString();
+                tbPeriodCan5.Text = dt_period.Rows[0]["status5_P"].ToString();
+                tbPeriodCan6.Text = dt_period.Rows[0]["status6_P"].ToString();
+            }
+        }
+
+        protected void Mgt_func(string step, string can, string time, string period)
+        {
+            string param_userid = ddName.SelectedValue.ToString().Trim();
+            string sql_command = "EXEC [dbo].[set_userperiod] '" + param_userid + "','" + step + "','" + can + "','" + time + "','" + period + "','" + userID + "' ";
+            ClassConfig.GetDataSQL(sql_command);
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)
@@ -184,6 +208,96 @@ namespace BestBoQ
                                + param_userid + "'";
             ClassConfig.GetDataSQL(sql_command);
 
+        }
+
+        protected void btnCan1_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb1.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("1", param_can, tbStartCan1.Text, tbPeriodCan1.Text);
+        }
+
+        protected void btnCan2_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb2.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("2", param_can, tbStartCan2.Text, tbPeriodCan2.Text);
+        }
+
+        protected void btnCan3_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb3.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("3", param_can, tbStartCan3.Text, tbPeriodCan3.Text);
+        }
+
+        protected void btnCan4_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb4.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("4", param_can, tbStartCan4.Text, tbPeriodCan4.Text);
+        }
+
+        protected void btnCan5_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb5.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("5", param_can, tbStartCan5.Text, tbPeriodCan5.Text);
+        }
+
+        protected void btnCan6_Click(object sender, EventArgs e)
+        {
+            string param_can;
+            if (cb6.Checked == true)
+            {
+                param_can = "true";
+            }
+            else
+            {
+                param_can = "false";
+            }
+
+            Mgt_func("6", param_can, tbStartCan6.Text, tbPeriodCan6.Text);
         }
     }
 }

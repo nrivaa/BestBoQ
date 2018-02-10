@@ -44,7 +44,8 @@ namespace BestBoQ
                 ClassConfig.UpdateStatus(param_projid, "Complete", userID);
 
                 //Redirect
-                Response.Redirect("Project_Detail.aspx?id=" + param_projid);
+                Response.Redirect("Project_Detail.aspx?r=estimateComplete&id=" + param_projid);
+
 
             }
             catch (Exception ex)

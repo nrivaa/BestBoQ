@@ -155,6 +155,7 @@
     <Content Include="css\createproject.css" />
     <Content Include="css\inputmask.css" />
     <Content Include="css\main.css" />
+    <Content Include="css\pluton.css" />
     <Content Include="css\projectdetail.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -230,7 +231,6 @@
     <Content Include="Images\14WinDoor\win1_b.png" />
     <Content Include="Images\14WinDoor\win1_c.png" />
     <Content Include="Images\2Home\1.png" />
-    <Content Include="Images\2Home\10.jpg" />
     <Content Include="Images\2Home\10.png" />
     <Content Include="Images\2Home\11.png" />
     <Content Include="Images\2Home\12.png" />
@@ -242,11 +242,8 @@
     <Content Include="Images\2Home\4.png" />
     <Content Include="Images\2Home\5.png" />
     <Content Include="Images\2Home\6.png" />
-    <Content Include="Images\2Home\7.jpg" />
     <Content Include="Images\2Home\7.png" />
-    <Content Include="Images\2Home\8.jpg" />
     <Content Include="Images\2Home\8.png" />
-    <Content Include="Images\2Home\9.jpg" />
     <Content Include="Images\2Home\9.png" />
     <Content Include="Images\Default\home01.jpg" />
     <Content Include="Images\Default\home02.jpg" />
@@ -262,6 +259,7 @@
     <Content Include="Images\IconDocument\Report.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\MrBestBoQ.png" />
     <Content Include="Images\no_image.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -479,6 +477,9 @@
     <Content Include="CreateHomeNestedMaster.master" />
     <Content Include="fonts\THSarabunNew.ttf" />
     <Content Include="fonts\THSarabunNewBold.ttf" />
+    <Content Include="fonts\pluton.eot" />
+    <Content Include="fonts\pluton.ttf" />
+    <Content Include="fonts\pluton.woff" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
