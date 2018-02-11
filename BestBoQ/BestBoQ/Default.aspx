@@ -734,64 +734,87 @@
                 </div>
             </div>
         </div>--%>
-    </section>
-    <!--/ feature-->
-    <!--Contact-->
-    <%--<section id="register" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="header-section text-center">
-                    <h2>สมัครใช้งาน</h2>
-                    <p>
-                        สมัครสมาชิกเพื่อใช้งานโปรแกรม bestBOQ
-                    </p>
-                </div>
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-
-            </div>
-        </div>
-    </section>--%>
-    <!--/ Contact-->
-    <section id="cta-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
-                    <div class="cta-2-form text-center">
-                        <div class="container">
-                            <section class="customer-logos slider">
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image1.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image2.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image3.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image4.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image5.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image6.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image7.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image8.png" />
-                                </div>
-                            </section>
+        </section>
+        <!--/ feature-->
+        <section id="cta-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
+                        <div class="cta-2-form text-center">
+                            <div class="container">
+                                <section class="customer-logos slider">
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image1.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image2.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image3.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image4.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image5.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image6.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image7.png" />
+                                    </div>
+                                    <div class="slide">
+                                        <img src="https://www.solodev.com/assets/carousel/image8.png" />
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!--Contact-->
+        <section id="register">
+            <div class="container">
+                <div class="row text-center">
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.facebook.com/natureestatethailand/">
+                                <span class="icon-facebook-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-twitter-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon-linkedin-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon-pinterest-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.natureestate.co.th">
+                                <span class="icon-dribbble-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-gplus-circled"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--/ Contact-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script src="theme/js/contactform.js"></script>

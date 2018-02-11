@@ -801,8 +801,8 @@ Footer
         height: 48px;
     }
 
-    .footer .social-links li a {
-        color: #fff;
+    .footer .social-links li a, .social-links li a {
+        color: 8dc73f;
         font-size: 32px;
         line-height: 50px;
         border-radius: 50%;
@@ -811,9 +811,9 @@ Footer
         transition: all .3s ease-out;
     }
 
-    .footer .social-links li {
+    .footer .social-links li, .social-links li {
         display: inline-block;
-        margin: 0 25px 25px;
+        /*margin: 0 25px 25px;*/
         -webkit-transition: all .3s ease-out;
         transition: all .3s ease-out;
     }
@@ -822,9 +822,10 @@ Footer
         margin: 20px 0;
     }
 
-    .footer .social-links {
+    .footer .social-links, .social-links {
         list-style: none;
         padding: 0;
+        margin: 60px 0 60px;
         /* margin: 30px 0 40px; */
         /* padding: 40px 0 0; */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);

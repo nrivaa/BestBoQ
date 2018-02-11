@@ -63,7 +63,7 @@
             padding: 0;
         }
 
-        .footer .social-links li a {
+        .social-links li a {
             line-height: 32px !important;
             padding: 10px 10px !important;
             font-size: 50px !important;
@@ -86,7 +86,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="Home.aspx">
-                        <img height="60" src="images/logo.jpg" />
+                        <img height="65" src="images/logo.jpg" />
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
@@ -102,7 +102,7 @@
         </asp:ContentPlaceHolder>
         <div class="footer">
             <div class="container text-center">
-                <ul class="social-links">
+               <%-- <ul class="social-links">
                     <li>
                         <a target="_blank" href="https://www.facebook.com/natureestatethailand/">
                             <span class="icon-facebook-circled"></span>
@@ -113,7 +113,7 @@
                             <span class="icon-dribbble-circled"></span>
                         </a>
                     </li>
-                </ul>
+                </ul>--%>
                 <p>Copyright © 2018 <span style="color: #8dc73f;">NATURE ESTATE CO,.LTD </span>All Rights Reserved.</p>
                 <p><a href="mailto:info@natureestate.co.th">info@natureestate.co.th</a></p>
                 <p>085-445-4334 | 091-065-0090 | 087-951-1212 | 042-713-413</p>
@@ -230,6 +230,10 @@
             });
 
             $("input").inputmask();
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            })
         });
     </script>
     <script src="lib/DataTables/datatables.min.js"></script>

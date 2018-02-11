@@ -11,6 +11,8 @@ namespace BestBoQ
     public partial class CreateHomeNestedMaster : System.Web.UI.MasterPage
     {
         string param_projid;
+
+        public string stepCompleteDataJSON;
         public double totalPrice = 0.0;
 
         public double pctFee = 0.0;
@@ -29,6 +31,7 @@ namespace BestBoQ
             {
                 param_projid = Request.QueryString["id"].ToString();
                 bindData();
+                getStepCompleteData();
             }
             else if (currentPage != "CreateProject")
             {
@@ -105,6 +108,25 @@ namespace BestBoQ
                     this.totalPrice = totalPrice;
                 }
             }
+        }
+        protected void getStepCompleteData()
+        {
+            string sql_command = " [dbo].[get_Value_Proj] '" + param_projid + "'";
+            DataTable dt = ClassConfig.GetDataSQL(sql_command);
+            List<string> result = new List<string>();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn column in dt.Columns)
+                    {
+                        result.Add(row[column].ToString());
+                    }
+                }
+            }
+
+            var jsonSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            stepCompleteDataJSON = jsonSerializer.Serialize(result);
         }
     }
 }

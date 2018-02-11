@@ -9,6 +9,10 @@
             margin: 2px 0;
         }
 
+            .pager li.disabled > a, .pager li.disabled > spa {
+                border: 1px solid #ddd;
+            }
+
             .pager > .disabled > a, .pager > .disabled > a:focus, .pager > .pager > a:hover, .pager > .disabled > span, .pager > .disabled > span:focus, .pager > .disabled > span:hover {
                 cursor: not-allowed;
             }
@@ -143,9 +147,29 @@
     <script src="lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="js/init.validate.radio.js"></script>
     <script>
+        var jsonstepCompleteDataJSON = <%=stepCompleteDataJSON%>;
+
         $(document).ready(function () {
             validateForm('.form');
+            renderPager();
         });
+
+        function renderPager() {
+            $.each($('.pager li'), function (index, value) {
+                var em = $(this);
+                var a = em.find("a");
+
+                if (jsonstepCompleteDataJSON[index+1] == 0) {
+                    em.addClass("disabled");
+                    a.removeAttr("href");
+                }
+
+                if (window.location.toString().indexOf(a.attr("href")) != -1) {
+                    em.addClass("active");
+                    a.text(em.attr("title"));
+                }
+            });
+        }
 
         function updateTotalPriceFromSection(sectionPriceElem, newSectionPrice) {
 
