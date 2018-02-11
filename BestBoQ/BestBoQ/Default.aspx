@@ -391,6 +391,9 @@
             <a href="#feature">รู้จัก bestboq</a>
         </li>
         <li>
+            <a href="#">เรียนรู้การใช้งาน</a>
+        </li>
+        <li>
             <a href="#" data-target="#registerForm" data-toggle="modal">สมัครใช้งาน</a>
         </li>
         <li class="btn-trial">

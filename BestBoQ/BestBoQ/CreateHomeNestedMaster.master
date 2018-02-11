@@ -159,7 +159,7 @@
                 var em = $(this);
                 var a = em.find("a");
 
-                if (jsonstepCompleteDataJSON[index+1] == 0) {
+                if (jsonstepCompleteDataJSON[index] == 0) {
                     em.addClass("disabled");
                     a.removeAttr("href");
                 }
