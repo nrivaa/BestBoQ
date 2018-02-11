@@ -30,7 +30,7 @@ namespace BestBoQ
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             ddName.DataSource = dt;
             ddName.DataValueField = "userid";
-            ddName.DataTextField = "name";
+            ddName.DataTextField = "username";
             ddName.DataBind();
         }
 

@@ -195,6 +195,12 @@
         else if (getUrlParameter("r") == "estimateComplete") {
             showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
         }
+        else if (getUrlParameter("r") == "updateComplete") {
+            showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
+            $('#completeModal').on('hidden.bs.modal', function (e) {
+                window.location = 'Approve';
+            })
+        }
 
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
