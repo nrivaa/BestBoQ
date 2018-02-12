@@ -14,25 +14,31 @@ namespace BestBoQ
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["UserID"] != null)
-            userID = "967882";
+            userID = "348770";
             if (!IsPostBack)
             {
                 ClearInfo();
-                bindData();
-                ddName.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
+                //bindData();
+                lbtnUsername.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
+                if (Session["Permission"] != null)
+                {
+                    lbtnUsername.SelectedValue = Session["Permission"].ToString();
+                }
+                getData();
             }
+
             
         }
 
-        protected void bindData()
-        {
-            string sql_command = "SELECT * FROM [BESTBoQ].[dbo].[userinfo]";
-            DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            ddName.DataSource = dt;
-            ddName.DataValueField = "userid";
-            ddName.DataTextField = "username";
-            ddName.DataBind();
-        }
+        //protected void bindData()
+        //{
+        //    string sql_command = "SELECT * FROM [BESTBoQ].[dbo].[userinfo]";
+        //    DataTable dt = ClassConfig.GetDataSQL(sql_command);
+        //    ddName.DataSource = dt;
+        //    ddName.DataValueField = "userid";
+        //    ddName.DataTextField = "username";
+        //    ddName.DataBind();
+        //}
 
         protected void ClearInfo()
         {
@@ -60,21 +66,33 @@ namespace BestBoQ
             cb5.Visible = false;
             cb6.Visible = false;
 
-            //lb1.Visible = false;
-            //lb2.Visible = false;
-            //lb3.Visible = false;
-            //lb4.Visible = false;
-            //lb5.Visible = false;
-            //lb6.Visible = false;
+            lbCan1.Text = string.Empty;
+            lbCan2.Text = string.Empty;
+            lbCan3.Text = string.Empty;
+            lbCan4.Text = string.Empty;
+            lbCan5.Text = string.Empty;
+            lbCan6.Text = string.Empty;
+            tbStartCan1.Text = string.Empty;
+            tbStartCan2.Text = string.Empty;
+            tbStartCan3.Text = string.Empty;
+            tbStartCan4.Text = string.Empty;
+            tbStartCan5.Text = string.Empty;
+            tbStartCan6.Text = string.Empty;
+            tbPeriodCan1.Text = string.Empty;
+            tbPeriodCan2.Text = string.Empty;
+            tbPeriodCan3.Text = string.Empty;
+            tbPeriodCan4.Text = string.Empty;
+            tbPeriodCan5.Text = string.Empty;
+            tbPeriodCan6.Text = string.Empty;
         }
 
-        protected void ddName_SelectedIndexChanged(object sender, EventArgs e)
+        protected void getData()
         {
             ClearInfo();
-            string param_userid = ddName.SelectedValue.ToString().Trim();
-            string sql_command = "SELECT * FROM [BESTBoQ].[dbo].[userinfo] WHERE[userid] = '"+ param_userid + "'";
+            string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
+            string sql_command = "SELECT * FROM [BESTBoQ].[dbo].[userinfo] WHERE[userid] = '" + param_userid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            if(dt.Rows.Count >0)
+            if (dt.Rows.Count > 0)
             {
                 blockDetail.Visible = true;
                 lbUsername.Text = dt.Rows[0]["username"].ToString();
@@ -83,7 +101,7 @@ namespace BestBoQ
                 lbCompany.Text = dt.Rows[0]["companyname"].ToString();
                 lbRegisterdate.Text = dt.Rows[0]["registerdate"].ToString();
 
-                if(dt.Rows[0]["status1"].ToString() == "true")
+                if (dt.Rows[0]["status1"].ToString() == "true")
                 {
                     cb1.Checked = true;
                 }
@@ -122,9 +140,9 @@ namespace BestBoQ
             }
 
 
-            string period_command = "SELECT * FROM [BESTBoQ].[dbo].[userperiod] WHERE [userid] ='" + param_userid + "'";
+            string period_command = "EXEC [dbo].[get_userPermission] '" + param_userid + "'";
             DataTable dt_period = ClassConfig.GetDataSQL(period_command);
-            if(dt_period.Rows.Count > 0)
+            if (dt_period.Rows.Count > 0)
             {
                 tbStartCan1.Text = dt_period.Rows[0]["status1_T"].ToString();
                 tbStartCan2.Text = dt_period.Rows[0]["status2_T"].ToString();
@@ -139,19 +157,33 @@ namespace BestBoQ
                 tbPeriodCan4.Text = dt_period.Rows[0]["status4_P"].ToString();
                 tbPeriodCan5.Text = dt_period.Rows[0]["status5_P"].ToString();
                 tbPeriodCan6.Text = dt_period.Rows[0]["status6_P"].ToString();
+
+                lbCan1.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["1_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["1_Avial"].ToString() + " วัน) ";
+                lbCan2.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["2_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["2_Avial"].ToString() + " วัน) ";
+                lbCan3.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["3_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["3_Avial"].ToString() + " วัน) ";
+                lbCan4.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["4_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["4_Avial"].ToString() + " วัน) ";
+                lbCan5.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["5_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["5_Avial"].ToString() + " วัน) ";
+                lbCan6.Text = "ใช้งานได้จนถึงวันที่ " + dt_period.Rows[0]["6_Finish"].ToString().Replace("00:00:00", "") + "(เหลือ " + dt_period.Rows[0]["6_Avial"].ToString() + " วัน) ";
+
             }
+        }
+
+        protected void ddName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getData();
         }
 
         protected void Mgt_func(string step, string can, string time, string period)
         {
-            string param_userid = ddName.SelectedValue.ToString().Trim();
+            string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
             string sql_command = "EXEC [dbo].[set_userperiod] '" + param_userid + "','" + step + "','" + can + "','" + time + "','" + period + "','" + userID + "' ";
             ClassConfig.GetDataSQL(sql_command);
+            Session["Permission"] = param_userid;
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
-            string param_userid = ddName.SelectedValue.ToString().Trim();
+            string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
             string param_can1, param_can2, param_can3, param_can4, param_can5, param_can6;
             if(cb1.Checked == true)
             {
@@ -223,6 +255,8 @@ namespace BestBoQ
             }
 
             Mgt_func("1", param_can, tbStartCan1.Text, tbPeriodCan1.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
         protected void btnCan2_Click(object sender, EventArgs e)
@@ -238,6 +272,8 @@ namespace BestBoQ
             }
 
             Mgt_func("2", param_can, tbStartCan2.Text, tbPeriodCan2.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
         protected void btnCan3_Click(object sender, EventArgs e)
@@ -253,6 +289,8 @@ namespace BestBoQ
             }
 
             Mgt_func("3", param_can, tbStartCan3.Text, tbPeriodCan3.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
         protected void btnCan4_Click(object sender, EventArgs e)
@@ -268,6 +306,8 @@ namespace BestBoQ
             }
 
             Mgt_func("4", param_can, tbStartCan4.Text, tbPeriodCan4.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
         protected void btnCan5_Click(object sender, EventArgs e)
@@ -283,6 +323,8 @@ namespace BestBoQ
             }
 
             Mgt_func("5", param_can, tbStartCan5.Text, tbPeriodCan5.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
         protected void btnCan6_Click(object sender, EventArgs e)
@@ -298,6 +340,8 @@ namespace BestBoQ
             }
 
             Mgt_func("6", param_can, tbStartCan6.Text, tbPeriodCan6.Text);
+            getData();
+            Response.Redirect("Approve.aspx?r=updateComplete");
         }
     }
 }
