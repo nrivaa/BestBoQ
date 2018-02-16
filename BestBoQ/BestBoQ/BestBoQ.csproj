@@ -286,6 +286,12 @@
     <Content Include="js\phone-codes\phone-uk.js" />
     <Content Include="js\phone-codes\phone-us.js" />
     <Content Include="js\phone-codes\phone.js" />
+    <Content Include="lib\chosen\chosen.css" />
+    <Content Include="lib\chosen\chosen.jquery.js" />
+    <Content Include="lib\chosen\chosen.jquery.min.js" />
+    <Content Include="lib\chosen\chosen.min.css" />
+    <Content Include="lib\chosen\chosen.proto.js" />
+    <Content Include="lib\chosen\chosen.proto.min.js" />
     <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
     <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker.css" />
     <Content Include="lib\datetimepicker\css\bootstrap-datetimepicker.min.css" />

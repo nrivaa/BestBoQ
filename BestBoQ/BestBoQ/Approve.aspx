@@ -2,6 +2,8 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="lib/chosen/chosen.css" rel="stylesheet" />
+    <script src="lib/chosen/chosen.jquery.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
@@ -11,10 +13,15 @@
                     <h2>Account Management</h2>
                     <hr class="bottom-line" />
                 </div>
-                <div class="col-sm-12" role="form">
-                    <div class="form-group">
-                        <label>Username:</label>
-                        <asp:DropDownList ID="ddName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddName_SelectedIndexChanged"></asp:DropDownList>
+                <div class="row">
+                    <div class="col-sm-6" role="form">
+                        <div class="form-group">
+                            <label>Username:</label>
+                            <asp:ListBox ID="lbtnUsername" data-placeholder="Select Username" runat="server" DataSourceID="SqlDataSource" OnSelectedIndexChanged="ddName_SelectedIndexChanged" AutoPostBack="true"
+                                DataTextField="AliseName" DataValueField="userid" SelectionMode="Single"></asp:ListBox>
+                            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="Data Source=49.231.24.106;Initial Catalog=BESTBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159" ProviderName="System.Data.SqlClient" SelectCommand="get_User" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                            <%--<asp:DropDownList ID="ddName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddName_SelectedIndexChanged"></asp:DropDownList>--%>
+                        </div>
                     </div>
                 </div>
                 <div class="row" visible="false" id="blockDetail" runat="server">
@@ -52,12 +59,20 @@
                         <div class="form-group radio-type">
                             <label>CreateProject:</label>
                             <asp:CheckBox ID="cb1" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan1" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan1" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan1" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan1" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan1" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan1" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan1_Click" />
@@ -67,12 +82,20 @@
                         <div class="form-group radio-type">
                             <label>BoQ:</label>
                             <asp:CheckBox ID="cb2" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan2" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan2" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan2" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan2" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan2" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan2" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan2_Click" />
@@ -82,12 +105,20 @@
                         <div class="form-group radio-type">
                             <label>Contract:</label>
                             <asp:CheckBox ID="cb3" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan3" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan3" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan3" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan3" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan3" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan3" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan3_Click" />
@@ -97,12 +128,20 @@
                         <div class="form-group radio-type">
                             <label>Term:</label>
                             <asp:CheckBox ID="cb4" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan4" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan4" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan4" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan4" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan4" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan4" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan4_Click" />
@@ -112,12 +151,20 @@
                         <div class="form-group radio-type">
                             <label>MasterPlan:</label>
                             <asp:CheckBox ID="cb5" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan5" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan5" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan5" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan5" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan5" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan5" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan5_Click" />
@@ -127,12 +174,20 @@
                         <div class="form-group radio-type">
                             <label>Report:</label>
                             <asp:CheckBox ID="cb6" runat="server" Visible="false" />
+                            <small>
+                                <asp:Label ID="lbCan6" runat="server" Text="" Visible="true"></asp:Label></small>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <asp:TextBox ID="tbStartCan6" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbStartCan6" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันที่เริ่มใช้งาน"></asp:TextBox>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:TextBox ID="tbPeriodCan6" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                    <div class="input-group">
+                                        <asp:TextBox ID="tbPeriodCan6" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="จำนวนวัน"></asp:TextBox>
+                                        <span class="input-group-addon">Day</span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <asp:Button ID="btnCan6" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan6_Click" />
@@ -177,5 +232,8 @@
                 format: 'L'
             });
         });
+    </script>
+    <script>
+        $("select").chosen({ width: '100%' });
     </script>
 </asp:Content>
