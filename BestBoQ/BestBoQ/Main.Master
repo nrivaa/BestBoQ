@@ -97,7 +97,6 @@
         </nav>
         <!--/ Navigation bar-->
 
-
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
         <div class="footer">

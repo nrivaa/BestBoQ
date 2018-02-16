@@ -169,6 +169,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Home.aspx" />
+    <Content Include="Howto.aspx" />
     <Content Include="Images\01Footing\f1.png" />
     <Content Include="Images\01Footing\f2.png" />
     <Content Include="Images\01Footing\f3.png" />
@@ -844,6 +845,13 @@
     </Compile>
     <Compile Include="HomeNestedMaster.master.designer.cs">
       <DependentUpon>HomeNestedMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Howto.aspx.cs">
+      <DependentUpon>Howto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Howto.aspx.designer.cs">
+      <DependentUpon>Howto.aspx</DependentUpon>
     </Compile>
     <Compile Include="ITextEvents.cs" />
     <Compile Include="Logout.aspx.cs">

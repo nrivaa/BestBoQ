@@ -387,17 +387,30 @@
             background-size: cover;
             min-height: 580px;
             position: relative;
+
+           
         }
+
+        #feature2 img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+        }
+
+       #feature2 h2
+       {
+            color:#8dc73f;
+       }
     </style>
 </asp:Content>
 
-<asp:Content ID="Content4" ContentPlaceHolderID="navcontent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="navcontent" runat="server">
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="#feature">รู้จัก bestboq</a>
         </li>
         <li>
-            <a href="#">เรียนรู้การใช้งาน</a>
+            <a href="Howto.aspx">เรียนรู้การใช้งาน</a>
         </li>
         <li>
             <a href="#" data-target="#registerForm" data-toggle="modal">สมัครใช้งาน</a>
@@ -408,7 +421,7 @@
     </ul>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="content" runat="server">
 
     <!--Modal Login box-->
     <div class="modal fade" id="login" role="dialog">
@@ -639,8 +652,9 @@
         </div>
     </div>
     <!--/ Banner-->
+
     <!--Feature-->
-    <section id="feature">
+    <section id="feature" style="padding-top: 20px">
         <div class="banner2">
             <div class="bg-color">
                 <div class="container">
@@ -651,7 +665,11 @@
                             </div>
                             <div class="intro-para text-center quote">
                                 <p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>
-                                <p class="small-text">ด้วยทีมงานกว่า 300 คน แยกประเภททีมตามประเภทงานก่อสร้างด้วยความชำนาญเฉพาะด้านกว่า 18 ทีม<br /> ทำให้วันนี้เราคือศูนย์รับสร้างบ้านชั้นนำในภูมิภาค<br />ที่พร้อมทั้งด้านทรัพยากรบุคคล การบริหารงาน เทคนิค วิธีการ เทคโนโลยีก่อสร้างด้วยความรู้ในสายงานก่อนสร้างมากกว่า 30 ปี</p>
+                                <p class="small-text">
+                                    ด้วยทีมงานกว่า 300 คน แยกประเภททีมตามประเภทงานก่อสร้างด้วยความชำนาญเฉพาะด้านกว่า 18 ทีม<br />
+                                    ทำให้วันนี้เราคือศูนย์รับสร้างบ้านชั้นนำในภูมิภาค<br />
+                                    ที่พร้อมทั้งด้านทรัพยากรบุคคล การบริหารงาน เทคนิค วิธีการ เทคโนโลยีก่อสร้างด้วยความรู้ในสายงานก่อนสร้างมากกว่า 30 ปี
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -660,8 +678,70 @@
         </div>
     </section>
     <!--/ feature-->
-    <section id="feature2" class="section-padding">
 
+    <section id="feature2" class="section-padding">
+        <div class="fusion-row" style="max-width: 1100px; margin: 0 auto;">
+            <h1 style="font-size: 2em; color: #000000; text-align: center;" data-inline-fontsize="true" data-inline-lineheight="true" data-fontsize="44" data-lineheight="48">bestboq ทำอะไรได้บ้าง?</h1>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <ul class="slides">
+                        <li class="image flex-active-slide">
+                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้</p>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <ul class="slides">
+                        <li class="image flex-active-slide">
+                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                </div>
+                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <ul class="slides">
+                        <li class="image flex-active-slide">
+                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                </div>
+                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <ul class="slides">
+                        <li class="image flex-active-slide">
+                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                </div>
+                 <div class="col-md-3 col-md-offset-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <ul class="slides">
+                        <li class="image flex-active-slide">
+                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="cta-2">
@@ -703,6 +783,7 @@
             </div>
         </div>
     </section>
+
     <!--Contact-->
     <section id="register">
         <div class="container">
@@ -744,7 +825,7 @@
     </section>
     <!--/ Contact-->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
     <script src="theme/js/contactform.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -896,6 +977,12 @@
                 });
             });
 
+            if (getUrlParameter("cmd") == "register") {
+                $("#registerForm").modal().show();
+            }
+            else if (getUrlParameter("cmd") == "login") {
+                $("#login").modal().show();
+            }
         });
     </script>
 </asp:Content>
