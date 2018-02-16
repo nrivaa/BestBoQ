@@ -170,7 +170,6 @@
             -ms-user-select: none;
             user-select: none;
             -webkit-touch-callout: none;
-            -khtml-user-select: none;
             -ms-touch-action: pan-y;
             touch-action: pan-y;
             -webkit-tap-highlight-color: transparent;
@@ -382,6 +381,13 @@
                     background: #8dc73f;
                     color: white;
                 }
+
+        .banner2 {
+            background: url('theme/img/bg-banner.jpg') no-repeat center top;
+            background-size: cover;
+            min-height: 580px;
+            position: relative;
+        }
     </style>
 </asp:Content>
 
@@ -634,190 +640,109 @@
     </div>
     <!--/ Banner-->
     <!--Feature-->
-    <section id="feature" class="section-padding">
-        <div id="carousel-example-vertical" data-interval="7000" class="carousel vertical slide">
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="Images/HowTo/1.png" />
-                </div>
-                <div class="item">
-                    <img src="Images/HowTo/2.png" />
-                </div>
-                <div class="item">
-                    <img src="Images/HowTo/3.png" />
+    <section id="feature">
+        <div class="banner2">
+            <div class="bg-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="banner-text text-center">
+                            <div class="text-border">
+                                <h2 class="text-dec">bestboq คืออะไร?</h2>
+                            </div>
+                            <div class="intro-para text-center quote">
+                                <p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>
+                                <p class="small-text">ด้วยทีมงานกว่า 300 คน แยกประเภททีมตามประเภทงานก่อสร้างด้วยความชำนาญเฉพาะด้านกว่า 18 ทีม<br /> ทำให้วันนี้เราคือศูนย์รับสร้างบ้านชั้นนำในภูมิภาค<br />ที่พร้อมทั้งด้านทรัพยากรบุคคล การบริหารงาน เทคนิค วิธีการ เทคโนโลยีก่อสร้างด้วยความรู้ในสายงานก่อนสร้างมากกว่า 30 ปี</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Controls -->
-            <a class="up carousel-control" href="#carousel-example-vertical" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="down carousel-control" href="#carousel-example-vertical" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-        <%--<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel1">
-            <!-- Overlay -->
-            <div class="overlay"></div>
+    </section>
+    <!--/ feature-->
+    <section id="feature2" class="section-padding">
 
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#bs-carousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#bs-carousel1" data-slide-to="1"></li>
-                <li data-target="#bs-carousel1" data-slide-to="2"></li>
-            </ol>
+    </section>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item slides active">
-                    <img src="Images/HowTo/1.png" />
-                </div>
-                <div class="item slides">
-                    <img src="Images/HowTo/2.png" />
-                </div>
-                <div class="item slides">
-                    <img src="Images/HowTo/3.png" />
-                </div>
-            </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#bs-carousel1" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#bs-carousel1" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>--%>
-        <%--<div class="container">
+    <section id="cta-2">
+        <div class="container">
             <div class="row">
-                <div class="header-section text-center">
-                    <h2>รู้จัก bestboq</h2>
-                    <p>
-                        Features
-                    </p>
-                    <hr class="bottom-line" />
-                </div>
-                <div class="feature-info">
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Latest Technologies</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-css3"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Toons Background</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-drupal"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Award Winning Design</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-trophy"></i>
-                            </div>
+                <div class="col-lg-12">
+                    <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
+                    <div class="cta-2-form text-center">
+                        <div class="container">
+                            <section class="customer-logos slider">
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image1.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image2.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image3.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image4.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image5.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image6.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image7.png" />
+                                </div>
+                                <div class="slide">
+                                    <img src="https://www.solodev.com/assets/carousel/image8.png" />
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>--%>
-        </section>
-        <!--/ feature-->
-        <section id="cta-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
-                        <div class="cta-2-form text-center">
-                            <div class="container">
-                                <section class="customer-logos slider">
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image1.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image2.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image3.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image4.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image5.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image6.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image7.png" />
-                                    </div>
-                                    <div class="slide">
-                                        <img src="https://www.solodev.com/assets/carousel/image8.png" />
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
+    <!--Contact-->
+    <section id="register">
+        <div class="container">
+            <div class="row text-center">
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.facebook.com/natureestatethailand/">
+                            <span class="icon-facebook-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon-twitter-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="icon-linkedin-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="icon-pinterest-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.natureestate.co.th">
+                            <span class="icon-dribbble-circled"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon-gplus-circled"></span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </section>
-        <!--Contact-->
-        <section id="register">
-            <div class="container">
-                <div class="row text-center">
-                    <ul class="social-links">
-                        <li>
-                            <a href="https://www.facebook.com/natureestatethailand/">
-                                <span class="icon-facebook-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon-twitter-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-linkedin-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-pinterest-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.natureestate.co.th">
-                                <span class="icon-dribbble-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon-gplus-circled"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!--/ Contact-->
+        </div>
+    </section>
+    <!--/ Contact-->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script src="theme/js/contactform.js"></script>
