@@ -52,6 +52,10 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Select.HtmlToPdf, Version=17.3.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Select.HtmlToPdf.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -664,6 +668,7 @@
     <Content Include="theme\js\jquery.easing.min.js" />
     <Content Include="theme\js\jquery.min.js" />
     <Content Include="Timeline.aspx" />
+    <Content Include="Timeline2.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -682,6 +687,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ClassConfig.cs" />
     <Compile Include="Contract.cs" />
+    <Compile Include="CostStructure.cs" />
     <Compile Include="CreateHomeNestedMaster.master.cs">
       <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -875,6 +881,7 @@
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProjectTimeline.cs" />
     <Compile Include="Project_Detail.aspx.cs">
       <DependentUpon>Project_Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -910,6 +917,13 @@
     </Compile>
     <Compile Include="Timeline.aspx.designer.cs">
       <DependentUpon>Timeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline2.aspx.cs">
+      <DependentUpon>Timeline2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Timeline2.aspx.designer.cs">
+      <DependentUpon>Timeline2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

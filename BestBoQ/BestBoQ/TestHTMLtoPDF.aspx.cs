@@ -14,11 +14,17 @@ namespace BestBoQ
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Contract contract = new Contract(this);
+            //Contract contract = new Contract(this);
             //Response.Redirect("/pdfs/" + contract.CreatePDF());
 
-            AppendixA appendixa = new AppendixA(this);
-            Response.Redirect(appendixa.CreatePDF("000006"));
+            //AppendixA appendixa = new AppendixA(this);
+            //Response.Redirect(appendixa.CreatePDF("000006"));
+
+            ProjectTimeline projectTimeline = new ProjectTimeline(this);
+            Response.Redirect("/pdfs/" + projectTimeline.CreatePDF("000001"));
+
+            CostStructure costStructure = new CostStructure(this);
+            Response.Redirect("/pdfs/" + costStructure.CreatePDF("000001"));
         }
     }
 }

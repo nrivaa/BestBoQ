@@ -76,6 +76,9 @@
                         //startAngle: -90,
                         //endAngle: 90,
                         //center: ['50%']
+                    },
+                    series: {
+                        animation: false
                     }
                 },
                 series: [{
@@ -83,9 +86,9 @@
                     name: 'Browser share',
                     innerSize: '50%',
                     data: [
-                        ['<div style="text-align:center;"><div>ค่าวัสดุ 50M</div><div>(50%)</div></div>', 50],
-                        ['<div style="text-align:center;"><div>ค่าแรง 30M</div><div>(30%)</div></div>', 30],
-                        ['<div style="text-align:center;"><div>ค่าดำเนินงาน 20M</div><div>(20%)</div></div>', 20]
+                        ['<div style="text-align:center;"><div>ค่าวัสดุ <%=MaterialAmount%>&#3647;</div><div>(<%=MaterialPct%>%)</div></div>', <%=MaterialPct%>],
+                        ['<div style="text-align:center;"><div>ค่าแรง <%=ManhourAmount%>&#3647;</div><div>(<%=ManhourPct%>%)</div></div>', <%=ManhourPct%>],
+                        ['<div style="text-align:center;"><div>ค่าดำเนินงาน <%=OperationAmount%>&#3647;</div><div>(<%=OperationPct%>%)</div></div>', <%=OperationPct%>]
                     ]
                 }]
             });
