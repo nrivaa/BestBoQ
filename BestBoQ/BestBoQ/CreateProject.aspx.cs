@@ -93,15 +93,16 @@ namespace BestBoQ
                 DataTable dtResult = ClassConfig.GetDataSQL(param_command);
 
                 if (dtResult.Rows.Count > 0)
-                {
-                    //Update Status
-                    ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
-
-                    //Redirect
+                { 
                     string id = dtResult.Rows[0]["projectid"].ToString();
 
+                    //Update Status
+                    ClassConfig.UpdateStatus(id, "On Progress", userID);
+
+                   
+
                     param_command = "EXEC [dbo].[set_Project_Spec] '"
-                                    + param_projid + "','"
+                                    + id + "','"
                                     + param_spec + "','"
                                     + userID + "' ";
                     dtResult = ClassConfig.GetDataSQL(param_command);
