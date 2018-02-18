@@ -20,7 +20,7 @@ namespace BestBoQ
             converter.Options.PdfPageSize = SelectPdf.PdfPageSize.A3;
             converter.Options.PdfPageOrientation = SelectPdf.PdfPageOrientation.Landscape;
 
-            string url = "http://localhost:<port>/Timeline2.aspx?projectID=<projectid>".Replace("<port>", HttpContext.Current.Request.Url.Port.ToString()).Replace("<projectid>", projectID);
+            string url = "http://localhost:<port>/boqdemo/Timeline2.aspx?projectID=<projectid>".Replace("<port>", HttpContext.Current.Request.Url.Port.ToString()).Replace("<projectid>", projectID);
             SelectPdf.PdfDocument doc = converter.ConvertUrl(url);
             string fileName = "timeplan_<projectid>.pdf".Replace("<projectid>", projectID);
             string pdfPath = page.Server.MapPath(@"~\PDFs\") + fileName;

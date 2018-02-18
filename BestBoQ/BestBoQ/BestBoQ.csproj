@@ -134,6 +134,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Appendix.aspx" />
     <Content Include="Approve.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -675,6 +676,13 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appendix.aspx.cs">
+      <DependentUpon>Appendix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appendix.aspx.designer.cs">
+      <DependentUpon>Appendix.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AppendixA.cs" />
     <Compile Include="Approve.aspx.cs">
       <DependentUpon>Approve.aspx</DependentUpon>
