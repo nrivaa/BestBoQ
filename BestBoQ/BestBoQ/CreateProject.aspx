@@ -89,6 +89,9 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
+        var radioOne = true;
+    </script>
+    <script>
         $(document).ready(function () {
 
             $('#<%=tbStartProject.ClientID%>').datetimepicker({

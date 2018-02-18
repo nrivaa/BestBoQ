@@ -61,6 +61,10 @@ namespace BestBoQ
                         }
                     }
                 }
+
+                //Update Spec
+                ClassConfig.UpdateSpec(param_projid, "", userID);
+
                 //Update Status
                 ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 

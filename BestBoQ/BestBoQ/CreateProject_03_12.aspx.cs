@@ -91,6 +91,10 @@ namespace BestBoQ
                         }
                     }
                 }
+
+                //Update Spec
+                ClassConfig.UpdateSpec(param_projid, "", userID);
+
                 Response.Redirect("CreateProject_03_13?id=" + param_projid);
             }
             catch (Exception)

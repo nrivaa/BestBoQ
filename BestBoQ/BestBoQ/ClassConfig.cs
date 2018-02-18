@@ -59,5 +59,19 @@ namespace BestBoQ
             }
         }
 
+        public static string UpdateSpec(string param_projid, string param_spec, string param_userid)
+        {
+            string sql_command = "EXEC [dbo].[set_Project_Spec] '" + param_projid + "','" + param_spec + "','" + param_userid + "' ";
+            try
+            {
+                GetDataSQL(sql_command);
+                return "Update Status Success";
+            }
+            catch (Exception)
+            {
+                return "Update Status Fail";
+            }
+        }
+
     }
 }

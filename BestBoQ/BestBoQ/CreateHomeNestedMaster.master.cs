@@ -31,12 +31,15 @@ namespace BestBoQ
             {
                 param_projid = Request.QueryString["id"].ToString();
                 bindData();
-                getStepCompleteData();
+                
             }
             else if (currentPage != "CreateProject")
             {
                 Response.Redirect("Home?r=notfound");
             }
+
+            getStepCompleteData();
+
         }
 
         protected void bindData()
