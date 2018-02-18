@@ -75,6 +75,7 @@ namespace BestBoQ
             string param_country = ddCountry.SelectedValue.ToString().Trim();
             string param_province = ddProvince.SelectedValue.ToString().Trim();
             string param_address = tbAddress.Text.Trim();
+            string param_spec = rbCostFunction.SelectedValue.ToString().Trim();
 
             //Execute Command
             try
@@ -98,8 +99,16 @@ namespace BestBoQ
 
                     //Redirect
                     string id = dtResult.Rows[0]["projectid"].ToString();
+
+                    param_command = "EXEC [dbo].[set_Project_Spec] '"
+                                    + param_projid + "','"
+                                    + param_spec + "','"
+                                    + userID + "' ";
+                    dtResult = ClassConfig.GetDataSQL(param_command);
+
                     Response.Redirect("CreateProject_02?id=" + id);
                 }
+
                 //Response.Write("<script>alert('Insert Data 01 Success');</script>");
             }
             catch (Exception ex)
@@ -136,6 +145,21 @@ namespace BestBoQ
                 ddProvince.SelectedValue = dt.Rows[0]["province"].ToString().Trim();
                 tbAddress.Text = dt.Rows[0]["address"].ToString().Trim();
                 tbStartProject.Text = dt.Rows[0]["projectstart"].ToString().Trim();
+            }
+
+
+            sql_command = "SELECT [spec] FROM [BESTBoQ].[dbo].[Project_Spec] WHERE [projectid] = '" + param_projid + "'";
+            dt = ClassConfig.GetDataSQL(sql_command);
+
+            rbCostFunction.SelectedValue = "";
+
+            if (dt.Rows.Count > 0)
+            {
+                string spec = dt.Rows[0]["spec"].ToString().ToLower().Trim();
+                if (spec.Equals("min") || spec.Equals("max"))
+                {
+                    rbCostFunction.SelectedValue = spec;
+                }
             }
         }
 

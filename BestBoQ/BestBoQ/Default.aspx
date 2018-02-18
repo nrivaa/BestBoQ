@@ -387,20 +387,17 @@
             background-size: cover;
             min-height: 580px;
             position: relative;
-
-           
         }
 
         #feature2 img {
-            width: 100%;
-            max-width: 100%;
+            width: 80%;
+            max-width: 80%;
             display: block;
         }
 
-       #feature2 h2
-       {
-            color:#8dc73f;
-       }
+        #feature2 h2 {
+            color: #8dc73f;
+        }
     </style>
 </asp:Content>
 
@@ -687,57 +684,61 @@
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
                     <ul class="slides">
                         <li class="image flex-active-slide">
-                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                            <img src="Images/IconDocument/BOQ.png" />
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสรุปรายการวัสดุ (BOQ)</h2>
                     <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้</p>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
                     <ul class="slides">
                         <li class="image flex-active-slide">
-                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                            <img src="Images/IconDocument/contract.png" />
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสัญญาว่าจ้าง</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
                 </div>
-                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
                     <ul class="slides">
                         <li class="image flex-active-slide">
-                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                            <img src="Images/IconDocument/Payment.png" />
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบงวดงานก่อสร้าง</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
                 </div>
-                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
+                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
                     <ul class="slides">
                         <li class="image flex-active-slide">
-                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                            <img src="Images/IconDocument/Plan.png" />
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบแผนงานก่อสร้าง</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
                 </div>
-                 <div class="col-md-3 col-md-offset-3" style="margin-top: 0px; margin-bottom: 20px;">
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-3" style="margin-top: 0px; margin-bottom: 20px;">
                     <ul class="slides">
                         <li class="image flex-active-slide">
-                            <img src="https://peakengine.com/wp-content/uploads/2015/05/00-rev_quotation_circle.png" />
+                            <img src="Images/IconDocument/Report.png" />
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบเสนอราคา</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสรุปรายการต้นทุนและกำไร</h2>
+                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
                 </div>
             </div>
         </div>

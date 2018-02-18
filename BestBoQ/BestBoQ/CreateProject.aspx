@@ -56,6 +56,15 @@
                             <label for="tbAddress" class="control-label">สถานที่ตั้งโครงการ</label>
                             <asp:TextBox ID="tbAddress" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="สถานที่ตั้งโครงการ"></asp:TextBox>
                         </div>
+                         <div class="form-group has-feedback">
+                            <label for="rbCostFunction" class="control-label">ระบบช่วยเลือกวัสดุ</label>
+                            <asp:RadioButtonList ID="rbCostFunction" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                <asp:ListItem Value="" Selected="True">เลือกด้วยตัวเอง</asp:ListItem>
+                                <asp:ListItem Value="min">ถูกที่สุด</asp:ListItem>
+                                <asp:ListItem Value="max">แพงที่สุด</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

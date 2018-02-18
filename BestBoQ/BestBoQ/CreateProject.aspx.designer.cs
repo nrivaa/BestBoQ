@@ -76,6 +76,15 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.TextBox tbAddress;
         
         /// <summary>
+        /// rbCostFunction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rbCostFunction;
+        
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

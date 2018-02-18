@@ -72,7 +72,7 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <a id="btnBackMainType" style="display:none" onclick="window.history.back();" class="btn btn-default">Back to Previous Step</a>
+                <%--<a id="btnBackMainType" style="display:none" onclick="window.history.back();" class="btn btn-default">Back to Previous Step</a>--%>
                 <a id="btnBack" href="CreateProject?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
@@ -92,8 +92,8 @@
             var count = countRadioButton();
             if (count > 0) {
                 $('.rp1').hide();
-                $('#btnBackMainType').show();
-                $('#btnBack').hide();
+                //$('#btnBackMainType').show();
+                //$('#btnBack').hide();
             }
         }
 
