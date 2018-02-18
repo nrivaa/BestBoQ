@@ -96,6 +96,17 @@ namespace BestBoQ
             AppendixA appendix = new AppendixA(this);
             Response.Redirect("~/PDFs/" + appendix.CreatePDF(param_projid));
         }
+        protected void DownloadPlan()
+        {
+            ProjectTimeline projectTimeline = new ProjectTimeline(this);
+            Response.Redirect("/PDFs/" + projectTimeline.CreatePDF(param_projid));
+        }
+
+        protected void DownloadReport()
+        {
+            CostStructure costStructure = new CostStructure(this);
+            Response.Redirect("/PDFs/" + costStructure.CreatePDF(param_projid));
+        }
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
         {
@@ -125,7 +136,7 @@ namespace BestBoQ
         {
             if (s3 == "true")
             {
-                DownloadContract();
+                DownloadAppendixA();
             }
             else
             {
@@ -137,7 +148,7 @@ namespace BestBoQ
         {
             if (s4 == "true")
             {
-                
+                DownloadPlan();
             }
             else
             {
@@ -149,7 +160,7 @@ namespace BestBoQ
         {
             if (s5 == "true")
             {
-                
+                DownloadReport();
             }
             else
             {

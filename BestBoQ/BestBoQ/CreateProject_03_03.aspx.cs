@@ -84,6 +84,11 @@ namespace BestBoQ
                         }
                     }
                 }
+
+                //Function Min Max
+                string sql_min_max = " EXEC [dbo].[set_min_max_all] '" + param_projid + "', '" + userID + "' ";
+                ClassConfig.GetDataSQL(sql_min_max);
+
                 //Update Status
                 ClassConfig.UpdateStatus(param_projid, "On Progress", userID);
 
