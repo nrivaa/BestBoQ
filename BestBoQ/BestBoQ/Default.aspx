@@ -534,8 +534,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
-
+                                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required,length" CssClass="form-control" runat="server" placeholder="Username" data-validation-length="max20" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -161,15 +161,15 @@
         }
 
 
-        .tabs-left > .nav-tabs > li {
-            float: none;
-        }
-
-            .tabs-left > .nav-tabs > li > a,
-            .tabs-left > .nav-tabs > li > div {
-                margin-right: 0;
-                margin-bottom: 3px;
+            .tabs-left > .nav-tabs > li {
+                float: none;
             }
+
+                .tabs-left > .nav-tabs > li > a,
+                .tabs-left > .nav-tabs > li > div {
+                    margin-right: 0;
+                    margin-bottom: 3px;
+                }
 
         .tabs-left > .nav-tabs {
             float: left;
@@ -347,6 +347,10 @@
         .kleanity-page-title {
             font-size: 1em;
         }
+
+        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+            background-color: #8dc73f;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navcontent" runat="server">
@@ -380,10 +384,21 @@
         <br />
         <div class="container">
             <div class="row">
+                 <div class="col-md-12">
+                <ul class="nav nav-pills  nav-stacked visible-xs">
+                  <li role="presentation" class="active" data-target="#lA" data-toggle="tab"><a href="#">1.ลงทะเบียน</a></li>
+                  <li role="presentation" data-target="#lB" data-toggle="tab"><a href="#">2.เข้าสู่ระบบ</a></li>
+                  <li role="presentation" data-target="#lC" data-toggle="tab"><a href="#">3.สร้างโครงการ</a></li>
+                  <li role="presentation" data-target="#lD" data-toggle="tab"><a href="#">4.ปริ้นท์เอกสาร</a></li>
+                </ul>
+                     </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
                 <div class="col-md-12">
                     <div id="MyAccountsTab" class="tabbable tabs-left">
                         <!-- Account selection for desktop - I -->
-                        <ul class="nav nav-tabs col-md-3">
+                        <ul class="nav nav-tabs col-md-3  hidden-xs">
                             <li class="active">
                                 <div data-target="#lA" data-toggle="tab">
                                     <div class="ellipsis">
@@ -416,22 +431,22 @@
                         <div class="tab-content col-md-9">
                             <div class="tab-pane active" id="lA">
                                 <div class="col-md-offset-1">
-                                    ลงทะเบียน
+                                    <h2>ลงทะเบียน</h2>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lB">
                                 <div class="col-md-offset-1">
-                                    เข้าสู่ระบบ
+                                    <h2>เข้าสู่ระบบ</h2>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lC">
                                 <div class="col-md-offset-1">
-                                    สร้างโครงการ
+                                   <h2>สร้างโครงการ</h2>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lD">
                                 <div class="col-md-offset-1">
-                                    ปริ้นท์เอกสาร
+                                    <h2>ปริ้นท์เอกสาร</h2>
                                 </div>
                             </div>
                         </div>
@@ -439,6 +454,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </section>
 </asp:Content>
