@@ -12,6 +12,7 @@ namespace BestBoQ
     {
         string userID;
         string s1, s2, s3, s4, s5, s6;
+        string site = "boqdemo";
         public string param_projid;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -99,13 +100,13 @@ namespace BestBoQ
         protected void DownloadPlan()
         {
             ProjectTimeline projectTimeline = new ProjectTimeline(this);
-            Response.Redirect("/PDFs/" + projectTimeline.CreatePDF(param_projid));
+            Response.Redirect("/"+site+"/PDFs/" + projectTimeline.CreatePDF(param_projid));
         }
 
         protected void DownloadReport()
         {
             CostStructure costStructure = new CostStructure(this);
-            Response.Redirect("/PDFs/" + costStructure.CreatePDF(param_projid));
+            Response.Redirect("/" + site + "/PDFs/" + costStructure.CreatePDF(param_projid));
         }
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
