@@ -97,7 +97,7 @@
                                             <%--<asp:Image ID="imgPic" runat="server" />--%>
                                             <div class="caption text-center">
                                                 <h3>
-                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("floorType")%>'></asp:Label>
+                                                    <asp:Label ID="Label1" CssClass="typeThumb" runat="server" Text='<%# Eval("floorType")%>'></asp:Label>
                                                 </h3>
                                                 <label for="TextBox2" class="control-label">
                                                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
@@ -124,7 +124,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12 blockFlooring">
                                                         ประเภทพื้น: <span class="lable-flooring-selected" >N/A</span>
-                                                        <input type="button" class="btn btn-green btn-xs btn-small" value="เลือก" data-toggle="modal" data-target="#myModal<%# Eval("floorType").ToString().Trim()%>" />
+                                                        <input type="button" class="btn btn-green btn-xs btn-small" value="เลือก" data-toggle="modal" data-target="#myModal<%# Eval("floorType").ToString().Trim()%>" style='<%# Eval("floorType").ToString() == "A6" ? "display:none" : ""%>' />
 
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="myModal<%# Eval("floorType").ToString().Trim()%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -148,6 +148,7 @@
                                                                                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("flooringType")%>'></asp:Label></small>
                                                                                                 </h3>
                                                                                                 <div class="form-group has-feedback">
+
                                                                                                     <asp:RadioButton ID="RadioButton1" runat="server" />  
                                                                                                     <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
                                                                                                     <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
@@ -247,6 +248,7 @@
                 $('.modal').each(function () {
                     var em = $(this);
                     var em_radio_checked = em.find("input[type=radio]:checked")
+                    var val_type = em.closest(".thumbnail").find(".typeThumb").html();
 
                     if (em_radio_checked.length > 0) {
                         var em_block_flooring = em_radio_checked.closest(".thumbnail");
@@ -262,6 +264,11 @@
                         var MM = em_main.find(".input-value").val();
 
                         sumPrice = sumPrice + parseFloat(cost * MM) + parseFloat(cost_main * MM);
+                    }
+                    else if (val_type == "A6") {
+                        var val_flooring_selected = "Slap";
+                        var em_block = em.closest('.blockFlooring');
+                        var em_text = em_block.find('.lable-flooring-selected').html(val_flooring_selected);
                     }
                     
                 });

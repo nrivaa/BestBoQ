@@ -159,15 +159,16 @@
                 var em = $(this);
                 var a = em.find("a");
 
-                if (jsonstepCompleteDataJSON[index] == 0) {
-                    em.addClass("disabled");
-                    a.removeAttr("href");
-                }
 
                 if (window.location.toString().indexOf(a.attr("href")) != -1) {
                     em.addClass("active");
                     a.text(em.attr("title"));
+                }else if (jsonstepCompleteDataJSON[index] == 0) {
+                    em.addClass("disabled");
+                    a.removeAttr("href");
                 }
+
+               
             });
         }
 
