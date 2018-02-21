@@ -531,7 +531,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required,length" CssClass="form-control" runat="server" placeholder="Username" data-validation-length="max20" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
+                                            <asp:TextBox ID="tbUsername" autocomplete="off" data-validation="required,length,validUsername" CssClass="form-control" runat="server" placeholder="Username" data-validation-length="max20" data-inputmask-regex="[a-za-zA-Z0-9]*"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -578,7 +578,7 @@
                                         <asp:TextBox ID="tbName" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อ-นามสกุล"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        <asp:TextBox ID="tbCompany" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อบริษัท"></asp:TextBox>
+                                        <asp:TextBox ID="tbCompany" Style="display: none" runat="server" data-validation="length" data-validation-length="min5" CssClass="form-control" autocomplete="off" placeholder="ชื่อบริษัท"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:TextBox ID="tbAlias" runat="server" data-validation="length" data-validation-length="min3" CssClass="form-control" autocomplete="off" placeholder="Alias Name"></asp:TextBox>
@@ -831,7 +831,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script>
         $(document).ready(function () {
-
+            
             initPassword();
             renderLogoSponsor();
             validateForm('.contactForm');
@@ -843,15 +843,42 @@
                     $("#<%=tbID.ClientID%>").attr("data-validation", "required");
                     $("#<%=tbTax.ClientID%>").hide();
                     $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
+                    $("#<%=tbCompany.ClientID%>").hide();
+                    $("#<%=tbCompany.ClientID%>").removeAttr("data-validation");
                 }
                 else {
                     $("#<%=tbID.ClientID%>").hide();
                     $("#<%=tbID.ClientID%>").removeAttr("data-validation");
                     $("#<%=tbTax.ClientID%>").show();
                     $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+                    $("#<%=tbCompany.ClientID%>").show();
+                    $("#<%=tbCompany.ClientID%>").removeAttr("data-validation");
                 }
                 validateForm('.contactForm');
             });
+
+            initVaidateUsername();
+            var validUsername = true;
+            function initVaidateUsername() {
+                $.formUtils.addValidator({
+                    name: 'validUsername',
+                    validatorFunction: function (value, $el, config, language, $form) {
+                        $.post("service.asmx/checkUser", { username: value }, function (data) {
+                            if (data == "Yes") {
+                                validUsername = false;
+                            }
+                            else {
+                                validUsername = true;
+                            }
+                            return validUsername;
+                        });
+                        return validUsername;
+                    },
+                    errorMessage: 'Username has been already taken.',
+                    errorMessageKey: 'invalidUsername'
+                });
+                $.validate();
+            }
 
             function initPassword() {
                 $.formUtils.addValidator({
