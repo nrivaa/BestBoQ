@@ -352,6 +352,49 @@
             background-color: #8dc73f;
         }
     </style>
+
+    <style>
+        .white_content_howto {
+            position: fixed;
+            top:190px;
+            left: 130px;
+            z-index: 1030;
+            bottom: 0%;
+            padding: 16px;
+            visibility: hidden;
+        }
+
+        @media (min-width: 800px) {
+            .white_content_howto {
+                left: 230px;
+            }
+        }
+
+            .white_content_howto .survey-wrapper {
+                position: relative;
+            }
+
+               
+                    .white_content_howto .survey-wrapper img {
+                        width: 130px;
+                    }
+               
+
+                @media (min-width: 800px) {
+                    .white_content_howto .survey-wrapper img {
+                        width: 150px;
+                    }
+                 }
+
+                .white_content_howto .survey-wrapper .close-survey {
+                    display: inline-block;
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    /*top: 30px;*/
+                    right: 5px;
+                }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navcontent" runat="server">
     <ul class="nav navbar-nav navbar-right">
@@ -457,10 +500,26 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
+
+     <div id="light" class="white_content_howto ud-khaosod-survey" style="display: block; visibility: visible;">
+        <div class="survey-wrapper">
+            <img src="Images/MrBestBoQ_left.png" />
+            <a class="close-survey" href="javascript:void(0)" onclick="$('.white_content_howto').hide()"></a>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 10) {
+                $('.white_content_howto').hide();
+            }
+            else {
+                $('.white_content_howto').show();
+            }
+        });
+    </script>
 </asp:Content>
