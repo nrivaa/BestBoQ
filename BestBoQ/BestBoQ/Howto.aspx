@@ -511,4 +511,15 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 10) {
+                $('.white_content_howto').hide();
+            }
+            else {
+                $('.white_content_howto').show();
+            }
+        });
+    </script>
 </asp:Content>

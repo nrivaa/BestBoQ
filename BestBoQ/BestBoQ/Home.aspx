@@ -198,4 +198,15 @@
             });
         });
     </script>
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 10) {
+                $('.white_content_home').hide();
+            }
+            else {
+                $('.white_content_home').show();
+            }
+        });
+    </script>
 </asp:Content>
