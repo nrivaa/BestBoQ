@@ -190,7 +190,7 @@
             display: none;
         }
 
-        .modal-dialog{
+        #completeModal .modal-dialog{
             position: relative;
             display: table; /* This is important */ 
             overflow-y: auto;    
@@ -199,11 +199,38 @@
             min-width: 300px;   
         }
 
-        .modal-content {
+        #completeModal .modal-content {
             border: 3px solid #8dc73f;
             /*background-color: #8dc73f;*/
             /*opacity: .8;*/ 
         }
+    </style>
+    <style>
+        .white_content2 {
+            position: fixed;
+            right: 5px;
+            z-index: 1030;
+            bottom: 0%;
+            padding: 16px;
+            visibility: hidden;
+        }
+
+            .white_content2 .survey-wrapper {
+                position: relative;
+            }
+
+                .white_content2 .survey-wrapper img {
+                    width: 250px;
+                }
+
+                .white_content2 .survey-wrapper .close-survey {
+                    display: inline-block;
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    /*top: 30px;*/
+                    right: 5px;
+                }
     </style>
     <link href="lib/DataTables/datatables.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
