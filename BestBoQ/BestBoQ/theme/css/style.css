@@ -11,8 +11,7 @@ body {
     line-height: 1.52;
     color: #717f86;
     font-size: 16px;
-    font-family: 'Prompt','Open Sans', 'sans-serif';
-    font-weight: 400;
+    font-family: 'DB Helvethaica X','Prompt','Open Sans', 'sans-serif'; font-weight: 400;
 }
 
 ol,
@@ -52,7 +51,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Prompt', 'Open Sans', 'sans-serif';
+    font-family: 'DB Helvethaica X','Prompt', 'Open Sans', 'sans-serif';
     font-weight: 700;
     color: #4B4B4C;
 }
@@ -195,7 +194,7 @@ Banner
     background-size: cover;
     min-height: 80vh;
     position: relative; */
-    margin-top: 90px;
+    margin-top: 100px;
 }
 
 .bg-color {
@@ -802,7 +801,7 @@ Footer
     }
 
     .footer .social-links li a, .social-links li a {
-        color: 8dc73f;
+        color: #8dc73f;
         font-size: 32px;
         line-height: 50px;
         border-radius: 50%;
@@ -825,7 +824,7 @@ Footer
     .footer .social-links, .social-links {
         list-style: none;
         padding: 0;
-        margin: 60px 0 60px;
+        margin: 52px 0 52px;
         /* margin: 30px 0 40px; */
         /* padding: 40px 0 0; */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -914,8 +913,8 @@ Footer
 
 .btn-greenline {
     background-color: #fff;
-    color: #8dc73f;
-    border: 1px solid #8dc73f !important;
+    color: #000; /*#8dc73f;*/
+    border: 1px solid #ccc !important;
 }
 
 

@@ -359,6 +359,9 @@
             <a href="Default.aspx#feature">รู้จัก bestboq</a>
         </li>
         <li>
+            <a href="Default.aspx#feature2">bestboq ทำอะไรได้บ้าง?</a>
+        </li>
+        <li>
             <a href="Howto.aspx">เรียนรู้การใช้งาน</a>
         </li>
         <li>
@@ -377,7 +380,7 @@
             <div class="kleanity-page-title-overlay"></div>
             <div class="kleanity-page-title-container container">
                 <div class="kleanity-page-title-content kleanity-item-pdlr">
-                    <h2>คู่มือเริ่มต้นการใช้งาน bestboq</h2>
+                    <h2>ขั้นตอนการใช้งาน bestboq</h2>
                 </div>
             </div>
         </div>

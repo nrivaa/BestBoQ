@@ -146,124 +146,6 @@
                 content: '\203a';
             }
 
-        /* Slider */
-        .slick-slide {
-            margin: 0px 20px;
-        }
-
-            .slick-slide img {
-                /*width: 70%;*/
-                width: 200px;
-                padding: 0 30px;
-                background-color: #FFF;
-                border: 1px solid white;
-                border-radius: 10px;
-                /*height: 60px;*/
-            }
-
-        .slick-slider {
-            position: relative;
-            display: block;
-            box-sizing: border-box;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
-            -ms-touch-action: pan-y;
-            touch-action: pan-y;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .slick-list {
-            position: relative;
-            display: block;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
-
-            .slick-list:focus {
-                outline: none;
-            }
-
-            .slick-list.dragging {
-                cursor: pointer;
-                cursor: hand;
-            }
-
-        .slick-slider .slick-track,
-        .slick-slider .slick-list {
-            -webkit-transform: translate3d(0, 0, 0);
-            -moz-transform: translate3d(0, 0, 0);
-            -ms-transform: translate3d(0, 0, 0);
-            -o-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-        }
-
-        .slick-track {
-            position: relative;
-            top: 0;
-            left: 0;
-            display: block;
-        }
-
-            .slick-track:before,
-            .slick-track:after {
-                display: table;
-                content: '';
-            }
-
-            .slick-track:after {
-                clear: both;
-            }
-
-        .slick-loading .slick-track {
-            visibility: hidden;
-        }
-
-        .slick-slide {
-            display: none;
-            float: left;
-            height: 100%;
-            min-height: 1px;
-        }
-
-        [dir='rtl'] .slick-slide {
-            float: right;
-        }
-
-        .slick-slide img {
-            display: block;
-        }
-
-        .slick-slide.slick-loading img {
-            display: none;
-        }
-
-        .slick-slide.dragging img {
-            pointer-events: none;
-        }
-
-        .slick-initialized .slick-slide {
-            display: block;
-        }
-
-        .slick-loading .slick-slide {
-            visibility: hidden;
-        }
-
-        .slick-vertical .slick-slide {
-            display: block;
-            height: auto;
-            border: 1px solid transparent;
-        }
-
-        .slick-arrow.slick-hidden {
-            display: none;
-        }
-
-
         #msform {
             /*width: 70%;*/
             margin: 10px auto;
@@ -390,12 +272,12 @@
         }
 
         #feature2 img {
-            width: 80%;
-            max-width: 80%;
+            width: 100%;
+            max-width: 100%;
             display: block;
         }
 
-        #feature2 h2 {
+        #feature2 h2, .pm-staff-profile-name {
             color: #8dc73f;
         }
     </style>
@@ -405,6 +287,9 @@
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="#feature">รู้จัก bestboq</a>
+        </li>
+        <li>
+            <a href="#feature2">bestboq ทำอะไรได้บ้าง?</a>
         </li>
         <li>
             <a href="Howto.aspx">เรียนรู้การใช้งาน</a>
@@ -665,6 +550,7 @@
                                     ด้วยทีมงานกว่า 300 คน แยกประเภททีมตามประเภทงานก่อสร้างด้วยความชำนาญเฉพาะด้านกว่า 18 ทีม<br />
                                     ทำให้วันนี้เราคือศูนย์รับสร้างบ้านชั้นนำในภูมิภาค<br />
                                     ที่พร้อมทั้งด้านทรัพยากรบุคคล การบริหารงาน เทคนิค วิธีการ เทคโนโลยีก่อสร้างด้วยความรู้ในสายงานก่อนสร้างมากกว่า 30 ปี
+                                    <span id="feature3"></span>
                                 </p>
                             </div>
                         </div>
@@ -681,102 +567,86 @@
             <br />
             <br />
             <div class="row">
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <ul class="slides">
-                        <li class="image flex-active-slide">
-                            <img src="Images/IconDocument/BOQ.png" />
-                        </li>
-                    </ul>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/BOQ.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">ใบสรุปรายการวัสดุ (BOQ)</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสรุปรายการวัสดุ (BOQ)</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้</p>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <ul class="slides">
-                        <li class="image flex-active-slide">
-                            <img src="Images/IconDocument/contract.png" />
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสัญญาว่าจ้าง</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <ul class="slides">
-                        <li class="image flex-active-slide">
-                            <img src="Images/IconDocument/Payment.png" />
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบงวดงานก่อสร้าง</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <ul class="slides">
-                        <li class="image flex-active-slide">
-                            <img src="Images/IconDocument/Plan.png" />
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบแผนงานก่อสร้าง</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-md-offset-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <ul class="slides">
-                        <li class="image flex-active-slide">
-                            <img src="Images/IconDocument/Report.png" />
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3" style="margin-top: 0px; margin-bottom: 20px;">
-                    <h2 class="title-heading-left" data-fontsize="26" data-lineheight="33">ออกใบสรุปรายการต้นทุนและกำไร</h2>
-                    <p>วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="cta-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
-                    <div class="cta-2-form text-center">
-                        <div class="container">
-                            <section class="customer-logos slider">
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image1.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image2.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image3.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image4.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image5.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image6.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image7.png" />
-                                </div>
-                                <div class="slide">
-                                    <img src="https://www.solodev.com/assets/carousel/image8.png" />
-                                </div>
-                            </section>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/contract.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">ใบสัญญาว่าจ้าง</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/Payment.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">ใบงวดงานก่อสร้าง</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/Plan.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">ใบแผนงานก่อสร้าง</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/Report.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">ใบสรุปรายการต้นทุนและกำไร</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="pm-staff-profile-container">
+                        <div class="pm-staff-profile-image-wrapper text-center">
+                            <div class="pm-staff-profile-image">
+                                <img src="Images/IconDocument/All.png" alt="" class="img-thumbnail img-circle" />
+                            </div>
+                        </div>
+                        <div class="pm-staff-profile-details text-center">
+                            <p class="pm-staff-profile-name">รวมทุกเอกสาร</p>
+                            <p class="pm-staff-profile-bio">วิภัชภาค ฮากกาโบว์แดนซ์ซีเรียสโปรโมชั่น คันถธุระแพลนลอจิสติกส์อันตรกิริยา โปสเตอร์นอร์ทก่อนหน้าลาเต้ สต็อก นิวพฤหัส สโรชาคลิปพาสเจอร์ไรส์ตุ๊ด แพลนมอนสเตอร์ฮ่องเต้แต๋วมินต์ ฮวงจุ้ยสมาพันธ์ ดั๊มพ์แอสเตอร์สลัมแอสเตอร์โคโยตี้ </p>
                         </div>
                     </div>
                 </div>
@@ -784,56 +654,15 @@
         </div>
     </section>
 
-    <!--Contact-->
-    <section id="register">
-        <div class="container">
-            <div class="row text-center">
-                <ul class="social-links">
-                    <li>
-                        <a href="https://www.facebook.com/natureestatethailand/">
-                            <span class="icon-facebook-circled"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon-twitter-circled"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="icon-linkedin-circled"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="icon-pinterest-circled"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.natureestate.co.th">
-                            <span class="icon-dribbble-circled"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon-gplus-circled"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!--/ Contact-->
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
     <script src="theme/js/contactform.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script>
         $(document).ready(function () {
-            
+
             initPassword();
-            renderLogoSponsor();
+
             validateForm('.contactForm');
 
             $('.radio-type input').on('ifChecked', function (event) {
@@ -893,28 +722,7 @@
                 });
             }
 
-            function renderLogoSponsor() {
-                $('.customer-logos').slick({
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1000,
-                    arrows: false,
-                    dots: false,
-                    pauseOnHover: false,
-                    responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3
-                        }
-                    }, {
-                        breakpoint: 520,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    }]
-                });
-            }
+
 
 
 
@@ -1010,6 +818,7 @@
             else if (getUrlParameter("cmd") == "login") {
                 $("#login").modal().show();
             }
+
         });
     </script>
 </asp:Content>

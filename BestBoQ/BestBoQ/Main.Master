@@ -10,7 +10,8 @@
     <meta name="description" content="BestBoQ" />
     <meta name="keywords" content="BestBoQ" />
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans|Prompt" />
+    <%--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans|Prompt" />--%>
+    <link href="css/fonts.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="theme/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="theme/css/imagehover.min.css" />
@@ -71,6 +72,139 @@
             -webkit-transition: margin 0.4s !important;
         }
     </style>
+    <style>
+        /* Slider */
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+            .slick-slide img {
+                /*width: 70%;*/
+                width: 200px;
+                padding: 0 30px;
+                background-color: #FFF;
+                border: 1px solid white;
+                border-radius: 10px;
+                /*height: 60px;*/
+            }
+
+        .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+            .slick-list:focus {
+                outline: none;
+            }
+
+            .slick-list.dragging {
+                cursor: pointer;
+                cursor: hand;
+            }
+
+        .slick-slider .slick-track,
+        .slick-slider .slick-list {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+
+            .slick-track:before,
+            .slick-track:after {
+                display: table;
+                content: '';
+            }
+
+            .slick-track:after {
+                clear: both;
+            }
+
+        .slick-loading .slick-track {
+            visibility: hidden;
+        }
+
+        .slick-slide {
+            display: none;
+            float: left;
+            height: 100%;
+            min-height: 1px;
+        }
+
+        [dir='rtl'] .slick-slide {
+            float: right;
+        }
+
+        .slick-slide img {
+            display: block;
+        }
+
+        .slick-slide.slick-loading img {
+            display: none;
+        }
+
+        .slick-slide.dragging img {
+            pointer-events: none;
+        }
+
+        .slick-initialized .slick-slide {
+            display: block;
+        }
+
+        .slick-loading .slick-slide {
+            visibility: hidden;
+        }
+
+        .slick-vertical .slick-slide {
+            display: block;
+            height: auto;
+            border: 1px solid transparent;
+        }
+
+        .slick-arrow.slick-hidden {
+            display: none;
+        }
+
+        .modal-dialog{
+            position: relative;
+            display: table; /* This is important */ 
+            overflow-y: auto;    
+            overflow-x: auto;
+            width: auto;
+            min-width: 300px;   
+        }
+
+        .modal-content {
+            border: 3px solid #8dc73f;
+            /*background-color: #8dc73f;*/
+            /*opacity: .8;*/ 
+        }
+    </style>
     <link href="lib/DataTables/datatables.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -99,9 +233,78 @@
 
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
+
+        <!-- Sponsors -->
+        <section id="cta-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="text-left">ผู้สนับสนุนหลัก</h2>
+                        <div class="cta-2-form text-center">
+                            <div class="container">
+                                <section class="customer-logos slider">
+                                    <asp:Repeater ID="rpSponsors" runat="server">
+                                        <ItemTemplate>
+                                            <div class="slide">
+                                                <a href='<%#Eval("url") %>'>
+                                                    <img src='<%#Eval("picpath") %>' />
+                                                </a>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Sponsors  -->
+
+        <!-- Social Link -->
+        <section id="register">
+            <div class="container">
+                <div class="row text-center">
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.facebook.com/natureestatethailand/">
+                                <span class="icon-facebook-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-twitter-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon-linkedin-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon-pinterest-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.natureestate.co.th">
+                                <span class="icon-dribbble-circled"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-gplus-circled"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--/ Social Link  -->
+
         <div class="footer">
             <div class="container text-center">
-               <%-- <ul class="social-links">
+                <%-- <ul class="social-links">
                     <li>
                         <a target="_blank" href="https://www.facebook.com/natureestatethailand/">
                             <span class="icon-facebook-circled"></span>
@@ -167,7 +370,8 @@
             <div class="modal-content">
                 <div class="modal-body text-center">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <p><img width="150" src="Images/MrBestBoQ.png" /></p>
+                    <p>
+                        <img width="150" src="Images/MrBestBoQ.png" /></p>
                     <p id="completeModal-message"></p>
                 </div>
             </div>
@@ -186,54 +390,81 @@
     <script src="lib/Inputmask/dist/inputmask/inputmask.phone.extensions.js"></script>
     <script src="lib/Inputmask/dist/inputmask/jquery.inputmask.js"></script>
     <script src="lib/Inputmask/dist/inputmask/phone-codes/phone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script>
 
-        if (getUrlParameter("r") == "regisComplete") {
-            showCompleteMessage('ลงทะเบียนเรียบร้อยค้าบ');
-        }
-        else if (getUrlParameter("r") == "estimateComplete") {
-            showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
-        }
-        else if (getUrlParameter("r") == "updateComplete") {
-            showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
-            $('#completeModal').on('hidden.bs.modal', function (e) {
-                window.location = 'Approve';
-            })
-        }
+            if (getUrlParameter("r") == "regisComplete") {
+                showCompleteMessage('ลงทะเบียนเรียบร้อยค้าบ');
+            }
+            else if (getUrlParameter("r") == "estimateComplete") {
+                showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
+            }
+            else if (getUrlParameter("r") == "updateComplete") {
+                showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
+                $('#completeModal').on('hidden.bs.modal', function (e) {
+                    window.location = 'Approve';
+                })
+            }
 
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        };
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            };
 
-        function showCompleteMessage(message) {
-            $("#completeModal-message").html(message);
-            $("#completeModal").modal('show');
-        }
+            function showCompleteMessage(message) {
+                $("#completeModal-message").html(message);
+                $("#completeModal").modal('show');
+            }
 
 
-        function validateForm(elementForm) {
-            return $.validate({
-                form: elementForm,
-                modules: 'security',
+            function validateForm(elementForm) {
+                return $.validate({
+                    form: elementForm,
+                    modules: 'security',
+                });
+            }
+
+            $(document).ready(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal-green',
+                    radioClass: 'iradio_minimal-green',
+                    increaseArea: '20%' // optional
+                });
+
+                $("input").inputmask();
+
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+
+                renderLogoSponsor();
             });
-        }
 
-        $(document).ready(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_minimal-green',
-                radioClass: 'iradio_minimal-green',
-                increaseArea: '20%' // optional
-            });
-
-            $("input").inputmask();
-
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip();
-            })
-        });
+            function renderLogoSponsor() {
+                $('.customer-logos').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1000,
+                    arrows: false,
+                    dots: false,
+                    pauseOnHover: false,
+                    responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }, {
+                        breakpoint: 520,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }]
+                });
+            }
     </script>
     <script src="lib/DataTables/datatables.min.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">

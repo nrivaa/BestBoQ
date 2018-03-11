@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-xs-6">
                 <%--<a id="btnBackMainType" style="display:none" onclick="window.history.back();" class="btn btn-default">Back to Previous Step</a>--%>
-                <a id="btnBack" href="CreateProject?id=<%=param_projid %>" class="btn btn-default">Back to Previous Step</a>
+                <a id="btnBack" href="CreateProject?id=<%=param_projid %>" class="btn btn-greenline">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
                 <asp:Button ID="btnSubmit" OnClientClick="return checkValidateSpecific()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />

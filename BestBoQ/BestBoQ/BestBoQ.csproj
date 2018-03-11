@@ -157,6 +157,7 @@
     <Content Include="CreateProject_03_15.aspx" />
     <Content Include="CreateTest.aspx" />
     <Content Include="css\createproject.css" />
+    <Content Include="css\fonts.css" />
     <Content Include="css\inputmask.css" />
     <Content Include="css\main.css" />
     <Content Include="css\pluton.css" />
@@ -491,6 +492,11 @@
     <Content Include="fonts\pluton.eot" />
     <Content Include="fonts\pluton.ttf" />
     <Content Include="fonts\pluton.woff" />
+    <Content Include="css\font\sukhumvitset-text-webfont.eot" />
+    <Content Include="css\font\sukhumvitset-text-webfont.ttf" />
+    <Content Include="css\font\sukhumvitset-text-webfont.woff" />
+    <Content Include="css\font\sukhumvitset-text-webfont.woff2" />
+    <Content Include="css\font\DB Helvethaica X v3.2.ttf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
