@@ -190,19 +190,19 @@
             display: none;
         }
 
-        #completeModal .modal-dialog{
+        #completeModal .modal-dialog {
             position: relative;
-            display: table; /* This is important */ 
-            overflow-y: auto;    
+            display: table; /* This is important */
+            overflow-y: auto;
             overflow-x: auto;
             width: auto;
-            min-width: 300px;   
+            min-width: 300px;
         }
 
         #completeModal .modal-content {
             border: 3px solid #8dc73f;
             /*background-color: #8dc73f;*/
-            /*opacity: .8;*/ 
+            /*opacity: .8;*/
         }
     </style>
     <style>
@@ -398,7 +398,8 @@
                 <div class="modal-body text-center">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <p>
-                        <img width="150" src="Images/MrBestBoQ.png" /></p>
+                        <img width="150" src="Images/MrBestBoQ.png" />
+                    </p>
                     <p id="completeModal-message"></p>
                 </div>
             </div>
@@ -421,77 +422,83 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script>
 
-            if (getUrlParameter("r") == "regisComplete") {
-                showCompleteMessage('ลงทะเบียนเรียบร้อยค้าบ');
-            }
-            else if (getUrlParameter("r") == "estimateComplete") {
-                showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
-            }
-            else if (getUrlParameter("r") == "updateComplete") {
-                showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
-                $('#completeModal').on('hidden.bs.modal', function (e) {
-                    window.location = 'Approve';
-                })
-            }
+        if (getUrlParameter("r") == "regisComplete") {
+            showCompleteMessage('ลงทะเบียนเรียบร้อยค้าบ');
+        }
+        else if (getUrlParameter("r") == "estimateComplete") {
+            showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
+        }
+        else if (getUrlParameter("r") == "updateComplete") {
+            showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
+            $('#completeModal').on('hidden.bs.modal', function (e) {
+                window.location = 'Approve';
+            })
+        }
+        else if (getUrlParameter("r") == "forgetComplete") {
+            showCompleteMessage('เปลี่ยน Password เสร็จเรียบร้อย');
+        }
+        else if (getUrlParameter("r") == "forgetFail") {
+            showCompleteMessage('Information ที่ท่านใส่มาไม่ถูกต้อง');
+        }
 
-            function getUrlParameter(name) {
-                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-                var results = regex.exec(location.search);
-                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-            };
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
 
-            function showCompleteMessage(message) {
-                $("#completeModal-message").html(message);
-                $("#completeModal").modal('show');
-            }
+        function showCompleteMessage(message) {
+            $("#completeModal-message").html(message);
+            $("#completeModal").modal('show');
+        }
 
 
-            function validateForm(elementForm) {
-                return $.validate({
-                    form: elementForm,
-                    modules: 'security',
-                });
-            }
+        function validateForm(elementForm) {
+            return $.validate({
+                form: elementForm,
+                modules: 'security',
+            });
+        }
 
-            $(document).ready(function () {
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_minimal-green',
-                    radioClass: 'iradio_minimal-green',
-                    increaseArea: '20%' // optional
-                });
-
-                $("input").inputmask();
-
-                $(function () {
-                    $('[data-toggle="tooltip"]').tooltip();
-                });
-
-                renderLogoSponsor();
+        $(document).ready(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_minimal-green',
+                radioClass: 'iradio_minimal-green',
+                increaseArea: '20%' // optional
             });
 
-            function renderLogoSponsor() {
-                $('.customer-logos').slick({
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1000,
-                    arrows: false,
-                    dots: false,
-                    pauseOnHover: false,
-                    responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3
-                        }
-                    }, {
-                        breakpoint: 520,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    }]
-                });
-            }
+            $("input").inputmask();
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+            renderLogoSponsor();
+        });
+
+        function renderLogoSponsor() {
+            $('.customer-logos').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1000,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                }]
+            });
+        }
     </script>
     <script src="lib/DataTables/datatables.min.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">

@@ -40,42 +40,6 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// tbFuser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFuser;
-        
-        /// <summary>
-        /// tbFemail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFemail;
-        
-        /// <summary>
-        /// tbFidcard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFidcard;
-        
-        /// <summary>
-        /// btnForget control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForget;
-        
-        /// <summary>
         /// tbUsername control.
         /// </summary>
         /// <remarks>

@@ -347,7 +347,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="#" data-target="#forget" data-toggle="modal">ลืมรหัสผ่าน?</a>
+                                    <a href="FrogetPassword.aspx">ลืมรหัสผ่าน?</a>
                                 </div>
                             </div>
                         </div>
@@ -357,54 +357,6 @@
         </div>
     </div>
     <!--/ Modal Login box-->
-
-    <!--Modal Forget password box-->
-    <div class="modal fade" id="forget" role="dialog">
-        <div class="modal-dialog modal-sm modal-small">
-            <!-- Modal content no 1-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center form-title">ลืมรหัสผ่าน</h4>
-                </div>
-                <div class="modal-body padtrbl">
-                    <div class="login-box-body">
-                        <p cla ss="login-box-msg">ระบุ information ที่ท่านเคยสมัครไว้</p>
-                        <div class="form-group">
-                            <div class="form-group has-feedback">
-                                <!----- username -------------->
-                                <asp:TextBox ID="tbFuser" CssClass="form-control" runat="server" placeholder="Username" data-inputmask-regex="[a-za-zA-Z0-9]*" autocomplete="off"></asp:TextBox>
-                                <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
-                                <!---Alredy exists  ! -->
-                                <span class="fa fa-user  form-control-feedback"></span>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <!----- Email -------------->
-                                <asp:TextBox ID="tbFemail" CssClass="form-control" runat="server" placeholder="Email" data-validation="email" data-inputmask="'alias': 'email'" autocomplete="off"></asp:TextBox>
-                                <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
-                                <!---Alredy exists  ! -->
-                                <span class="fa fa-user  form-control-feedback"></span>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <!----- id card -------------->
-                                <asp:TextBox ID="tbFidcard" CssClass="form-control" runat="server" placeholder="id Card or Tax id" data-inputmask-regex="[a-za-zA-Z0-9]*" autocomplete="off"></asp:TextBox>
-                                <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
-                                <!---Alredy exists  ! -->
-                                <span class="fa fa-user  form-control-feedback"></span>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <asp:Button ID="btnForget" CssClass="btn btn-green btn-block btn-flat" runat="server" Text="แจ้งลืมรหัส" OnClick="btnForget_Click" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ Modal Forget password box-->
-
     <!--Modal Register box-->
     <div class="modal fade" id="registerForm" role="dialog">
         <div class="modal-dialog">
@@ -838,6 +790,9 @@
             }
             else if (getUrlParameter("cmd") == "login") {
                 $("#login").modal().show();
+            }
+            else if (getUrlParameter("cmd") == "forget") {
+                $("#forget").modal().show();
             }
 
         });
