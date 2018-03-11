@@ -267,6 +267,12 @@
     <Content Include="Images\logo_new.png" />
     <Content Include="Images\MrBestBoQ.png" />
     <Content Include="Images\no_image.png" />
+    <Content Include="Images\Sponsor\1.png" />
+    <Content Include="Images\Sponsor\2.png" />
+    <Content Include="Images\Sponsor\3.png" />
+    <Content Include="Images\Sponsor\4.png" />
+    <Content Include="Images\Sponsor\5.png" />
+    <Content Include="Images\Sponsor\6.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
