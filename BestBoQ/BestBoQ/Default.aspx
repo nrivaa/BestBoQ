@@ -668,6 +668,13 @@
         </div>
     </section>
 
+    <div id="light" class="white_content2 ud-khaosod-survey" style="display: block; visibility: visible;">
+        <div class="survey-wrapper">
+            <img src="Images/MrBestBoQ_Close.png" />
+            <a class="close-survey" href="javascript:void(0)" onclick="$('.white_content2').hide()"></a>
+        </div>
+    </div>
+
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
