@@ -720,6 +720,7 @@
     <Compile Include="boq.aspx.designer.cs">
       <DependentUpon>boq.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Boq.cs" />
     <Compile Include="ClassConfig.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="ContractCover.aspx.cs">

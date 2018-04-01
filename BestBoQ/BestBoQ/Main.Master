@@ -228,8 +228,8 @@
                     position: absolute;
                     width: 30px;
                     height: 30px;
-                    /*top: 30px;*/
-                    right: 5px;
+                    top: 0px;
+                    right: 0px;
                 }
     </style>
     <link href="lib/DataTables/datatables.min.css" rel="stylesheet" />

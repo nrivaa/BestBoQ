@@ -13,7 +13,7 @@
             top:90px;
             right: 130px;
             z-index: 1030;
-            bottom: 0%;
+            /*bottom: 0%;*/
             padding: 16px;
             visibility: visible;
         }

@@ -26,8 +26,9 @@ namespace BestBoQ
         protected void Page_Load(object sender, EventArgs e)
         {
             string projectID = Request["projectID"];
-            projectID = "000003";
-            string userID = "348770";
+            //projectID = "000003";
+            string userID = Request["userID"];
+            //userID = "348770";
             DataTable dt = ClassConfig.GetDataSQL("exec [dbo].[get_BOQ] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt2 = ClassConfig.GetDataSQL("exec [dbo].[get_AppendixA] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt3 = ClassConfig.GetDataSQL("exec [dbo].[get_Home_Proj] '@puserid'".Replace("@puserid", userID) + ", '@pprojid'".Replace("@pprojid", projectID));
@@ -52,12 +53,14 @@ namespace BestBoQ
 
             {
                 // Table Structure
-                TableStructure += "<table>";
-                TableStructure += "<tr>";
-                TableStructure += "<td>งาน</td>";
-                TableStructure += "<td>จำนวน</td>";
-                TableStructure += "<td>หน่วย</td>";
-                TableStructure += "</tr>";
+                TableStructure += "<table class='table'>";
+                TableStructure += "<thead><tr>";
+                TableStructure += "<th>งาน</th>";
+                TableStructure += "<th>จำนวน</th>";
+                TableStructure += "<th>หน่วย</th>";
+                TableStructure += "</tr></thead>";
+
+                TableStructure += "<tbody>";
 
                 // Footing
                 var queryFooting = from table in dt.AsEnumerable()
@@ -65,13 +68,13 @@ namespace BestBoQ
                                    select table;
 
                 TableStructure += "<tr>";
-                TableStructure += "<td>งานเสาเข็มและฐานราก</td>";
+                TableStructure += "<td><b>งานเสาเข็มและฐานราก</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableStructure += "</tr>";
 
                 foreach (var item in queryFooting)
                 {
                     TableStructure += "<tr>";
-                    TableStructure += "<td>" + item.Field<string>("footingType").ToString() + "</td>";
+                    TableStructure += "<td>&nbsp;&nbsp;" + item.Field<string>("footingType").ToString() + "</td>";
                     TableStructure += "<td>" + item.Field<double>("numpole") + "</td>";
                     TableStructure += "<td>ต้น</td>";
                     TableStructure += "</tr>";
@@ -83,13 +86,13 @@ namespace BestBoQ
                                 select table;
 
                 TableStructure += "<tr>";
-                TableStructure += "<td>งานคาน</td>";
+                TableStructure += "<td><b>งานคาน</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableStructure += "</tr>";
 
                 foreach (var item in queryBeam)
                 {
                     TableStructure += "<tr>";
-                    TableStructure += "<td>" + item.Field<string>("footingType").ToString() + "</td>";
+                    TableStructure += "<td>&nbsp;&nbsp;" + item.Field<string>("footingType").ToString() + "</td>";
                     TableStructure += "<td>" + item.Field<double>("numpole") + "</td>";
                     TableStructure += "<td>ตารางเมตร</td>";
                     TableStructure += "</tr>";
@@ -101,17 +104,19 @@ namespace BestBoQ
                                  select table;
 
                 TableStructure += "<tr>";
-                TableStructure += "<td>งานแผ่นพื้นสำเร็จรูป</td>";
+                TableStructure += "<td><b>งานแผ่นพื้นสำเร็จรูป</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableStructure += "</tr>";
 
                 foreach (var item in queryFloor)
                 {
                     TableStructure += "<tr>";
-                    TableStructure += "<td>" + item.Field<string>("footingType").ToString() + "</td>";
+                    TableStructure += "<td>&nbsp;&nbsp;" + item.Field<string>("footingType").ToString() + "</td>";
                     TableStructure += "<td>" + item.Field<double>("numpole") + "</td>";
                     TableStructure += "<td>ตารางเมตร</td>";
                     TableStructure += "</tr>";
                 }
+
+                TableStructure += "</tbody>";
 
                 // End
                 TableStructure += "</table>";
@@ -120,12 +125,14 @@ namespace BestBoQ
 
             {
                 // Table Architecture
-                TableArchitecture += "<table>";
-                TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งาน</td>";
-                TableArchitecture += "<td>จำนวน</td>";
-                TableArchitecture += "<td>หน่วย</td>";
-                TableArchitecture += "</tr>";
+                TableArchitecture += "<table class='table'>";
+                TableArchitecture += "<thead><tr>";
+                TableArchitecture += "<th>งาน</th>";
+                TableArchitecture += "<th>จำนวน</th>";
+                TableArchitecture += "<th>หน่วย</th>";
+                TableArchitecture += "</thead></tr>";
+
+                TableArchitecture += "<tbody>";
 
                 // Roof
                 var queryRoof = from table in dt.AsEnumerable()
@@ -133,7 +140,7 @@ namespace BestBoQ
                                 select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานหลังคาและวัสดุมุง</td>";
+                TableArchitecture += "<td><b>งานหลังคาและวัสดุมุง</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryRoof)
@@ -151,7 +158,7 @@ namespace BestBoQ
                                 select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานผนังก่อและฉาบ</td>";
+                TableArchitecture += "<td><b>งานผนังก่อและฉาบ</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryWall)
@@ -169,7 +176,7 @@ namespace BestBoQ
                                     select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานผิวตกแต่งพื้น</td>";
+                TableArchitecture += "<td><b>งานผิวตกแต่งพื้น</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryFlooring)
@@ -187,7 +194,7 @@ namespace BestBoQ
                                   select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานสุขภัณฑ์</td>";
+                TableArchitecture += "<td><b>งานสุขภัณฑ์</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryToilet)
@@ -205,7 +212,7 @@ namespace BestBoQ
                                    select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานฝ้าเพดาน</td>";
+                TableArchitecture += "<td><b>งานฝ้าเพดาน</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryCeiling)
@@ -223,7 +230,7 @@ namespace BestBoQ
                                  select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานสี</td>";
+                TableArchitecture += "<td><b>งานสี</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryColor)
@@ -241,7 +248,7 @@ namespace BestBoQ
                                    select table;
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานรั้ว</td>";
+                TableArchitecture += "<td><b>งานรั้ว</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 foreach (var item in queryRailing)
@@ -254,7 +261,7 @@ namespace BestBoQ
                 }
 
                 TableArchitecture += "<tr>";
-                TableArchitecture += "<td>งานประตูหน้าต่าง</td>";
+                TableArchitecture += "<td><b>งานประตูหน้าต่าง</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableArchitecture += "</tr>";
 
                 // ประตูภายใน
@@ -299,6 +306,8 @@ namespace BestBoQ
                     TableArchitecture += "</tr>";
                 }
 
+                TableArchitecture += "</tbody>";
+
                 // End
                 TableArchitecture += "</table>";
 
@@ -306,12 +315,14 @@ namespace BestBoQ
 
             {
                 // Table System
-                TableSystem += "<table>";
-                TableSystem += "<tr>";
-                TableSystem += "<td>งาน</td>";
-                TableSystem += "<td>จำนวน</td>";
-                TableSystem += "<td>หน่วย</td>";
-                TableSystem += "</tr>";
+                TableSystem += "<table class='table'>";
+                TableSystem += "<thead><tr>";
+                TableSystem += "<th>งาน</th>";
+                TableSystem += "<th>จำนวน</th>";
+                TableSystem += "<th>หน่วย</th>";
+                TableSystem += "</tr></thead>";
+
+                TableSystem += "<tbody>";
 
                 // Sanitation
                 var querySanitation = from table in dt.AsEnumerable()
@@ -319,7 +330,7 @@ namespace BestBoQ
                                       select table;
 
                 TableSystem += "<tr>";
-                TableSystem += "<td>งานสุขาภิบาลและระบายน้ำ</td>";
+                TableSystem += "<td><b>งานสุขาภิบาลและระบายน้ำ</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableSystem += "</tr>";
 
                 foreach (var item in querySanitation)
@@ -337,7 +348,7 @@ namespace BestBoQ
                                     select table;
 
                 TableSystem += "<tr>";
-                TableSystem += "<td>งานประปา</td>";
+                TableSystem += "<td><b>งานประปา</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableSystem += "</tr>";
 
                 foreach (var item in queryPlimbing)
@@ -355,7 +366,7 @@ namespace BestBoQ
                                    select table;
 
                 TableSystem += "<tr>";
-                TableSystem += "<td>งานไฟฟ้า</td>";
+                TableSystem += "<td><b>งานไฟฟ้า</b></td><td>&nbsp;</td><td>&nbsp;</td>";
                 TableSystem += "</tr>";
 
                 foreach (var item in queryFooting)
@@ -366,6 +377,8 @@ namespace BestBoQ
                     TableSystem += "<td>ชุด</td>";
                     TableSystem += "</tr>";
                 }
+
+                TableSystem += "</tbody>";
 
                 // End
                 TableSystem += "</table>";

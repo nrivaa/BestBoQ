@@ -86,6 +86,12 @@ namespace BestBoQ
             }
         }
 
+        protected void DownloadBoq()
+        {
+            Boq boq = new Boq(this);
+            Response.Redirect("/" + site + "/PDFs/" + boq.CreatePDF(param_projid,userID));
+        }
+
         protected void DownloadContract()
         {
             Contract contract = new Contract(this);
@@ -113,7 +119,7 @@ namespace BestBoQ
         {
             if (s1 == "true")
             {
-               
+                DownloadBoq();
             }
             else
             {
