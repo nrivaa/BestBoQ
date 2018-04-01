@@ -135,9 +135,12 @@
   <ItemGroup>
     <Content Include="Appendix.aspx" />
     <Content Include="Approve.aspx" />
+    <Content Include="boq.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ContractCover.aspx" />
+    <Content Include="ContractDocument.aspx" />
     <Content Include="CreateProject.aspx" />
     <Content Include="CreateProject_02.aspx" />
     <Content Include="CreateProject_03_01.aspx" />
@@ -693,8 +696,29 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="boq.aspx.cs">
+      <DependentUpon>boq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="boq.aspx.designer.cs">
+      <DependentUpon>boq.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClassConfig.cs" />
     <Compile Include="Contract.cs" />
+    <Compile Include="ContractCover.aspx.cs">
+      <DependentUpon>ContractCover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractCover.aspx.designer.cs">
+      <DependentUpon>ContractCover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContractDocument.aspx.cs">
+      <DependentUpon>ContractDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractDocument.aspx.designer.cs">
+      <DependentUpon>ContractDocument.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CostStructure.cs" />
     <Compile Include="CreateHomeNestedMaster.master.cs">
       <DependentUpon>CreateHomeNestedMaster.master</DependentUpon>
