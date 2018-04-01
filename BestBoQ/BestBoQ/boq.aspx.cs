@@ -31,16 +31,24 @@ namespace BestBoQ
             DataTable dt = ClassConfig.GetDataSQL("exec [dbo].[get_BOQ] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt2 = ClassConfig.GetDataSQL("exec [dbo].[get_AppendixA] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt3 = ClassConfig.GetDataSQL("exec [dbo].[get_Home_Proj] '@puserid'".Replace("@puserid", userID) + ", '@pprojid'".Replace("@pprojid", projectID));
-
-            CountBedRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องนอน").Select(x=>x.Field<string>("Room")).FirstOrDefault().ToString();
-            CountBathRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องน้ำ").Select(x=>x.Field<string>("Room")).FirstOrDefault().ToString();
-            ProjectType = dt2.Rows[0]["hometype"].ToString();
-            TotalArea = dt2.Rows[0]["numMM"].ToString();
-            ProjectName = dt3.Rows[0]["projectname"].ToString();
-            ContactName = dt3.Rows[0]["contractid"].ToString();
-            CustomerName = dt3.Rows[0]["customername"].ToString();
-            ContactAdd = dt3.Rows[0]["address"].ToString();
-            ProjectStart = dt3.Rows[0]["projectstart"].ToString();
+            if(dt.Rows.Count> 0)
+            {
+                CountBedRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องนอน").Select(x => x.Field<string>("Room")).FirstOrDefault().ToString();
+                CountBathRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องน้ำ").Select(x => x.Field<string>("Room")).FirstOrDefault().ToString();
+            }
+            if (dt2.Rows.Count > 0)
+            {
+                ProjectType = dt2.Rows[0]["hometype"].ToString();
+                TotalArea = dt2.Rows[0]["numMM"].ToString();
+            }
+            if (dt3.Rows.Count > 0)
+            {
+                ProjectName = dt3.Rows[0]["projectname"].ToString();
+                ContactName = dt3.Rows[0]["contractid"].ToString();
+                CustomerName = dt3.Rows[0]["customername"].ToString();
+                ContactAdd = dt3.Rows[0]["address"].ToString();
+                ProjectStart = dt3.Rows[0]["projectstart"].ToString();
+            }
 
             {
                 // Table Structure
