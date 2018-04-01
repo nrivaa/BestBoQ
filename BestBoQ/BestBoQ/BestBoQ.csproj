@@ -160,6 +160,7 @@
     <Content Include="CreateProject_03_15.aspx" />
     <Content Include="CreateTest.aspx" />
     <Content Include="css\createproject.css" />
+    <Content Include="css\fonts.css" />
     <Content Include="css\inputmask.css" />
     <Content Include="css\main.css" />
     <Content Include="css\pluton.css" />
@@ -167,6 +168,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FrogetPassword.aspx" />
     <Content Include="GenerateContract.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -267,8 +269,18 @@
     <Content Include="Images\IconDocument\Report.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_new.png" />
     <Content Include="Images\MrBestBoQ.png" />
+    <Content Include="Images\MrBestBoQ_Close.png" />
+    <Content Include="Images\MrBestBoQ_left.png" />
+    <Content Include="Images\MrBestBoQ_right.png" />
     <Content Include="Images\no_image.png" />
+    <Content Include="Images\Sponsor\1.png" />
+    <Content Include="Images\Sponsor\2.png" />
+    <Content Include="Images\Sponsor\3.png" />
+    <Content Include="Images\Sponsor\4.png" />
+    <Content Include="Images\Sponsor\5.png" />
+    <Content Include="Images\Sponsor\6.png" />
     <Content Include="Images\thai_gov.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -494,6 +506,11 @@
     <Content Include="fonts\pluton.eot" />
     <Content Include="fonts\pluton.ttf" />
     <Content Include="fonts\pluton.woff" />
+    <Content Include="css\font\sukhumvitset-text-webfont.eot" />
+    <Content Include="css\font\sukhumvitset-text-webfont.ttf" />
+    <Content Include="css\font\sukhumvitset-text-webfont.woff" />
+    <Content Include="css\font\sukhumvitset-text-webfont.woff2" />
+    <Content Include="css\font\DB Helvethaica X v3.2.ttf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Profile.aspx" />
@@ -859,6 +876,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrogetPassword.aspx.cs">
+      <DependentUpon>FrogetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrogetPassword.aspx.designer.cs">
+      <DependentUpon>FrogetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenerateContract.aspx.cs">
       <DependentUpon>GenerateContract.aspx</DependentUpon>

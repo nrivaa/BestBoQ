@@ -61,7 +61,7 @@
         <br />
         <div class="row">
             <div class="col-xs-6">
-                <a href="CreateProject_03_05?id=<%=param_projid%>" class="btn btn-default">Back to Previous Step</a>
+                <a href="CreateProject_03_05?id=<%=param_projid%>" class="btn btn-greenline">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
                 <asp:Button ID="btnSubmit" OnClientClick=" return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Next" />

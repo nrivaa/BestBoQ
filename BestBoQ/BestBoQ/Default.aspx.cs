@@ -141,10 +141,5 @@ namespace BestBoQ
             }
 
         }
-
-        protected void btnForget_Click(object sender, EventArgs e)
-        {
-            string param_username = tbFuser.Text.Trim();
-        }
     }
 }

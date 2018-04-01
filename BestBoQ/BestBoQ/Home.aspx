@@ -7,6 +7,42 @@
         }
     </style>
     <link href="css/main.css" rel="stylesheet" />
+    <style>
+        .white_content_home {
+            position: fixed;
+            top:90px;
+            right: 130px;
+            z-index: 1030;
+            bottom: 0%;
+            padding: 16px;
+            visibility: visible;
+        }
+
+        @media (max-width: 750px) {
+            .white_content_home {
+                
+            visibility: hidden;
+            }
+        }
+
+            .white_content_home .survey-wrapper {
+                position: relative;
+            }
+
+               
+                    .white_content_home .survey-wrapper img {
+                        width: 140px;
+                    }
+
+                .white_content_home .survey-wrapper .close-survey {
+                    display: inline-block;
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    /*top: 30px;*/
+                    right: 5px;
+                }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <section id="home" class="section-padding">
@@ -142,6 +178,13 @@
             </div>
         </div>
     </section>
+
+    <div id="light" class="white_content_home ud-khaosod-survey" style="display: block;">
+        <div class="survey-wrapper">
+            <img src="Images/MrBestBoQ_right.png" />
+            <a class="close-survey" href="javascript:void(0)" onclick="$('.white_content_home').hide()"></a>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
@@ -153,6 +196,17 @@
                     { orderable: false, targets: 0 }
                 ]
             });
+        });
+    </script>
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 10) {
+                $('.white_content_home').hide();
+            }
+            else {
+                $('.white_content_home').show();
+            }
         });
     </script>
 </asp:Content>
