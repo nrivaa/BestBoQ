@@ -17,18 +17,30 @@ namespace BestBoQ
         public string TableStructure { get; set; }
         public string TableArchitecture { get; set; }
         public string TableSystem { get; set; }
+        public string ProjectName { get; set; }
+        public string ContactName { get; set; }
+        public string CustomerName { get; set; }
+        public string ContactAdd { get; set; }
+        public string ProjectStart { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string projectID = Request["projectID"];
-            projectID = "000001";
+            projectID = "000003";
+            string userID = "348770";
             DataTable dt = ClassConfig.GetDataSQL("exec [dbo].[get_BOQ] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt2 = ClassConfig.GetDataSQL("exec [dbo].[get_AppendixA] '@pprojid'".Replace("@pprojid", projectID));
+            DataTable dt3 = ClassConfig.GetDataSQL("exec [dbo].[get_Home_Proj] '@puserid'".Replace("@puserid", userID) + ", '@pprojid'".Replace("@pprojid", projectID));
 
             CountBedRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องนอน").Select(x=>x.Field<string>("Room")).FirstOrDefault().ToString();
             CountBathRoom = dt.AsEnumerable().Where(x => x.Field<string>("footingType") == "ห้องน้ำ").Select(x=>x.Field<string>("Room")).FirstOrDefault().ToString();
             ProjectType = dt2.Rows[0]["hometype"].ToString();
             TotalArea = dt2.Rows[0]["numMM"].ToString();
+            ProjectName = dt3.Rows[0]["projectname"].ToString();
+            ContactName = dt3.Rows[0]["contractid"].ToString();
+            CustomerName = dt3.Rows[0]["customername"].ToString();
+            ContactAdd = dt3.Rows[0]["address"].ToString();
+            ProjectStart = dt3.Rows[0]["projectstart"].ToString();
 
             {
                 // Table Structure

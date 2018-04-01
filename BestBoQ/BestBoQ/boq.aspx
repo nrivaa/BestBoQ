@@ -14,9 +14,14 @@
         <div style="page-break-after: always;"></div>
         <div>
             <h1>รายละเอียดโครงการ</h1>
-            <h4>ประเภทอาคาร: <%=ProjectType %></h4>
+            <h4>Project Name : <%=ProjectName %></h4>
+            <h4>Contact Name : <%=ContactName %></h4>
+            <h4>Customer Name : <%=CustomerName %></h4>
+            <h4>Customer Address : <%=ContactAdd %></h4>
+            <h4>Project Type : <%=ProjectType %></h4>
             <h4>พื้นที่ใช้สอย: <%=TotalArea %> ตารางเมตร</h4>
             <h4>จำนวนห้อง: <%=CountBedRoom %> ห้องนอน <%=CountBathRoom %> ห้องน้ำ</h4>
+            <h4>Project Start : <%=ProjectStart %></h4>
         </div>
         <div style="page-break-after: always;"></div>
         <div>
