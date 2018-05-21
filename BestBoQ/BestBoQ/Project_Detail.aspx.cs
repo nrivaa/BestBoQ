@@ -94,8 +94,10 @@ namespace BestBoQ
 
         protected void DownloadContract()
         {
-            Contract contract = new Contract(this);
-            Response.Redirect("~/PDFs/" + contract.CreatePDF(param_projid));
+            //Contract contract = new Contract(this);
+            //Response.Redirect("~/PDFs/" + contract.CreatePDF(param_projid));
+            generate_doc genContract = new generate_doc();
+            Response.Redirect("/" + site + "/GeneratedDocument/" + genContract.GenerateContract(param_projid));
         }
 
         protected void DownloadAppendixA()

@@ -40,13 +40,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="left: 0; line-height: 200px; margin-top: -100px; position: absolute; text-align: center; top: 50%; width: 100%;">
-            <h1>Project Information By <img width="80" src="Images/logo_new.png" /></h1>
-        </div>
-        <div style="page-break-after: always;"></div>
+<%--        <div style="left: 0; line-height: 200px; margin-top: -100px; position: absolute; text-align: center; top: 50%; width: 100%;">
+            
+        </div>--%>
+        <%--<div style="page-break-after: always;"></div>--%>
         <div class="row">
             <div class="col-sm-12">
-                <br />
+                <h1>Project Information By <img width="80" src="Images/logo_new.png" /></h1>
+                <%--<br />--%>
                 <h1>รายละเอียดโครงการ</h1>
                 <div class="panel panel-default" style="border: 1px solid #e1e1e1;width:100%">
                     <div class="panel-body">

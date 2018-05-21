@@ -25,10 +25,10 @@ namespace BestBoQ
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string projectID = Request["projectID"];
-            //projectID = "000003";
-            string userID = Request["userID"];
-            //userID = "348770";
+            //string projectID = Request["projectID"];
+            string projectID = "000030";
+            //string userID = Request["userID"];
+            string userID = "348770";
             DataTable dt = ClassConfig.GetDataSQL("exec [dbo].[get_BOQ] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt2 = ClassConfig.GetDataSQL("exec [dbo].[get_AppendixA] '@pprojid'".Replace("@pprojid", projectID));
             DataTable dt3 = ClassConfig.GetDataSQL("exec [dbo].[get_Home_Proj] '@puserid'".Replace("@puserid", userID) + ", '@pprojid'".Replace("@pprojid", projectID));
@@ -49,6 +49,7 @@ namespace BestBoQ
                 CustomerName = dt3.Rows[0]["customername"].ToString();
                 ContactAdd = dt3.Rows[0]["address"].ToString();
                 ProjectStart = dt3.Rows[0]["projectstart"].ToString();
+                img.ImageUrl = dt3.Rows[0]["homepic"].ToString();
             }
 
             {
