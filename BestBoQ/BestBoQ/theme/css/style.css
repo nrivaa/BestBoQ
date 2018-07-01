@@ -495,10 +495,11 @@ Cta
     padding-bottom: 50px;
     border-top: 6px solid #8dc73f !important;
     background: rgb(24, 26, 28) url(../../Images/Default/home01.jpg) no-repeat top center fixed;
+    background-size: cover;
 }
 
     #cta-2 h2 {
-        color: #FFF !important;
+        color: #4b4b4b !important;
         border-bottom: 1px solid #FFF !important;
     }
 
