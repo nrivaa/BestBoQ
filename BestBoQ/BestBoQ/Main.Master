@@ -200,9 +200,10 @@
         }
 
         #completeModal .modal-content {
-            border: 3px solid #8dc73f;
-            /*background-color: #8dc73f;*/
-            /*opacity: .8;*/
+            border: 3px solid #26A65B;
+            background-color: #26A65B;
+            opacity: .8;
+            color:white;
         }
     </style>
     <style>
