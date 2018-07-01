@@ -36,14 +36,16 @@ namespace BestBoQ
                 if (dt.Rows.Count < 1)
                 {
                     //No Data in userinfo
-                    Response.Write("<script>alert('กรุณาลงทะเบียนก่อนเข้าใช้งาน');</script>");
+                    Response.Redirect("Default?r=loginPermission");
+                    //Response.Write("<script>alert('กรุณาลงทะเบียนก่อนเข้าใช้งาน');</script>");
                 }
                 else
                 {
                     if (dt.Rows[0][0].ToString() != "true")
                     {
                         //Not Yet Approve
-                        Response.Write("<script>alert('username ของท่านยังไม่ได้รับการอนุมัติ กรุณาติดต่อผู้ดูแล');</script>");
+                        Response.Redirect("Default?r=userPermission");
+                        //Response.Write("<script>alert('username ของท่านยังไม่ได้รับการอนุมัติ กรุณาติดต่อผู้ดูแล');</script>");
                     }
                     else
                     {

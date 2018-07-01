@@ -428,6 +428,12 @@
         else if (getUrlParameter("r") == "estimateComplete") {
             showCompleteMessage('ประเมินราคาเสร็จเรียบร้อย');
         }
+        else if (getUrlParameter("r") == "userPermission") {
+            showCompleteMessage('user ของท่านยังไม่ได้รับการอนุมัติ กรุณาติดต่อ bestboq ทีมครับผม');
+        }
+        else if (getUrlParameter("r") == "loginPermission") {
+            showCompleteMessage('ท่านยังไม่ได้ลงทะเบียนใช้งาน กรุณาลงทะเบียนก่อนครับผม');
+        }
         else if (getUrlParameter("r") == "updateComplete") {
             showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
             $('#completeModal').on('hidden.bs.modal', function (e) {

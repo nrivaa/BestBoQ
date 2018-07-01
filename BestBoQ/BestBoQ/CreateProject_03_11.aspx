@@ -57,7 +57,7 @@
                         <li data-toggle="tooltip" data-placement="bottom" title="14.ค่าดำเนินงาน/ส่วนลด">
                             <a href="CreateProject_03_15?id=<%=param_projid%>">14</a>
                         </li>
-                        <li class="next"><a href="CreateProject_03_12?id=<%=param_projid%>"><span aria-hidden="true">&rarr;</span></a></li>
+                        <%--<li class="next"><a href="CreateProject_03_12?id=<%=param_projid%>"><span aria-hidden="true">&rarr;</span></a></li>--%>
                     </ul>
                 </nav>
             </div>
