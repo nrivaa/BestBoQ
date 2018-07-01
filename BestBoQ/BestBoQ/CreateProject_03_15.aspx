@@ -181,7 +181,7 @@
             var promoPrice = $(tbpromotion).val();
             var otherPrice = $(tbother).val();
 
-            if (val >= 0 || id == "otherPrice") { // isValid
+            if (val >= 0 || "#" + id == tbother) { // isValid
 
                 var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
                 var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
