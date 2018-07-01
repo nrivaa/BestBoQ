@@ -33,7 +33,7 @@
             <br />
             <div class="row ">
                 <div class="col-xs-6 text-left">
-                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i>&nbsp;Back to Home</a>
+                    <a href="Home.aspx" class="agoda-action-button af-btn btn-greenline"><i class="fa fa-caret-left" aria-hidden="true"></i>&nbsp;&nbsp;Back to Home</a>
                 </div>
                 <%--<div class="col-xs-6 text-right">
                     <button type="button" class="agoda-action-button af-btn btn-green mmb-add-to-my-calendar-btn"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Finish Project</button>
@@ -48,7 +48,7 @@
                                 <div class="panel-body">
                                     <div class="edit-booking-property-infos">
                                         <div id="div-edit" class="edit-booking-action edit-booking-resend-voucher-container">
-                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modify</a>
+                                            <a href="CreateProject.aspx?id=<%=param_projid%>" class="af-btn btn-greenline"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Modify</a>
                                         </div>
                                         <section class="edit-booking-wrapper">
                                             <div id="edit-booking-hotel-header">
@@ -136,7 +136,7 @@
                             <div>
                                 <div class="panel panel-default price-details">
                                     <div class="panel-body">
-                                        <h5 class="m-b-4 m-t-0"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;Payment details</h5>
+                                        <h5 class="m-b-4 m-t-0"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;&nbsp;Payment details</h5>
                                         <dl class="dl-horizontal dd-align-right room-price">
                                             <dt>ค่าแรงและวัสดุรวม</dt>
                                             <dd>฿ <span id="totalPrice">
@@ -171,40 +171,40 @@
 
                                 <div class="panel panel-default project-details">
                                     <div class="panel-body">
-                                        <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;Documents</h5>
+                                        <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Documents</h5>
                                         <ul class="nav nav-pills nav-stacked nav-generate nav-documents">
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnBoq" OnClick="lbtnBoq_Click" runat="server">
-                                                <img src="Images/IconDocument/BOQ.png" />&nbsp;
+                                                <img src="Images/IconDocument/BOQ.png" />&nbsp;&nbsp;
                                                 BOQ <small>(สรุปรายการวัสดุ)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnContractDoc" OnClick="lbtnContractDoc_Click" runat="server">
-                                                    <img src="Images/IconDocument/contract.png" />&nbsp;
+                                                    <img src="Images/IconDocument/contract.png" />&nbsp;&nbsp;
                                                     Contract <small>(สัญญาว่าจ้าง)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnAppendixDoc" OnClick="lbtnAppendixDoc_Click" runat="server">
-                                                <img src="Images/IconDocument/Payment.png" />&nbsp;
+                                                <img src="Images/IconDocument/Payment.png" />&nbsp;&nbsp;
                                                 Payment Term <small>(งวดงานก่อสร้าง)</small>
                                                 </asp:LinkButton></li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnPlan" OnClick="lbtnPlan_Click" runat="server">
-                                                <img src="Images/IconDocument/Plan.png" />&nbsp;
+                                                <img src="Images/IconDocument/Plan.png" />&nbsp;&nbsp;
                                                 Plan <small>(แผนงานก่อสร้าง)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnReport" OnClick="lbtnReport_Click" runat="server">
-                                                <img src="Images/IconDocument/Report.png" />&nbsp;
+                                                <img src="Images/IconDocument/Report.png" />&nbsp;&nbsp;
                                                 Report <small>(รายการแยกต้นทุน)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
                                                 <asp:LinkButton ID="lbtnAll" OnClick="lbtnAll_Click" runat="server">
-                                                <img src="Images/IconDocument/All.png" />&nbsp;
+                                                <img src="Images/IconDocument/All.png" />&nbsp;&nbsp;
                                                 All Report <small>(รวมทุกเอกสาร)</small>
                                                 </asp:LinkButton>
                                             </li>
