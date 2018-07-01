@@ -73,16 +73,35 @@ namespace BestBoQ
 
         protected void getUserInfo()
         {
-            string sql_command = "SELECT [status1],[status2],[status3],[status4],[status5],[status6] FROM [BESTBoQ].[dbo].[userinfo] WHERE [userid] = '" + userID + "'";
-            DataTable dt = ClassConfig.GetDataSQL(sql_command);
-            if(dt.Rows.Count >0)
+            string sql = "[dbo].[get_Home_Proj] '" + userID + "','" + param_projid + "'";
+            DataTable dt1 = new DataTable();
+            dt1 = ClassConfig.GetDataSQL(sql);
+
+            if (dt1.Rows.Count > 0)
             {
-                s1 = dt.Rows[0]["status1"].ToString();
-                s2 = dt.Rows[0]["status2"].ToString();
-                s3 = dt.Rows[0]["status3"].ToString();
-                s4 = dt.Rows[0]["status4"].ToString();
-                s5 = dt.Rows[0]["status5"].ToString();
-                s6 = dt.Rows[0]["status6"].ToString();
+                if(dt1.Rows[0]["status"].ToString() == "Complete")
+                {
+                    string sql_command = "SELECT [status1],[status2],[status3],[status4],[status5],[status6] FROM [BESTBoQ].[dbo].[userinfo] WHERE [userid] = '" + userID + "'";
+                    DataTable dt = ClassConfig.GetDataSQL(sql_command);
+                    if (dt.Rows.Count > 0)
+                    {
+                        s1 = dt.Rows[0]["status1"].ToString();
+                        s2 = dt.Rows[0]["status2"].ToString();
+                        s3 = dt.Rows[0]["status3"].ToString();
+                        s4 = dt.Rows[0]["status4"].ToString();
+                        s5 = dt.Rows[0]["status5"].ToString();
+                        s6 = dt.Rows[0]["status6"].ToString();
+                    }
+                }
+                else
+                {
+                    s1 = "false";
+                    s2 = "false";
+                    s3 = "false";
+                    s4 = "false";
+                    s5 = "false";
+                    s6 = "false";
+                }
             }
         }
 
