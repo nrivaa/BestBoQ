@@ -175,12 +175,13 @@
         $("input").change(function () {
 
             var val = $(this).val();
+            var id = $(this).attr("id");
 
             var feePrice = $(tbfree).val();
             var promoPrice = $(tbpromotion).val();
             var otherPrice = $(tbother).val();
 
-            if (val >= 0) { // isValid
+            if (val >= 0 || id == "otherPrice") { // isValid
 
                 var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
                 var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
