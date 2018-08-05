@@ -23,6 +23,10 @@
                 transition: 0.6s ease-in-out top;
             }
 
+        .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+            width: 100%;
+        }
+
         @media all and (transform-3d), (-webkit-transform-3d) {
             .carousel.vertical .carousel-inner > .item {
                 -webkit-transition: 0.6s ease-in-out;
