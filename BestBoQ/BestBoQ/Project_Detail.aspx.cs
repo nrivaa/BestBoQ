@@ -79,7 +79,7 @@ namespace BestBoQ
 
             if (dt1.Rows.Count > 0)
             {
-                if(dt1.Rows[0]["status"].ToString() == "Complete")
+                if (dt1.Rows[0]["status"].ToString() == "Complete")
                 {
                     string sql_command = "SELECT [status1],[status2],[status3],[status4],[status5],[status6] FROM [BESTBoQ].[dbo].[userinfo] WHERE [userid] = '" + userID + "'";
                     DataTable dt = ClassConfig.GetDataSQL(sql_command);
@@ -108,7 +108,8 @@ namespace BestBoQ
         protected void DownloadBoq()
         {
             Boq boq = new Boq(this);
-            Response.Redirect("/" + site + "/PDFs/" + boq.CreatePDF(param_projid,userID));
+            string url = HttpContext.Current.Request.Url.Authority;
+            Response.Redirect(url + "/" + site + "/PDFs/" + boq.CreatePDF(param_projid, userID));
         }
 
         protected void DownloadContract()
@@ -116,24 +117,28 @@ namespace BestBoQ
             //Contract contract = new Contract(this);
             //Response.Redirect("~/PDFs/" + contract.CreatePDF(param_projid));
             generate_doc genContract = new generate_doc();
-            Response.Redirect("/" + site + "/GeneratedDocument/" + genContract.GenerateContract(param_projid));
+            string url = HttpContext.Current.Request.Url.Authority;
+            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GenerateContract(param_projid));
         }
 
         protected void DownloadAppendixA()
         {
             AppendixA appendix = new AppendixA(this);
-            Response.Redirect("~/PDFs/" + appendix.CreatePDF(param_projid));
+            string url = HttpContext.Current.Request.Url.Authority;
+            Response.Redirect(url + "/" + site + "/PDFs/" + appendix.CreatePDF(param_projid));
         }
         protected void DownloadPlan()
         {
             ProjectTimeline projectTimeline = new ProjectTimeline(this);
-            Response.Redirect("/"+site+"/PDFs/" + projectTimeline.CreatePDF(param_projid));
+            string url = HttpContext.Current.Request.Url.Authority;
+            Response.Redirect(url + "/" + site + "/PDFs/" + projectTimeline.CreatePDF(param_projid));
         }
 
         protected void DownloadReport()
         {
             CostStructure costStructure = new CostStructure(this);
-            Response.Redirect("/" + site + "/PDFs/" + costStructure.CreatePDF(param_projid));
+            string url = HttpContext.Current.Request.Url.Authority;
+            Response.Redirect(url + "/" + site + "/PDFs/" + costStructure.CreatePDF(param_projid));
         }
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
@@ -200,7 +205,7 @@ namespace BestBoQ
         {
             if (s6 == "true")
             {
-                
+
             }
             else
             {
