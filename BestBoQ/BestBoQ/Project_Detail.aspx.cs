@@ -107,9 +107,12 @@ namespace BestBoQ
 
         protected void DownloadBoq()
         {
-            Boq boq = new Boq(this);
+            //Boq boq = new Boq(this);
+            //string url = HttpContext.Current.Request.Url.Authority;
+            //Response.Redirect(url + "/" + site + "/PDFs/" + boq.CreatePDF(param_projid, userID));
+            generate_doc genContract = new generate_doc();
             string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + boq.CreatePDF(param_projid, userID));
+            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GenerateBOQ(param_projid));
         }
 
         protected void DownloadContract()
@@ -123,9 +126,12 @@ namespace BestBoQ
 
         protected void DownloadAppendixA()
         {
-            AppendixA appendix = new AppendixA(this);
+            //AppendixA appendix = new AppendixA(this);
+            //string url = HttpContext.Current.Request.Url.Authority;
+            //Response.Redirect(url + "/" + site + "/PDFs/" + appendix.CreatePDF(param_projid));
+            generate_doc genContract = new generate_doc();
             string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + appendix.CreatePDF(param_projid));
+            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GeneratePayment(param_projid));
         }
         protected void DownloadPlan()
         {

@@ -44,6 +44,64 @@ namespace BestBoQ
                 ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
         }
 
+        private bool Search(Word.Application app, string search)
+        {
+            Word.Find findObject = app.Selection.Find;
+            findObject.ClearFormatting();
+
+            object findText = search;
+
+            return findObject.Execute(ref findText, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+        }
+
+        private void GetColumnAndSearchReplace(DataTable dt, string columnname, Word.Application app, string search)
+        {
+            string textReplace = dt.Rows[0][columnname] == null ? "" : dt.Rows[0][columnname].ToString();
+            SearchReplace(app, search, textReplace);
+        }
+
+        private string GetColumn(DataRow dr, string columnname)
+        {
+            return dr[columnname] == null ? "" : dr[columnname].ToString();
+        }
+
+        private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value) {
+            string tagMaterial = GetColumn(dr, "Material");
+            string tagTypeID = GetColumn(dr, "TypeID");
+            string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagType + ">";
+            string tag_mini = "<" + tagMaterial + "_" + tagType + ">";
+
+            //if (Search(app, tag))
+            //{
+                SearchReplace(app, tag, GetColumn(dr, value));
+            //}
+            //else
+            //{
+                SearchReplace(app, tag_mini, GetColumn(dr, value));
+            //}
+        }
+
+        private void ReplaceBOQDetail(Word.Application app, DataRow dr, string value)
+        {
+            string tagMaterial = GetColumn(dr, "Material");
+            string tagTypeID = GetColumn(dr, "TypeID");
+            string tagCostID = GetColumn(dr, "costID");
+
+            string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagCostID + ">";
+            string tag_mini = "<" + tagMaterial + "_" + tagCostID + ">";
+
+            //if (Search(app, tag))
+            //{
+                SearchReplace(app, tag, GetColumn(dr, value));
+            //}
+            //else
+            //{
+                SearchReplace(app, tag_mini, GetColumn(dr, value));
+            //}
+        }
+
         [WebMethod]
         public string GenerateContract(string projid)
         {
@@ -286,6 +344,126 @@ namespace BestBoQ
             //    return ex.Message + ex.StackTrace;
             //}
         }
+        
 
+        [WebMethod]
+        public string GenerateBOQ(string projid)
+        {
+            //try
+            {
+                //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
+
+                // Create document (Copy from template)
+
+                string source = Server.MapPath(".") + @"\templates\BestBOQ_BOQ.docm";
+                string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_boq.docm";
+                File.Copy(source, dest, true);
+
+                // Open document
+                // Create an instance of Word, make it visible,
+                // and open Doc1.doc.
+                // Object for missing (or optional) arguments.
+
+                Word.Application oWord = new Word.Application();
+                oWord.Visible = true;
+                Word.Documents oDocs = oWord.Documents;
+                object oFile = dest;
+
+                Word._Document oDoc = oDocs.Open(ref oFile, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                ref oMissing, ref oMissing);
+
+                // Project Information
+                DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projid + "'");
+
+                GetColumnAndSearchReplace(dt, "projectname", oWord, "[project_name]");
+                GetColumnAndSearchReplace(dt, "projectname", oWord, "<project_name>");
+
+                GetColumnAndSearchReplace(dt, "contractid", oWord, "[contract_id]");
+                GetColumnAndSearchReplace(dt, "contractid", oWord, "<contract_id>");
+
+                GetColumnAndSearchReplace(dt, "customername", oWord, "[customer_name]");
+                GetColumnAndSearchReplace(dt, "customername", oWord, "<customer_name>");
+
+                GetColumnAndSearchReplace(dt, "homename", oWord, "[project_type]");
+                GetColumnAndSearchReplace(dt, "homename", oWord, "<project_type>");
+
+                GetColumnAndSearchReplace(dt, "numMM", oWord, "[area]");
+                GetColumnAndSearchReplace(dt, "numMM", oWord, "<area>");
+
+                GetColumnAndSearchReplace(dt, "roomamount", oWord, "[room_amount]");
+                GetColumnAndSearchReplace(dt, "roomamount", oWord, "<room_amount>");
+
+                GetColumnAndSearchReplace(dt, "projectstart", oWord, "[project_start]");
+                GetColumnAndSearchReplace(dt, "projectstart", oWord, "<project_start>");
+
+                GetColumnAndSearchReplace(dt, "cusaddress", oWord, "[customer_address]");
+                GetColumnAndSearchReplace(dt, "cusaddress", oWord, "<customer_address>");
+
+                // Get Boq
+                dt = ClassConfig.GetDataSQL("exec dbo.[get_BOQ] '" + projid + "'");
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ReplaceBOQ(oWord, dr, "type", "footingType");
+                    ReplaceBOQ(oWord, dr, "amount", "numpole");
+                    ReplaceBOQ(oWord, dr, "priceunit", "cost_pole");
+                    ReplaceBOQ(oWord, dr, "total", "Total");
+                }
+
+                // Get Boq Detail
+                for (int i = 1; i <= 14; i++)
+                {
+                    if (i != 11)
+                    {
+                        string number = i.ToString("D2");
+                        dt = ClassConfig.GetDataSQL("exec [dbo].[get_BOQ_Detail_" + number + "]  '" + projid + "'");
+
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            ReplaceBOQDetail(oWord, dr, "detailPrice");
+                        }
+                    }
+                }
+
+                // Replace All
+                Word.Find findObject = oWord.Selection.Find;
+                findObject.ClearFormatting();
+                findObject.MatchWildcards = true;
+                findObject.Text = "[<]*[>]"; // SSN with dashes.
+                findObject.Replacement.ClearFormatting();
+                findObject.Replacement.Text = "-";
+
+                object replaceAll = Word.WdReplace.wdReplaceAll;
+                findObject.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+                    ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+
+                // Save to PDF
+                // Run the macros.
+                RunMacro(oWord, new Object[] { "Silent_saves_to_PDF" });
+
+                // Quit Word and clean up.
+                oDoc.Close(ref oMissing, ref oMissing, ref oMissing);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oDoc);
+                oDoc = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oDocs);
+                oDocs = null;
+                oWord.Quit(ref oMissing, ref oMissing, ref oMissing);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oWord);
+                oWord = null;
+
+                GC.Collect();
+
+                return dest.Replace(".docm", ".pdf");
+            }
+            //catch (Exception ex)
+            //{
+
+            //    return ex.Message + ex.StackTrace;
+            //}
+        }
     }
 }
