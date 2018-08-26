@@ -81,7 +81,7 @@ namespace BestBoQ
             catch { amount = 0; }
             bahtTxt = amount.ToString("####.00");
             string[] num = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า", "สิบ" };
-            string[] rank = { "", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน" };
+            string[] rank = { "", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน", "สิบล้าน", "ร้อยล้าน"};
             string[] temp = bahtTxt.Split('.');
             string intVal = temp[0];
             string decVal = temp[1];

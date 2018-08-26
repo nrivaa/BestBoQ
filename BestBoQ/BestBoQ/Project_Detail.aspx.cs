@@ -19,17 +19,23 @@ namespace BestBoQ
             if (Session["UserID"] != null)
             {
                 userID = Session["UserID"].ToString();
-                getUserInfo();
+
                 if (Request.QueryString["id"] != null)
                 {
                     param_projid = Request.QueryString["id"].ToString();
-                    getData();
+                    getUserInfo();
+
+                    if (!IsPostBack)
+                    {
+                        getData();
+                    }
                 }
                 else
                 {
                     Response.Redirect("Home.aspx");
                 }
             }
+
         }
 
         protected void getData()
@@ -107,31 +113,50 @@ namespace BestBoQ
 
         protected void DownloadBoq()
         {
-            //Boq boq = new Boq(this);
-            //string url = HttpContext.Current.Request.Url.Authority;
-            //Response.Redirect(url + "/" + site + "/PDFs/" + boq.CreatePDF(param_projid, userID));
+            string url;
             generate_doc genContract = new generate_doc();
-            string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GenerateBOQ(param_projid));
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateBOQ(param_projid);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
         protected void DownloadContract()
         {
-            //Contract contract = new Contract(this);
-            //Response.Redirect("~/PDFs/" + contract.CreatePDF(param_projid));
+            string url;
             generate_doc genContract = new generate_doc();
-            string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GenerateContract(param_projid));
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateContract(param_projid);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
         protected void DownloadAppendixA()
         {
-            //AppendixA appendix = new AppendixA(this);
-            //string url = HttpContext.Current.Request.Url.Authority;
-            //Response.Redirect(url + "/" + site + "/PDFs/" + appendix.CreatePDF(param_projid));
+            string url;
             generate_doc genContract = new generate_doc();
-            string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + genContract.GeneratePayment(param_projid));
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GeneratePayment(param_projid);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
         protected void DownloadPlan()
         {
@@ -142,9 +167,18 @@ namespace BestBoQ
 
         protected void DownloadReport()
         {
-            CostStructure costStructure = new CostStructure(this);
-            string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + costStructure.CreatePDF(param_projid));
+            string url;
+            generate_doc genContract = new generate_doc();
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateSummary(param_projid);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
@@ -211,7 +245,11 @@ namespace BestBoQ
         {
             if (s6 == "true")
             {
-
+                DownloadBoq();
+                DownloadContract();
+                DownloadAppendixA();
+                DownloadPlan();
+                DownloadReport();
             }
             else
             {
