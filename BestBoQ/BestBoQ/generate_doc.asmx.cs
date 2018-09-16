@@ -68,9 +68,9 @@ namespace BestBoQ
         }
 
         private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value) {
-            string tagMaterial = GetColumn(dr, "Material");
-            string tagTypeID = GetColumn(dr, "TypeID");
-            string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagType + ">";
+            string tagMaterial = GetColumn(dr, "Material").Trim();
+            string tagTypeID = GetColumn(dr, "TypeID").Trim();
+            string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagType.Trim() + ">";
             string tag_mini = "<" + tagMaterial + "_" + tagType + ">";
 
             //if (Search(app, tag))
@@ -85,9 +85,9 @@ namespace BestBoQ
 
         private void ReplaceBOQDetail(Word.Application app, DataRow dr, string value)
         {
-            string tagMaterial = GetColumn(dr, "Material");
-            string tagTypeID = GetColumn(dr, "TypeID");
-            string tagCostID = GetColumn(dr, "costID");
+            string tagMaterial = GetColumn(dr, "Material").Trim();
+            string tagTypeID = GetColumn(dr, "TypeID").Trim();
+            string tagCostID = GetColumn(dr, "costID").Trim();
 
             string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagCostID + ">";
             string tag_mini = "<" + tagMaterial + "_" + tagCostID + ">";
@@ -118,7 +118,7 @@ namespace BestBoQ
                 // Create document (Copy from template)
 
                 string source = Server.MapPath(".") + @"\templates\BestBOQ_contract.docm";
-                string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + ".docm";
+                string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_contract.docm";
                 File.Copy(source, dest, true);
 
                 // Open document
@@ -401,6 +401,14 @@ namespace BestBoQ
                 GetColumnAndSearchReplace(dt, "cusaddress", oWord, "[customer_address]");
                 GetColumnAndSearchReplace(dt, "cusaddress", oWord, "<customer_address>");
 
+                // Get Project Summary
+                DataTable dt_summary = ClassConfig.GetDataSQL("exec dbo.[get_Last_Price] '" + projid + "'");
+                GetColumnAndSearchReplace(dt_summary, "TotalMoney", oWord, "<project_p>");
+                GetColumnAndSearchReplace(dt_summary, "FreeMoney", oWord, "<project_p_com>");
+                GetColumnAndSearchReplace(dt_summary, "PromoMoney", oWord, "<project_p_discount>");
+                GetColumnAndSearchReplace(dt_summary, "OtherMoney", oWord, "<project_p_other>");
+                GetColumnAndSearchReplace(dt_summary, "LastMoney", oWord, "<project_p_total>");
+
                 // Get Boq
                 dt = ClassConfig.GetDataSQL("exec dbo.[get_BOQ] '" + projid + "'");
 
@@ -426,6 +434,24 @@ namespace BestBoQ
                         }
                     }
                 }
+
+                //Replacr Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Microsoft.Office.Interop.Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Microsoft.Office.Interop.Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    } 
+                }
+
 
                 // Replace All
                 Word.Find findObject = oWord.Selection.Find;
