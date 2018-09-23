@@ -107,7 +107,7 @@ namespace BestBoQ
         {
             //try
             {
-                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice;
+                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space;
 
                 // No data yet
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
@@ -153,7 +153,9 @@ namespace BestBoQ
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
                 CompanySign = dt.Rows[0]["projectowner"] == null ? "" : dt.Rows[0]["projectowner"].ToString();
-                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString(); ;
+                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString();
+                Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString();
+                space = dt.Rows[0]["space"] == null ? "" : dt.Rows[0]["space"].ToString();
 
                 // Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
@@ -173,7 +175,8 @@ namespace BestBoQ
                 SearchReplace(oWord, "[company_sign]", CompanySign);
                 SearchReplace(oWord, "[customer_province]", CustomerProvince);
                 SearchReplace(oWord, "[month]", Month);
-
+                SearchReplace(oWord, "[telephone] ", Telephone);
+                SearchReplace(oWord, "[spec]", space);
 
                 // Save to PDF
                 // Run the macros.
@@ -205,7 +208,7 @@ namespace BestBoQ
         {
             //try
             {
-                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice;
+                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone;
 
                 // No data yet
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
@@ -252,7 +255,8 @@ namespace BestBoQ
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
                 CompanySign = dt.Rows[0]["projectowner"] == null ? "" : dt.Rows[0]["projectowner"].ToString();
-                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString(); ;
+                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString();
+                Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString(); ;
 
                 DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projid + "'");
                 step01 = dt_pay.Rows[0]["step01"] == null ? "" : dt_pay.Rows[0]["step01"].ToString();
@@ -296,6 +300,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[company_sign]", CompanySign);
                 SearchReplace(oWord, "[customer_province]", CustomerProvince);
                 SearchReplace(oWord, "[month]", Month);
+                SearchReplace(oWord, "[telephone] ", Telephone);
 
                 SearchReplace(oWord, "[startDate]", startDate);
                 SearchReplace(oWord, "[stopDate]", stopDate);
@@ -503,9 +508,28 @@ namespace BestBoQ
                 string benefit, power, material, benefit_pct, power_pct, material_pct;
 
                 // Create document (Copy from template)
-                string source = Server.MapPath(".") + @"\templates\BestBOQ_summary.docm";
-                string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
-                File.Copy(source, dest, true);
+                string source;
+                string dest;
+                DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report '" + projid + "'");
+                if (dt_report.Rows.Count > 0)
+                {
+                    string template = dt_report.Rows[0]["Template"] == null ? "" : dt_report.Rows[0]["Template"].ToString();
+
+                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary"+ template + ".docm";
+                    dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
+                    File.Copy(source, dest, true);
+                }else
+                {
+                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary1.docm";
+                    dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
+                    File.Copy(source, dest, true);
+                }
+                benefit = dt_report.Rows[0]["bBenefit"] == null ? "" : dt_report.Rows[0]["bBenefit"].ToString();
+                power = dt_report.Rows[0]["bPower"] == null ? "" : dt_report.Rows[0]["bPower"].ToString();
+                material = dt_report.Rows[0]["bMaterial"] == null ? "" : dt_report.Rows[0]["bMaterial"].ToString();
+                benefit_pct = dt_report.Rows[0]["pBenefit"] == null ? "" : dt_report.Rows[0]["pBenefit"].ToString();
+                power_pct = dt_report.Rows[0]["pPower"] == null ? "" : dt_report.Rows[0]["pPower"].ToString();
+                material_pct = dt_report.Rows[0]["pMaterial"] == null ? "" : dt_report.Rows[0]["pMaterial"].ToString();
 
                 // Open document
                 // Create an instance of Word, make it visible,
@@ -540,14 +564,7 @@ namespace BestBoQ
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
                 CompanySign = dt.Rows[0]["projectowner"] == null ? "" : dt.Rows[0]["projectowner"].ToString();
                 RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString(); ;
-
-                DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report '" + projid + "'");
-                benefit = dt_report.Rows[0]["bBenefit"] == null ? "" : dt_report.Rows[0]["bBenefit"].ToString();
-                power = dt_report.Rows[0]["bPower"] == null ? "" : dt_report.Rows[0]["bPower"].ToString();
-                material = dt_report.Rows[0]["bMaterial"] == null ? "" : dt_report.Rows[0]["bMaterial"].ToString();
-                benefit_pct = dt_report.Rows[0]["pBenefit"] == null ? "" : dt_report.Rows[0]["pBenefit"].ToString();
-                power_pct = dt_report.Rows[0]["pPower"] == null ? "" : dt_report.Rows[0]["pPower"].ToString();
-                material_pct = dt_report.Rows[0]["pMaterial"] == null ? "" : dt_report.Rows[0]["pMaterial"].ToString();
+                
 
                 //// Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
