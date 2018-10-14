@@ -262,6 +262,16 @@
     <Content Include="Images\HowTo\1.png" />
     <Content Include="Images\HowTo\2.png" />
     <Content Include="Images\HowTo\3.png" />
+    <Content Include="Images\HowTo\LogIn1.jpg" />
+    <Content Include="Images\HowTo\LogIn2.jpg" />
+    <Content Include="Images\HowTo\NewProject1.jpg" />
+    <Content Include="Images\HowTo\NewProject2.jpg" />
+    <Content Include="Images\HowTo\NewProject3.jpg" />
+    <Content Include="Images\HowTo\NewProject4.jpg" />
+    <Content Include="Images\HowTo\PrintDocument1.jpg" />
+    <Content Include="Images\HowTo\PrintDocument2.jpg" />
+    <Content Include="Images\HowTo\Register1.jpg" />
+    <Content Include="Images\HowTo\Register2.jpg" />
     <Content Include="Images\icon.png" />
     <Content Include="Images\IconDocument\All.png" />
     <Content Include="Images\IconDocument\BOQ.png" />

@@ -356,7 +356,7 @@
     <style>
         .white_content_howto {
             position: fixed;
-            top:190px;
+            top: 190px;
             left: 130px;
             z-index: 1030;
             bottom: 0%;
@@ -370,30 +370,30 @@
             }
         }
 
-            .white_content_howto .survey-wrapper {
-                position: relative;
+        .white_content_howto .survey-wrapper {
+            position: relative;
+        }
+
+
+            .white_content_howto .survey-wrapper img {
+                width: 130px;
             }
 
-               
-                    .white_content_howto .survey-wrapper img {
-                        width: 130px;
-                    }
-               
 
-                @media (min-width: 800px) {
-                    .white_content_howto .survey-wrapper img {
-                        width: 150px;
-                    }
-                 }
+        @media (min-width: 800px) {
+            .white_content_howto .survey-wrapper img {
+                width: 150px;
+            }
+        }
 
-                .white_content_howto .survey-wrapper .close-survey {
-                    display: inline-block;
-                    position: absolute;
-                    width: 30px;
-                    height: 30px;
-                    /*top: 30px;*/
-                    right: 5px;
-                }
+        .white_content_howto .survey-wrapper .close-survey {
+            display: inline-block;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            /*top: 30px;*/
+            right: 5px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="navcontent" runat="server">
@@ -430,14 +430,14 @@
         <br />
         <div class="container">
             <div class="row">
-                 <div class="col-md-12">
-                <ul class="nav nav-pills  nav-stacked visible-xs">
-                  <li role="presentation" class="active" data-target="#lA" data-toggle="tab"><a href="#">1.ลงทะเบียน</a></li>
-                  <li role="presentation" data-target="#lB" data-toggle="tab"><a href="#">2.เข้าสู่ระบบ</a></li>
-                  <li role="presentation" data-target="#lC" data-toggle="tab"><a href="#">3.สร้างโครงการ</a></li>
-                  <li role="presentation" data-target="#lD" data-toggle="tab"><a href="#">4.ปริ้นท์เอกสาร</a></li>
-                </ul>
-                     </div>
+                <div class="col-md-12">
+                    <ul class="nav nav-pills  nav-stacked visible-xs">
+                        <li role="presentation" class="active" data-target="#lA" data-toggle="tab"><a href="#">1.ลงทะเบียน</a></li>
+                        <li role="presentation" data-target="#lB" data-toggle="tab"><a href="#">2.เข้าสู่ระบบ</a></li>
+                        <li role="presentation" data-target="#lC" data-toggle="tab"><a href="#">3.สร้างโครงการ</a></li>
+                        <li role="presentation" data-target="#lD" data-toggle="tab"><a href="#">4.ปริ้นท์เอกสาร</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -478,21 +478,31 @@
                             <div class="tab-pane active" id="lA">
                                 <div class="col-md-offset-1">
                                     <h2>ลงทะเบียน</h2>
+                                    <img src="Images/HowTo/Register1.jpg" height="600" alt="Register 01" />
+                                    <img src="Images/HowTo/Register2.jpg" height="600" alt="Register 02" />
                                 </div>
                             </div>
                             <div class="tab-pane" id="lB">
                                 <div class="col-md-offset-1">
                                     <h2>เข้าสู่ระบบ</h2>
+                                    <img src="Images/HowTo/LogIn1.jpg" height="600" alt="Log in 01"/>
+                                    <img src="Images/HowTo/LogIn2.jpg" height="600" alt="Log in 02"/>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lC">
                                 <div class="col-md-offset-1">
-                                   <h2>สร้างโครงการ</h2>
+                                    <h2>สร้างโครงการ</h2>
+                                    <img src="Images/HowTo/NewProject1.jpg" height="600" alt="New 01"/>
+                                    <img src="Images/HowTo/NewProject2.jpg" height="600" alt="New 02"/>
+                                    <img src="Images/HowTo/NewProject3.jpg" height="600" alt="New 03"/>
+                                    <img src="Images/HowTo/NewProject4.jpg" height="600" alt="New 04"/>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lD">
                                 <div class="col-md-offset-1">
                                     <h2>ปริ้นท์เอกสาร</h2>
+                                    <img src="Images/HowTo/PrintDocument1.jpg" height="600" alt="Print 01"/>
+                                    <img src="Images/HowTo/PrintDocument2.jpg" height="600" alt="Print 02"/>
                                 </div>
                             </div>
                         </div>
@@ -503,7 +513,7 @@
         </div>
     </section>
 
-     <div id="light" class="white_content_howto ud-khaosod-survey" style="display: block; visibility: visible;">
+    <div id="light" class="white_content_howto ud-khaosod-survey" style="display: block; visibility: visible;">
         <div class="survey-wrapper">
             <img src="Images/MrBestBoQ_left.png" />
             <a class="close-survey" href="javascript:void(0)" onclick="$('.white_content_howto').hide()"></a>
