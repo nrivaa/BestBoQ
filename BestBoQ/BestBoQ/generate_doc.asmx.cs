@@ -1,11 +1,11 @@
-﻿using System;
+﻿using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Word = Microsoft.Office.Interop.Word;
-using System.Web.Services;
-using System.IO;
 using System.Data;
+using System.IO;
+using System.Web.Services;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace BestBoQ
 {
@@ -67,7 +67,8 @@ namespace BestBoQ
             return dr[columnname] == null ? "" : dr[columnname].ToString();
         }
 
-        private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value) {
+        private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value)
+        {
             string tagMaterial = GetColumn(dr, "Material").Trim();
             string tagTypeID = GetColumn(dr, "TypeID").Trim();
             string tag = "<" + tagMaterial + "_" + tagTypeID + "_" + tagType.Trim() + ">";
@@ -75,11 +76,11 @@ namespace BestBoQ
 
             //if (Search(app, tag))
             //{
-                SearchReplace(app, tag, GetColumn(dr, value));
+            SearchReplace(app, tag, GetColumn(dr, value));
             //}
             //else
             //{
-                SearchReplace(app, tag_mini, GetColumn(dr, value));
+            SearchReplace(app, tag_mini, GetColumn(dr, value));
             //}
         }
 
@@ -94,12 +95,60 @@ namespace BestBoQ
 
             //if (Search(app, tag))
             //{
-                SearchReplace(app, tag, GetColumn(dr, value));
+            SearchReplace(app, tag, GetColumn(dr, value));
             //}
             //else
             //{
-                SearchReplace(app, tag_mini, GetColumn(dr, value));
+            SearchReplace(app, tag_mini, GetColumn(dr, value));
             //}
+        }
+
+        [WebMethod]
+        public string GenerateDocumentPack(string projid)
+        {
+            string dest = Server.MapPath(".") + @"\GeneratedDocument\";
+
+            string docBoq = dest + GenerateBOQ(projid);
+            string docContract = dest + GenerateContract(projid);
+            string docPayment = dest + GeneratePayment(projid);
+            string docTimeplan = dest + GenerateTimeplan(projid);
+            string docSummary = dest + GenerateSummary(projid);
+
+            // Get some file names
+            List<string> files = new List<string>();
+            files.Add(docBoq);
+            files.Add(docContract);
+            files.Add(docPayment);
+            files.Add(docTimeplan);
+            files.Add(docSummary);
+
+            // Open the output document
+            PdfDocument outputDocument = new PdfDocument();
+
+            // Iterate files
+            foreach (string file in files)
+            {
+                // Open the document to import pages from it.
+                PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
+
+                // Iterate pages
+                int count = inputDocument.PageCount;
+                for (int idx = 0; idx < count; idx++)
+                {
+                    // Get the page from the external document...
+                    PdfPage page = inputDocument.Pages[idx];
+                    // ...and add it to the output document.
+                    outputDocument.AddPage(page);
+                }
+            }
+
+            // Save the document...
+            string filename = projid + "_BestBOQ_DocPack.pdf";
+            outputDocument.Save(dest + filename);
+            // ...and start a viewer.
+            // Process.Start(filename);
+
+            return filename;
         }
 
         [WebMethod]
@@ -349,7 +398,7 @@ namespace BestBoQ
             //    return ex.Message + ex.StackTrace;
             //}
         }
-        
+
         [WebMethod]
         public string GenerateBOQ(string projid)
         {
@@ -454,7 +503,7 @@ namespace BestBoQ
                             string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
                             toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
                         }
-                    } 
+                    }
                 }
 
 
@@ -515,10 +564,11 @@ namespace BestBoQ
                 {
                     string template = dt_report.Rows[0]["Template"] == null ? "" : dt_report.Rows[0]["Template"].ToString();
 
-                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary"+ template + ".docm";
+                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary" + template + ".docm";
                     dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
                     File.Copy(source, dest, true);
-                }else
+                }
+                else
                 {
                     source = Server.MapPath(".") + @"\templates\BestBOQ_summary1.docm";
                     dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
@@ -564,7 +614,7 @@ namespace BestBoQ
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
                 CompanySign = dt.Rows[0]["projectowner"] == null ? "" : dt.Rows[0]["projectowner"].ToString();
                 RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString(); ;
-                
+
 
                 //// Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
