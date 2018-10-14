@@ -262,6 +262,7 @@
     <Content Include="Images\HowTo\1.png" />
     <Content Include="Images\HowTo\2.png" />
     <Content Include="Images\HowTo\3.png" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\IconDocument\All.png" />
     <Content Include="Images\IconDocument\BOQ.png" />
     <Content Include="Images\IconDocument\contract.png" />
@@ -1019,7 +1020,7 @@
     <Content Include="templates\BestBOQ_summary1.docm" />
     <Content Include="templates\BestBOQ_summary2.docm" />
     <Content Include="templates\BestBOQ_summary3.docm" />
-    <Content Include="templates\BestBOQ_timeplan.docx" />
+    <Content Include="templates\BestBOQ_timeplan.docm" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

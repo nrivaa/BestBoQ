@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan1" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan1_Click" />
+                                    <%--<asp:Button ID="btnCan1" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan1_Click" />--%>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan2" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan2_Click" />
+                                    <%--<asp:Button ID="btnCan2" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan2_Click" />--%>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan3" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan3_Click" />
+                                    <%--<asp:Button ID="btnCan3" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan3_Click" />--%>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan4" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan4_Click" />
+                                    <%--<asp:Button ID="btnCan4" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan4_Click" />--%>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan5" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan5_Click" />
+                                    <%--<asp:Button ID="btnCan5" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan5_Click" />--%>
                                 </div>
                             </div>
                         </div>
@@ -190,8 +190,17 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:Button ID="btnCan6" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan6_Click" />
+                                    <%--<asp:Button ID="btnCan6" CssClass="btn btn-success" runat="server" Text="Update" OnClick="btnCan6_Click" />--%>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:Button ID="btnCanAll" CssClass="btn btn-success btn-block" runat="server" Text="Update" OnClick="btnCanAll_Click" />
+                            </div>
+                            <div class="col-sm-4">
                             </div>
                         </div>
                     </div>

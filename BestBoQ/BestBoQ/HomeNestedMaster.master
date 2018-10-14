@@ -9,7 +9,7 @@
         <li>
             <a href="Home.aspx"><span class="fa fa-home"></span> Home</a>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" runat="server" id="ddApprove">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-gear"></span> Management<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="Approve.aspx">Account Management</a></li>

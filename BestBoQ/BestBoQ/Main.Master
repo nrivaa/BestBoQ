@@ -9,7 +9,7 @@
     <title>BestBoQ by Nature Estate</title>
     <meta name="description" content="BestBoQ" />
     <meta name="keywords" content="BestBoQ" />
-
+    <link rel="icon" href="Images/icon.png" type="image/x-icon" />
     <%--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans|Prompt" />--%>
     <link href="css/fonts.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="theme/css/font-awesome.min.css" />
@@ -274,7 +274,7 @@
                                     <asp:Repeater ID="rpSponsors" runat="server">
                                         <ItemTemplate>
                                             <div class="slide">
-                                                <a href='<%#Eval("url") %>'>
+                                                <a href='<%#Eval("url") %>'  target="_blank">
                                                     <img src='<%#Eval("picpath") %>' />
                                                 </a>
                                             </div>

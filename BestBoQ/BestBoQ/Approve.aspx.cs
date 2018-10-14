@@ -14,7 +14,7 @@ namespace BestBoQ
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["UserID"] != null)
-            userID = "348770";
+            //    userID = "348770";
             if (!IsPostBack)
             {
                 ClearInfo();
@@ -24,10 +24,12 @@ namespace BestBoQ
                 {
                     lbtnUsername.SelectedValue = Session["Permission"].ToString();
                 }
-                getData();
+                
             }
 
-            
+            getData();
+
+
         }
 
         //protected void bindData()
@@ -242,7 +244,7 @@ namespace BestBoQ
 
         }
 
-        protected void btnCan1_Click(object sender, EventArgs e)
+        protected void btnCan1()
         {
             string param_can;
             if (cb1.Checked == true)
@@ -255,11 +257,11 @@ namespace BestBoQ
             }
 
             Mgt_func("1", param_can, tbStartCan1.Text, tbPeriodCan1.Text);
-            getData();
-            Response.Redirect("Approve.aspx?r=updateComplete");
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
-        protected void btnCan2_Click(object sender, EventArgs e)
+        protected void btnCan2()
         {
             string param_can;
             if (cb2.Checked == true)
@@ -272,11 +274,11 @@ namespace BestBoQ
             }
 
             Mgt_func("2", param_can, tbStartCan2.Text, tbPeriodCan2.Text);
-            getData();
-            Response.Redirect("Approve.aspx?r=updateComplete");
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
-        protected void btnCan3_Click(object sender, EventArgs e)
+        protected void btnCan3()
         {
             string param_can;
             if (cb3.Checked == true)
@@ -289,11 +291,11 @@ namespace BestBoQ
             }
 
             Mgt_func("3", param_can, tbStartCan3.Text, tbPeriodCan3.Text);
-            getData();
-            Response.Redirect("Approve.aspx?r=updateComplete");
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
-        protected void btnCan4_Click(object sender, EventArgs e)
+        protected void btnCan4()
         {
             string param_can;
             if (cb4.Checked == true)
@@ -306,11 +308,11 @@ namespace BestBoQ
             }
 
             Mgt_func("4", param_can, tbStartCan4.Text, tbPeriodCan4.Text);
-            getData();
-            Response.Redirect("Approve.aspx?r=updateComplete");
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
-        protected void btnCan5_Click(object sender, EventArgs e)
+        protected void btnCan5()
         {
             string param_can;
             if (cb5.Checked == true)
@@ -323,11 +325,11 @@ namespace BestBoQ
             }
 
             Mgt_func("5", param_can, tbStartCan5.Text, tbPeriodCan5.Text);
-            getData();
-            Response.Redirect("Approve.aspx?r=updateComplete");
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
         }
 
-        protected void btnCan6_Click(object sender, EventArgs e)
+        protected void btnCan6()
         {
             string param_can;
             if (cb6.Checked == true)
@@ -340,6 +342,18 @@ namespace BestBoQ
             }
 
             Mgt_func("6", param_can, tbStartCan6.Text, tbPeriodCan6.Text);
+            //getData();
+            //Response.Redirect("Approve.aspx?r=updateComplete");
+        }
+
+        protected void btnCanAll_Click(object sender, EventArgs e)
+        {
+            btnCan1();
+            btnCan2();
+            btnCan3();
+            btnCan4();
+            btnCan5();
+            btnCan6();
             getData();
             Response.Redirect("Approve.aspx?r=updateComplete");
         }

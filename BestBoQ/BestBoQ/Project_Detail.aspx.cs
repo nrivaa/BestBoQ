@@ -124,6 +124,7 @@ namespace BestBoQ
                 url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateBOQ(param_projid);
+            //Response.Redirect(final_path);
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
@@ -140,6 +141,7 @@ namespace BestBoQ
                 url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateContract(param_projid);
+            //Response.Redirect(final_path);
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
@@ -156,13 +158,24 @@ namespace BestBoQ
                 url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GeneratePayment(param_projid);
+            //Response.Redirect(final_path);
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
         protected void DownloadPlan()
         {
-            ProjectTimeline projectTimeline = new ProjectTimeline(this);
-            string url = HttpContext.Current.Request.Url.Authority;
-            Response.Redirect(url + "/" + site + "/PDFs/" + projectTimeline.CreatePDF(param_projid));
+            string url;
+            generate_doc genContract = new generate_doc();
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateTimeplan(param_projid);
+            //Response.Redirect(final_path);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
         protected void DownloadReport()
@@ -178,6 +191,7 @@ namespace BestBoQ
                 url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateSummary(param_projid);
+            //Response.Redirect(final_path);
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 

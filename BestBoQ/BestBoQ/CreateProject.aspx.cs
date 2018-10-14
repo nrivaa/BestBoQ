@@ -71,7 +71,8 @@ namespace BestBoQ
             string param_projectname = tbProjectName.Text.Trim();
             string param_projecttype = ddProjectType.SelectedValue.ToString().Trim();
             string param_customer = tbCustomerName.Text.Trim();
-            string param_startproject = tbStartProject.Text.Trim();
+            string[] param_time = tbStartProject.Text.Trim().Split('/');
+            string param_startproject = param_time[2] + param_time[1] + param_time[0];
             string param_country = ddCountry.SelectedValue.ToString().Trim();
             string param_province = ddProvince.SelectedValue.ToString().Trim();
             string param_address = tbAddress.Text.Trim();
