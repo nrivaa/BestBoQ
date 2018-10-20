@@ -52,10 +52,6 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
@@ -269,9 +265,6 @@
     <Content Include="Images\Default\home01.jpg" />
     <Content Include="Images\Default\home02.jpg" />
     <Content Include="Images\Default\home03.jpg" />
-    <Content Include="Images\HowTo\1.png" />
-    <Content Include="Images\HowTo\2.png" />
-    <Content Include="Images\HowTo\3.png" />
     <Content Include="Images\HowTo\LogIn1.jpg" />
     <Content Include="Images\HowTo\LogIn2.jpg" />
     <Content Include="Images\HowTo\NewProject1.jpg" />

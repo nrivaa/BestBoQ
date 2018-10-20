@@ -195,6 +195,23 @@ namespace BestBoQ
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
         }
 
+        protected void DownloadAll()
+        {
+            string url;
+            generate_doc genContract = new generate_doc();
+            if (HttpContext.Current.Request.ApplicationPath == "/")
+            {
+                url = HttpContext.Current.Request.Url.Authority;
+            }
+            else
+            {
+                url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
+            }
+            string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateDocumentPack(param_projid);
+            //Response.Redirect(final_path);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+        }
+
         protected void lbtnBoq_Click(object sender, EventArgs e)
         {
             if (s1 == "true")
@@ -259,11 +276,7 @@ namespace BestBoQ
         {
             if (s6 == "true")
             {
-                DownloadBoq();
-                DownloadContract();
-                DownloadAppendixA();
-                DownloadPlan();
-                DownloadReport();
+                DownloadAll();
             }
             else
             {
