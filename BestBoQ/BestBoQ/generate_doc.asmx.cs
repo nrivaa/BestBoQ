@@ -69,33 +69,42 @@ namespace BestBoQ
 
         private void ReplaceFooter(Word.Application app, Word._Document oDoc, string search, string replace)
         {
+
+            object replaceAll = Word.WdReplace.wdReplaceAll;
             // Loop through all sections
             foreach (Microsoft.Office.Interop.Word.Section section in oDoc.Sections)
             {
-                //Get all Footers
-                Microsoft.Office.Interop.Word.HeadersFooters footers = section.Footers;
-                //Section headerfooter loop for all types enum WdHeaderFooterIndex. wdHeaderFooterEvenPages/wdHeaderFooterFirstPage/wdHeaderFooterPrimary; 
-                foreach (Microsoft.Office.Interop.Word.HeaderFooter footer in footers)
-                {
-                    Word.Fields fields = footer.Range.Fields;
-                    foreach (Word.Field field in fields)
-                    {
-                        SearchReplace(app, search, replace);
-                        //if (field.Type == WdFieldType.wdFieldDate)
-                        //{
-                        //    field.Select();
-                        //    field.Delete();
-                        //    app.Selection.TypeText("[DATE]");
-                        //}
-                        //else if (field.Type == WdFieldType.wdFieldFileName)
-                        //{
-                        //    field.Select();
-                        //    field.Delete();
-                        //    app.Selection.TypeText("[FILE NAME]");
+                Microsoft.Office.Interop.Word.Range footerRange = section.Footers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                footerRange.Find.Text = search;
+                footerRange.Find.Replacement.Text = replace;
+                footerRange.Find.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
 
-                        //}
-                    }
-                }
+                ////Get all Footers
+                //Microsoft.Office.Interop.Word.HeadersFooters footers = section.Footers;
+                ////Section headerfooter loop for all types enum WdHeaderFooterIndex. wdHeaderFooterEvenPages/wdHeaderFooterFirstPage/wdHeaderFooterPrimary; 
+                //foreach (Microsoft.Office.Interop.Word.HeaderFooter footer in footers)
+                //{
+                    
+                //    Word.Fields fields = footer.Range.Fields;
+                       
+                //    foreach (Word.Field field in fields)
+                //    {
+                //        SearchReplace(app, search, replace);
+                //        //if (field.Type == WdFieldType.wdFieldDate)
+                //        //{
+                //        //    field.Select();
+                //        //    field.Delete();
+                //        //    app.Selection.TypeText("[DATE]");
+                //        //}
+                //        //else if (field.Type == WdFieldType.wdFieldFileName)
+                //        //{
+                //        //    field.Select();
+                //        //    field.Delete();
+                //        //    app.Selection.TypeText("[FILE NAME]");
+
+                //        //}
+                //    }
+                //}
             }
         }
 
