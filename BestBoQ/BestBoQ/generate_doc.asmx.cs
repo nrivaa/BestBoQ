@@ -108,11 +108,16 @@ namespace BestBoQ
 
             //if (Search(app, tag))
             //{
+
             SearchReplace(app, tag, GetColumn(dr, value));
+            //}
             //}
             //else
             //{
-            SearchReplace(app, tag_mini, GetColumn(dr, value));
+            if (!tagTypeID.Contains("Slap"))
+            {
+                SearchReplace(app, tag_mini, GetColumn(dr, value));
+            }
             //}
         }
 
@@ -188,7 +193,7 @@ namespace BestBoQ
         {
             //try
             {
-                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space;
+                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place;
 
                 // No data yet
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
@@ -237,6 +242,7 @@ namespace BestBoQ
                 RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString();
                 Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString();
                 space = dt.Rows[0]["space"] == null ? "" : dt.Rows[0]["space"].ToString();
+                place = dt.Rows[0]["place"] == null ? "" : dt.Rows[0]["place"].ToString();
 
                 // Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
@@ -258,6 +264,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[month]", Month);
                 SearchReplace(oWord, "[telephone] ", Telephone);
                 SearchReplace(oWord, "[spec]", space);
+                SearchReplace(oWord, "[place]", place);
 
                 // Replace footer
                 ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
@@ -335,7 +342,7 @@ namespace BestBoQ
                 ContractID = dt.Rows[0]["contractid"] == null ? "" : dt.Rows[0]["contractid"].ToString();
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
-                TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : dt.Rows[0]["totalprice"].ToString();
+                TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0");
                 CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
@@ -345,25 +352,25 @@ namespace BestBoQ
                 Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString(); ;
 
                 DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projid + "'");
-                step01 = dt_pay.Rows[0]["step01"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step01"].ToString()).ToString("#,##0.00");
+                step01 = dt_pay.Rows[0]["step01"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step01"].ToString()).ToString("#,##0");
                 step01Txt = ClassConfig.ThaiBaht(step01);
-                step02 = dt_pay.Rows[0]["step02"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step02"].ToString()).ToString("#,##0.00");
+                step02 = dt_pay.Rows[0]["step02"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step02"].ToString()).ToString("#,##0");
                 step02Txt = ClassConfig.ThaiBaht(step02);
-                step03 = dt_pay.Rows[0]["step03"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step03"].ToString()).ToString("#,##0.00");
+                step03 = dt_pay.Rows[0]["step03"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step03"].ToString()).ToString("#,##0");
                 step03Txt = ClassConfig.ThaiBaht(step03);
-                step04 = dt_pay.Rows[0]["step04"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step04"].ToString()).ToString("#,##0.00");
+                step04 = dt_pay.Rows[0]["step04"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step04"].ToString()).ToString("#,##0");
                 step04Txt = ClassConfig.ThaiBaht(step04);
-                step05 = dt_pay.Rows[0]["step05"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step05"].ToString()).ToString("#,##0.00");
+                step05 = dt_pay.Rows[0]["step05"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step05"].ToString()).ToString("#,##0");
                 step05Txt = ClassConfig.ThaiBaht(step05);
-                step06 = dt_pay.Rows[0]["step06"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step06"].ToString()).ToString("#,##0.00");
+                step06 = dt_pay.Rows[0]["step06"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step06"].ToString()).ToString("#,##0");
                 step06Txt = ClassConfig.ThaiBaht(step06);
-                step07 = dt_pay.Rows[0]["step07"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step07"].ToString()).ToString("#,##0.00");
+                step07 = dt_pay.Rows[0]["step07"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step07"].ToString()).ToString("#,##0");
                 step07Txt = ClassConfig.ThaiBaht(step07);
-                step08 = dt_pay.Rows[0]["step08"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step08"].ToString()).ToString("#,##0.00");
+                step08 = dt_pay.Rows[0]["step08"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step08"].ToString()).ToString("#,##0");
                 step08Txt = ClassConfig.ThaiBaht(step08);
-                step09 = dt_pay.Rows[0]["step09"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step09"].ToString()).ToString("#,##0.00");
+                step09 = dt_pay.Rows[0]["step09"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step09"].ToString()).ToString("#,##0");
                 step09Txt = ClassConfig.ThaiBaht(step09);
-                step10 = dt_pay.Rows[0]["step10"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step10"].ToString()).ToString("#,##0.00");
+                step10 = dt_pay.Rows[0]["step10"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step10"].ToString()).ToString("#,##0");
                 step10Txt = ClassConfig.ThaiBaht(step10);
                 startDate = dt_pay.Rows[0]["start"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["start"]).ToString("dd/MM/yyyy");
                 stopDate = dt_pay.Rows[0]["stop"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["stop"]).ToString("dd/MM/yyyy");
@@ -611,7 +618,7 @@ namespace BestBoQ
                     dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
                     File.Copy(source, dest, true);
                 }
-                benefit = dt_report.Rows[0]["bBenefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["pBenefit"].ToString()).ToString("#,##0.00");
+                benefit = dt_report.Rows[0]["bBenefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bBenefit"].ToString()).ToString("#,##0.00");
                 power = dt_report.Rows[0]["bPower"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bPower"].ToString()).ToString("#,##0.00");
                 material = dt_report.Rows[0]["bMaterial"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bMaterial"].ToString()).ToString("#,##0.00");
                 benefit_pct = dt_report.Rows[0]["pBenefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["pBenefit"].ToString()).ToString("#,##0.00");

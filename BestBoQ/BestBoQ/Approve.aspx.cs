@@ -13,23 +13,23 @@ namespace BestBoQ
         string userID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["UserID"] != null)
-            //    userID = "348770";
-            if (!IsPostBack)
+            if (Session["UserID"] != null)
             {
-                ClearInfo();
-                //bindData();
-                lbtnUsername.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
-                if (Session["Permission"] != null)
+                userID = Session["UserID"].ToString();
+                if (!IsPostBack)
                 {
-                    lbtnUsername.SelectedValue = Session["Permission"].ToString();
+                    ClearInfo();
+                    //bindData();
+                    lbtnUsername.Items.Insert(0, new ListItem("--กรุณาเลือกชื่อ User--", ""));
+                    if (Session["Permission"] != null)
+                    {
+                        lbtnUsername.SelectedValue = Session["Permission"].ToString();
+                    }
+
+                    getData();
+
                 }
-                
             }
-
-            getData();
-
-
         }
 
         //protected void bindData()
@@ -177,17 +177,32 @@ namespace BestBoQ
 
         protected void Mgt_func(string step, string can, string time, string period)
         {
-            string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
-            string sql_command = "EXEC [dbo].[set_userperiod] '" + param_userid + "','" + step + "','" + can + "','" + time + "','" + period + "','" + userID + "' ";
-            ClassConfig.GetDataSQL(sql_command);
-            Session["Permission"] = param_userid;
+            string[] sTime;
+            string fTime;
+            if (time != "" && period != "")
+            {
+                if (time.Contains("/"))
+                {
+                    sTime = time.Split('/');
+                    fTime = sTime[2] + sTime[1] + sTime[0];
+                }
+                else
+                {
+                    fTime = time;
+                }
+                string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
+                string sql_command = "EXEC [dbo].[set_userperiod] '" + param_userid + "','" + step + "','" + can + "','" + fTime + "','" + period + "','" + userID + "' ";
+                ClassConfig.GetDataSQL(sql_command);
+                Session["Permission"] = param_userid;
+            }
+            
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
             string param_userid = lbtnUsername.SelectedValue.ToString().Trim();
             string param_can1, param_can2, param_can3, param_can4, param_can5, param_can6;
-            if(cb1.Checked == true)
+            if (cb1.Checked == true)
             {
                 param_can1 = "true";
             }
@@ -236,9 +251,9 @@ namespace BestBoQ
                 param_can6 = "false";
             }
 
-            string sql_command = " EXEC [dbo].[set_Approve] '" 
-                               + param_can1 + "','" + param_can2 + "','" + param_can3 + "','" 
-                               + param_can4 + "','" + param_can5 + "','" + param_can6 + "','" 
+            string sql_command = " EXEC [dbo].[set_Approve] '"
+                               + param_can1 + "','" + param_can2 + "','" + param_can3 + "','"
+                               + param_can4 + "','" + param_can5 + "','" + param_can6 + "','"
                                + param_userid + "'";
             ClassConfig.GetDataSQL(sql_command);
 

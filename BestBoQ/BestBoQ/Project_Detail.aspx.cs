@@ -125,7 +125,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateBOQ(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0')", final_path), true);
         }
 
         protected void DownloadContract()
@@ -142,7 +142,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateContract(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0'')", final_path), true);
         }
 
         protected void DownloadAppendixA()
@@ -159,7 +159,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GeneratePayment(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0')", final_path), true);
         }
         protected void DownloadPlan()
         {
@@ -175,7 +175,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateTimeplan(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0')", final_path), true);
         }
 
         protected void DownloadReport()
@@ -192,7 +192,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateSummary(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0')", final_path), true);
         }
 
         protected void DownloadAll()
@@ -209,7 +209,7 @@ namespace BestBoQ
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateDocumentPack(param_projid);
             //Response.Redirect(final_path);
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_newtab')", final_path), true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','_blank', 'toolbar=0,location=0,menubar=0')", final_path), true);
         }
 
         protected void lbtnBoq_Click(object sender, EventArgs e)

@@ -478,31 +478,31 @@
                             <div class="tab-pane active" id="lA">
                                 <div class="col-md-offset-1">
                                     <h2>ลงทะเบียน</h2>
-                                    <img src="Images/HowTo/Register1.jpg" height="600" alt="Register 01" />
-                                    <img src="Images/HowTo/Register2.jpg" height="600" alt="Register 02" />
+                                    <img src="Images/HowTo/Register1.jpg" class="img-responsive" alt="Register 01" />
+                                    <img src="Images/HowTo/Register2.jpg" class="img-responsive" alt="Register 02" />
                                 </div>
                             </div>
                             <div class="tab-pane" id="lB">
                                 <div class="col-md-offset-1">
                                     <h2>เข้าสู่ระบบ</h2>
-                                    <img src="Images/HowTo/LogIn1.jpg" height="600" alt="Log in 01"/>
-                                    <img src="Images/HowTo/LogIn2.jpg" height="600" alt="Log in 02"/>
+                                    <img src="Images/HowTo/LogIn1.jpg" class="img-responsive" alt="Log in 01"/>
+                                    <img src="Images/HowTo/LogIn2.jpg" class="img-responsive" alt="Log in 02"/>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lC">
                                 <div class="col-md-offset-1">
                                     <h2>สร้างโครงการ</h2>
-                                    <img src="Images/HowTo/NewProject1.jpg" height="600" alt="New 01"/>
-                                    <img src="Images/HowTo/NewProject2.jpg" height="600" alt="New 02"/>
-                                    <img src="Images/HowTo/NewProject3.jpg" height="600" alt="New 03"/>
-                                    <img src="Images/HowTo/NewProject4.jpg" height="600" alt="New 04"/>
+                                    <img src="Images/HowTo/NewProject1.jpg" class="img-responsive" alt="New 01"/>
+                                    <img src="Images/HowTo/NewProject2.jpg" class="img-responsive" alt="New 02"/>
+                                    <img src="Images/HowTo/NewProject3.jpg" class="img-responsive" alt="New 03"/>
+                                    <img src="Images/HowTo/NewProject4.jpg" class="img-responsive" alt="New 04"/>
                                 </div>
                             </div>
                             <div class="tab-pane" id="lD">
                                 <div class="col-md-offset-1">
                                     <h2>ปริ้นท์เอกสาร</h2>
-                                    <img src="Images/HowTo/PrintDocument1.jpg" height="600" alt="Print 01"/>
-                                    <img src="Images/HowTo/PrintDocument2.jpg" height="600" alt="Print 02"/>
+                                    <img src="Images/HowTo/PrintDocument1.jpg" class="img-responsive" alt="Print 01"/>
+                                    <img src="Images/HowTo/PrintDocument2.jpg" class="img-responsive" alt="Print 02"/>
                                 </div>
                             </div>
                         </div>
