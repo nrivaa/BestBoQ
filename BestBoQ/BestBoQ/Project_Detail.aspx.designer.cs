@@ -193,6 +193,15 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.LinkButton lbtnReport;
         
         /// <summary>
+        /// lbtnQuotation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnQuotation;
+        
+        /// <summary>
         /// lbtnAll control.
         /// </summary>
         /// <remarks>

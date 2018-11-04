@@ -281,6 +281,7 @@
     <Content Include="Images\IconDocument\contract.png" />
     <Content Include="Images\IconDocument\Payment.png" />
     <Content Include="Images\IconDocument\Plan.png" />
+    <Content Include="Images\IconDocument\Quotation.png" />
     <Content Include="Images\IconDocument\Report.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />

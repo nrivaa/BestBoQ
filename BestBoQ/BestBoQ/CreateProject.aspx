@@ -37,6 +37,14 @@
                             <asp:TextBox ID="tbCustomerName" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="ชื่อลูกค้า"></asp:TextBox>
                         </div>
                         <div class="form-group has-feedback">
+                            <label for="tbTelephoneCus" class="control-label">เบอร์โทรศัพท์ลูกค้า</label>
+                            <asp:TextBox ID="tbTelephoneCus" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="tbEmailCus" class="control-label">Email ลูกค้า</label>
+                            <asp:TextBox ID="tbEmailCus" CssClass="form-control" autocomplete="off" data-validation="email" runat="server" placeholder="Email" data-inputmask="'alias': 'email'"></asp:TextBox>
+                        </div>
+                        <div class="form-group has-feedback">
                             <label for="ddProjectType" class="control-label">ประเภทโครงการ</label>
                             <asp:DropDownList ID="ddProjectType" CssClass="form-control" data-validation="required" runat="server"></asp:DropDownList>
                         </div>

@@ -203,7 +203,7 @@
             border: 3px solid #26A65B;
             background-color: #26A65B;
             opacity: .8;
-            color:white;
+            color: white;
         }
     </style>
     <style>
@@ -274,7 +274,7 @@
                                     <asp:Repeater ID="rpSponsors" runat="server">
                                         <ItemTemplate>
                                             <div class="slide">
-                                                <a href='<%#Eval("url") %>'  target="_blank">
+                                                <a href='<%#Eval("url") %>' target="_blank">
                                                     <img src='<%#Eval("picpath") %>' />
                                                 </a>
                                             </div>
@@ -439,6 +439,13 @@
             showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
             $('#completeModal').on('hidden.bs.modal', function (e) {
                 window.location = 'Approve';
+            })
+        }
+        else if (getUrlParameter("r") == "statusModify") {
+
+            showCompleteMessage('โครงการอยู่ระหว่างการดำเนินการ กรุณาประเมินโครงการก่อนพิมพ์เอกสาร');
+            $('#completeModal').on('hidden.bs.modal', function (e) {
+                window.location = 'Project_Detail.aspx?id=' + getUrlParameter("id");
             })
         }
         else if (getUrlParameter("r") == "forgetComplete") {

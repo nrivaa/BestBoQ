@@ -77,6 +77,8 @@ namespace BestBoQ
             string param_province = ddProvince.SelectedValue.ToString().Trim();
             string param_address = tbAddress.Text.Trim();
             string param_spec = rbCostFunction.SelectedValue.ToString().Trim();
+            string param_phoneCus = tbTelephoneCus.Text.Trim();
+            string param_emailCus = tbEmailCus.Text.Trim();
 
             //Execute Command
             try
@@ -90,7 +92,9 @@ namespace BestBoQ
                                    + param_province + "',N'"
                                    + param_address + "', '"
                                    + param_startproject + "',N'"
-                                   + userID + "' ";
+                                   + userID + "' ,N'"
+                                   + param_phoneCus + "' ,N'"
+                                   + param_emailCus + "' ";
                 DataTable dtResult = ClassConfig.GetDataSQL(param_command);
 
                 if (dtResult.Rows.Count > 0)
@@ -124,10 +128,10 @@ namespace BestBoQ
 
         protected void getOldData()
         {
-            string sql_command = "SELECT [projectid],[projectname],[customername],[projecttype] "
-                               + ",[country],[province],[address],[projectstart]"
-                               + ",[contractid],[userid],[transdate]"
-                               + "FROM[BESTBoQ].[dbo].[Project_01_Desc] WHERE[projectid] = '" + param_projid + "'";
+            string sql_command = " SELECT [projectid],[projectname],[customername],[projecttype] "
+                               + " ,[country],[province],[address],[projectstart]"
+                               + " ,[contractid],[userid],[transdate],[customerphone],[customeremail] "
+                               + " FROM [BESTBoQ].[dbo].[Project_01_Desc] WHERE [projectid] = '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count > 0)
             {
@@ -147,6 +151,9 @@ namespace BestBoQ
                 ddProvince.SelectedValue = dt.Rows[0]["province"].ToString().Trim();
                 tbAddress.Text = dt.Rows[0]["address"].ToString().Trim();
                 tbStartProject.Text = dt.Rows[0]["projectstart"].ToString().Trim();
+
+                tbTelephoneCus.Text = dt.Rows[0]["customerphone"].ToString().Trim();
+                tbEmailCus.Text = dt.Rows[0]["customeremail"].ToString().Trim();
             }
 
 

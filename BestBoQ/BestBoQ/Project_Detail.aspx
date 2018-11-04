@@ -203,6 +203,12 @@
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
+                                                <asp:LinkButton ID="lbtnQuotation" OnClick="lbtnQuotation_Click" runat="server" OnClientClick="target='_blank';">
+                                                <img src="Images/IconDocument/Quotation.png" />&nbsp;&nbsp;
+                                                Quotation <small>(ใบเสนอราคา)</small>
+                                                </asp:LinkButton>
+                                            </li>
+                                            <li role="presentation">
                                                 <asp:LinkButton ID="lbtnAll" OnClick="lbtnAll_Click" runat="server" OnClientClick="target='_blank';">
                                                 <img src="Images/IconDocument/All.png" />&nbsp;&nbsp;
                                                 All Report <small>(รวมทุกเอกสาร)</small>
