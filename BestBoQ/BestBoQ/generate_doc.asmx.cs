@@ -617,37 +617,66 @@ namespace BestBoQ
         {
             //try
             {
-                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice;
+                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, Telephone, TotalPrice;
 
                 // No data yet
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
-                string benefit, power, material, benefit_pct, power_pct, material_pct;
+                string benefit, power, material;
+                string m_01, m_02, m_03, m_04, m_05, m_06, m_07, m_08, m_09, m_10, m_11, m_12, m_13, m_14, m_15, m_16, m_17, m_18;
+                string p_01, p_02, p_03, p_04, p_05, p_06, p_07, p_08, p_09, p_10, p_11, p_12, p_13, p_14, p_15, p_16, p_17, p_18;
 
                 // Create document (Copy from template)
                 string source;
                 string dest;
-                DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report '" + projid + "'");
-                if (dt_report.Rows.Count > 0)
-                {
-                    string template = dt_report.Rows[0]["Template"] == null ? "" : dt_report.Rows[0]["Template"].ToString();
+                DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report_new1 '" + projid + "'");
 
-                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary" + template + ".docm";
-                    dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
-                    File.Copy(source, dest, true);
-                }
-                else
-                {
-                    source = Server.MapPath(".") + @"\templates\BestBOQ_summary1.docm";
-                    dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
-                    File.Copy(source, dest, true);
-                }
-                benefit = dt_report.Rows[0]["bBenefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bBenefit"].ToString()).ToString("#,##0.00");
-                power = dt_report.Rows[0]["bPower"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bPower"].ToString()).ToString("#,##0.00");
-                material = dt_report.Rows[0]["bMaterial"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["bMaterial"].ToString()).ToString("#,##0.00");
-                benefit_pct = dt_report.Rows[0]["pBenefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["pBenefit"].ToString()).ToString("#,##0.00");
-                power_pct = dt_report.Rows[0]["pPower"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["pPower"].ToString()).ToString("#,##0.00");
-                material_pct = dt_report.Rows[0]["pMaterial"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["pMaterial"].ToString()).ToString("#,##0.00");
+                source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new.docm";
+                dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
+                File.Copy(source, dest, true);
 
+                benefit = dt_report.Rows[0]["Total_Benefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Benefit"].ToString()).ToString("#,##0");
+                power = dt_report.Rows[0]["Total_Power"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Power"].ToString()).ToString("#,##0");
+                material = dt_report.Rows[0]["Total_Material"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Material"].ToString()).ToString("#,##0");
+                TotalPrice = dt_report.Rows[0]["Total"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total"].ToString()).ToString("#,##0");
+
+                DataTable dt_report_detail = ClassConfig.GetDataSQL("exec dbo.get_Report_new2 '" + projid + "'");
+                m_01 = dt_report_detail.Rows[0]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[0]["p_i"].ToString()).ToString("#,##0");
+                m_02 = dt_report_detail.Rows[1]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[1]["p_i"].ToString()).ToString("#,##0");
+                m_03 = dt_report_detail.Rows[2]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[2]["p_i"].ToString()).ToString("#,##0");
+                m_04 = dt_report_detail.Rows[3]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[3]["p_i"].ToString()).ToString("#,##0");
+                m_05 = dt_report_detail.Rows[4]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[4]["p_i"].ToString()).ToString("#,##0");
+                m_06 = dt_report_detail.Rows[5]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[5]["p_i"].ToString()).ToString("#,##0");
+                m_07 = dt_report_detail.Rows[6]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[6]["p_i"].ToString()).ToString("#,##0");
+                m_08 = dt_report_detail.Rows[7]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[7]["p_i"].ToString()).ToString("#,##0");
+                m_09 = dt_report_detail.Rows[8]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[8]["p_i"].ToString()).ToString("#,##0");
+                m_10 = dt_report_detail.Rows[9]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[9]["p_i"].ToString()).ToString("#,##0");
+                m_11 = dt_report_detail.Rows[10]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[10]["p_i"].ToString()).ToString("#,##0");
+                m_12 = dt_report_detail.Rows[11]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[11]["p_i"].ToString()).ToString("#,##0");
+                m_13 = dt_report_detail.Rows[12]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[12]["p_i"].ToString()).ToString("#,##0");
+                m_14 = dt_report_detail.Rows[13]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[13]["p_i"].ToString()).ToString("#,##0");
+                m_15 = dt_report_detail.Rows[14]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[14]["p_i"].ToString()).ToString("#,##0");
+                m_16 = dt_report_detail.Rows[15]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[15]["p_i"].ToString()).ToString("#,##0");
+                m_17 = dt_report_detail.Rows[16]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[16]["p_i"].ToString()).ToString("#,##0");
+                m_18 = dt_report_detail.Rows[17]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["p_i"].ToString()).ToString("#,##0");
+
+                p_01 = dt_report_detail.Rows[18]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[18]["p_i"].ToString()).ToString("#,##0");
+                p_02 = dt_report_detail.Rows[19]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[19]["p_i"].ToString()).ToString("#,##0");
+                p_03 = dt_report_detail.Rows[20]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[20]["p_i"].ToString()).ToString("#,##0");
+                p_04 = dt_report_detail.Rows[21]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[21]["p_i"].ToString()).ToString("#,##0");
+                p_05 = dt_report_detail.Rows[22]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[22]["p_i"].ToString()).ToString("#,##0");
+                p_06 = dt_report_detail.Rows[23]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[23]["p_i"].ToString()).ToString("#,##0");
+                p_07 = dt_report_detail.Rows[24]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[24]["p_i"].ToString()).ToString("#,##0");
+                p_08 = dt_report_detail.Rows[25]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[25]["p_i"].ToString()).ToString("#,##0");
+                p_09 = dt_report_detail.Rows[26]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[26]["p_i"].ToString()).ToString("#,##0");
+                p_10 = dt_report_detail.Rows[27]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[27]["p_i"].ToString()).ToString("#,##0");
+                p_11 = dt_report_detail.Rows[28]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[28]["p_i"].ToString()).ToString("#,##0");
+                p_12 = dt_report_detail.Rows[29]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[29]["p_i"].ToString()).ToString("#,##0");
+                p_13 = dt_report_detail.Rows[30]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[30]["p_i"].ToString()).ToString("#,##0");
+                p_14 = dt_report_detail.Rows[31]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[31]["p_i"].ToString()).ToString("#,##0");
+                p_15 = dt_report_detail.Rows[32]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[32]["p_i"].ToString()).ToString("#,##0");
+                p_16 = dt_report_detail.Rows[33]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[33]["p_i"].ToString()).ToString("#,##0");
+                p_17 = dt_report_detail.Rows[34]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[34]["p_i"].ToString()).ToString("#,##0");
+                p_18 = dt_report_detail.Rows[35]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[35]["p_i"].ToString()).ToString("#,##0");
                 // Open document
                 // Create an instance of Word, make it visible,
                 // and open Doc1.doc.
@@ -680,7 +709,8 @@ namespace BestBoQ
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
                 CompanySign = dt.Rows[0]["projectowner"] == null ? "" : dt.Rows[0]["projectowner"].ToString();
-                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString(); ;
+                RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString();
+                Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString();
 
 
                 //// Replace data in template document
@@ -701,14 +731,50 @@ namespace BestBoQ
                 SearchReplace(oWord, "[company_sign]", CompanySign);
                 SearchReplace(oWord, "[customer_province]", CustomerProvince);
                 SearchReplace(oWord, "[month]", Month);
+                SearchReplace(oWord, "[telephone] ", Telephone);
 
-                SearchReplace(oWord, "[benefit]", benefit);
-                SearchReplace(oWord, "[power]", power);
-                SearchReplace(oWord, "[material]", material);
-                SearchReplace(oWord, "[benefit_pct]", benefit_pct);
-                SearchReplace(oWord, "[power_pct]", power_pct);
-                SearchReplace(oWord, "[material_pct]", material_pct);
+                SearchReplace(oWord, "[b_total]", benefit);
+                SearchReplace(oWord, "[p_total]", power);
+                SearchReplace(oWord, "[m_total]", material);
+                SearchReplace(oWord, "[total]", TotalPrice);
 
+                SearchReplace(oWord, "[m_01]", m_01);
+                SearchReplace(oWord, "[m_02]", m_02);
+                SearchReplace(oWord, "[m_03]", m_03);
+                SearchReplace(oWord, "[m_04]", m_04);
+                SearchReplace(oWord, "[m_05]", m_05);
+                SearchReplace(oWord, "[m_06]", m_06);
+                SearchReplace(oWord, "[m_07]", m_07);
+                SearchReplace(oWord, "[m_08]", m_08);
+                SearchReplace(oWord, "[m_09]", m_09);
+                SearchReplace(oWord, "[m_10]", m_10);
+                SearchReplace(oWord, "[m_11]", m_11);
+                SearchReplace(oWord, "[m_12]", m_12);
+                SearchReplace(oWord, "[m_13]", m_13);
+                SearchReplace(oWord, "[m_14]", m_14);
+                SearchReplace(oWord, "[m_15]", m_15);
+                SearchReplace(oWord, "[m_16]", m_16);
+                SearchReplace(oWord, "[m_17]", m_17);
+                SearchReplace(oWord, "[m_18]", m_18);
+
+                SearchReplace(oWord, "[p_01]", p_01);
+                SearchReplace(oWord, "[p_02]", p_02);
+                SearchReplace(oWord, "[p_03]", p_03);
+                SearchReplace(oWord, "[p_04]", p_04);
+                SearchReplace(oWord, "[p_05]", p_05);
+                SearchReplace(oWord, "[p_06]", p_06);
+                SearchReplace(oWord, "[p_07]", p_07);
+                SearchReplace(oWord, "[p_08]", p_08);
+                SearchReplace(oWord, "[p_09]", p_09);
+                SearchReplace(oWord, "[p_10]", p_10);
+                SearchReplace(oWord, "[p_11]", p_11);
+                SearchReplace(oWord, "[p_12]", p_12);
+                SearchReplace(oWord, "[p_13]", p_13);
+                SearchReplace(oWord, "[p_14]", p_14);
+                SearchReplace(oWord, "[p_15]", p_15);
+                SearchReplace(oWord, "[p_16]", p_16);
+                SearchReplace(oWord, "[p_17]", p_17);
+                SearchReplace(oWord, "[p_18]", p_18);
                 // Save to PDF
                 // Run the macros.
                 RunMacro(oWord, new Object[] { "Silent_saves_to_PDF" });

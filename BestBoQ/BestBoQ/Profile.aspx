@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label>Mobile Number:</label>
                         <asp:Label ID="lbMobile" runat="server" Text="#N/A"></asp:Label>
-                        <asp:TextBox CssClass="form-control" ID="tbMobile" runat="server" placeholder="Mobile Number" Visible="false" data-validation="required"  data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="tbMobile" runat="server" placeholder="Mobile Number" Visible="false" data-validation="required" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label>Name/Company Name:</label>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label>Address:</label>
                         <asp:Label ID="lbAddress" runat="server" Text="#N/A"></asp:Label>
-                        <asp:TextBox CssClass="form-control" TextMode="MultiLine" Rows="3"  ID="tbAddress" runat="server" placeholder="Address" Visible="false" data-validation="length" data-validation-length="min10" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" TextMode="MultiLine" Rows="3" ID="tbAddress" runat="server" placeholder="Address" Visible="false" data-validation="length" data-validation-length="min10" autocomplete="off"></asp:TextBox>
                     </div>
                     <div class="form-group" id="blockId">
                         <label>ID Card:</label>
@@ -57,6 +57,7 @@
                     </div>
                     <div>
                         <asp:Button ID="btnEdit" CssClass="light-form-button light" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
+                        <asp:Button ID="btnChange" CssClass="light-form-button light" runat="server" Text="Change Password" OnClick="btnChange_Click" />
                         <asp:Button ID="btnComfirm" CssClass="light-form-button light" runat="server" OnClientClick=" return $('.profileForm').isValid()" Text="Update Profile" Visible="false" OnClick="btnComfirm_Click" />
                     </div>
                 </div>
@@ -79,19 +80,24 @@
             if (f == "บุคคล") {
                 $("#blockId").show();
                 $("#<%=tbId.ClientID%>").attr("data-validation", "required");
-                    $("#blockTax").hide();
-                    $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
+                $("#blockTax").hide();
+                $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
             }
             else {
                 $("#blockId").hide();
                 $("#<%=tbId.ClientID%>").removeAttr("data-validation");
-                    $("#blockTax").show();
-                    $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+                $("#blockTax").show();
+                $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
             }
 
             validateForm('.profileForm');
 
         });
+    </script>
+    <script>
+        function myFunction() {
+            location.replace("ChangePassword.aspx")
+        }
     </script>
 </asp:Content>
 

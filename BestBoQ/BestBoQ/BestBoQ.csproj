@@ -142,6 +142,7 @@
     <Content Include="Appendix.aspx" />
     <Content Include="Approve.aspx" />
     <Content Include="boq.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -738,6 +739,13 @@
       <DependentUpon>boq.aspx</DependentUpon>
     </Compile>
     <Compile Include="Boq.cs" />
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClassConfig.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="ContractCover.aspx.cs">
@@ -1035,6 +1043,7 @@
     <Content Include="templates\BestBOQ_summary2.docm" />
     <Content Include="templates\BestBOQ_summary3.docm" />
     <Content Include="templates\BestBOQ_timeplan.docm" />
+    <Content Include="templates\BestBOQ_summary_new.docm" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

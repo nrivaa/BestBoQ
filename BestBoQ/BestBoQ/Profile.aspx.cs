@@ -24,6 +24,11 @@ namespace BestBoQ
             changeControl("Edit");
         }
 
+        protected void btnChange_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+        }
+
         protected void btnComfirm_Click(object sender, EventArgs e)
         {
             //Get val form control
