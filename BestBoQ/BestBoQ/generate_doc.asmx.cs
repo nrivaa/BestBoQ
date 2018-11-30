@@ -171,6 +171,7 @@ namespace BestBoQ
             string docPayment = dest + GeneratePayment(projid);
             string docTimeplan = dest + GenerateTimeplan(projid);
             string docSummary = dest + GenerateSummary(projid);
+            string docQuotation = dest + GenerateQuotation(projid);
 
             // Get some file names
             List<string> files = new List<string>();
@@ -179,6 +180,7 @@ namespace BestBoQ
             files.Add(docPayment);
             files.Add(docTimeplan);
             files.Add(docSummary);
+            files.Add(docQuotation);
 
             // Open the output document
             PdfDocument outputDocument = new PdfDocument();
@@ -1029,7 +1031,7 @@ namespace BestBoQ
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, CustomerPhone, CustomerEmail, Vat, Now;
+                string CompanyName, CompanyName_r, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, CustomerPhone, CustomerEmail, Vat, Now;
 
 
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
@@ -1067,7 +1069,8 @@ namespace BestBoQ
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0.00");
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectname"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);

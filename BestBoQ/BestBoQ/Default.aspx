@@ -616,12 +616,12 @@
                     <div class="pm-staff-profile-container">
                         <div class="pm-staff-profile-image-wrapper text-center">
                             <div class="pm-staff-profile-image">
-                                <img src="Images/IconDocument/All.png" alt="" class="img-thumbnail img-circle" />
+                                <img src="Images/IconDocument/Quotation.png" alt="" class="img-thumbnail img-circle" />
                             </div>
                         </div>
                         <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">ทุกเอกสาร</p>
-                            <p class="pm-staff-profile-bio">สัญญา,BOQ,งวดงาน ,แผนงาน และเอกสารวิเคราะห์ต้นทุนกำไร จะถูกรวบรวมเอกสารทั้งหมดให้อยู่ในไฟล์เดียวกัน เพื่ออำนวยความสะดวกต่อผู้ใช้งาน </p>
+                            <p class="pm-staff-profile-name">ใบเสนอราคา</p>
+                            <p class="pm-staff-profile-bio">Bestboq สามารถสรุปราคาประเมินของโครงการ และออกใบเสนอราคาที่ผู้ใช้งานสามารถนำไปใช้ได้ทันที </p>
                         </div>
                     </div>
                 </div>

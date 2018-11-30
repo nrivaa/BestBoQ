@@ -44,7 +44,7 @@
                             <!---Alredy exists  ! -->
                             <span class="fa fa-user  form-control-feedback"></span>
                         </div>
-                        <div class="form-group has-feedback">
+                        <%--<div class="form-group has-feedback">
                             <!----- Email -------------->
                             <asp:TextBox ID="tbFemail" CssClass="form-control" runat="server" placeholder="Email" data-validation="email" data-inputmask="'alias': 'email'" autocomplete="off"></asp:TextBox>
                             <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
@@ -57,7 +57,7 @@
                             <span style="display: none; font-weight: bold; position: absolute; color: red; position: absolute; padding: 4px; font-size: 11px; background-color: rgba(128, 128, 128, 0.26); z-index: 17; right: 27px; top: 5px;" id="span_loginid"></span>
                             <!---Alredy exists  ! -->
                             <span class="fa fa-lock  form-control-feedback"></span>
-                        </div>
+                        </div>--%>
                         <div class="row">
                             <div class="col-xs-12">
                                 <asp:Button ID="btnForget" CssClass="btn btn-green btn-block btn-flat" runat="server" Text="แจ้งลืมรหัส" OnClick="btnForget_Click" />
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <%--                <div class="col-md-6">
                     <div class="form-group">
                         <div class="form-group has-feedback">
                             <!----- Password -------------->
@@ -87,7 +87,7 @@
                                 <asp:Button ID="btnReNew" CssClass="btn btn-red btn-block btn-flat" runat="server" Text="Confirm New Password" Visible="false" OnClick="btnReNew_Click" />
                             </div>
                         </div>
-                </div>
+                </div>--%>
                 <div class="row">
                     <div class="col-md-12">
                         <asp:Label ID="lbResult" runat="server" Text="#NA" Visible="false"></asp:Label>
