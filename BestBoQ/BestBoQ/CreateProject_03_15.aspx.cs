@@ -37,7 +37,12 @@ namespace BestBoQ
                 string param_detail = tbdetail.Text.Trim();
 
                 string sql_command = " EXEC [dbo].[set_Project_03_15_Money] "
-                                   + " '" + param_projid + "','" + param_free + "','" + param_promotion + "','" + param_other + "',N'" + param_detail + "','" + userID + "' ";
+                                   + " '" + param_projid + "','" 
+                                   + param_free + "','" 
+                                   + param_promotion + "','" 
+                                   + param_other + "',N'" 
+                                   + param_detail + "','" 
+                                   + userID + "' ";
                 ClassConfig.GetDataSQL(sql_command);
 
                 //Update Status

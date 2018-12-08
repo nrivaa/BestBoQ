@@ -83,7 +83,10 @@ namespace BestBoQ
                         if (rbSelect != null && rbSelect.Checked == true)
                         {
                             string sql_command = " EXEC [dbo].[set_Project_03_14_WinDoor] "
-                                               + " '" + param_projid + "',N'ประตูภายใน','" + param_windoorType + "','" + param_Num + "','" + userID + "' ";
+                                               + " '" + param_projid + "',N'ประตูภายใน','" 
+                                               + param_windoorType + "','" 
+                                               + param_Num + "','"
+                                               + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }
                     }

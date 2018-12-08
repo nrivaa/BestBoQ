@@ -58,7 +58,10 @@ namespace BestBoQ
                         {
                             string param_numM = tbM.Text.Trim();
                             string sql_command = " EXEC [dbo].[set_Project_03_13_Railing] "
-                                               + " '" + param_projid + "','" + param_railingType + "','" + param_numM + "','" + userID + "' ";
+                                               + " '" + param_projid + "','" 
+                                               + param_railingType + "','" 
+                                               + param_numM + "','" 
+                                               + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }
                     }

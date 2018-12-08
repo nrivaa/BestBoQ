@@ -330,6 +330,7 @@
         </section>
         <!--/ Social Link  -->
 
+        <!--Footer-->
         <div class="footer">
             <div class="container text-center">
                 <%-- <ul class="social-links">
@@ -350,7 +351,7 @@
                 <p>373/31 ถ.สกลนคร-กาฬสินธุ์ ต.ธาตุเชิงชุม อ.เมืองสกลนคร จ.สกลนคร 47000</p>
             </div>
         </div>
-        <!--Footer-->
+        
         <%-- <footer id="footer" class="footer">
             <div class="container text-center">
                 <!-- End newsletter-form -->

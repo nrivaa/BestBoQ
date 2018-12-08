@@ -535,6 +535,7 @@
     </section>
     <!--/ feature-->
 
+    <!-- feature2-->
     <section id="feature2" class="section-padding">
         <div class="fusion-row" style="max-width: 1100px; margin: 0 auto;">
             <h1 style="font-size: 2em; color: #000000; text-align: center;" data-inline-fontsize="true" data-inline-lineheight="true" data-fontsize="44" data-lineheight="48">bestboq ทำอะไรได้บ้าง?</h1>
@@ -628,6 +629,7 @@
             </div>
         </div>
     </section>
+    <!--/ feature2-->
 
     <div id="light" class="white_content2 ud-khaosod-survey" style="display: block; visibility: visible;">
         <div class="survey-wrapper">

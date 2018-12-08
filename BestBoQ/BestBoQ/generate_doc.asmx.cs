@@ -471,10 +471,11 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateBOQ(string projid)
         {
+            string CompanyName, CompanyAddress, Telephone;
             //try
             {
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
-
+                
                 // Create document (Copy from template)
 
                 string source = Server.MapPath(".") + @"\templates\BestBOQ_BOQ.docm";
@@ -499,6 +500,10 @@ namespace BestBoQ
 
                 // Project Information
                 DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projid + "'");
+
+                Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString();
+                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
 
                 GetColumnAndSearchReplace(dt, "projectname", oWord, "[project_name]");
                 GetColumnAndSearchReplace(dt, "projectname", oWord, "<project_name>");
@@ -588,6 +593,11 @@ namespace BestBoQ
                 findObject.Execute(ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                     ref replaceAll, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+
+                // Replace footer
+                ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
+                ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
+                ReplaceFooter(oWord, oDoc, "[telephone]", Telephone);
 
                 // Save to PDF
                 // Run the macros.
@@ -1070,7 +1080,7 @@ namespace BestBoQ
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0.00");
                 CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
-                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectname"].ToString() : CompanyName_r;
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
@@ -1095,6 +1105,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[project_start]", ProjectStart);
                 SearchReplace(oWord, "[customer_address]", CustomerAddress);
                 SearchReplace(oWord, "[company_name]", CompanyName);
+                SearchReplace(oWord, "[company_name_r]", CompanyName_r);
                 SearchReplace(oWord, "[company_address]", CompanyAddress);
                 SearchReplace(oWord, "[customer_national_id]", CustomerNationalID);
                 SearchReplace(oWord, "[home_name]", HomeName);

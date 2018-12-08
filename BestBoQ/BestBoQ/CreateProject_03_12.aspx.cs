@@ -86,7 +86,10 @@ namespace BestBoQ
                         if (rbSelect != null && rbSelect.Checked == true)
                         {
                             string sql_command = " EXEC [dbo].[set_Project_03_12_Color] "
-                                               + " '" + param_projid + "','" + param_colorID + "','" + param_MMTotal + "','" + userID + "' ";
+                                               + " '" + param_projid + "','" 
+                                               + param_colorID + "','" 
+                                               + param_MMTotal + "','" 
+                                               + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }
                     }

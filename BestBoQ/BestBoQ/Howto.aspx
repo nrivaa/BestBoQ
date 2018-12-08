@@ -474,6 +474,7 @@
                                 </div>
                             </li>
                         </ul>
+                        <!-- Content -->
                         <div class="tab-content col-md-9">
                             <div class="tab-pane active" id="lA">
                                 <div class="col-md-offset-1">

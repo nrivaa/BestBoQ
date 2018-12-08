@@ -60,7 +60,10 @@ namespace BestBoQ
                         {
                             string param_numM = tbNumM.Text.Trim();
                             string sql_command = " EXEC [dbo].[set_Project_03_02_Beam] "
-                                               + " '" + param_projid + "','" + param_beamType + "','" + param_numM + "','" + userID + "' ";
+                                               + " '" + param_projid 
+                                               + "','" + param_beamType 
+                                               + "','" + param_numM 
+                                               + "','" + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }
                     }
