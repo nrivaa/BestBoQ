@@ -269,7 +269,7 @@
                 }
 
         .banner2 {
-            background: url('theme/img/bg-banner.jpg') no-repeat center top;
+            background: url('Images/Default/bg-banner.jpg') no-repeat center top;
             background-size: cover;
             min-height: 580px;
             position: relative;

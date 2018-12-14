@@ -537,6 +537,25 @@ namespace BestBoQ
                 GetColumnAndSearchReplace(dt_summary, "OtherMoney", oWord, "<project_p_other>");
                 GetColumnAndSearchReplace(dt_summary, "LastMoney", oWord, "<project_p_total>");
 
+                // Get BOQ Dat
+                DataTable dt_dat = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Dat] '" + projid + "'");
+                GetColumnAndSearchReplace(dt_dat, "<3A1>", oWord, "<3A1>");
+                GetColumnAndSearchReplace(dt_dat, "<3A2>", oWord, "<3A2>");
+                GetColumnAndSearchReplace(dt_dat, "<3A3>", oWord, "<3A3>");
+                GetColumnAndSearchReplace(dt_dat, "<3A4>", oWord, "<3A4>");
+                GetColumnAndSearchReplace(dt_dat, "<3A5>", oWord, "<3A5>");
+                GetColumnAndSearchReplace(dt_dat, "<3A6>", oWord, "<3A6>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR1>", oWord, "<4FR1>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR2>", oWord, "<4FR2>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR3>", oWord, "<4FR3>");
+                GetColumnAndSearchReplace(dt_dat, "<5A6>", oWord, "<5A6>");
+                GetColumnAndSearchReplace(dt_dat, "<7A>", oWord, "<7A>");
+                GetColumnAndSearchReplace(dt_dat, "<7B>", oWord, "<7B>");
+                GetColumnAndSearchReplace(dt_dat, "<7C>", oWord, "<7C>");
+                GetColumnAndSearchReplace(dt_dat, "<13R1>", oWord, "<13R1>");
+                GetColumnAndSearchReplace(dt_dat, "<13R2>", oWord, "<13R2>");
+                GetColumnAndSearchReplace(dt_dat, "<13R3>", oWord, "<13R3>");
+
                 // Get Boq
                 dt = ClassConfig.GetDataSQL("exec dbo.[get_BOQ] '" + projid + "'");
 
