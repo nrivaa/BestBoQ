@@ -188,15 +188,11 @@
     <Content Include="GmailApp\GmailServiceApp.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\GmailServiceApp.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="GmailApp\GmailServiceApp.pdb" />
     <Content Include="GmailApp\Google.Apis.Auth.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\Google.Apis.Auth.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="GmailApp\Google.Apis.Auth.pdb" />
     <Content Include="GmailApp\Google.Apis.Auth.PlatformServices.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -206,9 +202,7 @@
     <Content Include="GmailApp\Google.Apis.Core.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\Google.Apis.Core.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="GmailApp\Google.Apis.Core.pdb" />
     <Content Include="GmailApp\Google.Apis.Core.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -218,15 +212,11 @@
     <Content Include="GmailApp\Google.Apis.Gmail.v1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\Google.Apis.Gmail.v1.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="GmailApp\Google.Apis.Gmail.v1.pdb" />
     <Content Include="GmailApp\Google.Apis.Gmail.v1.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\Google.Apis.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="GmailApp\Google.Apis.pdb" />
     <Content Include="GmailApp\Google.Apis.PlatformServices.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

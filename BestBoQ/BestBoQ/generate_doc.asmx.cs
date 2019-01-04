@@ -22,7 +22,7 @@ namespace BestBoQ
         [WebMethod]
         public void SendEmail(string id)
         {
-            System.Diagnostics.Process.Start(@"\GmailApp\GmailServiceApp.exe " + id);
+            System.Diagnostics.Process.Start(@"C:\BestBoQ\GmailServiceApp\GmailServiceApp.exe", id);
         }
 
         object oMissing = System.Reflection.Missing.Value;

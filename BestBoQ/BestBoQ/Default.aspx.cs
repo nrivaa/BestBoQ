@@ -58,7 +58,7 @@ namespace BestBoQ
 
                         if(dtFlag.Rows.Count > 0)
                         {
-                            Response.Redirect("ChangePassword.aspx");
+                            Response.Redirect("ChangePassword.aspx",false);
                         }
                         else
                         {
@@ -67,7 +67,7 @@ namespace BestBoQ
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //SQL Error or Network Error
                 Response.Write("<script>alert('ระบบมีปัญหา กรุณาติดต่อผู้ดูแล');</script>");
