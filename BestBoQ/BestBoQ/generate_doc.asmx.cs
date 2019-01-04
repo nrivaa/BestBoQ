@@ -19,6 +19,11 @@ namespace BestBoQ
     // [System.Web.Script.Services.ScriptService]
     public class generate_doc : System.Web.Services.WebService
     {
+        [WebMethod]
+        public void SendEmail(string id)
+        {
+            System.Diagnostics.Process.Start(@"\GmailApp\GmailServiceApp.exe " + id);
+        }
 
         object oMissing = System.Reflection.Missing.Value;
 
@@ -475,7 +480,7 @@ namespace BestBoQ
             //try
             {
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
-                
+
                 // Create document (Copy from template)
 
                 string source = Server.MapPath(".") + @"\templates\BestBOQ_BOQ.docm";
