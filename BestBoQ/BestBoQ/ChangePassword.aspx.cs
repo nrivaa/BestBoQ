@@ -28,18 +28,27 @@ namespace BestBoQ
             string param_password;
 
             string sql_chk = "SELECT * FROM [BESTBoQ].[dbo].[userinfo] WHERE [username] = '" + param_username 
-                           + "' AND [password] = N'"+ ClassConfig.CalculateMD5Hash(tbCold.Text.Trim() + "AISNQM") + "'  ";
+                           + "' AND [password] = N'"+ ClassConfig.CalculateMD5Hash(param_old + "AISNQM") + "'  ";
             DataTable dt_chk = ClassConfig.GetDataSQL(sql_chk);
-            if(param_new == param_confirm)
-            {
-                param_password = ClassConfig.CalculateMD5Hash(tbCnew.Text.Trim() + "AISNQM");
-                string sql_command = " UPDATE [BESTBoQ].[dbo].[userinfo]  "
-                                   + " SET [password] = '" + param_password + "' "
-                                   + " WHERE [username] = N'" + param_username 
-                                   + "' AND [password] = N'" + ClassConfig.CalculateMD5Hash(tbCold.Text.Trim() + "AISNQM") + "' ";
-                DataTable dt = ClassConfig.GetDataSQL(sql_command);
 
-                Response.Redirect("Default?r=forgetComplete");
+            if(dt_chk.Rows.Count >0)
+            {
+                string user_id = dt_chk.Rows[0]["userid"].ToString();
+
+                if (param_new == param_confirm)
+                {
+                    string sql_delete_flag = "DELETE [BESTBoQ].[dbo].[FlagNew] WHERE [userid] = '" + user_id + "'";
+                    ClassConfig.GetDataSQL(sql_delete_flag);
+
+                    param_password = ClassConfig.CalculateMD5Hash(param_new + "AISNQM");
+                    string sql_command = " UPDATE [BESTBoQ].[dbo].[userinfo]  "
+                                       + " SET [password] = '" + param_password + "' "
+                                       + " WHERE [username] = N'" + param_username
+                                       + "' AND [password] = N'" + ClassConfig.CalculateMD5Hash(tbCold.Text.Trim() + "AISNQM") + "' ";
+                    DataTable dt = ClassConfig.GetDataSQL(sql_command);
+
+                    Response.Redirect("Default?r=forgetComplete");
+                }
             }
         }
     }

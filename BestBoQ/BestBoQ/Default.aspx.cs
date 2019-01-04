@@ -53,7 +53,17 @@ namespace BestBoQ
                         Session["UserID"] = dt.Rows[0][6].ToString();
                         Session.Timeout = 24 * 60;
 
-                        Response.Redirect("Home.aspx");
+                        string sqlChk = "SELECT * FROM [BESTBoQ].[dbo].[FlagNew] WHERE [userid] = '"+ Session["UserID"].ToString() + "'";
+                        DataTable dtFlag = ClassConfig.GetDataSQL(sqlChk);
+
+                        if(dtFlag.Rows.Count > 0)
+                        {
+                            Response.Redirect("ChangePassword.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("Home.aspx");
+                        } 
                     }
                 }
             }
