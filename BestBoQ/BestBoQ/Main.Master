@@ -450,7 +450,7 @@
             })
         }
         else if (getUrlParameter("r") == "forgetComplete") {
-            showCompleteMessage('เปลี่ยน Password เสร็จเรียบร้อย');
+            showCompleteMessage('เปลี่ยน Password เสร็จเรียบร้อย กรุณาตรวจสอบที่ email ของท่านที่ลงทะเบียนไว้');
         }
         else if (getUrlParameter("r") == "forgetFail") {
             showCompleteMessage('Information ที่ท่านใส่มาไม่ถูกต้อง');

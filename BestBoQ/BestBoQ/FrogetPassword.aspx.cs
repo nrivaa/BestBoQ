@@ -33,7 +33,8 @@ namespace BestBoQ
                 string user_id = dt.Rows[0]["userid"].ToString();
                 generate_doc sendE = new generate_doc();
                 sendE.SendEmail(user_id);
-                lbResult.Text = "ระบบได้ส่ง New Password ของท่านไปใน Email ที่ท่าน Register ไว้ในระบบ";
+                Response.Redirect("Default?r=forgetComplete");
+                //lbResult.Text = "ระบบได้ส่ง New Password ของท่านไปใน Email ที่ท่าน Register ไว้ในระบบ";
             }
             else
             {

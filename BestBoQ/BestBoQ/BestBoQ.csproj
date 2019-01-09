@@ -185,50 +185,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="GmailApp\GmailServiceApp.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\GmailServiceApp.pdb" />
-    <Content Include="GmailApp\Google.Apis.Auth.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Auth.pdb" />
-    <Content Include="GmailApp\Google.Apis.Auth.PlatformServices.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Auth.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Core.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Core.pdb" />
-    <Content Include="GmailApp\Google.Apis.Core.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Gmail.v1.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.Gmail.v1.pdb" />
-    <Content Include="GmailApp\Google.Apis.Gmail.v1.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.pdb" />
-    <Content Include="GmailApp\Google.Apis.PlatformServices.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Google.Apis.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Newtonsoft.Json.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\Newtonsoft.Json.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Home.aspx" />
     <Content Include="Howto.aspx" />
     <Content Include="Images\01Footing\f1.png" />
@@ -572,12 +528,6 @@
     <Content Include="css\font\sukhumvitset-text-webfont.woff" />
     <Content Include="css\font\sukhumvitset-text-webfont.woff2" />
     <Content Include="css\font\DB Helvethaica X v3.2.ttf" />
-    <Content Include="GmailApp\credentials.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GmailApp\GmailServiceApp.exe.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
