@@ -37,6 +37,14 @@
                             <asp:TextBox ID="tbCustomerName" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="ชื่อลูกค้า"></asp:TextBox>
                         </div>
                         <div class="form-group has-feedback">
+                            <label for="tbCusID" class="control-label">หมายเลขบัตรประชาชนลูกค้า</label>
+                            <asp:TextBox ID="tbCusID" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="เลขประจำตัวประชาชน" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="tbBirthdate" class="control-label">วันเดือนปีเกิดลูกค้า</label>
+                            <asp:TextBox ID="tbBirthdate" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="วันเดือนปีเกิดลูกค้า"></asp:TextBox>
+                        </div>
+                        <div class="form-group has-feedback">
                             <label for="tbTelephoneCus" class="control-label">เบอร์โทรศัพท์ลูกค้า</label>
                             <asp:TextBox ID="tbTelephoneCus" CssClass="form-control" autocomplete="off" data-validation="required" runat="server" placeholder="Mobile Number" data-inputmask="'mask': '999-999-9999'"></asp:TextBox>
                         </div>
@@ -103,6 +111,11 @@
         $(document).ready(function () {
 
             $('#<%=tbStartProject.ClientID%>').datetimepicker({
+                locale: 'th',
+                format: 'L'
+            });
+
+            $('#<%=tbBirthdate.ClientID%>').datetimepicker({
                 locale: 'th',
                 format: 'L'
             });

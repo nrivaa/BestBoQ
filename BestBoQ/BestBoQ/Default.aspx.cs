@@ -99,6 +99,7 @@ namespace BestBoQ
                     string param_address = tbAddress.Text.Trim();
                     string param_id = tbID.Text.Trim();
                     string param_tax = tbTax.Text.Trim();
+                    string param_nation = tbNation.Text.Trim();
 
                     //Debug Val form control
                     //Response.Write("<script>alert('Username : " + param_type + "');</script>");
@@ -117,7 +118,8 @@ namespace BestBoQ
                                            + param_address + "',N'"
                                            + param_id + "',N'"
                                            + param_tax + "',N'"
-                                           + param_alias + "' ";
+                                           + param_alias + "',N'"
+                                           + param_nation + "' ";
                         ClassConfig.GetDataSQL(param_command);
 
                         Response.Redirect("Default?r=regisComplete");

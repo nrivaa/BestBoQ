@@ -446,6 +446,9 @@
                                     <div class="form-group">
                                         <asp:TextBox ID="tbTax" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขประจำตัวผู้เสียภาษี" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                                     </div>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="tbNation" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขทะเบียนนิติบุคคล" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <input type="button" name="previous" class="previous btn btn-greenline btn-block btn-flat" value="Previous" />
@@ -655,6 +658,7 @@
                     $("#<%=tbID.ClientID%>").show();
                     $("#<%=tbID.ClientID%>").attr("data-validation", "required");
                     $("#<%=tbTax.ClientID%>").hide();
+                    $("#<%=tbNation.ClientID%>").hide();
                     $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
                     $("#<%=tbCompany.ClientID%>").hide();
                     $("#<%=tbCompany.ClientID%>").removeAttr("data-validation");
@@ -664,6 +668,8 @@
                     $("#<%=tbID.ClientID%>").removeAttr("data-validation");
                     $("#<%=tbTax.ClientID%>").show();
                     $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+                    $("#<%=tbNation.ClientID%>").show();
+                    $("#<%=tbNation.ClientID%>").attr("data-validation", "required");
                     $("#<%=tbCompany.ClientID%>").show();
                     $("#<%=tbCompany.ClientID%>").removeAttr("data-validation");
                 }

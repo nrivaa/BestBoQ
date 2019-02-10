@@ -79,6 +79,9 @@ namespace BestBoQ
             string param_spec = rbCostFunction.SelectedValue.ToString().Trim();
             string param_phoneCus = tbTelephoneCus.Text.Trim();
             string param_emailCus = tbEmailCus.Text.Trim();
+            string param_idCus = tbCusID.Text.Trim();
+            string[] param_birth = tbBirthdate.Text.Trim().Split('/');
+            string param_birthDate  = param_birth[2] + param_birth[1] + param_birth[0];
 
             //Execute Command
             try
@@ -94,7 +97,9 @@ namespace BestBoQ
                                    + param_startproject + "',N'"
                                    + userID + "' ,N'"
                                    + param_phoneCus + "' ,N'"
-                                   + param_emailCus + "' ";
+                                   + param_emailCus + "' ,'"
+                                   + param_birthDate + "' ,N'"
+                                   + param_idCus + "' ";
                 DataTable dtResult = ClassConfig.GetDataSQL(param_command);
 
                 if (dtResult.Rows.Count > 0)
@@ -130,7 +135,8 @@ namespace BestBoQ
         {
             string sql_command = " SELECT [projectid],[projectname],[customername],[projecttype] "
                                + " ,[country],[province],[address],[projectstart]"
-                               + " ,[contractid],[userid],[transdate],[customerphone],[customeremail] "
+                               + " ,[contractid],[userid],[transdate],[customerphone],[customeremail] " 
+                               + " ,[birthdate], [customerid] "
                                + " FROM [BESTBoQ].[dbo].[Project_01_Desc] WHERE [projectid] = '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count > 0)
@@ -154,6 +160,9 @@ namespace BestBoQ
 
                 tbTelephoneCus.Text = dt.Rows[0]["customerphone"].ToString().Trim();
                 tbEmailCus.Text = dt.Rows[0]["customeremail"].ToString().Trim();
+
+                tbBirthdate.Text = dt.Rows[0]["birthdate"].ToString().Trim();
+                tbCusID.Text = dt.Rows[0]["customerid"].ToString().Trim();
             }
 
 

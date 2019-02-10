@@ -31,6 +31,24 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.TextBox tbCustomerName;
         
         /// <summary>
+        /// tbCusID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbCusID;
+        
+        /// <summary>
+        /// tbBirthdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbBirthdate;
+        
+        /// <summary>
         /// tbTelephoneCus control.
         /// </summary>
         /// <remarks>
