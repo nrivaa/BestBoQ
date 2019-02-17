@@ -406,8 +406,13 @@ namespace BestBoQ
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
                 // Create document (Copy from template)
-
-                string source = Server.MapPath(".") + @"\templates\BestBOQ_PaymentTerm.docm";
+                DataTable dt_template = ClassConfig.GetDataSQL("EXEC [dbo].[get_Floor] '" + projid + "'");
+                String floor = "1";
+                if (dt_template.Rows.Count > 0)
+                {
+                    floor = dt_template.Rows[0][0].ToString().Trim();
+                }
+                string source = Server.MapPath(".") + @"\templates\BestBOQ_PaymentTerm_"+ floor + ".docm";
                 string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_payment.docm";
                 File.Copy(source, dest, true);
 
