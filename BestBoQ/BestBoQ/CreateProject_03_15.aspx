@@ -126,7 +126,7 @@
                 <a href="CreateProject_03_14?id=<%=param_projid%>" class="btn btn-greenline">Back to Previous Step</a>
             </div>
             <div class="col-xs-6 text-right">
-                <asp:Button ID="btnSubmit" OnClientClick="return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="ประเมิน" />
+                <button type="button" ID="btnSubmit" data-toggle="modal" data-target="#myModal" class="btn btn-green" >ประเมิน</button>
             </div>
         </div>
     </div>
@@ -134,7 +134,7 @@
 <%--  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
-</button>
+</button>--%>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -142,18 +142,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Submit Project</h4>
       </div>
       <div class="modal-body">
-        ...
+        คุณต้องการจะยืนยันการประเมินโครงการ ใช่/ไม่
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <asp:Button ID="btnYes" OnClientClick="return $('.form').isValid()" OnClick="btnSubmit_Click" CssClass="btn btn-green" runat="server" Text="Yes" />
       </div>
     </div>
   </div>
-</div>--%>
+</div>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">

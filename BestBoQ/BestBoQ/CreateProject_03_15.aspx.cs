@@ -15,6 +15,8 @@ namespace BestBoQ
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session["UserID"] = "348770";
+            //param_projid = "000040";
             if (Session["UserID"] != null)
                 userID = Session["UserID"].ToString();
             if (Request.QueryString["id"] != null)
