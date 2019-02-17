@@ -221,17 +221,25 @@ namespace BestBoQ
         {
             //try
             {
-                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth;
+                string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth, type, text;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
+                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, CustomerAge, CustomerId, CompanyNationalID;
 
+                string step01, step02, step03, step04, step05, step06, step07, step08, step09, step10, startDate, stopDate;
+                string step01Txt, step02Txt, step03Txt, step04Txt, step05Txt, step06Txt, step07Txt, step08Txt, step09Txt, step10Txt;
 
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
                 // Create document (Copy from template)
+                DataTable dt_template = ClassConfig.GetDataSQL("EXEC [dbo].[get_Floor] '" + projid + "'");
+                String floor = "1";
+                if (dt_template.Rows.Count > 0)
+                {
+                    floor = dt_template.Rows[0][0].ToString().Trim();
+                }
 
-                string source = Server.MapPath(".") + @"\templates\BestBOQ_contract.docm";
+                string source = Server.MapPath(".") + @"\templates\BestBOQ_contract_"+ floor + ".docm";
                 string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_contract.docm";
                 File.Copy(source, dest, true);
 
@@ -251,7 +259,7 @@ namespace BestBoQ
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref oMissing, ref oMissing);
 
-                DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projid + "'");
+                DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info_new '" + projid + "'");
                 HomeName = dt.Rows[0]["homename"] == null ? "" : dt.Rows[0]["homename"].ToString();
                 ProjectName = dt.Rows[0]["projectname"] == null ? "" : dt.Rows[0]["projectname"].ToString();
                 CustomerName = dt.Rows[0]["customername"] == null ? "" : dt.Rows[0]["customername"].ToString();
@@ -272,6 +280,11 @@ namespace BestBoQ
                 space = dt.Rows[0]["space"] == null ? "" : dt.Rows[0]["space"].ToString();
                 place = dt.Rows[0]["place"] == null ? "" : dt.Rows[0]["place"].ToString();
                 auth = dt.Rows[0]["auth"] == null ? "" : dt.Rows[0]["auth"].ToString();
+                type = dt.Rows[0]["type"] == null ? "" : dt.Rows[0]["type"].ToString();
+                text = dt.Rows[0]["text"] == null ? "" : dt.Rows[0]["text"].ToString();
+                CustomerId = dt.Rows[0]["customerid"] == null ? "" : dt.Rows[0]["customerid"].ToString();
+                CustomerAge = dt.Rows[0]["customerage"] == null ? "" : dt.Rows[0]["customerage"].ToString();
+                CompanyNationalID = dt.Rows[0]["companynationalid"] == null ? "" : dt.Rows[0]["companynationalid"].ToString();
 
                 // Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
@@ -295,11 +308,63 @@ namespace BestBoQ
                 SearchReplace(oWord, "[spec]", space);
                 SearchReplace(oWord, "[place]", place);
                 SearchReplace(oWord, "[auth]", auth);
+                SearchReplace(oWord, "[customer_Age]", CustomerAge);
+                SearchReplace(oWord, "[customer_Id]", CustomerId);
+                SearchReplace(oWord, "[type]", type);
+                SearchReplace(oWord, "[text]", text);
+                SearchReplace(oWord, "[company_national_id]", CompanyNationalID);
 
                 // Replace footer
                 ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
                 ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
                 ReplaceFooter(oWord, oDoc, "[telephone] ", Telephone);
+
+                DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projid + "'");
+                step01 = dt_pay.Rows[0]["step01"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step01"].ToString()).ToString("#,##0");
+                step01Txt = ClassConfig.ThaiBaht(step01);
+                step02 = dt_pay.Rows[0]["step02"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step02"].ToString()).ToString("#,##0");
+                step02Txt = ClassConfig.ThaiBaht(step02);
+                step03 = dt_pay.Rows[0]["step03"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step03"].ToString()).ToString("#,##0");
+                step03Txt = ClassConfig.ThaiBaht(step03);
+                step04 = dt_pay.Rows[0]["step04"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step04"].ToString()).ToString("#,##0");
+                step04Txt = ClassConfig.ThaiBaht(step04);
+                step05 = dt_pay.Rows[0]["step05"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step05"].ToString()).ToString("#,##0");
+                step05Txt = ClassConfig.ThaiBaht(step05);
+                step06 = dt_pay.Rows[0]["step06"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step06"].ToString()).ToString("#,##0");
+                step06Txt = ClassConfig.ThaiBaht(step06);
+                step07 = dt_pay.Rows[0]["step07"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step07"].ToString()).ToString("#,##0");
+                step07Txt = ClassConfig.ThaiBaht(step07);
+                step08 = dt_pay.Rows[0]["step08"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step08"].ToString()).ToString("#,##0");
+                step08Txt = ClassConfig.ThaiBaht(step08);
+                step09 = dt_pay.Rows[0]["step09"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step09"].ToString()).ToString("#,##0");
+                step09Txt = ClassConfig.ThaiBaht(step09);
+                step10 = dt_pay.Rows[0]["step10"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step10"].ToString()).ToString("#,##0");
+                step10Txt = ClassConfig.ThaiBaht(step10);
+                startDate = dt_pay.Rows[0]["start"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["start"]).ToString("dd/MM/yyyy");
+                stopDate = dt_pay.Rows[0]["stop"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["stop"]).ToString("dd/MM/yyyy");
+
+                SearchReplace(oWord, "[startDate]", startDate);
+                SearchReplace(oWord, "[stopDate]", stopDate);
+                SearchReplace(oWord, "[Term1Amount]", step01);
+                SearchReplace(oWord, "[Term2Amount]", step02);
+                SearchReplace(oWord, "[Term3Amount]", step03);
+                SearchReplace(oWord, "[Term4Amount]", step04);
+                SearchReplace(oWord, "[Term5Amount]", step05);
+                SearchReplace(oWord, "[Term6Amount]", step06);
+                SearchReplace(oWord, "[Term7Amount]", step07);
+                SearchReplace(oWord, "[Term8Amount]", step08);
+                SearchReplace(oWord, "[Term9Amount]", step09);
+                SearchReplace(oWord, "[Term10Amount]", step10);
+                SearchReplace(oWord, "[Term1Text]", step01Txt);
+                SearchReplace(oWord, "[Term2Text]", step02Txt);
+                SearchReplace(oWord, "[Term3Text]", step03Txt);
+                SearchReplace(oWord, "[Term4Text]", step04Txt);
+                SearchReplace(oWord, "[Term5Text]", step05Txt);
+                SearchReplace(oWord, "[Term6Text]", step06Txt);
+                SearchReplace(oWord, "[Term7Text]", step07Txt);
+                SearchReplace(oWord, "[Term8Text]", step08Txt);
+                SearchReplace(oWord, "[Term9Text]", step09Txt);
+                SearchReplace(oWord, "[Term10Text]", step10Txt);
 
                 // Save to PDF
                 // Run the macros.
