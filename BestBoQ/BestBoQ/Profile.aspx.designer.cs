@@ -139,6 +139,24 @@ namespace BestBoQ {
         protected global::System.Web.UI.WebControls.TextBox tbTax;
         
         /// <summary>
+        /// lbNational control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbNational;
+        
+        /// <summary>
+        /// tbNational control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNational;
+        
+        /// <summary>
         /// btnEdit control.
         /// </summary>
         /// <remarks>

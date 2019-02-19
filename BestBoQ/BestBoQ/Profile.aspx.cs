@@ -38,6 +38,7 @@ namespace BestBoQ
             string param_address = tbAddress.Text.Trim();
             string param_id = tbId.Text.Trim();
             string param_tax = tbTax.Text.Trim();
+            string param_national = tbNational.Text.Trim();
 
             //Execute Command
             try
@@ -48,7 +49,8 @@ namespace BestBoQ
                                    + " [name] = N'"+param_name+"' ,"
                                    + " [address] = N'" + param_address + "' ,"
                                    + " [idcard] = N'" + param_id + "' ,"
-                                   + " [taxname] = N'" + param_tax + "' "
+                                   + " [taxname] = N'" + param_tax + "' ,"
+                                   + " [idnation] = N'" + param_national + "' "
                                    + " WHERE [userid] = '" + Session["UserID"] + "'";
                 ClassConfig.GetDataSQL(sql_command);
             }
@@ -78,6 +80,7 @@ namespace BestBoQ
                 lbAddress.Text = dt.Rows[0]["address"].ToString().Trim();
                 lbId.Text = dt.Rows[0]["idcard"].ToString().Trim();
                 lbTax.Text = dt.Rows[0]["taxname"].ToString().Trim();
+                lbNational.Text = dt.Rows[0]["idnation"].ToString().Trim();
 
                 //Set Date to Textbox
                 tbEmail.Text = dt.Rows[0]["email"].ToString().Trim();
@@ -86,6 +89,7 @@ namespace BestBoQ
                 tbAddress.Text = dt.Rows[0]["address"].ToString().Trim();
                 tbId.Text = dt.Rows[0]["idcard"].ToString().Trim();
                 tbTax.Text = dt.Rows[0]["taxname"].ToString().Trim();
+                tbNational.Text = dt.Rows[0]["idnation"].ToString().Trim();
             }
         }
 
@@ -100,6 +104,7 @@ namespace BestBoQ
                 tbAddress.Visible = true;
                 tbId.Visible = true;
                 tbTax.Visible = true;
+                tbNational.Visible = true;
 
                 //Hide Data form label
                 lbEmail.Visible = false;
@@ -108,6 +113,7 @@ namespace BestBoQ
                 lbAddress.Visible = false;
                 lbId.Visible = false;
                 lbTax.Visible = false;
+                lbNational.Visible = false;
 
                 //Show btn Confirm
                 btnComfirm.Visible = true;
@@ -124,6 +130,7 @@ namespace BestBoQ
                 tbAddress.Visible = false;
                 tbId.Visible = false;
                 tbTax.Visible = false;
+                tbNational.Visible = false;
 
                 //Show Data form label
                 lbEmail.Visible = true;
@@ -132,6 +139,8 @@ namespace BestBoQ
                 lbAddress.Visible = true;
                 lbId.Visible = true;
                 lbTax.Visible = true;
+                lbNational.Visible = true;
+
 
                 //Hide btn Confirm
                 btnComfirm.Visible = false;

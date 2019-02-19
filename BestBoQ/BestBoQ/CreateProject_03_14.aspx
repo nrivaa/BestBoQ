@@ -155,7 +155,7 @@
                                                 </h3>
                                                 ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
-                                                บาท/ชุด
+                                                บาท/ตรม.
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton3" runat="server" />
                                                     <input type="hidden" class="dataItem" value="<%# Eval("numItem")%>" />

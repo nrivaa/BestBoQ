@@ -55,6 +55,11 @@
                         <asp:Label ID="lbTax" runat="server" Text="#N/A"></asp:Label>
                         <asp:TextBox CssClass="form-control" ID="tbTax" runat="server" placeholder="TAX" Visible="false" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                     </div>
+                    <div class="form-group" id="blockNational">
+                        <label>เลขทะเบียนนิติบุคล:</label>
+                        <asp:Label ID="lbNational" runat="server" Text="#N/A"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="tbNational" runat="server" placeholder="National ID" Visible="false" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
+                    </div>
                     <div>
                         <asp:Button ID="btnEdit" CssClass="light-form-button light" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
                         <asp:Button ID="btnChange" CssClass="light-form-button light" runat="server" Text="Change Password" OnClick="btnChange_Click" />
@@ -82,12 +87,16 @@
                 $("#<%=tbId.ClientID%>").attr("data-validation", "required");
                 $("#blockTax").hide();
                 $("#<%=tbTax.ClientID%>").removeAttr("data-validation");
+                $("#blockNational").hide();
+                $("#<%=tbNational.ClientID%>").removeAttr("data-validation");
             }
             else {
                 $("#blockId").hide();
                 $("#<%=tbId.ClientID%>").removeAttr("data-validation");
                 $("#blockTax").show();
                 $("#<%=tbTax.ClientID%>").attr("data-validation", "required");
+                $("#blockNational").show();
+                $("#<%=tbNational.ClientID%>").attr("data-validation", "required");
             }
 
             validateForm('.profileForm');
