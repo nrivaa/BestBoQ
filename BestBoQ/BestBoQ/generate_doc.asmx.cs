@@ -432,7 +432,7 @@ namespace BestBoQ
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref oMissing, ref oMissing);
 
-                DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projid + "'");
+                DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info'" + projid + "'");
                 HomeName = dt.Rows[0]["homename"] == null ? "" : dt.Rows[0]["homename"].ToString();
                 ProjectName = dt.Rows[0]["projectname"] == null ? "" : dt.Rows[0]["projectname"].ToString();
                 CustomerName = dt.Rows[0]["customername"] == null ? "" : dt.Rows[0]["customername"].ToString();
