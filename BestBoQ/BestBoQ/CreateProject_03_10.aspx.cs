@@ -105,7 +105,7 @@ namespace BestBoQ
 
         protected string getMM3()
         {
-            string sql_command = "EXEC [dbo].[get_MM3] '" + param_projid + "'";
+            string sql_command = "EXEC [dbo].[get_MM_All_A5] '" + param_projid + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if (dt.Rows.Count > 0)
             {

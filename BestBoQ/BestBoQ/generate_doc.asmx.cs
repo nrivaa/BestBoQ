@@ -624,6 +624,7 @@ namespace BestBoQ
                 GetColumnAndSearchReplace(dt_dat, "<4FR2>", oWord, "<4FR2>");
                 GetColumnAndSearchReplace(dt_dat, "<4FR3>", oWord, "<4FR3>");
                 GetColumnAndSearchReplace(dt_dat, "<5A6>", oWord, "<5A6>");
+                GetColumnAndSearchReplace(dt_dat, "<60>", oWord, "<60>");
                 GetColumnAndSearchReplace(dt_dat, "<61>", oWord, "<61>");
                 GetColumnAndSearchReplace(dt_dat, "<62>", oWord, "<62>");
                 GetColumnAndSearchReplace(dt_dat, "<63>", oWord, "<63>");
@@ -631,6 +632,16 @@ namespace BestBoQ
                 GetColumnAndSearchReplace(dt_dat, "<7A>", oWord, "<7A>");
                 GetColumnAndSearchReplace(dt_dat, "<7B>", oWord, "<7B>");
                 GetColumnAndSearchReplace(dt_dat, "<7C>", oWord, "<7C>");
+                GetColumnAndSearchReplace(dt_dat, "<F1>", oWord, "<F1>");
+                GetColumnAndSearchReplace(dt_dat, "<F2>", oWord, "<F2>");
+                GetColumnAndSearchReplace(dt_dat, "<F3>", oWord, "<F3>");
+                GetColumnAndSearchReplace(dt_dat, "<F4>", oWord, "<F4>");
+                GetColumnAndSearchReplace(dt_dat, "<F5>", oWord, "<F5>");
+                GetColumnAndSearchReplace(dt_dat, "<B1>", oWord, "<B1>");
+                GetColumnAndSearchReplace(dt_dat, "<B2>", oWord, "<B2>");
+                GetColumnAndSearchReplace(dt_dat, "<B3>", oWord, "<B3>");
+                GetColumnAndSearchReplace(dt_dat, "<B4>", oWord, "<B4>");
+                GetColumnAndSearchReplace(dt_dat, "<B5>", oWord, "<B5>");
                 GetColumnAndSearchReplace(dt_dat, "<13R1>", oWord, "<13R1>");
                 GetColumnAndSearchReplace(dt_dat, "<13R2>", oWord, "<13R2>");
                 GetColumnAndSearchReplace(dt_dat, "<13R3>", oWord, "<13R3>");
