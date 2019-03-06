@@ -658,7 +658,7 @@ namespace BestBoQ
                 }
 
                 // Get Boq Detail
-                for (int i = 1; i <= 14; i++)
+                for (int i = 1; i <= 17; i++)
                 {
                     if (i != 11)
                     {
@@ -744,60 +744,65 @@ namespace BestBoQ
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
                 string benefit, power, material;
                 string m_01, m_02, m_03, m_04, m_05, m_06, m_07, m_08, m_09, m_10, m_11, m_12, m_13, m_14, m_15, m_16, m_17, m_18;
-                string p_01, p_02, p_03, p_04, p_05, p_06, p_07, p_08, p_09, p_10, p_11, p_12, p_13, p_14, p_15, p_16, p_17, p_18;
+                string c_01, c_02, c_03, c_04, c_05, c_06, c_07, c_08, c_09, c_10, c_11, c_12, c_13, c_14, c_15, c_16, c_17, c_18;
 
                 // Create document (Copy from template)
                 string source;
                 string dest;
-                DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report_new1 '" + projid + "'");
+                //DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report_new1 '" + projid + "'");
 
-                source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new.docm";
+                source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2.docm";
                 dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
                 File.Copy(source, dest, true);
 
-                benefit = dt_report.Rows[0]["Total_Benefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Benefit"].ToString()).ToString("#,##0");
-                power = dt_report.Rows[0]["Total_Power"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Power"].ToString()).ToString("#,##0");
-                material = dt_report.Rows[0]["Total_Material"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Material"].ToString()).ToString("#,##0");
-                TotalPrice = dt_report.Rows[0]["Total"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total"].ToString()).ToString("#,##0");
+                //benefit = dt_report.Rows[0]["Total_Benefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Benefit"].ToString()).ToString("#,##0");
+                //power = dt_report.Rows[0]["Total_Power"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Power"].ToString()).ToString("#,##0");
+                //material = dt_report.Rows[0]["Total_Material"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Material"].ToString()).ToString("#,##0");
+                //TotalPrice = dt_report.Rows[0]["Total"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total"].ToString()).ToString("#,##0");
 
-                DataTable dt_report_detail = ClassConfig.GetDataSQL("exec dbo.get_Report_new2 '" + projid + "'");
-                m_01 = dt_report_detail.Rows[0]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[0]["p_i"].ToString()).ToString("#,##0");
-                m_02 = dt_report_detail.Rows[1]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[1]["p_i"].ToString()).ToString("#,##0");
-                m_03 = dt_report_detail.Rows[2]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[2]["p_i"].ToString()).ToString("#,##0");
-                m_04 = dt_report_detail.Rows[3]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[3]["p_i"].ToString()).ToString("#,##0");
-                m_05 = dt_report_detail.Rows[4]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[4]["p_i"].ToString()).ToString("#,##0");
-                m_06 = dt_report_detail.Rows[5]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[5]["p_i"].ToString()).ToString("#,##0");
-                m_07 = dt_report_detail.Rows[6]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[6]["p_i"].ToString()).ToString("#,##0");
-                m_08 = dt_report_detail.Rows[7]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[7]["p_i"].ToString()).ToString("#,##0");
-                m_09 = dt_report_detail.Rows[8]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[8]["p_i"].ToString()).ToString("#,##0");
-                m_10 = dt_report_detail.Rows[9]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[9]["p_i"].ToString()).ToString("#,##0");
-                m_11 = dt_report_detail.Rows[10]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[10]["p_i"].ToString()).ToString("#,##0");
-                m_12 = dt_report_detail.Rows[11]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[11]["p_i"].ToString()).ToString("#,##0");
-                m_13 = dt_report_detail.Rows[12]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[12]["p_i"].ToString()).ToString("#,##0");
-                m_14 = dt_report_detail.Rows[13]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[13]["p_i"].ToString()).ToString("#,##0");
-                m_15 = dt_report_detail.Rows[14]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[14]["p_i"].ToString()).ToString("#,##0");
-                m_16 = dt_report_detail.Rows[15]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[15]["p_i"].ToString()).ToString("#,##0");
-                m_17 = dt_report_detail.Rows[16]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[16]["p_i"].ToString()).ToString("#,##0");
-                m_18 = dt_report_detail.Rows[17]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["p_i"].ToString()).ToString("#,##0");
+                DataTable dt_report_detail = ClassConfig.GetDataSQL("exec dbo.get_Report_new3 '" + projid + "'");
+                m_01 = dt_report_detail.Rows[0]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[0]["Cost"].ToString()).ToString("#,##0");
+                m_02 = dt_report_detail.Rows[1]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[1]["Cost"].ToString()).ToString("#,##0");
+                m_03 = dt_report_detail.Rows[2]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[2]["Cost"].ToString()).ToString("#,##0");
+                m_04 = dt_report_detail.Rows[3]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[3]["Cost"].ToString()).ToString("#,##0");
+                m_05 = dt_report_detail.Rows[4]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[4]["Cost"].ToString()).ToString("#,##0");
+                m_06 = dt_report_detail.Rows[5]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[5]["Cost"].ToString()).ToString("#,##0");
+                m_07 = dt_report_detail.Rows[6]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[6]["Cost"].ToString()).ToString("#,##0");
+                m_08 = dt_report_detail.Rows[7]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[7]["Cost"].ToString()).ToString("#,##0");
+                m_09 = dt_report_detail.Rows[8]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[8]["Cost"].ToString()).ToString("#,##0");
+                m_10 = dt_report_detail.Rows[9]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[9]["Cost"].ToString()).ToString("#,##0");
+                m_11 = dt_report_detail.Rows[10]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[10]["Cost"].ToString()).ToString("#,##0");
+                m_12 = dt_report_detail.Rows[11]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[11]["Cost"].ToString()).ToString("#,##0");
+                m_13 = dt_report_detail.Rows[12]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[12]["Cost"].ToString()).ToString("#,##0");
+                m_14 = dt_report_detail.Rows[13]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[13]["Cost"].ToString()).ToString("#,##0");
+                m_15 = dt_report_detail.Rows[14]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[14]["Cost"].ToString()).ToString("#,##0");
+                m_16 = dt_report_detail.Rows[15]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[15]["Cost"].ToString()).ToString("#,##0");
+                m_17 = dt_report_detail.Rows[16]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[16]["Cost"].ToString()).ToString("#,##0");
+                //m_18 = dt_report_detail.Rows[17]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Cost"].ToString()).ToString("#,##0");
 
-                p_01 = dt_report_detail.Rows[18]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[18]["p_i"].ToString()).ToString("#,##0");
-                p_02 = dt_report_detail.Rows[19]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[19]["p_i"].ToString()).ToString("#,##0");
-                p_03 = dt_report_detail.Rows[20]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[20]["p_i"].ToString()).ToString("#,##0");
-                p_04 = dt_report_detail.Rows[21]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[21]["p_i"].ToString()).ToString("#,##0");
-                p_05 = dt_report_detail.Rows[22]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[22]["p_i"].ToString()).ToString("#,##0");
-                p_06 = dt_report_detail.Rows[23]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[23]["p_i"].ToString()).ToString("#,##0");
-                p_07 = dt_report_detail.Rows[24]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[24]["p_i"].ToString()).ToString("#,##0");
-                p_08 = dt_report_detail.Rows[25]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[25]["p_i"].ToString()).ToString("#,##0");
-                p_09 = dt_report_detail.Rows[26]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[26]["p_i"].ToString()).ToString("#,##0");
-                p_10 = dt_report_detail.Rows[27]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[27]["p_i"].ToString()).ToString("#,##0");
-                p_11 = dt_report_detail.Rows[28]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[28]["p_i"].ToString()).ToString("#,##0");
-                p_12 = dt_report_detail.Rows[29]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[29]["p_i"].ToString()).ToString("#,##0");
-                p_13 = dt_report_detail.Rows[30]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[30]["p_i"].ToString()).ToString("#,##0");
-                p_14 = dt_report_detail.Rows[31]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[31]["p_i"].ToString()).ToString("#,##0");
-                p_15 = dt_report_detail.Rows[32]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[32]["p_i"].ToString()).ToString("#,##0");
-                p_16 = dt_report_detail.Rows[33]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[33]["p_i"].ToString()).ToString("#,##0");
-                p_17 = dt_report_detail.Rows[34]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[34]["p_i"].ToString()).ToString("#,##0");
-                p_18 = dt_report_detail.Rows[35]["p_i"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[35]["p_i"].ToString()).ToString("#,##0");
+                c_01 = dt_report_detail.Rows[0]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[0]["Power"].ToString()).ToString("#,##0");
+                c_02 = dt_report_detail.Rows[1]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[1]["Power"].ToString()).ToString("#,##0");
+                c_03 = dt_report_detail.Rows[2]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[2]["Power"].ToString()).ToString("#,##0");
+                c_04 = dt_report_detail.Rows[3]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[3]["Power"].ToString()).ToString("#,##0");
+                c_05 = dt_report_detail.Rows[4]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[4]["Power"].ToString()).ToString("#,##0");
+                c_06 = dt_report_detail.Rows[5]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[5]["Power"].ToString()).ToString("#,##0");
+                c_07 = dt_report_detail.Rows[6]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[6]["Power"].ToString()).ToString("#,##0");
+                c_08 = dt_report_detail.Rows[7]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[7]["Power"].ToString()).ToString("#,##0");
+                c_09 = dt_report_detail.Rows[8]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[8]["Power"].ToString()).ToString("#,##0");
+                c_10 = dt_report_detail.Rows[9]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[9]["Power"].ToString()).ToString("#,##0");
+                c_11 = dt_report_detail.Rows[10]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[10]["Power"].ToString()).ToString("#,##0");
+                c_12 = dt_report_detail.Rows[11]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[11]["Power"].ToString()).ToString("#,##0");
+                c_13 = dt_report_detail.Rows[12]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[12]["Power"].ToString()).ToString("#,##0");
+                c_14 = dt_report_detail.Rows[13]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[13]["Power"].ToString()).ToString("#,##0");
+                c_15 = dt_report_detail.Rows[14]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[14]["Power"].ToString()).ToString("#,##0");
+                c_16 = dt_report_detail.Rows[15]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[15]["Power"].ToString()).ToString("#,##0");
+                c_17 = dt_report_detail.Rows[16]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[16]["Power"].ToString()).ToString("#,##0");
+
+                TotalPrice = dt_report_detail.Rows[17]["Total"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Total"].ToString()).ToString("#,##0");
+                material = dt_report_detail.Rows[17]["Cost"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Cost"].ToString()).ToString("#,##0");
+                power = dt_report_detail.Rows[17]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Power"].ToString()).ToString("#,##0");
+                benefit = dt_report_detail.Rows[17]["Benefit"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Benefit"].ToString()).ToString("#,##0");
+
                 // Open document
                 // Create an instance of Word, make it visible,
                 // and open Doc1.doc.
@@ -876,26 +881,26 @@ namespace BestBoQ
                 SearchReplace(oWord, "[m_15]", m_15);
                 SearchReplace(oWord, "[m_16]", m_16);
                 SearchReplace(oWord, "[m_17]", m_17);
-                SearchReplace(oWord, "[m_18]", m_18);
+                //SearchReplace(oWord, "[m_18]", m_18);
 
-                SearchReplace(oWord, "[p_01]", p_01);
-                SearchReplace(oWord, "[p_02]", p_02);
-                SearchReplace(oWord, "[p_03]", p_03);
-                SearchReplace(oWord, "[p_04]", p_04);
-                SearchReplace(oWord, "[p_05]", p_05);
-                SearchReplace(oWord, "[p_06]", p_06);
-                SearchReplace(oWord, "[p_07]", p_07);
-                SearchReplace(oWord, "[p_08]", p_08);
-                SearchReplace(oWord, "[p_09]", p_09);
-                SearchReplace(oWord, "[p_10]", p_10);
-                SearchReplace(oWord, "[p_11]", p_11);
-                SearchReplace(oWord, "[p_12]", p_12);
-                SearchReplace(oWord, "[p_13]", p_13);
-                SearchReplace(oWord, "[p_14]", p_14);
-                SearchReplace(oWord, "[p_15]", p_15);
-                SearchReplace(oWord, "[p_16]", p_16);
-                SearchReplace(oWord, "[p_17]", p_17);
-                SearchReplace(oWord, "[p_18]", p_18);
+                SearchReplace(oWord, "[c_01]", c_01);
+                SearchReplace(oWord, "[c_02]", c_02);
+                SearchReplace(oWord, "[c_03]", c_03);
+                SearchReplace(oWord, "[c_04]", c_04);
+                SearchReplace(oWord, "[c_05]", c_05);
+                SearchReplace(oWord, "[c_06]", c_06);
+                SearchReplace(oWord, "[c_07]", c_07);
+                SearchReplace(oWord, "[c_08]", c_08);
+                SearchReplace(oWord, "[c_09]", c_09);
+                SearchReplace(oWord, "[c_10]", c_10);
+                SearchReplace(oWord, "[c_11]", c_11);
+                SearchReplace(oWord, "[c_12]", c_12);
+                SearchReplace(oWord, "[c_13]", c_13);
+                SearchReplace(oWord, "[c_14]", c_14);
+                SearchReplace(oWord, "[c_15]", c_15);
+                SearchReplace(oWord, "[c_16]", c_16);
+                SearchReplace(oWord, "[c_17]", c_17);
+                //SearchReplace(oWord, "[c_18]", c_18);
                 // Save to PDF
                 // Run the macros.
                 RunMacro(oWord, new Object[] { "Silent_saves_to_PDF" });
