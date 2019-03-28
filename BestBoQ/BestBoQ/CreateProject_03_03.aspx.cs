@@ -160,7 +160,7 @@ namespace BestBoQ
             
             //rb.ID = param_floorType.Trim();
 
-            string sql_command_06 = " SELECT [projectid],[flooringType],[numMM],[floorType] FROM [BESTBoQ].[dbo].[Project_03_06_Flooring] WHERE [projectid] = '" + param_projid + "' AND floorType ='"  + param_floorType + "'";
+            string sql_command_06 = " SELECT [projectid],[flooringType],[numMM],[floorType] FROM [BESTBoQ].[dbo].[Project_03_06_Flooring] WHERE [projectid] = '" + param_projid + "' AND floorType ='"  + param_floorType + "' AND floorType <> 'A6'";
             DataTable dt_old_06 = ClassConfig.GetDataSQL(sql_command_06);
 
             if (dt_old_06.Rows.Count > 0)

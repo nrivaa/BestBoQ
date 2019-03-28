@@ -208,12 +208,12 @@
                                                 Quotation <small>(ใบเสนอราคา)</small>
                                                 </asp:LinkButton>
                                             </li>
-                                            <li role="presentation">
+                                            <%--<li role="presentation">
                                                 <asp:LinkButton ID="lbtnAll" OnClick="lbtnAll_Click" runat="server" OnClientClick="target='_blank';">
                                                 <img src="Images/IconDocument/All.png" />&nbsp;&nbsp;
                                                 All Report <small>(รวมทุกเอกสาร)</small>
                                                 </asp:LinkButton>
-                                            </li>
+                                            </li>--%>
                                         </ul>
                                     </div>
                                 </div>

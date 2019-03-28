@@ -623,6 +623,12 @@ namespace BestBoQ
                 GetColumnAndSearchReplace(dt_dat, "<4FR1>", oWord, "<4FR1>");
                 GetColumnAndSearchReplace(dt_dat, "<4FR2>", oWord, "<4FR2>");
                 GetColumnAndSearchReplace(dt_dat, "<4FR3>", oWord, "<4FR3>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR4>", oWord, "<4FR4>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR5>", oWord, "<4FR5>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR6>", oWord, "<4FR6>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR7>", oWord, "<4FR7>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR8>", oWord, "<4FR8>");
+                GetColumnAndSearchReplace(dt_dat, "<4FR9>", oWord, "<4FR9>");
                 GetColumnAndSearchReplace(dt_dat, "<5A6>", oWord, "<5A6>");
                 GetColumnAndSearchReplace(dt_dat, "<60>", oWord, "<60>");
                 GetColumnAndSearchReplace(dt_dat, "<61>", oWord, "<61>");
