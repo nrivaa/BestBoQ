@@ -518,6 +518,11 @@
                             </div>
                             <div class="intro-para text-center quote">
                                 <%--<p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>--%>
+                                <iframe width="500" height="282"src="https://www.youtube.com/embed/qvFheWwvET8?rel=0&amp;showinfo=0" 
+                                      frameborder="0" 										
+                                      allow="autoplay; encrypted-media" 
+                                      allowfullscreen="">
+                                  </iframe>
                                 <p class="small-text">
                                     BESTBOQ คือ โปรแกรมช่วยให้ ธุรกิจรับเหมาก่อสร้าง,ธุรกิจรับสร้างบ้าน , ธุรกิจพัฒนาอสังหาริมทรัพย์ หรือแม้กระทั่งลูกค้าที่จะสร้างบ้าน<br />
                                     ประหยัดค่าใช้จ่ายในการจ้างพนักงานเป็นจำนวนมากและทำให้การทำธุรกิจเป็นเรื่องง่ายและรวดเร็วมากขึ้นกว่าเดิม

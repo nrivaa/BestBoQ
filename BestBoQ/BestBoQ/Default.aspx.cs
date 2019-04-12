@@ -53,6 +53,12 @@ namespace BestBoQ
                         Session["UserID"] = dt.Rows[0][6].ToString();
                         Session.Timeout = 24 * 60;
 
+                        //log data to database
+                        string dqlLog = " INSERT INTO [BESTBoQ].[dbo].[Log_Usage] ( [user],[login_date] ) " +
+                                        " VALUES(N'"+ param_username + "', GETDATE())";
+                        ClassConfig.GetDataSQL(dqlLog);
+
+                        //log data to database
                         string sqlChk = "SELECT * FROM [BESTBoQ].[dbo].[FlagNew] WHERE [userid] = '"+ Session["UserID"].ToString() + "'";
                         DataTable dtFlag = ClassConfig.GetDataSQL(sqlChk);
 

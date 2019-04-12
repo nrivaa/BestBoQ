@@ -3,6 +3,7 @@ using PdfSharp.Pdf.IO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Web.Services;
 using Word = Microsoft.Office.Interop.Word;
@@ -757,10 +758,6 @@ namespace BestBoQ
                 string dest;
                 //DataTable dt_report = ClassConfig.GetDataSQL("exec dbo.get_Report_new1 '" + projid + "'");
 
-                source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2.docm";
-                dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
-                File.Copy(source, dest, true);
-
                 //benefit = dt_report.Rows[0]["Total_Benefit"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Benefit"].ToString()).ToString("#,##0");
                 //power = dt_report.Rows[0]["Total_Power"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Power"].ToString()).ToString("#,##0");
                 //material = dt_report.Rows[0]["Total_Material"] == null ? "" : Convert.ToDecimal(dt_report.Rows[0]["Total_Material"].ToString()).ToString("#,##0");
@@ -809,6 +806,51 @@ namespace BestBoQ
                 power = dt_report_detail.Rows[17]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Power"].ToString()).ToString("#,##0");
                 benefit = dt_report_detail.Rows[17]["Benefit"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Benefit"].ToString()).ToString("#,##0");
 
+                
+                double pct_material = Convert.ToDouble(material)/ Convert.ToDouble(TotalPrice);
+                double pct_power = Convert.ToDouble(power) / Convert.ToDouble(TotalPrice);
+                double pct_benefit = Convert.ToDouble(benefit) / Convert.ToDouble(TotalPrice);
+
+                if(pct_material >= 0.5)
+                {
+                    if(pct_power > pct_benefit && (pct_power - pct_benefit) > 0.1)
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_01.docm";
+                    }
+                    else if ((pct_power > pct_benefit && (pct_power - pct_benefit) <= 0.1) || (pct_power < pct_benefit && (pct_benefit - pct_power) <= 0.1))
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_02.docm";
+                    }
+                    else if (pct_power < pct_benefit && (pct_benefit - pct_power) > 0.1)
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_03.docm";
+                    }
+                    else
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_03.docm";
+                    }
+                }
+                else
+                {
+                    if (pct_power > pct_benefit && (pct_power - pct_benefit) > 0.1)
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_04.docm";
+                    }
+                    else if ((pct_power > pct_benefit && (pct_power - pct_benefit) <= 0.1) || (pct_power < pct_benefit && (pct_benefit - pct_power) <= 0.1))
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_05.docm";
+                    }
+                    else if (pct_power < pct_benefit && (pct_benefit - pct_power) > 0.1)
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_06.docm";
+                    }
+                    else
+                    {
+                        source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_05.docm";
+                    }
+                }
+                dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.docm";
+                File.Copy(source, dest, true);
                 // Open document
                 // Create an instance of Word, make it visible,
                 // and open Doc1.doc.
