@@ -19,7 +19,7 @@
                             <label>Username:</label>
                             <asp:ListBox ID="lbtnUsername" data-placeholder="Select Username" runat="server" DataSourceID="SqlDataSource" OnSelectedIndexChanged="ddName_SelectedIndexChanged" AutoPostBack="true"
                                 DataTextField="AliseName" DataValueField="userid" SelectionMode="Single"></asp:ListBox>
-                            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="Data Source=52.76.235.159;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159" ProviderName="System.Data.SqlClient" SelectCommand="get_User" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="Data Source=3.1.137.33;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159" ProviderName="System.Data.SqlClient" SelectCommand="get_User" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                             <%--<asp:DropDownList ID="ddName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddName_SelectedIndexChanged"></asp:DropDownList>--%>
                         </div>
                     </div>

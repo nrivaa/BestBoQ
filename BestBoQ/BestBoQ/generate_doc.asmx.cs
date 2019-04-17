@@ -681,12 +681,12 @@ namespace BestBoQ
 
                 //Replacr Picture
                 DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
-                List<Word.Range> ranges = new List<Microsoft.Office.Interop.Word.Range>();
+                List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
                     foreach (Word.InlineShape s in oDoc.InlineShapes)
                     {
-                        if (s.Title == dr["Title"].ToString() && s.Type == Microsoft.Office.Interop.Word.WdInlineShapeType.wdInlineShapePicture)
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
                         {
                             Word.Range toreplace = s.Range;
                             s.Delete();

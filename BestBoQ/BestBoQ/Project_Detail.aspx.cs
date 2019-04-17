@@ -231,7 +231,7 @@ namespace BestBoQ
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
         {
-            if (s1 == "true")
+            if (s6 == "true")
             {
                 DownloadBoq();
             }
@@ -291,7 +291,7 @@ namespace BestBoQ
 
         protected void lbtnQuotation_Click(object sender, EventArgs e)
         {
-            if (s6 == "true")
+            if (s1 == "true")
             {
                 DownloadQuotation();
             }

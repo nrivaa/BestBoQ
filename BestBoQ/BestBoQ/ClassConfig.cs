@@ -15,7 +15,8 @@ namespace BestBoQ
         {
             String strConnString;
             //strConnString = "Data Source=49.231.24.106;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159";
-            strConnString = "Data Source=52.76.235.159;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159";
+            //strConnString = "Data Source=52.76.235.159;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159";
+            strConnString = "Data Source=3.1.137.33;Initial Catalog=BestBoQ;Persist Security Info=True;User ID=vaa_admin;Password=vaa159";
             SqlCommand cmd = new SqlCommand(strSQL);
             DataTable dt = new DataTable();
             SqlConnection con = new SqlConnection(strConnString);

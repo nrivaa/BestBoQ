@@ -351,7 +351,7 @@
                 <p>373/31 ถ.สกลนคร-กาฬสินธุ์ ต.ธาตุเชิงชุม อ.เมืองสกลนคร จ.สกลนคร 47000</p>
             </div>
         </div>
-        
+
         <%-- <footer id="footer" class="footer">
             <div class="container text-center">
                 <!-- End newsletter-form -->
@@ -434,7 +434,7 @@
             showCompleteMessage('user ของท่านยังไม่ได้รับการอนุมัติ กรุณาติดต่อ bestboq ทีมครับผม');
         }
         else if (getUrlParameter("r") == "loginPermission") {
-            showCompleteMessage('ท่านยังไม่ได้ลงทะเบียนใช้งาน กรุณาลงทะเบียนก่อนครับผม');
+            showCompleteMessage('รหัสไม่ถูกต้อง กรุณาลองอีกครั้ง หรือกดลืมรหัสผ่าน? เพื่อรีเซตรหัสผ่าน');
         }
         else if (getUrlParameter("r") == "updateComplete") {
             showCompleteMessage('อัพเดทเสร็จเรียบร้อย');
@@ -444,11 +444,18 @@
         }
         else if (getUrlParameter("r") == "statusModify") {
 
-            showCompleteMessage('โครงการอยู่ระหว่างการดำเนินการ กรุณาประเมินโครงการก่อนพิมพ์เอกสาร');
+            showCompleteMessage('ท่านสามารถพิมพ์เอกสารนี้ได้ เมื่อสมัครใช้ Premium Package คร้าบ');
             $('#completeModal').on('hidden.bs.modal', function (e) {
                 window.location = 'Project_Detail.aspx?id=' + getUrlParameter("id");
             })
         }
+        //else if (getUrlParameter("r") == "statusModify") {
+
+        //    showCompleteMessage('โครงการอยู่ระหว่างการดำเนินการ กรุณาประเมินโครงการก่อนพิมพ์เอกสาร');
+        //    $('#completeModal').on('hidden.bs.modal', function (e) {
+        //        window.location = 'Project_Detail.aspx?id=' + getUrlParameter("id");
+        //    })
+        //}
         else if (getUrlParameter("r") == "forgetComplete") {
             showCompleteMessage('เปลี่ยน Password เสร็จเรียบร้อย กรุณาตรวจสอบที่ email ของท่านที่ลงทะเบียนไว้');
         }
@@ -518,5 +525,16 @@
     <script src="lib/DataTables/datatables.min.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">
     </asp:ContentPlaceHolder>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138441678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138441678-1');
+    </script>
+
 </body>
 </html>
