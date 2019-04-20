@@ -507,7 +507,7 @@
     <!--/ Banner-->
 
     <!--Feature-->
-    <section id="feature" style="padding-top: 20px">
+    <section id="feature" style="padding-top: 5px">
         <div class="banner2">
             <div class="bg-color">
                 <div class="container">
@@ -517,8 +517,8 @@
                                 <h2 class="text-dec">bestboq คืออะไร?</h2>
                             </div>
                             <div class="intro-para text-center quote">
-                                <%--<p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>--%>
-                                <iframe width="500" height="282"src="https://www.youtube.com/embed/qvFheWwvET8?rel=0&amp;showinfo=0" 
+                                <%--<p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>  width="500" height="282"--%>
+                                <iframe class="row" src="https://www.youtube.com/embed/qvFheWwvET8?rel=0&amp;showinfo=0" 
                                       frameborder="0" 										
                                       allow="autoplay; encrypted-media" 
                                       allowfullscreen="">

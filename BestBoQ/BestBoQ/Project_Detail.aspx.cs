@@ -231,21 +231,36 @@ namespace BestBoQ
 
         protected void lbtnBoq_Click(object sender, EventArgs e)
         {
-            if (s6 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadBoq();
+                if (s6 == "true")
+                {
+                    DownloadBoq();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
-                Response.Redirect("Project_Detail.aspx?id="+ param_projid +"&r=statusModify");
+                Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusModify");
             }
+
         }
 
         protected void lbtnContractDoc_Click(object sender, EventArgs e)
         {
-            if (s2 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadContract();
+                if (s2 == "true")
+                {
+                    DownloadContract();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
@@ -255,9 +270,16 @@ namespace BestBoQ
 
         protected void lbtnAppendixDoc_Click(object sender, EventArgs e)
         {
-            if (s3 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadAppendixA();
+                if (s3 == "true")
+                {
+                    DownloadAppendixA();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
@@ -267,9 +289,16 @@ namespace BestBoQ
 
         protected void lbtnPlan_Click(object sender, EventArgs e)
         {
-            if (s4 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadPlan();
+                if (s4 == "true")
+                {
+                    DownloadPlan();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
@@ -279,9 +308,16 @@ namespace BestBoQ
 
         protected void lbtnReport_Click(object sender, EventArgs e)
         {
-            if (s5 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadReport();
+                if (s5 == "true")
+                {
+                    DownloadReport();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
@@ -291,9 +327,16 @@ namespace BestBoQ
 
         protected void lbtnQuotation_Click(object sender, EventArgs e)
         {
-            if (s1 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadQuotation();
+                if (s1 == "true")
+                {
+                    DownloadQuotation();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
@@ -303,9 +346,16 @@ namespace BestBoQ
 
         protected void lbtnAll_Click(object sender, EventArgs e)
         {
-            if (s6 == "true")
+            if (lbStatus.Text == "Complete")
             {
-                DownloadAll();
+                if (s6 == "true")
+                {
+                    DownloadAll();
+                }
+                else
+                {
+                    Response.Redirect("Project_Detail.aspx?id=" + param_projid + "&r=statusPackage");
+                }
             }
             else
             {
