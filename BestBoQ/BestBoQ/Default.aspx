@@ -518,8 +518,9 @@
                             </div>
                             <div class="intro-para text-center quote">
                                 <%--<p class="big-text">เราคือมืออาชีพในการก่อสร้างบ้าน อาคาร สิ่งปลูกสร้างต่างๆ</p>  width="500" height="282"--%>
-                                <iframe class="row" src="https://www.youtube.com/embed/qvFheWwvET8?rel=0&amp;showinfo=0" 
-                                      frameborder="0" 										
+                                <iframe class="row" width="500" height="282" src="https://www.youtube.com/embed/qvFheWwvET8?rel=0&amp;showinfo=0" 
+                                      frameborder="0" 
+                                      position: relative;
                                       allow="autoplay; encrypted-media" 
                                       allowfullscreen="">
                                   </iframe>
