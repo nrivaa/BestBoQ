@@ -63,12 +63,28 @@ namespace BestBoQ
                 double otherPrice = 0.00;
                 double lastPrice = 0.00;
 
-                Double.TryParse(dt.Rows[0]["Total"].ToString(), out totalPrice);
-                Double.TryParse(dt.Rows[0]["Free"].ToString(), out feePrice);
-                Double.TryParse(dt.Rows[0]["Promo"].ToString(), out promoPrice);
-                Double.TryParse(dt.Rows[0]["Other"].ToString(), out otherPrice);
-                Double.TryParse(dt.Rows[0]["Last"].ToString(), out lastPrice);
-
+                if(dt.Rows[0]["status"].ToString() == "Complete")
+                {
+                    string sql_price = " SELECT * FROM [BESTBoQ].[dbo].[Project_Last_Price] WHERE [projectid] = '"+ param_projid + "' ";
+                    DataTable dt_price = ClassConfig.GetDataSQL(sql_price);
+                    if(dt_price.Rows.Count > 0)
+                    {
+                        Double.TryParse(dt_price.Rows[0]["TotalMoney"].ToString(), out totalPrice);
+                        Double.TryParse(dt_price.Rows[0]["FreeMoney"].ToString(), out feePrice);
+                        Double.TryParse(dt_price.Rows[0]["PromoMoney"].ToString(), out promoPrice);
+                        Double.TryParse(dt_price.Rows[0]["OtherMoney"].ToString(), out otherPrice);
+                        Double.TryParse(dt_price.Rows[0]["LastMoney"].ToString(), out lastPrice);
+                    }
+                }
+                else
+                {
+                    Double.TryParse(dt.Rows[0]["Total"].ToString(), out totalPrice);
+                    Double.TryParse(dt.Rows[0]["Free"].ToString(), out feePrice);
+                    Double.TryParse(dt.Rows[0]["Promo"].ToString(), out promoPrice);
+                    Double.TryParse(dt.Rows[0]["Other"].ToString(), out otherPrice);
+                    Double.TryParse(dt.Rows[0]["Last"].ToString(), out lastPrice);
+                }
+                
                 lbTotalPrice.Text = String.Format("{0:N2}", totalPrice);
                 lbFeePrice.Text = String.Format("{0:N2}", feePrice);
                 lbPromoPrice.Text = String.Format("{0:N2}", promoPrice);
@@ -141,6 +157,7 @@ namespace BestBoQ
                 url = HttpContext.Current.Request.Url.Authority + "/" + HttpContext.Current.Request.ApplicationPath;
             }
             string final_path = "http://" + url + "/GeneratedDocument/" + genContract.GenerateContract(param_projid);
+            //string final_path = "http://" + url + "/GeneratedDocument/"+ param_projid + "_contract.pdf";
             //Response.Redirect(final_path);
             ClientScript.RegisterStartupScript(this.Page.GetType(), "", String.Format("window.open('{0}','newtab')", final_path), true);
         }

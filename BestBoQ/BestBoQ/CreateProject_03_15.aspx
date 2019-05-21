@@ -94,8 +94,8 @@
                                 <div class="form-group has-feedback">
                                     <label for="tbpromotion" class="control-label">ส่วนลด</label>
                                     <div class="input-group">
-                                       <asp:TextBox ID="tbpromotion" data-inputmask="'alias': 'decimal'" data-validation="number" data-validation-allowing="range[0;100],float" CssClass="form-control" Text="0" autocomplete="off" runat="server" placeholder="ส่วนลด" data-validation-error-msg="Please enter a number between 0 and 100"></asp:TextBox>
-                                        <span class="input-group-addon">%</span>
+                                       <asp:TextBox ID="tbpromotion" data-inputmask="'alias': 'decimal'" CssClass="form-control" Text="0" autocomplete="off" runat="server" placeholder="ส่วนลด" ></asp:TextBox>
+                                        <span class="input-group-addon">บาท</span>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
             if (val >= 0 || "#" + id == tbother) { // isValid
 
                 var fee = calPriceValuePercent(totalPriceValue, parseFloat(feePrice));
-                var promo = calPriceValuePercent(totalPriceValue, parseFloat(promoPrice))
+                var promo = parseFloat(promoPrice);
                 var other = parseFloat(otherPrice);
                 var last = totalPriceValue + parseFloat(fee) - parseFloat(promo) + parseFloat(other);
 

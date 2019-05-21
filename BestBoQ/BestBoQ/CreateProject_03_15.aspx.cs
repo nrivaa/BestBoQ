@@ -50,6 +50,13 @@ namespace BestBoQ
                 //Update Status
                 ClassConfig.UpdateStatus(param_projid, "Complete", userID);
 
+                //New Requirement 
+                string sql = " EXEC [BESTBoQ].[dbo].[set_Last_Price] '" + param_projid + "' ";
+                ClassConfig.GetDataSQL(sql);
+
+                //generate_doc genContract = new generate_doc();
+                //genContract.GenerateContract(param_projid);
+
                 //Redirect
                 Response.Redirect("Project_Detail.aspx?r=estimateComplete&id=" + param_projid);
 
