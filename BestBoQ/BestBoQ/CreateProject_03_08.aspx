@@ -93,9 +93,9 @@
                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("sanitationType")%>'></asp:Label>
                                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
                                                 </h3>
-                                                ราคา 
+                                                <%--ราคา 
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("cost")%>'></asp:Label>
-                                                บาท
+                                                บาท--%>
                                                 <div class="form-group has-feedback">
                                                     <asp:RadioButton ID="RadioButton1" runat="server" />
                                                     <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />

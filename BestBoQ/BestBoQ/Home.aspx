@@ -165,6 +165,7 @@
                             <asp:BoundField DataField="projectname" HeaderText="Project Name" />
                             <asp:BoundField DataField="customername" HeaderText="Customer Name" />
                             <asp:BoundField DataField="contractid" HeaderText="Contract Name" />
+                            <asp:BoundField DataField="Status" HeaderText="Status" />
                             <%--<asp:BoundField DataField="Priority" HeaderText="Priority" />
                         <asp:BoundField DataField="region" HeaderText="Region" />
                         <asp:BoundField DataField="zone" HeaderText="Zone" />
