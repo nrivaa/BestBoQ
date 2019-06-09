@@ -170,49 +170,56 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateDocumentPack(string projid)
         {
+            string filename;
             string dest = Server.MapPath(".") + @"\GeneratedDocument\";
-
-            string docBoq = dest + GenerateBOQ(projid);
-            string docContract = dest + GenerateContract(projid);
-            string docPayment = dest + GeneratePayment(projid);
-            string docTimeplan = dest + GenerateTimeplan(projid);
-            string docSummary = dest + GenerateSummary(projid);
-            string docQuotation = dest + GenerateQuotation(projid);
-
-            // Get some file names
-            List<string> files = new List<string>();
-            files.Add(docBoq);
-            files.Add(docContract);
-            files.Add(docPayment);
-            files.Add(docTimeplan);
-            files.Add(docSummary);
-            files.Add(docQuotation);
-
-            // Open the output document
-            PdfDocument outputDocument = new PdfDocument();
-
-            // Iterate files
-            foreach (string file in files)
+            if (File.Exists(dest + projid + "_BestBOQ_DocPack.pdf"))
             {
-                // Open the document to import pages from it.
-                PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
-
-                // Iterate pages
-                int count = inputDocument.PageCount;
-                for (int idx = 0; idx < count; idx++)
-                {
-                    // Get the page from the external document...
-                    PdfPage page = inputDocument.Pages[idx];
-                    // ...and add it to the output document.
-                    outputDocument.AddPage(page);
-                }
+                filename = dest + projid + "_BestBOQ_DocPack.pdf";
             }
+            else
+            {
+                string docBoq = dest + GenerateBOQ(projid);
+                string docContract = dest + GenerateContract(projid);
+                string docPayment = dest + GeneratePayment(projid);
+                string docTimeplan = dest + GenerateTimeplan(projid);
+                string docSummary = dest + GenerateSummary(projid);
+                string docQuotation = dest + GenerateQuotation(projid);
 
-            // Save the document...
-            string filename = projid + "_BestBOQ_DocPack.pdf";
-            outputDocument.Save(dest + filename);
-            // ...and start a viewer.
-            // Process.Start(filename);
+                // Get some file names
+                List<string> files = new List<string>();
+                files.Add(docBoq);
+                files.Add(docContract);
+                files.Add(docPayment);
+                files.Add(docTimeplan);
+                files.Add(docSummary);
+                files.Add(docQuotation);
+
+                // Open the output document
+                PdfDocument outputDocument = new PdfDocument();
+
+                // Iterate files
+                foreach (string file in files)
+                {
+                    // Open the document to import pages from it.
+                    PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
+
+                    // Iterate pages
+                    int count = inputDocument.PageCount;
+                    for (int idx = 0; idx < count; idx++)
+                    {
+                        // Get the page from the external document...
+                        PdfPage page = inputDocument.Pages[idx];
+                        // ...and add it to the output document.
+                        outputDocument.AddPage(page);
+                    }
+                }
+
+                // Save the document...
+                filename = projid + "_BestBOQ_DocPack.pdf";
+                outputDocument.Save(dest + filename);
+                // ...and start a viewer.
+                // Process.Start(filename);
+            }
 
             return filename;
         }
@@ -220,7 +227,12 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateContract(string projid)
         {
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_contract.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth, type, text;
 
@@ -240,7 +252,7 @@ namespace BestBoQ
                     floor = dt_template.Rows[0][0].ToString().Trim();
                 }
 
-                string source = Server.MapPath(".") + @"\templates\BestBOQ_contract_"+ floor + ".docm";
+                string source = Server.MapPath(".") + @"\templates\BestBOQ_contract_" + floor + ".docm";
                 string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_contract.docm";
                 File.Copy(source, dest, true);
 
@@ -395,7 +407,12 @@ namespace BestBoQ
         [WebMethod]
         public string GeneratePayment(string projid)
         {
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_payment.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone;
 
@@ -413,7 +430,7 @@ namespace BestBoQ
                 {
                     floor = dt_template.Rows[0][0].ToString().Trim();
                 }
-                string source = Server.MapPath(".") + @"\templates\BestBOQ_PaymentTerm_"+ floor + ".docm";
+                string source = Server.MapPath(".") + @"\templates\BestBOQ_PaymentTerm_" + floor + ".docm";
                 string dest = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_payment.docm";
                 File.Copy(source, dest, true);
 
@@ -548,7 +565,12 @@ namespace BestBoQ
         public string GenerateBOQ(string projid)
         {
             string CompanyName, CompanyAddress, Telephone;
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_boq.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
@@ -743,7 +765,12 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateSummary(string projid)
         {
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_summary.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, Telephone, TotalPrice;
 
@@ -806,14 +833,14 @@ namespace BestBoQ
                 power = dt_report_detail.Rows[17]["Power"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Power"].ToString()).ToString("#,##0");
                 benefit = dt_report_detail.Rows[17]["Benefit"] == null ? "" : Convert.ToDecimal(dt_report_detail.Rows[17]["Benefit"].ToString()).ToString("#,##0");
 
-                
-                double pct_material = Convert.ToDouble(material)/ Convert.ToDouble(TotalPrice);
+
+                double pct_material = Convert.ToDouble(material) / Convert.ToDouble(TotalPrice);
                 double pct_power = Convert.ToDouble(power) / Convert.ToDouble(TotalPrice);
                 double pct_benefit = Convert.ToDouble(benefit) / Convert.ToDouble(TotalPrice);
 
-                if(pct_material >= 0.5)
+                if (pct_material >= 0.5)
                 {
-                    if(pct_power > pct_benefit && (pct_power - pct_benefit) > 0.1)
+                    if (pct_power > pct_benefit && (pct_power - pct_benefit) > 0.1)
                     {
                         source = Server.MapPath(".") + @"\templates\BestBOQ_summary_new_V2_01.docm";
                     }
@@ -977,7 +1004,12 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateTimeplan(string projid)
         {
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_Timeplan.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone;
 
@@ -1198,7 +1230,12 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateQuotation(string projid)
         {
-            //try
+            string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_quotation.pdf";
+            if (File.Exists(destpdf))
+            {
+                return Path.GetFileName(destpdf);
+            }
+            else
             {
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth;
 
