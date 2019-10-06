@@ -174,36 +174,36 @@
                                         <h5 id="roomdetails-title" class="m-b-4 m-t-0"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Documents</h5>
                                         <ul class="nav nav-pills nav-stacked nav-generate nav-documents">
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnBoq" OnClick="lbtnBoq_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnBoq" OnClick="lbtnBoq_Click" runat="server" > <%--OnClientClick="target='_blank'--%>
                                                 <img src="Images/IconDocument/BOQ.png" />&nbsp;&nbsp;
                                                 BOQ <small>(สรุปรายการวัสดุ)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnContractDoc" OnClick="lbtnContractDoc_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnContractDoc" OnClick="lbtnContractDoc_Click" runat="server" >
                                                     <img src="Images/IconDocument/contract.png" />&nbsp;&nbsp;
                                                     Contract <small>(สัญญาว่าจ้าง)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnAppendixDoc" OnClick="lbtnAppendixDoc_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnAppendixDoc" OnClick="lbtnAppendixDoc_Click" runat="server" >
                                                 <img src="Images/IconDocument/Payment.png" />&nbsp;&nbsp;
                                                 Payment Term <small>(งวดงานก่อสร้าง)</small>
                                                 </asp:LinkButton></li>
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnPlan" OnClick="lbtnPlan_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnPlan" OnClick="lbtnPlan_Click" runat="server" >
                                                 <img src="Images/IconDocument/Plan.png" />&nbsp;&nbsp;
                                                 Plan <small>(แผนงานก่อสร้าง)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnReport" OnClick="lbtnReport_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnReport" OnClick="lbtnReport_Click" runat="server" >
                                                 <img src="Images/IconDocument/Report.png" />&nbsp;&nbsp;
                                                 Report <small>(รายการแยกต้นทุน)</small>
                                                 </asp:LinkButton>
                                             </li>
                                             <li role="presentation">
-                                                <asp:LinkButton ID="lbtnQuotation" OnClick="lbtnQuotation_Click" runat="server" OnClientClick="target='_blank';">
+                                                <asp:LinkButton ID="lbtnQuotation" OnClick="lbtnQuotation_Click" runat="server" >
                                                 <img src="Images/IconDocument/Quotation.png" />&nbsp;&nbsp;
                                                 Quotation <small>(ใบเสนอราคา)</small>
                                                 </asp:LinkButton>
