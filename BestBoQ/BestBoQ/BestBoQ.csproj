@@ -1162,6 +1162,18 @@
     <Content Include="templates\BestBOQ_timeplan.docm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_1_bak.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_2_bak.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_3_bak.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_4_bak.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

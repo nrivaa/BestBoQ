@@ -3,7 +3,6 @@ using PdfSharp.Pdf.IO;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.IO;
 using System.Web.Services;
 using Word = Microsoft.Office.Interop.Word;
@@ -582,6 +581,13 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term8Text]", step08Txt);
                 SearchReplace(oWord, "[Term9Text]", step09Txt);
                 SearchReplace(oWord, "[Term10Text]", step10Txt);
+
+                //Replace Form Content
+                DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                foreach (DataRow dataRow  in dt_form.Rows)
+                {
+                    SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
+                }
 
                 //Replace Picture
                 DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
