@@ -602,6 +602,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="service.asmx" />
+    <Content Include="templates\43765101_388924284977169_1898933134666235904_n.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Test.aspx" />
     <Content Include="TestHTMLtoPDF.aspx" />
     <Content Include="lib\DataTables\Buttons-1.5.1\css\buttons.bootstrap.css" />
@@ -1075,14 +1078,90 @@
     <Content Include="theme\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="lib\DataTables\Buttons-1.5.1\css\common.scss" />
     <Content Include="lib\DataTables\Buttons-1.5.1\css\mixins.scss" />
-    <Content Include="templates\BestBOQ_contract.docm" />
-    <Content Include="templates\BestBOQ_boq.docm" />
-    <Content Include="templates\BestBOQ_PaymentTerm.docm" />
-    <Content Include="templates\BestBOQ_summary1.docm" />
-    <Content Include="templates\BestBOQ_summary2.docm" />
-    <Content Include="templates\BestBOQ_summary3.docm" />
-    <Content Include="templates\BestBOQ_timeplan.docm" />
-    <Content Include="templates\BestBOQ_summary_new.docm" />
+    <Content Include="templates\BestBOQ_boq.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_boq_backup.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract-backup_20181013.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract-backup_20181201.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract_1.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract_2.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract_3.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_contract_4.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_1.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_2.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_3.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_PaymentTerm_4.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_quotation.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary1.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary2.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary3.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_01.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_02.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_03.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_04.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_05.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_summary_new_V2_06.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_timeplan-backup.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\BestBOQ_timeplan.docm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
