@@ -3,7 +3,6 @@ using PdfSharp.Pdf.IO;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.IO;
 using System.Web.Services;
 using Word = Microsoft.Office.Interop.Word;
@@ -81,6 +80,33 @@ namespace BestBoQ
             return dr[columnname] == null ? "" : dr[columnname].ToString();
         }
 
+        private void ReplaceHeaderPicture(Word.Application app, Word._Document oDoc, string projid)
+        {
+            DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+            object replaceAll = Word.WdReplace.wdReplaceAll;
+            // Loop through all sections
+            foreach (Microsoft.Office.Interop.Word.Section section in oDoc.Sections)
+            {
+                Microsoft.Office.Interop.Word.Range headerRange = section.Headers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+
+                //Replace Picture
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in headerRange.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
+            }
+        }
+
         private void ReplaceFooter(Word.Application app, Word._Document oDoc, string search, string replace)
         {
 
@@ -119,7 +145,7 @@ namespace BestBoQ
                 //        //}
                 //    }
                 //}
-            }
+            }           
         }
 
         private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value)
@@ -327,6 +353,26 @@ namespace BestBoQ
                 SearchReplace(oWord, "[text]", text);
                 SearchReplace(oWord, "[company_national_id]", CompanyNationalID);
 
+                //Replace Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
+
+                //Replace Header Picture
+                ReplaceHeaderPicture(oWord, oDoc, projid);
+                
                 // Replace footer
                 ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
                 ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
@@ -535,6 +581,30 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term8Text]", step08Txt);
                 SearchReplace(oWord, "[Term9Text]", step09Txt);
                 SearchReplace(oWord, "[Term10Text]", step10Txt);
+
+                //Replace Form Content
+                DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                foreach (DataRow dataRow  in dt_form.Rows)
+                {
+                    SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
+                }
+
+                //Replace Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
 
                 // Save to PDF
                 // Run the macros.
@@ -976,6 +1046,24 @@ namespace BestBoQ
                 SearchReplace(oWord, "[c_16]", c_16);
                 SearchReplace(oWord, "[c_17]", c_17);
                 //SearchReplace(oWord, "[c_18]", c_18);
+
+                //Replace Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
+
                 // Save to PDF
                 // Run the macros.
                 RunMacro(oWord, new Object[] { "Silent_saves_to_PDF" });
@@ -1202,6 +1290,23 @@ namespace BestBoQ
                 SearchReplace(oWord, "[p17]", p17);
                 SearchReplace(oWord, "[p18]", p18);
 
+                //Replace Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
+
                 // Save to PDF
                 // Run the macros.
                 RunMacro(oWord, new Object[] { "Silent_saves_to_PDF" });
@@ -1321,6 +1426,26 @@ namespace BestBoQ
                 SearchReplace(oWord, "[customer_email]", CustomerEmail);
                 SearchReplace(oWord, "[vat]", Vat);
                 SearchReplace(oWord, "[date_now]", Now);
+
+                //Replace Picture
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                List<Word.Range> ranges = new List<Word.Range>();
+                foreach (DataRow dr in dt_pic.Rows)
+                {
+                    foreach (Word.InlineShape s in oDoc.InlineShapes)
+                    {
+                        if (s.Title == dr["Title"].ToString() && s.Type == Word.WdInlineShapeType.wdInlineShapePicture)
+                        {
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        }
+                    }
+                }
+
+                //Replace Header Picture
+                ReplaceHeaderPicture(oWord, oDoc, projid);
 
                 // Replace footer
                 ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
