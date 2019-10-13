@@ -31,7 +31,6 @@ namespace BestBoQ
         {
             try
             {
-
                 //Get val form control
                 string param_free = tbfree.Text.Trim();
                 string param_promotion = tbpromotion.Text.Trim();
@@ -46,6 +45,22 @@ namespace BestBoQ
                                    + param_detail + "','" 
                                    + userID + "' ";
                 ClassConfig.GetDataSQL(sql_command);
+
+                //Update Payment Term
+                foreach (RepeaterItem item in Repeater1.Items)
+                {
+                    Label lbTerm = (Label)item.FindControl("Label1");
+                    TextBox tbDetail = (TextBox)item.FindControl("tbDetail");
+                    TextBox tbPCT = (TextBox)item.FindControl("tbPCT");
+
+                    string param_payment_term = lbTerm.Text.Trim();
+                    string param_payment_detail = tbDetail.Text.Trim();
+                    string param_payment_PCT = tbPCT.Text.Trim();
+                    
+                    sql_command = " EXEC [dbo].[set_Project_03_15_TermPayment] "
+                            + " '" + param_projid + "','" + param_payment_term + "','" + param_payment_PCT + "', N'" + param_payment_detail + "','" + userID + "'";
+                    ClassConfig.GetDataSQL(sql_command);
+                }
 
                 //Update Status
                 ClassConfig.UpdateStatus(param_projid, "Complete", userID);
@@ -80,6 +95,14 @@ namespace BestBoQ
                 tbpromotion.Text = dt.Rows[0]["pct_promotion"].ToString();
                 tbother.Text = dt.Rows[0]["bht_other"].ToString();
                 tbdetail.Text = dt.Rows[0]["detail_other"].ToString();
+            }
+
+            sql_command = "EXEC [dbo].[get_template_03_16] '" + param_projid + "'";
+            dt = ClassConfig.GetDataSQL(sql_command);
+            if (dt.Rows.Count > 0)
+            {
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
             }
         }
 

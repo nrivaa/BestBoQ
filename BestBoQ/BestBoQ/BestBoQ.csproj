@@ -233,6 +233,9 @@
     <Content Include="Images\10Color\1.png" />
     <Content Include="Images\10Color\2.png" />
     <Content Include="Images\10Color\3.png" />
+    <Content Include="Images\11Electric\A.png" />
+    <Content Include="Images\11Electric\B.png" />
+    <Content Include="Images\11Electric\C.png" />
     <Content Include="Images\12Color\1.png" />
     <Content Include="Images\12Color\2.png" />
     <Content Include="Images\12Color\3.png" />

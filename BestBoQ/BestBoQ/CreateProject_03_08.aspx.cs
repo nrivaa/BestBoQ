@@ -78,7 +78,7 @@ namespace BestBoQ
         }
         private void getSectionPrice()
         {
-            string sql_price_command = " [dbo].[get_Last_Price] '" + param_projid + "'";
+            string sql_price_command = " EXEC [dbo].[get_Last_Price] '" + param_projid + "'";
             DataTable dtPrice = ClassConfig.GetDataSQL(sql_price_command);
             if (dtPrice.Rows.Count > 0)
             {

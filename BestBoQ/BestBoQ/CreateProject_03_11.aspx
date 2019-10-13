@@ -15,7 +15,7 @@
                 <nav>
                     <ul class="pager">
                         <li class="previous hidden"><a href="CreateProject_03_10?id=<%=param_projid%>"><span aria-hidden="true">&larr;</span></a></li>
-                       <li data-toggle="tooltip" data-placement="bottom" title="1.ระบบงานฐานราก (Footing)">
+                        <li data-toggle="tooltip" data-placement="bottom" title="1.ระบบงานฐานราก (Footing)">
                             <a href="CreateProject_03_01?id=<%=param_projid%>">1</a>
                         </li>
                         <li data-toggle="tooltip" data-placement="bottom" title="2.ระบบงานคานคอดิน (Beam)">
@@ -79,32 +79,70 @@
                 <div class="media-body">
                     <div class="form" role="form">
                         <div class="row">
-                            <div class="col-xs-12">
-                                <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ลำดับ</th>
-                                        <th>รายการวัสดุ</th>
-                                        <th>จำนวน</th>
-                                        <th>หน่วย</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <asp:Repeater ID="Repeater1" runat="server">
-                                        <ItemTemplate>
-                                            <tr>
-                                                <td><asp:Label ID="Label1" runat="server" Text='<%# Eval("itemNo")%>'></asp:Label></td>
-                                                <td><asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label></td>
-                                                <td><asp:Label ID="Label4" runat="server" Text='<%# Eval("point")%>'></asp:Label></td>
-                                                <td><asp:Label ID="Label3" runat="server" Text='<%# Eval("unit")%>'></asp:Label></td>
-                                                <td><asp:Label ID="Label5" runat="server" Text='<%# Eval("total")%>'></asp:Label></td>
-                                            </tr>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </tbody>
-                            </table>
+                            <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
+                                <ItemTemplate>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="thumbnail">
+                                            <asp:Image ID="imgPic" ImageUrl='<%# Eval("picpath")%>' runat="server" />
+                                            <div class="caption text-center">
+                                                <h3>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("type")%>'></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label>
+                                                </h3>
+                                                <div class="form-group has-feedback">
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                                    <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
+                                                    <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
+                                                    <input type="hidden" class="dataType" value="<%# Eval("type")%>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <asp:Repeater ID="RepeaterDetail" runat="server" OnItemDataBound="RepeaterDetail_ItemDataBound">
+                            <ItemTemplate>
+                                <div class='row divDetail divDetail<%# Eval("type")%>' style="display:none;">
+                                    <div class="col-xs-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ลำดับ</th>
+                                                    <th>รายการวัสดุ</th>
+                                                    <th>จำนวน</th>
+                                                    <th>หน่วย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <asp:Repeater ID="Repeater2" runat="server">
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("itemNo")%>'></asp:Label></td>
+                                                            <td>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("detail")%>'></asp:Label></td>
+                                                            <td>
+                                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("point")%>'></asp:Label></td>
+                                                            <td>
+                                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("unit")%>'></asp:Label></td>
+                                                            <td>
+                                                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("total")%>'></asp:Label></td>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-right"><small>ราคารวม <span id="sectionPrice" data-value="<%=section_price %>">0</span> บาท</small></p>
                             </div>
                         </div>
+                        <br />
                     </div>
                 </div>
             </div>
@@ -123,4 +161,33 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body_right" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
+    <script>
+        $(".divDetail").hide();
+
+        calculatePrice();
+
+        $('.form input[type=radio]').on('ifChecked', function (event) {
+            calculatePrice($(this));
+        });
+
+        function calculatePrice(em) {
+
+            if (!em) {
+                em = $('.form input[type=radio]:checked');
+            }
+
+            var sectionPriceElem = $("#sectionPrice");
+            var sumPrice = 0.0;
+
+            if (em.length > 0) {
+                var block = em.closest('.form-group')
+                var sumPrice = parseFloat(block.find(".dataCost").val());
+
+                $(".divDetail").hide();
+                $(".divDetail" + block.find(".dataType").val()).show();
+            }
+
+            updateTotalPriceFromSection(sectionPriceElem, sumPrice);
+        }
+    </script>
 </asp:Content>

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,19 +42,67 @@ namespace BestBoQ
             string param_id = tbId.Text.Trim();
             string param_tax = tbTax.Text.Trim();
             string param_national = tbNational.Text.Trim();
+            string param_filename = string.Empty;
 
             //Execute Command
             try
             {
-                string sql_command = " UPDATE [BESTBoQ].[dbo].[userinfo] "
-                                   + " SET [email] = N'" + param_email + "' , "
-                                   + " [mobile] = N'"+param_mobile+"' , "
-                                   + " [name] = N'"+param_name+"' ,"
-                                   + " [address] = N'" + param_address + "' ,"
-                                   + " [idcard] = N'" + param_id + "' ,"
-                                   + " [taxname] = N'" + param_tax + "' ,"
-                                   + " [idnation] = N'" + param_national + "' "
-                                   + " WHERE [userid] = '" + Session["UserID"] + "'";
+                if (FuLogoImageCompany.HasFile)
+                {
+                    try
+                    {
+                        string fn = System.IO.Path.GetFileName(FuLogoImageCompany.PostedFile.FileName);
+                        string fileuploadDir = Server.MapPath("~/Images/Logo/" + Session["Username"] + "/");
+                        string fileuploadDirFilename = Server.MapPath("~/Images/Logo/" + Session["Username"] + "/" + fn);
+
+                        string fileExtention = FuLogoImageCompany.PostedFile.ContentType;
+                        int fileLenght = FuLogoImageCompany.PostedFile.ContentLength;
+
+                        param_filename = "Images/Logo/" + Session["Username"] + "/" + fn;
+
+                        if (fileExtention == "image/png" || fileExtention == "image/jpeg" || fileExtention == "image/x-png")
+                        {
+                            if (!System.IO.Directory.Exists(fileuploadDir))
+                            {
+                                System.IO.Directory.CreateDirectory(fileuploadDir);
+                            }
+
+                            System.Drawing.Bitmap bmpPostedImage = new System.Drawing.Bitmap(FuLogoImageCompany.PostedFile.InputStream);
+                            System.Drawing.Image objImage = ScaleImage(bmpPostedImage, 57);
+                            objImage.Save(fileuploadDirFilename, ImageFormat.Jpeg);
+                        }
+                        else {
+                            Response.Write("<script>alert('กรุณาอัพโหลดได้เฉพาะไฟล์สกุล .jpg, .jpeg, .png เท่านั้น');</script>");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message.ToString());
+                        Response.Write("<script>alert('การอัพโหลดรูปภาพมีปัญหา กรุณาตรวจสอบไฟล์ภาพและเลือกภาพใหม่อีกครั้ง');</script>");
+                    }
+                }
+
+                string sql_command = "EXEC [dbo].[set_Update_Register_Logo] N'"
+                                        + Session["UserID"] + "',N'"
+                                        + param_email + "',N'"
+                                        + param_mobile + "',N'"
+                                        + param_name + "',N'"
+                                        + param_address + "',N'"
+                                        + param_id + "',N'"
+                                        + param_tax + "',N'"
+                                        + param_national + "',N'"
+                                        + param_filename + "' ";
+
+                //string sql_command = " UPDATE [BESTBoQ].[dbo].[userinfo] "
+                //                   + " SET [email] = N'" + param_email + "' , "
+                //                   + " [mobile] = N'"+param_mobile+"' , "
+                //                   + " [name] = N'"+param_name+"' ,"
+                //                   + " [address] = N'" + param_address + "' ,"
+                //                   + " [idcard] = N'" + param_id + "' ,"
+                //                   + " [taxname] = N'" + param_tax + "' ,"
+                //                   + " [idnation] = N'" + param_national + "' "
+                //                   + " WHERE [userid] = '" + Session["UserID"] + "'";
+
                 ClassConfig.GetDataSQL(sql_command);
             }
             catch (Exception)
@@ -64,10 +115,22 @@ namespace BestBoQ
             changeControl("Confirm");
         }
 
+        public static System.Drawing.Image ScaleImage(System.Drawing.Image image, int maxHeight)
+        {
+            var ratio = (double)maxHeight / image.Height;
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+            var newImage = new Bitmap(newWidth, newHeight);
+            using (var g = Graphics.FromImage(newImage))
+            {
+                g.DrawImage(image, 0, 0, newWidth, newHeight);
+            }
+            return newImage;
+        }
+
         protected void getOldData()
         {
-            string sql_command = " SELECT * FROM [BESTBoQ].[dbo].[userinfo] "
-                               + " WHERE [userid] = '" + Session["UserID"] + "'";
+            string sql_command = " EXEC [dbo].[get_userinfo_Logo] '" + Session["UserID"] + "'";
             DataTable dt = ClassConfig.GetDataSQL(sql_command);
             if(dt.Rows.Count > 0)
             {
@@ -90,6 +153,8 @@ namespace BestBoQ
                 tbId.Text = dt.Rows[0]["idcard"].ToString().Trim();
                 tbTax.Text = dt.Rows[0]["taxname"].ToString().Trim();
                 tbNational.Text = dt.Rows[0]["idnation"].ToString().Trim();
+
+                imgLogoCompany.ImageUrl = dt.Rows[0]["pathpic"].ToString();
             }
         }
 
@@ -120,6 +185,10 @@ namespace BestBoQ
 
                 //Hide btn Edit
                 btnEdit.Visible = false;
+
+                // Logo Image
+                imgLogoCompany.Visible = false;
+                FuLogoImageCompany.Visible = true;
             }
             else
             {
@@ -147,6 +216,10 @@ namespace BestBoQ
 
                 //Show btn Edit
                 btnEdit.Visible = true;
+
+                // Logo Image
+                imgLogoCompany.Visible = true;
+                FuLogoImageCompany.Visible = false;
             }
         }
 

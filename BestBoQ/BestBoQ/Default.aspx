@@ -449,6 +449,10 @@
                                     <div class="form-group">
                                         <asp:TextBox ID="tbNation" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขทะเบียนนิติบุคคล" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                                     </div>
+                                    <div class="form-group text-left">
+                                        ภาพโลโก้บริษัท (ไฟล์สกุล .jpg, .jpeg, .png เท่านั้น)<br />
+                                        <asp:FileUpload CssClass="form-control-file" ID="FuLogoImageCompany" accept=".jpg,.png,.jpeg" runat="server" />
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <input type="button" name="previous" class="previous btn btn-greenline btn-block btn-flat" value="Previous" />

@@ -60,6 +60,11 @@
                         <asp:Label ID="lbNational" runat="server" Text="#N/A"></asp:Label>
                         <asp:TextBox CssClass="form-control" ID="tbNational" runat="server" placeholder="National ID" Visible="false" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                     </div>
+                    <div class="form-group" >
+                        <label>ภาพโลโก้ (ไฟล์สกุล .jpg, .jpeg, .png เท่านั้น):</label>
+                        <asp:Image ID="imgLogoCompany" runat="server" />
+                        <asp:FileUpload CssClass="form-control-file" ID="FuLogoImageCompany" accept=".jpg,.png,.jpeg" Visible="false" runat="server" />
+                    </div>
                     <div>
                         <asp:Button ID="btnEdit" CssClass="light-form-button light" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
                         <asp:Button ID="btnChange" CssClass="light-form-button light" runat="server" Text="Change Password" OnClick="btnChange_Click" />
