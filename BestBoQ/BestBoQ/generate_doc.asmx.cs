@@ -82,7 +82,7 @@ namespace BestBoQ
 
         private void ReplaceHeaderPicture(Word.Application app, Word._Document oDoc, string projid)
         {
-            DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+            DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
             object replaceAll = Word.WdReplace.wdReplaceAll;
             // Loop through all sections
             foreach (Microsoft.Office.Interop.Word.Section section in oDoc.Sections)
@@ -354,7 +354,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[company_national_id]", CompanyNationalID);
 
                 //Replace Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
@@ -583,14 +583,14 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term10Text]", step10Txt);
 
                 //Replace Form Content
-                DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 foreach (DataRow dataRow  in dt_form.Rows)
                 {
                     SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
                 }
 
                 //Replace Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
@@ -772,7 +772,7 @@ namespace BestBoQ
                 }
 
                 //Replacr Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
@@ -1048,7 +1048,7 @@ namespace BestBoQ
                 //SearchReplace(oWord, "[c_18]", c_18);
 
                 //Replace Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
@@ -1291,7 +1291,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[p18]", p18);
 
                 //Replace Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
@@ -1428,7 +1428,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[date_now]", Now);
 
                 //Replace Picture
-                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture] '" + projid + "'");
+                DataTable dt_pic = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
                 List<Word.Range> ranges = new List<Word.Range>();
                 foreach (DataRow dr in dt_pic.Rows)
                 {
