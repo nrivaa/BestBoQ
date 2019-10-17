@@ -3,6 +3,7 @@ using PdfSharp.Pdf.IO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Web.Services;
 using Word = Microsoft.Office.Interop.Word;
@@ -102,14 +103,11 @@ namespace BestBoQ
                             Word.InlineShape inlineShapeRange = s.ConvertToInlineShape();
 
                             Word.Range toreplace = inlineShapeRange.Range;
-                            //inlineShapeRange.Delete();
+                            inlineShapeRange.Delete();
                             string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
                             var replaceShape = toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
-                            //replaceShape.HorizontalLineFormat.Alignment = Word.WdHorizontalLineAlignment.wdHorizontalLineAlignRight;
 
-                            //Word.InlineShape inline = toreplace.ShapeRange.ConvertToInlineShape();
-                            //inline.HorizontalLineFormat.Alignment = Word.WdHorizontalLineAlignment.wdHorizontalLineAlignRight;
-                            //inlineShapeRange.HorizontalLineFormat.Alignment = Word.WdHorizontalLineAlignment.wdHorizontalLineAlignRight;
+                            headerRange.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
                         }
                     }
                 }
@@ -170,7 +168,7 @@ namespace BestBoQ
                 //        //}
                 //    }
                 //}
-            }           
+            }
         }
 
         private void ReplaceBOQ(Word.Application app, DataRow dr, string tagType, string value)
@@ -383,7 +381,7 @@ namespace BestBoQ
 
                 //Replace Header Picture
                 ReplaceHeaderPicture(oWord, oDoc, projid);
-                
+
                 // Replace footer
                 ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
                 ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
@@ -595,7 +593,7 @@ namespace BestBoQ
 
                 //Replace Form Content
                 DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
-                foreach (DataRow dataRow  in dt_form.Rows)
+                foreach (DataRow dataRow in dt_form.Rows)
                 {
                     SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
                 }
@@ -1298,17 +1296,57 @@ namespace BestBoQ
             {
                 foreach (Word.Shape s in oDoc.Shapes)
                 {
-                    if (s.AlternativeText == dr["Title"].ToString())
+                    //if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
+                    if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
                     {
+                        Debug.WriteLine("Shape name: " + s.AlternativeText);
+
                         Word.InlineShape inlineShapeRange = s.ConvertToInlineShape();
 
                         Word.Range toreplace = inlineShapeRange.Range;
                         inlineShapeRange.Delete();
                         string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
-                        toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+                        var replacedRange = toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+
+                        if (dr["Title"].ToString().Trim() == "logo")
+                        {
+                            //replacedRange.AlternativeText = "logo";
+                            replacedRange.Range.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                        }
+                    }
+                }
+
+                foreach (Word.InlineShape s in oDoc.InlineShapes)
+                {
+                    //Debug.WriteLine("Inlineshape name(out): " + s.AlternativeText);
+
+                    if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
+                    {
+                        Debug.WriteLine("Inlineshape name: " + s.AlternativeText);
+
+                        Word.Range toreplace = s.Range;
+                        s.Delete();
+                        string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                        var replacedRange = toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+
+                        if (dr["Title"].ToString().Trim() == "logo")
+                        {
+                            //replacedRange.AlternativeText = "logo";
+                            replacedRange.Range.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                        }
                     }
                 }
             }
+
+            //foreach (Word.InlineShape s in oDoc.InlineShapes)
+            //{
+            //    if (s.AlternativeText == "logo")
+            //    {
+            //        Word.Range toFormatted = s.Range;
+            //        toFormatted.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+            //        //toFormatted.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+            //    }
+            //}
         }
 
         [WebMethod]
