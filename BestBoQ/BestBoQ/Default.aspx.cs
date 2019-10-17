@@ -10,6 +10,7 @@ using System.Net.Mail;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace BestBoQ
 {
@@ -161,7 +162,14 @@ namespace BestBoQ
 
                                     System.Drawing.Bitmap bmpPostedImage = new System.Drawing.Bitmap(FuLogoImageCompany.PostedFile.InputStream);
                                     System.Drawing.Image objImage = ScaleImage(bmpPostedImage, 57);
-                                    objImage.Save(fileuploadDirFilename, ImageFormat.Jpeg);
+
+                                    ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+                                    System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
+                                    EncoderParameters myEncoderParameters = new EncoderParameters(1);
+                                    EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+                                    myEncoderParameters.Param[0] = myEncoderParameter;
+
+                                    objImage.Save(fileuploadDirFilename, jpgEncoder, myEncoderParameters);
                                 }
                                 else
                                 {
@@ -210,14 +218,31 @@ namespace BestBoQ
             }
         }
 
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
+
         public static System.Drawing.Image ScaleImage(System.Drawing.Image image, int maxHeight)
         {
             var ratio = (double)maxHeight / image.Height;
             var newWidth = (int)(image.Width * ratio);
             var newHeight = (int)(image.Height * ratio);
             var newImage = new Bitmap(newWidth, newHeight);
+            newImage.SetResolution(360, 360);
             using (var g = Graphics.FromImage(newImage))
             {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 g.DrawImage(image, 0, 0, newWidth, newHeight);
             }
             return newImage;

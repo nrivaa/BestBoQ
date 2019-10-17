@@ -78,7 +78,7 @@ namespace BestBoQ
                                 }
                             }
 
-                            string sql_command = " EXEC [set_Project_03_03-06_Floor] "
+                            string sql_command = " EXEC [set_Project_03_03-06_Floor_New] "
                                            + " '" + param_projid + "','" + param_flooringType + "','" + param_floorType + "','" + param_numMM + "','" + param_numRoom + "','" + userID + "' ";
                             ClassConfig.GetDataSQL(sql_command);
                         }

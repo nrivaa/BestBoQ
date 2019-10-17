@@ -292,6 +292,8 @@ namespace BestBoQ
 
                 string step01, step02, step03, step04, step05, step06, step07, step08, step09, step10, startDate, stopDate;
                 string step01Txt, step02Txt, step03Txt, step04Txt, step05Txt, step06Txt, step07Txt, step08Txt, step09Txt, step10Txt;
+                string step01Pct, step02Pct, step03Pct, step04Pct, step05Pct, step06Pct, step07Pct, step08Pct, step09Pct, step10Pct;
+                string step01Detail, step02Detail, step03Detail, step04Detail, step05Detail, step06Detail, step07Detail, step08Detail, step09Detail, step10Detail;
 
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
@@ -389,7 +391,7 @@ namespace BestBoQ
                 ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
                 ReplaceFooter(oWord, oDoc, "[telephone] ", Telephone);
 
-                DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projid + "'");
+                DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA_New '" + projid + "'");
                 step01 = dt_pay.Rows[0]["step01"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step01"].ToString()).ToString("#,##0");
                 step01Txt = ClassConfig.ThaiBaht(step01);
                 step02 = dt_pay.Rows[0]["step02"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step02"].ToString()).ToString("#,##0");
@@ -413,6 +415,29 @@ namespace BestBoQ
                 startDate = dt_pay.Rows[0]["start"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["start"]).ToString("dd/MM/yyyy");
                 stopDate = dt_pay.Rows[0]["stop"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["stop"]).ToString("dd/MM/yyyy");
 
+                DataTable dtText = ClassConfig.GetDataSQL("[BESTBoQ].[dbo].[get_template_03_16] '" + projid + "' ");
+                step01Pct = dtText.Rows[0]["pct"] == null ? "" : dtText.Rows[0]["pct"].ToString() + "%";
+                step02Pct = dtText.Rows[1]["pct"] == null ? "" : dtText.Rows[1]["pct"].ToString() + "%";
+                step03Pct = dtText.Rows[2]["pct"] == null ? "" : dtText.Rows[2]["pct"].ToString() + "%";
+                step04Pct = dtText.Rows[3]["pct"] == null ? "" : dtText.Rows[3]["pct"].ToString() + "%";
+                step05Pct = dtText.Rows[4]["pct"] == null ? "" : dtText.Rows[4]["pct"].ToString() + "%";
+                step06Pct = dtText.Rows[5]["pct"] == null ? "" : dtText.Rows[5]["pct"].ToString() + "%";
+                step07Pct = dtText.Rows[6]["pct"] == null ? "" : dtText.Rows[6]["pct"].ToString() + "%";
+                step08Pct = dtText.Rows[7]["pct"] == null ? "" : dtText.Rows[7]["pct"].ToString() + "%";
+                step09Pct = dtText.Rows[8]["pct"] == null ? "" : dtText.Rows[8]["pct"].ToString() + "%";
+                step10Pct = dtText.Rows[9]["pct"] == null ? "" : dtText.Rows[9]["pct"].ToString() + "%";
+
+                step01Detail = dtText.Rows[0]["Detail"] == null ? "" : dtText.Rows[0]["Detail"].ToString();
+                step02Detail = dtText.Rows[1]["Detail"] == null ? "" : dtText.Rows[1]["Detail"].ToString();
+                step03Detail = dtText.Rows[2]["Detail"] == null ? "" : dtText.Rows[2]["Detail"].ToString();
+                step04Detail = dtText.Rows[3]["Detail"] == null ? "" : dtText.Rows[3]["Detail"].ToString();
+                step05Detail = dtText.Rows[4]["Detail"] == null ? "" : dtText.Rows[4]["Detail"].ToString();
+                step06Detail = dtText.Rows[5]["Detail"] == null ? "" : dtText.Rows[5]["Detail"].ToString();
+                step07Detail = dtText.Rows[6]["Detail"] == null ? "" : dtText.Rows[6]["Detail"].ToString();
+                step08Detail = dtText.Rows[7]["Detail"] == null ? "" : dtText.Rows[7]["Detail"].ToString();
+                step09Detail = dtText.Rows[8]["Detail"] == null ? "" : dtText.Rows[8]["Detail"].ToString();
+                step10Detail = dtText.Rows[9]["Detail"] == null ? "" : dtText.Rows[9]["Detail"].ToString();
+
                 SearchReplace(oWord, "[startDate]", startDate);
                 SearchReplace(oWord, "[stopDate]", stopDate);
                 SearchReplace(oWord, "[Term1Amount]", step01);
@@ -435,6 +460,27 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term8Text]", step08Txt);
                 SearchReplace(oWord, "[Term9Text]", step09Txt);
                 SearchReplace(oWord, "[Term10Text]", step10Txt);
+
+                SearchReplace(oWord, "[Term1Pct]", step01Pct);
+                SearchReplace(oWord, "[Term2Pct]", step02Pct);
+                SearchReplace(oWord, "[Term3Pct]", step03Pct);
+                SearchReplace(oWord, "[Term4Pct]", step04Pct);
+                SearchReplace(oWord, "[Term5Pct]", step05Pct);
+                SearchReplace(oWord, "[Term6Pct]", step06Pct);
+                SearchReplace(oWord, "[Term7Pct]", step07Pct);
+                SearchReplace(oWord, "[Term8Pct]", step08Pct);
+                SearchReplace(oWord, "[Term9Pct]", step09Pct);
+                SearchReplace(oWord, "[Term10Pct]", step10Pct);
+                SearchReplace(oWord, "[Term1Detail]", step01Detail);
+                SearchReplace(oWord, "[Term2Detail]", step02Detail);
+                SearchReplace(oWord, "[Term3Detail]", step03Detail);
+                SearchReplace(oWord, "[Term4Detail]", step04Detail);
+                SearchReplace(oWord, "[Term5Detail]", step05Detail);
+                SearchReplace(oWord, "[Term6Detail]", step06Detail);
+                SearchReplace(oWord, "[Term7Detail]", step07Detail);
+                SearchReplace(oWord, "[Term8Detail]", step08Detail);
+                SearchReplace(oWord, "[Term9Detail]", step09Detail);
+                SearchReplace(oWord, "[Term10Detail]", step10Detail);
 
                 // Save to PDF
                 // Run the macros.
@@ -477,6 +523,8 @@ namespace BestBoQ
                 string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
                 string step01, step02, step03, step04, step05, step06, step07, step08, step09, step10, startDate, stopDate;
                 string step01Txt, step02Txt, step03Txt, step04Txt, step05Txt, step06Txt, step07Txt, step08Txt, step09Txt, step10Txt;
+                string step01Pct, step02Pct, step03Pct, step04Pct, step05Pct, step06Pct, step07Pct, step08Pct, step09Pct, step10Pct;
+                string step01Detail, step02Detail, step03Detail, step04Detail, step05Detail, step06Detail, step07Detail, step08Detail, step09Detail, step10Detail;
 
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
@@ -526,7 +574,7 @@ namespace BestBoQ
                 RoomAmount = dt.Rows[0]["roomamount"] == null ? "" : dt.Rows[0]["roomamount"].ToString();
                 Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString(); ;
 
-                DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA '" + projid + "'");
+                DataTable dt_pay = ClassConfig.GetDataSQL("exec dbo.get_AppendixA_New '" + projid + "'");
                 step01 = dt_pay.Rows[0]["step01"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step01"].ToString()).ToString("#,##0");
                 step01Txt = ClassConfig.ThaiBaht(step01);
                 step02 = dt_pay.Rows[0]["step02"] == null ? "" : Convert.ToDecimal(dt_pay.Rows[0]["step02"].ToString()).ToString("#,##0");
@@ -549,6 +597,29 @@ namespace BestBoQ
                 step10Txt = ClassConfig.ThaiBaht(step10);
                 startDate = dt_pay.Rows[0]["start"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["start"]).ToString("dd/MM/yyyy");
                 stopDate = dt_pay.Rows[0]["stop"] == null ? "" : Convert.ToDateTime(dt_pay.Rows[0]["stop"]).ToString("dd/MM/yyyy");
+
+                DataTable dtText = ClassConfig.GetDataSQL("[BESTBoQ].[dbo].[get_template_03_16] '" + projid + "' ");
+                step01Pct = dtText.Rows[0]["pct"] == null ? "" : dtText.Rows[0]["pct"].ToString() + "%";
+                step02Pct = dtText.Rows[1]["pct"] == null ? "" : dtText.Rows[1]["pct"].ToString() + "%";
+                step03Pct = dtText.Rows[2]["pct"] == null ? "" : dtText.Rows[2]["pct"].ToString() + "%";
+                step04Pct = dtText.Rows[3]["pct"] == null ? "" : dtText.Rows[3]["pct"].ToString() + "%";
+                step05Pct = dtText.Rows[4]["pct"] == null ? "" : dtText.Rows[4]["pct"].ToString() + "%";
+                step06Pct = dtText.Rows[5]["pct"] == null ? "" : dtText.Rows[5]["pct"].ToString() + "%";
+                step07Pct = dtText.Rows[6]["pct"] == null ? "" : dtText.Rows[6]["pct"].ToString() + "%";
+                step08Pct = dtText.Rows[7]["pct"] == null ? "" : dtText.Rows[7]["pct"].ToString() + "%";
+                step09Pct = dtText.Rows[8]["pct"] == null ? "" : dtText.Rows[8]["pct"].ToString() + "%";
+                step10Pct = dtText.Rows[9]["pct"] == null ? "" : dtText.Rows[9]["pct"].ToString() + "%";
+
+                step01Detail = dtText.Rows[0]["Detail"] == null ? "" : dtText.Rows[0]["Detail"].ToString();
+                step02Detail = dtText.Rows[1]["Detail"] == null ? "" : dtText.Rows[1]["Detail"].ToString();
+                step03Detail = dtText.Rows[2]["Detail"] == null ? "" : dtText.Rows[2]["Detail"].ToString();
+                step04Detail = dtText.Rows[3]["Detail"] == null ? "" : dtText.Rows[3]["Detail"].ToString();
+                step05Detail = dtText.Rows[4]["Detail"] == null ? "" : dtText.Rows[4]["Detail"].ToString();
+                step06Detail = dtText.Rows[5]["Detail"] == null ? "" : dtText.Rows[5]["Detail"].ToString();
+                step07Detail = dtText.Rows[6]["Detail"] == null ? "" : dtText.Rows[6]["Detail"].ToString();
+                step08Detail = dtText.Rows[7]["Detail"] == null ? "" : dtText.Rows[7]["Detail"].ToString();
+                step09Detail = dtText.Rows[8]["Detail"] == null ? "" : dtText.Rows[8]["Detail"].ToString();
+                step10Detail = dtText.Rows[9]["Detail"] == null ? "" : dtText.Rows[9]["Detail"].ToString();
 
                 // Replace data in template document
                 SearchReplace(oWord, "[project_name]", ProjectName);
@@ -592,6 +663,27 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term8Text]", step08Txt);
                 SearchReplace(oWord, "[Term9Text]", step09Txt);
                 SearchReplace(oWord, "[Term10Text]", step10Txt);
+
+                SearchReplace(oWord, "[Term1Pct]", step01Pct);
+                SearchReplace(oWord, "[Term2Pct]", step02Pct);
+                SearchReplace(oWord, "[Term3Pct]", step03Pct);
+                SearchReplace(oWord, "[Term4Pct]", step04Pct);
+                SearchReplace(oWord, "[Term5Pct]", step05Pct);
+                SearchReplace(oWord, "[Term6Pct]", step06Pct);
+                SearchReplace(oWord, "[Term7Pct]", step07Pct);
+                SearchReplace(oWord, "[Term8Pct]", step08Pct);
+                SearchReplace(oWord, "[Term9Pct]", step09Pct);
+                SearchReplace(oWord, "[Term10Pct]", step10Pct);
+                SearchReplace(oWord, "[Term1Detail]", step01Detail);
+                SearchReplace(oWord, "[Term2Detail]", step02Detail);
+                SearchReplace(oWord, "[Term3Detail]", step03Detail);
+                SearchReplace(oWord, "[Term4Detail]", step04Detail);
+                SearchReplace(oWord, "[Term5Detail]", step05Detail);
+                SearchReplace(oWord, "[Term6Detail]", step06Detail);
+                SearchReplace(oWord, "[Term7Detail]", step07Detail);
+                SearchReplace(oWord, "[Term8Detail]", step08Detail);
+                SearchReplace(oWord, "[Term9Detail]", step09Detail);
+                SearchReplace(oWord, "[Term10Detail]", step10Detail);
 
                 //Replace Form Content
                 DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
