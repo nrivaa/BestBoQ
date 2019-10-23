@@ -69,16 +69,16 @@ namespace BestBoQ
                             }
 
                             System.Drawing.Bitmap bmpPostedImage = new System.Drawing.Bitmap(FuLogoImageCompany.PostedFile.InputStream);
-                            System.Drawing.Image objImage = ScaleImage(bmpPostedImage, 57);
+                            System.Drawing.Bitmap objImage = ScaleImage(bmpPostedImage, 70);
 
 
-                            ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
-                            System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
-                            EncoderParameters myEncoderParameters = new EncoderParameters(1);
-                            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 100L);
-                            myEncoderParameters.Param[0] = myEncoderParameter;
+                            //ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
+                            //System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
+                            //EncoderParameters myEncoderParameters = new EncoderParameters(1);
+                            //EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+                            //myEncoderParameters.Param[0] = myEncoderParameter;
 
-                            objImage.Save(fileuploadDirFilename, jpgEncoder, myEncoderParameters);
+                            objImage.Save(fileuploadDirFilename, ImageFormat.Jpeg);
                         }
                         else {
                             Response.Write("<script>alert('กรุณาอัพโหลดได้เฉพาะไฟล์สกุล .jpg, .jpeg, .png เท่านั้น');</script>");
@@ -137,18 +137,18 @@ namespace BestBoQ
             return null;
         }
 
-        public static System.Drawing.Image ScaleImage(System.Drawing.Image image, int maxHeight)
+        public static System.Drawing.Bitmap ScaleImage(System.Drawing.Bitmap image, int maxHeight)
         {
             var ratio = (double)maxHeight / image.Height;
             var newWidth = (int)(image.Width * ratio);
             var newHeight = (int)(image.Height * ratio);
             var newImage = new Bitmap(newWidth, newHeight);
-            newImage.SetResolution(360, 360);
+            //newImage.SetResolution(360, 360);
             using (var g = Graphics.FromImage(newImage))
             {
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
-                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                //g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                //g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 g.DrawImage(image, 0, 0, newWidth, newHeight);
             }
             return newImage;
