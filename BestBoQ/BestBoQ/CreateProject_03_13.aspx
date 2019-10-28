@@ -91,7 +91,7 @@
                                                 </h3>
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                          <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number" CssClass="form-control" runat="server"></asp:TextBox>
+                                                          <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number,oneDigit" CssClass="form-control" runat="server"></asp:TextBox>
                                                         <span class="input-group-addon">เมตร</span>
                                                         <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
                                                         <input type="hidden" class="dataflag" value="<%# Eval("flag")%>" />
@@ -127,6 +127,26 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
+        initVaidateOneDigit();
+
+        function initVaidateOneDigit() {
+            $.formUtils.addValidator({
+                name: 'oneDigit',
+                validatorFunction: function (value, $el, config, language, $form) {
+
+                    //var VAL = $(this).val();
+                    var email = new RegExp('^([0-9]{1,5})*([.]{0,1})([0-9]{0,1})?$');
+
+                    return email.test(value);
+                },
+                errorMessage: 'จำนวนทศนิยมสูงสุด 1 ตำแหน่งเท่านั้น',
+                errorMessageKey: 'badOneDigit'
+            });
+
+            // Setup form validation
+            $.validate();
+        }
+
         calculatePrice();
 
         $(".form input[type=text]").on("change", function () {

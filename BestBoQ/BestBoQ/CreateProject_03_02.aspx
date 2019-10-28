@@ -91,7 +91,7 @@
                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("beamType")%>'></asp:Label></h3>
                                                 <div class="form-group has-feedback">
                                                     <div class="input-group">
-                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" CssClass="form-control" data-validation="number" runat="server" Enabled='<%# Eval("flag_select").ToString() == "yes" ? true : false%>'></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" data-inputmask="'alias': 'decimal'"  Text="0" CssClass="form-control" data-validation="number,oneDigit" data-validation-allowing="float" runat="server" Enabled='<%# Eval("flag_select").ToString() == "yes" ? true : false%>'></asp:TextBox>
                                                         <span class="input-group-addon">เมตร</span>
                                                          <input type="hidden" class="dataWeight" value="<%# Eval("weightSupport")%>" />
                                                         <input type="hidden" class="dataCost" value="<%# Eval("cost")%>" />
@@ -147,6 +147,28 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="script" runat="server">
     <script>
+
+        initVaidateOneDigit();
+
+        function initVaidateOneDigit() {
+            $.formUtils.addValidator({
+                name: 'oneDigit',
+                validatorFunction: function (value, $el, config, language, $form) {
+
+                    //var VAL = $(this).val();
+                    var email = new RegExp('^([0-9]{1,5})*([.]{0,1})([0-9]{0,1})?$');
+
+                    return email.test(value);
+                },
+                errorMessage: 'จำนวนทศนิยมสูงสุด 1 ตำแหน่งเท่านั้น',
+                errorMessageKey: 'badOneDigit'
+            });
+
+            // Setup form validation
+            $.validate();
+        }
+
+
         calculatePrice();
 
         $('.form input[type=text]').on("change", function () {

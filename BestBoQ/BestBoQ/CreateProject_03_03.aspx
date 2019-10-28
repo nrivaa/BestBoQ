@@ -114,7 +114,7 @@
                                                     <div class="col-lg-<%#Eval("visible").ToString() == "true" ? "6": "12"%>">
                                                         <div class="form-group has-feedback">
                                                             <div class="input-group">
-                                                                <asp:TextBox ID="TextBox3" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number,validFlooring" CssClass="form-control input-value" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="TextBox3" data-inputmask="'alias': 'decimal'" data-validation-allowing="float" Text="0" data-validation="number,validFlooring,oneDigit" CssClass="form-control input-value" runat="server"></asp:TextBox>
                                                                 <span class="input-group-addon">ตรม.</span>
                                                                 <input type="hidden" class="dataCostMain" value="<%# Eval("cost")%>" />
                                                             </div>
@@ -221,6 +221,20 @@
                     errorMessage: 'Please select floor',
                     errorMessageKey: 'invalidFlooring'
                 });
+
+                $.formUtils.addValidator({
+                    name: 'oneDigit',
+                    validatorFunction: function (value, $el, config, language, $form) {
+
+                        //var VAL = $(this).val();
+                        var email = new RegExp('^([0-9]{1,5})*([.]{0,1})([0-9]{0,1})?$');
+
+                        return email.test(value);
+                    },
+                    errorMessage: 'จำนวนทศนิยมสูงสุด 1 ตำแหน่งเท่านั้น',
+                    errorMessageKey: 'badOneDigit'
+                });
+
                 // Setup form validation
                 $.validate();
             }
