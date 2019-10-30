@@ -213,7 +213,7 @@ namespace BestBoQ
                 btnEdit.Visible = false;
 
                 // Logo Image
-                imgLogoCompany.Visible = false;
+                //imgLogoCompany.Visible = false;
                 FuLogoImageCompany.Visible = true;
             }
             else
@@ -244,7 +244,7 @@ namespace BestBoQ
                 btnEdit.Visible = true;
 
                 // Logo Image
-                imgLogoCompany.Visible = true;
+                //imgLogoCompany.Visible = true;
                 FuLogoImageCompany.Visible = false;
             }
         }
