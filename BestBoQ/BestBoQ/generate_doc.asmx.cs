@@ -98,7 +98,8 @@ namespace BestBoQ
                 {
                     foreach (Word.Shape s in headerRange.ShapeRange)
                     {
-                        if (s.AlternativeText == dr["Title"].ToString())
+                        //if (s.AlternativeText == dr["Title"].ToString())
+                        if (s.Title.Trim() == dr["Title"].ToString().Trim())
                         {
                             Word.InlineShape inlineShapeRange = s.ConvertToInlineShape();
 
@@ -1388,10 +1389,11 @@ namespace BestBoQ
             {
                 foreach (Word.Shape s in oDoc.Shapes)
                 {
+                    //Debug.WriteLine("row: {0}, doc: {1}", dr["Title"].ToString().Trim(), s.Title.Trim());
                     //if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
-                    if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
+                    if (s.Title.Trim() == dr["Title"].ToString().Trim())
                     {
-                        Debug.WriteLine("Shape name: " + s.AlternativeText);
+                        //Debug.WriteLine("Shape name: " + s.AlternativeText);
 
                         Word.InlineShape inlineShapeRange = s.ConvertToInlineShape();
 
@@ -1411,10 +1413,11 @@ namespace BestBoQ
                 foreach (Word.InlineShape s in oDoc.InlineShapes)
                 {
                     //Debug.WriteLine("Inlineshape name(out): " + s.AlternativeText);
+                    //Debug.WriteLine("row: {0}, doc: {1}", dr["Title"].ToString().Trim(), s.Title.Trim());
 
-                    if (s.AlternativeText.Trim() == dr["Title"].ToString().Trim())
+                    if (s.Title.Trim() == dr["Title"].ToString().Trim() || s.Title.Trim() == dr["Title"].ToString().Trim())
                     {
-                        Debug.WriteLine("Inlineshape name: " + s.AlternativeText);
+                        //Debug.WriteLine("Inlineshape name: " + s.AlternativeText);
 
                         Word.Range toreplace = s.Range;
                         s.Delete();
