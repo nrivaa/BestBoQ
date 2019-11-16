@@ -161,7 +161,7 @@ namespace BestBoQ
                                     }
 
                                     System.Drawing.Bitmap bmpPostedImage = new System.Drawing.Bitmap(FuLogoImageCompany.PostedFile.InputStream);
-                                    System.Drawing.Image objImage = ScaleImage(bmpPostedImage, 70);
+                                    System.Drawing.Image objImage = ScaleImage(bmpPostedImage, 60);
 
                                     //ImageCodecInfo jpgEncoder = GetEncoder(ImageFormat.Jpeg);
                                     //System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
