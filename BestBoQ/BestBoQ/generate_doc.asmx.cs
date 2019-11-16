@@ -111,6 +111,28 @@ namespace BestBoQ
                             headerRange.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
                         }
                     }
+
+                    foreach (Word.InlineShape s in headerRange.InlineShapes)
+                    {
+                        //Debug.WriteLine("Inlineshape name(out): " + s.AlternativeText);
+                        //Debug.WriteLine("row: {0}, doc: {1}", dr["Title"].ToString().Trim(), s.Title.Trim());
+
+                        if (s.Title.Trim() == dr["Title"].ToString().Trim() || s.Title.Trim() == dr["Title"].ToString().Trim())
+                        {
+                            //Debug.WriteLine("Inlineshape name: " + s.AlternativeText);
+
+                            Word.Range toreplace = s.Range;
+                            s.Delete();
+                            string picPath = Server.MapPath(".") + @"\" + dr["picpath"].ToString();
+                            var replacedRange = toreplace.InlineShapes.AddPicture(picPath, ref oMissing, ref oMissing, ref oMissing);
+
+                            if (dr["Title"].ToString().Trim() == "logo")
+                            {
+                                //replacedRange.AlternativeText = "logo";
+                                replacedRange.Range.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                            }
+                        }
+                    }
                 }
 
                 ////Replace Picture
