@@ -119,7 +119,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4>งวดการชำระเงินค่าก่อสร้าง</h4>
+                                <h4>งวดการชำระเงินค่าก่อสร้าง(โปรดตรวจสอบ หรือแก้ไข)</h4>
                                 <div class="table-responsive">
                                 <table class="table table-striped" id="tablePaymentTerm">
                                     <thead>

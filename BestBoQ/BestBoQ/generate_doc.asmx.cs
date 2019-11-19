@@ -707,14 +707,22 @@ namespace BestBoQ
                 SearchReplace(oWord, "[Term10Detail]", step10Detail);
 
                 //Replace Form Content
-                DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
-                foreach (DataRow dataRow in dt_form.Rows)
-                {
-                    SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
-                }
+                //DataTable dt_form = ClassConfig.GetDataSQL("exec dbo.[get_BOQ_Picture_New] '" + projid + "'");
+                //foreach (DataRow dataRow in dt_form.Rows)
+                //{
+                //    SearchReplace(oWord, dataRow[0].ToString().Trim(), dataRow[1].ToString().Trim());
+                //}
 
                 //Replace Picture
                 ReplacePicture(projid, oDoc);
+
+                //Replace Header Picture
+                ReplaceHeaderPicture(oWord, oDoc, projid);
+
+                // Replace footer
+                ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
+                ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
+                ReplaceFooter(oWord, oDoc, "[telephone]", Telephone);
 
                 // Save to PDF
                 // Run the macros.
@@ -1145,6 +1153,11 @@ namespace BestBoQ
 
                 //Replace Picture
                 ReplacePicture(projid, oDoc);
+
+                // Replace footer
+                ReplaceFooter(oWord, oDoc, "[company_name]", CompanyName);
+                ReplaceFooter(oWord, oDoc, "[company_address]", CompanyAddress);
+                ReplaceFooter(oWord, oDoc, "[telephone]", Telephone);
 
                 // Save to PDF
                 // Run the macros.

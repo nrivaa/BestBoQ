@@ -450,7 +450,7 @@
                                         <asp:TextBox ID="tbNation" Style="display: none" runat="server" CssClass="form-control" autocomplete="off" placeholder="เลขทะเบียนนิติบุคคล" data-inputmask="'mask': '9 9999 99999 99 9'"></asp:TextBox>
                                     </div>
                                     <div class="form-group text-left">
-                                        ภาพโลโก้บริษัท (ไฟล์สกุล .jpg, .jpeg, .png เท่านั้น)<br />
+                                        ใส่โลโก้บริษัท : ถ้ามี (ไฟล์สกุล .jpg, .jpeg, .png เท่านั้น)<br />
                                         <asp:FileUpload CssClass="form-control-file" ID="FuLogoImageCompany" accept=".jpg,.png,.jpeg" runat="server" />
                                     </div>
                                     <div class="row">
