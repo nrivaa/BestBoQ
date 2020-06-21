@@ -237,7 +237,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body onkeydown="return (event.keyCode!=13)">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-theme navbar-fixed-top">
             <div class="container">

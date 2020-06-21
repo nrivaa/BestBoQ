@@ -309,12 +309,13 @@ namespace BestBoQ
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone, space, place, auth, type, text;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, CustomerAge, CustomerId, CompanyNationalID;
+                string CompanyName, CompanyName_r, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, CustomerAge, CustomerId, CompanyNationalID;
 
                 string step01, step02, step03, step04, step05, step06, step07, step08, step09, step10, startDate, stopDate;
                 string step01Txt, step02Txt, step03Txt, step04Txt, step05Txt, step06Txt, step07Txt, step08Txt, step09Txt, step10Txt;
                 string step01Pct, step02Pct, step03Pct, step04Pct, step05Pct, step06Pct, step07Pct, step08Pct, step09Pct, step10Pct;
                 string step01Detail, step02Detail, step03Detail, step04Detail, step05Detail, step06Detail, step07Detail, step08Detail, step09Detail, step10Detail;
+                string lastText01, lastText02, lastText03, lastText04, lastText05, lastText06, lastText07, lastText08, lastText09, lastText10;
 
                 //string DocID = "AJ-BKK-AWN 2558/0001-01".Replace('/', '_');
 
@@ -357,7 +358,8 @@ namespace BestBoQ
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0.00");
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
@@ -383,6 +385,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[project_start]", ProjectStart);
                 SearchReplace(oWord, "[customer_address]", CustomerAddress);
                 SearchReplace(oWord, "[company_name]", CompanyName);
+                SearchReplace(oWord, "[company_name_r]", CompanyName_r);
                 SearchReplace(oWord, "[company_address]", CompanyAddress);
                 SearchReplace(oWord, "[customer_national_id]", CustomerNationalID);
                 SearchReplace(oWord, "[home_name]", HomeName);
@@ -400,6 +403,46 @@ namespace BestBoQ
                 SearchReplace(oWord, "[type]", type);
                 SearchReplace(oWord, "[text]", text);
                 SearchReplace(oWord, "[company_national_id]", CompanyNationalID);
+
+                //New Requirement 2020 Last Page Text
+                string sql_lastPage = "EXEC [dbo].[get_Project_03_17_Text] '" + projid + "' ";
+                DataTable dt_last = ClassConfig.GetDataSQL(sql_lastPage);
+                if(dt_last.Rows.Count >0)
+                {
+                    lastText01 = dt_last.Rows[0]["text01"].ToString().Trim();
+                    lastText02 = dt_last.Rows[0]["text02"].ToString().Trim();
+                    lastText03 = dt_last.Rows[0]["text03"].ToString().Trim();
+                    lastText04 = dt_last.Rows[0]["text04"].ToString().Trim();
+                    lastText05 = dt_last.Rows[0]["text05"].ToString().Trim();
+                    lastText06 = dt_last.Rows[0]["text06"].ToString().Trim();
+                    lastText07 = dt_last.Rows[0]["text07"].ToString().Trim();
+                    lastText08 = dt_last.Rows[0]["text08"].ToString().Trim();
+                    lastText09 = dt_last.Rows[0]["text09"].ToString().Trim();
+                    lastText10 = dt_last.Rows[0]["text10"].ToString().Trim();
+                }
+                else
+                {
+                    lastText01 = "";
+                    lastText02 = "";
+                    lastText03 = "";
+                    lastText04 = "";
+                    lastText05 = "";
+                    lastText06 = "";
+                    lastText07 = "";
+                    lastText08 = "";
+                    lastText09 = "";
+                    lastText10 = "";
+                }
+                SearchReplace(oWord, "[attach_list01]", lastText01);
+                SearchReplace(oWord, "[attach_list02]", lastText02);
+                SearchReplace(oWord, "[attach_list03]", lastText03);
+                SearchReplace(oWord, "[attach_list04]", lastText04);
+                SearchReplace(oWord, "[attach_list05]", lastText05);
+                SearchReplace(oWord, "[attach_list06]", lastText06);
+                SearchReplace(oWord, "[attach_list07]", lastText07);
+                SearchReplace(oWord, "[attach_list08]", lastText08);
+                SearchReplace(oWord, "[attach_list09]", lastText09);
+                SearchReplace(oWord, "[attach_list10]", lastText10);
 
                 //Replace Picture
                 ReplacePicture(projid, oDoc);
@@ -541,7 +584,7 @@ namespace BestBoQ
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
+                string CompanyName, CompanyName_r, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
                 string step01, step02, step03, step04, step05, step06, step07, step08, step09, step10, startDate, stopDate;
                 string step01Txt, step02Txt, step03Txt, step04Txt, step05Txt, step06Txt, step07Txt, step08Txt, step09Txt, step10Txt;
                 string step01Pct, step02Pct, step03Pct, step04Pct, step05Pct, step06Pct, step07Pct, step08Pct, step09Pct, step10Pct;
@@ -587,7 +630,8 @@ namespace BestBoQ
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0");
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
@@ -652,6 +696,7 @@ namespace BestBoQ
                 SearchReplace(oWord, "[project_start]", ProjectStart);
                 SearchReplace(oWord, "[customer_address]", CustomerAddress);
                 SearchReplace(oWord, "[company_name]", CompanyName);
+                SearchReplace(oWord, "[company_name_r]", CompanyName_r);
                 SearchReplace(oWord, "[company_address]", CompanyAddress);
                 SearchReplace(oWord, "[customer_national_id]", CustomerNationalID);
                 SearchReplace(oWord, "[home_name]", HomeName);
@@ -752,7 +797,7 @@ namespace BestBoQ
         [WebMethod]
         public string GenerateBOQ(string projid)
         {
-            string CompanyName, CompanyAddress, Telephone;
+            string CompanyName, CompanyName_r, CompanyAddress, Telephone;
             string destpdf = Server.MapPath(".") + @"\GeneratedDocument\" + projid + "_boq.pdf";
             if (File.Exists(destpdf))
             {
@@ -788,7 +833,8 @@ namespace BestBoQ
                 DataTable dt = ClassConfig.GetDataSQL("exec dbo.get_Contract_Info '" + projid + "'");
 
                 Telephone = dt.Rows[0]["telephone"] == null ? "" : dt.Rows[0]["telephone"].ToString();
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
 
                 GetColumnAndSearchReplace(dt, "projectname", oWord, "[project_name]");
@@ -949,7 +995,7 @@ namespace BestBoQ
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, Telephone, TotalPrice;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
+                string CompanyName, CompanyName_r, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount;
                 string benefit, power, material;
                 string m_01, m_02, m_03, m_04, m_05, m_06, m_07, m_08, m_09, m_10, m_11, m_12, m_13, m_14, m_15, m_16, m_17, m_18;
                 string c_01, c_02, c_03, c_04, c_05, c_06, c_07, c_08, c_09, c_10, c_11, c_12, c_13, c_14, c_15, c_16, c_17, c_18;
@@ -1079,7 +1125,8 @@ namespace BestBoQ
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : Convert.ToDecimal(dt.Rows[0]["totalprice"].ToString()).ToString("#,##0.00");
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);
@@ -1197,7 +1244,7 @@ namespace BestBoQ
                 string HomeName, ProjectName, CustomerName, CustomerProvince, CustomerAddress, ProjectStart, ContractID, Area, Month, TotalPrice, Telephone;
 
                 // No data yet
-                string CompanyName, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, TotalDuration;
+                string CompanyName, CompanyName_r, CompanyAddress, CustomerNationalID, TotalPriceTxt, CompanySign, RoomAmount, TotalDuration;
                 string s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14, s15, s16, s17, s18;
                 string d01, d02, d03, d04, d05, d06, d07, d08, d09, d10, d11, d12, d13, d14, d15, d16, d17, d18;
                 string p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18;
@@ -1237,7 +1284,8 @@ namespace BestBoQ
                 Area = dt.Rows[0]["numMM"] == null ? "" : dt.Rows[0]["numMM"].ToString();
                 Month = dt.Rows[0]["month"] == null ? "" : dt.Rows[0]["month"].ToString();
                 TotalPrice = dt.Rows[0]["totalprice"] == null ? "" : dt.Rows[0]["totalprice"].ToString();
-                CompanyName = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName_r = dt.Rows[0]["companyname"] == null ? "" : dt.Rows[0]["companyname"].ToString();
+                CompanyName = CompanyName_r == "" ? dt.Rows[0]["projectowner"].ToString() : CompanyName_r;
                 CompanyAddress = dt.Rows[0]["companyaddress"] == null ? "" : dt.Rows[0]["companyaddress"].ToString();
                 CustomerNationalID = dt.Rows[0]["customernationalid"] == null ? "" : dt.Rows[0]["customernationalid"].ToString();
                 TotalPriceTxt = ClassConfig.ThaiBaht(TotalPrice);

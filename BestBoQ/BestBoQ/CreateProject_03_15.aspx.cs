@@ -62,6 +62,30 @@ namespace BestBoQ
                     ClassConfig.GetDataSQL(sql_command);
                 }
 
+                //Update Attach List (2019-12-31)
+                string Attach01 = tbComment01.Text.Trim().Replace("'", "");
+                string Attach02 = tbComment02.Text.Trim().Replace("'", "");
+                string Attach03 = tbComment03.Text.Trim().Replace("'", "");
+                string Attach04 = tbComment04.Text.Trim().Replace("'", "");
+                string Attach05 = tbComment05.Text.Trim().Replace("'", "");
+                string Attach06 = tbComment06.Text.Trim().Replace("'", "");
+                string Attach07 = tbComment07.Text.Trim().Replace("'", "");
+                string Attach08 = tbComment08.Text.Trim().Replace("'", "");
+                string Attach09 = tbComment09.Text.Trim().Replace("'", "");
+                string Attach10 = tbComment10.Text.Trim().Replace("'", "");
+                string sqlText = " EXEC [dbo].[set_Project_03_17_Text] '" + param_projid + "', " +
+                                 "N'" + Attach01 + "'," +
+                                 "N'" + Attach02 + "'," +
+                                 "N'" + Attach03 + "'," +
+                                 "N'" + Attach04 + "'," +
+                                 "N'" + Attach05 + "'," +
+                                 "N'" + Attach06 + "'," +
+                                 "N'" + Attach07 + "'," +
+                                 "N'" + Attach08 + "'," +
+                                 "N'" + Attach09 + "'," +
+                                 "N'" + Attach10 + "' ";
+                ClassConfig.GetDataSQL(sqlText);
+
                 //Update Status
                 ClassConfig.UpdateStatus(param_projid, "Complete", userID);
 
