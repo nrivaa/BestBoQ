@@ -30,6 +30,7 @@ namespace BestBoQ
             string decVal = temp[1];
             if (Convert.ToDouble(bahtTxt) == 0)
                 bahtTH = "ศูนย์บาทถ้วน";
+            //Comment
             else
             {
                 for (int i = 0; i < intVal.Length; i++)
